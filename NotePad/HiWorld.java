@@ -1,0 +1,22 @@
+public class HiWorld{
+	public static void main(String[] arges){
+		System.out.print("名字:");
+		System.out.println("sylar\n");
+		System.out.print("职业:");
+		System.out.println("学生");
+		System.out.println("1111111111111");
+		System.out.println("12345678\t222222");
+		
+
+	}
+}
+/*
+(1)system.out.print  和 system.out.println 的区别和联系:
+system.out.print   将双引号中的内容原样输出
+system.out.println   将双引号中的内容换行输出
+(2)\就是转译字符:将后面的普通字母转换为特殊含义
+\n:  换行
+\t:  距离前面一个制表符8位
+
+cls  可以进行编译重新编译
+*/
