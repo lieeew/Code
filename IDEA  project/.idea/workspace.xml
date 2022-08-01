@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="2C98dgby7J0ThbzpOnJ0fJ86iix" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.test2">
+    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb5.Demo" />
+      <module name="JavaTestSE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msb5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb5.JavaTest" />
+      <module name="JavaTestSE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msb5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb6.Test" />
+      <module name="JavaTestSE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msb6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="emo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb5.emo" />
+      <module name="JavaTestSE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msb5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb6.test2" />
+      <module name="JavaTestSE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msb6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.test2" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.emo" />
+        <item itemvalue="Application.Demo" />
+        <item itemvalue="Application.JavaTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="" />
+      <created>1658203529123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658203529123</updated>
+      <workItem from="1658203532027" duration="452000" />
+      <workItem from="1658204025449" duration="300000" />
+      <workItem from="1658204348869" duration="114000" />
+      <workItem from="1658204493961" duration="5484000" />
+      <workItem from="1658221985045" duration="3695000" />
+      <workItem from="1658295129085" duration="13658000" />
+      <workItem from="1658365695251" duration="6288000" />
+      <workItem from="1658394258469" duration="1031000" />
+      <workItem from="1658395378730" duration="1985000" />
+      <workItem from="1658453991293" duration="4524000" />
+      <workItem from="1658481233163" duration="3476000" />
+      <workItem from="1658502831113" duration="691000" />
+      <workItem from="1658539727466" duration="5764000" />
+      <workItem from="1658564606328" duration="2628000" />
+      <workItem from="1658623731579" duration="3897000" />
+      <workItem from="1658636760423" duration="990000" />
+      <workItem from="1658638396445" duration="2071000" />
+      <workItem from="1658642484545" duration="173000" />
+      <workItem from="1658643600264" duration="1150000" />
+      <workItem from="1658652400013" duration="3344000" />
+      <workItem from="1658710761829" duration="593000" />
+      <workItem from="1658742638594" duration="5154000" />
+      <workItem from="1658761195119" duration="1740000" />
+      <workItem from="1658818145810" duration="13000" />
+      <workItem from="1658818248544" duration="2203000" />
+      <workItem from="1658884361441" duration="5000" />
+      <workItem from="1658911548965" duration="1747000" />
+      <workItem from="1658913340990" duration="3526000" />
+      <workItem from="1658923920275" duration="153000" />
+      <workItem from="1658979777605" duration="4777000" />
+      <workItem from="1658994790945" duration="6793000" />
+      <workItem from="1659065659960" duration="6411000" />
+      <workItem from="1659098025373" duration="1897000" />
+      <workItem from="1659100240257" duration="4998000" />
+      <workItem from="1659173077542" duration="1120000" />
+      <workItem from="1659176048734" duration="3924000" />
+      <workItem from="1659231437103" duration="3439000" />
+      <workItem from="1659261059708" duration="3742000" />
+      <workItem from="1659282744009" duration="1206000" />
+      <workItem from="1659329028082" duration="227000" />
+      <workItem from="1659331910728" duration="1043000" />
+      <workItem from="1659351586516" duration="4000" />
+      <workItem from="1659354052435" duration="2000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="a ==  69" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/com/msb/TestJava.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/msb/ccc.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="zs.age" language="JAVA" />
+        <watch expression="p" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
