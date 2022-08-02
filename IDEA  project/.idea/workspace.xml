@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="" />
+    <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/JavaTestSE/src/EXERCISE/Gril.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaTestSE/src/EXERCISE/GrilTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaTestSE/src/com/msb11/Gril.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaTestSE/src/com/msb11/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTestSE/com/msb6/test2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaTestSE/com/msb6/test2.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +29,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
@@ -29,7 +39,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="2C98dgby7J0ThbzpOnJ0fJ86iix" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -42,7 +54,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -56,13 +68,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test2">
-    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb5.Demo" />
+  <component name="RunManager" selected="Application.GrilTest">
+    <configuration name="GrilTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EXERCISE.GrilTest" />
       <module name="JavaTestSE" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msb5.*" />
+          <option name="PATTERN" value="EXERCISE.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -70,12 +82,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JavaTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb5.JavaTest" />
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb7.Test" />
       <module name="JavaTestSE" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msb5.*" />
+          <option name="PATTERN" value="com.msb7.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -83,12 +95,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb6.Test" />
+    <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb10.Test" />
       <module name="JavaTestSE" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msb6.*" />
+          <option name="PATTERN" value="com.msb10.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,12 +108,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="emo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb5.emo" />
+    <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb11.Test" />
       <module name="JavaTestSE" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msb5.*" />
+          <option name="PATTERN" value="com.msb11.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GrilTest" />
+        <item itemvalue="Application.Test (3)" />
+        <item itemvalue="Application.Test (2)" />
+        <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.test2" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.emo" />
-        <item itemvalue="Application.Demo" />
-        <item itemvalue="Application.JavaTest" />
       </list>
     </recent_temporary>
   </component>
@@ -185,11 +197,27 @@
       <workItem from="1659331910728" duration="1043000" />
       <workItem from="1659351586516" duration="4000" />
       <workItem from="1659354052435" duration="2000" />
+      <workItem from="1659366514493" duration="2043000" />
+      <workItem from="1659399238055" duration="3814000" />
+      <workItem from="1659431707209" duration="3285000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
