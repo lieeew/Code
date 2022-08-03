@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/IDE  project.iml" filepath="$PROJECT_DIR$/IDE  project.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaTestSE/JavaTestSE.iml" filepath="$PROJECT_DIR$/JavaTestSE/JavaTestSE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaTestSE/JavaTestoop2.iml" filepath="$PROJECT_DIR$/JavaTestSE/JavaTestoop2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestOop2.iml" filepath="$PROJECT_DIR$/TestOop2.iml" />
     </modules>
   </component>
 </project>
