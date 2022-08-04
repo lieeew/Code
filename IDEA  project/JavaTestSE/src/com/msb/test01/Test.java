@@ -16,7 +16,8 @@ public class Test {
         s.setAge(19);
         s.setName("lili");
         s.setSex("男");
-        System.out.println();
+        System.out.println(s.getSex() + "---------" + s.getSno()+"------" + s.getName() + "--------"+ s.getAge());
+
 
 
     }
