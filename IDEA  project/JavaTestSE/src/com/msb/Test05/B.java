@@ -8,9 +8,14 @@ import com.msb.Test04.A;
  * @Description: com.msb.Test05
  */
 public class B extends A {
-    public void a () {
+    public void a  () {
         System.out.println(age);
     }
 
-
+    public static void main(String[] args) {
+        A m = new A ();
+        m.setAge(20);
+        int a = m.getAge();
+        System.out.println (a);
+    }
 }

@@ -7,6 +7,15 @@ package com.msb.Test04;
  */
 public class A {
     protected int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public void eat () {
         System.out.println(age);
     }
