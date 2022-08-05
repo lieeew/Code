@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test09/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test09/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test09/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/SGG.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/src/com/sbgTest01/Arrays/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/src/com/sbgTest01/Arrays/Test02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/src/com/sbgTest01/ArraysTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test07/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test07/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test08/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test08/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test08/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaTestSE/src/com/msb/Test08/Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Class" />
         <option value="Class" />
       </list>
     </option>
@@ -55,6 +55,9 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
@@ -70,13 +73,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test (3)">
-    <configuration name="Student" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb.Test08.Student" />
-      <module name="JavaTestSE" />
+  <component name="RunManager" selected="Application.Test02">
+    <configuration name="ArraysTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sbgTest01.ArraysTest" />
+      <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msb.Test08.*" />
+          <option name="PATTERN" value="com.sbgTest01.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,24 +88,11 @@
       </method>
     </configuration>
     <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb.Test06.Test" />
-      <module name="JavaTestSE" />
+      <option name="MAIN_CLASS_NAME" value="com.sbgTest01.Arrays.Test" />
+      <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msb.Test06.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb.Test07.Test" />
-      <module name="JavaTestSE" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msb.Test07.*" />
+          <option name="PATTERN" value="com.sbgTest01.Arrays.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,13 +126,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sbgTest01.Arrays.Test02" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sbgTest01.Arrays.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test02" />
+        <item itemvalue="Application.Test (1)" />
+        <item itemvalue="Application.ArraysTest" />
         <item itemvalue="Application.Test (3)" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Student" />
-        <item itemvalue="Application.Test (2)" />
-        <item itemvalue="Application.Test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -207,6 +210,7 @@
       <workItem from="1659577652957" duration="4556000" />
       <workItem from="1659605447534" duration="2229000" />
       <workItem from="1659660924989" duration="2455000" />
+      <workItem from="1659696208024" duration="5750000" />
     </task>
     <servers />
   </component>
