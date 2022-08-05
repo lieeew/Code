@@ -6,7 +6,7 @@ package com.msb.Test07;
  * @Description: com.msb.Test07
  */
 public class Person {
-    private int age = 20;
+    int age = 20;
     private String name;
     private String sex;
     private void eat () { // 父类可以更加隐私

@@ -8,7 +8,6 @@ package com.msb.Test08;
 public class Test {
     public static void main(String[] args) {
         Student s = new Student();
-        s.eat();
-        System.out.println(s.age);
+        s.a ();
     }
 }
