@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/SGG.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/src/com/sbgTest01/Arrays/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/src/com/sbgTest01/Arrays/Test02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/src/com/sbgTest01/ArraysTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/Arrays/DoubleSort/Arrays/QuicklySort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/Arrays/sort/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/src/com/sbgTest01/Arrays/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/Arrays/DoubleSort/Arrays/DoubleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/src/com/sbgTest01/Arrays/Test02.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/Arrays/sort/Test02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/src/com/sbgTest01/ArraysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/Arrays/DoubleSort/ArraysTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +73,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test02">
+  <component name="RunManager" selected="Application.Test (2)">
     <configuration name="ArraysTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sbgTest01.ArraysTest" />
       <module name="SGG" />
@@ -100,12 +100,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb.Test09.Test" />
-      <module name="JavaTestSE" />
+    <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sbgDoubleSort.Test" />
+      <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msb.Test09.*" />
+          <option name="PATTERN" value="com.sbgDoubleSort.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,12 +113,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.msb.Test08.Test" />
+    <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.msb.Test09.Test" />
       <module name="JavaTestSE" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msb.Test08.*" />
+          <option name="PATTERN" value="com.msb.Test09.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -141,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test (2)" />
         <item itemvalue="Application.Test02" />
         <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.ArraysTest" />
         <item itemvalue="Application.Test (3)" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +210,8 @@
       <workItem from="1659577652957" duration="4556000" />
       <workItem from="1659605447534" duration="2229000" />
       <workItem from="1659660924989" duration="2455000" />
-      <workItem from="1659696208024" duration="5750000" />
+      <workItem from="1659696208024" duration="7232000" />
+      <workItem from="1659782291028" duration="1839000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package com.sbgTest01.Arrays;
+package sort;
 
 /**
  * @Auther: qiuxinyu
@@ -10,7 +10,7 @@ public class Test02 {
         // 二分法前提有序
         int[] num  = {2, 3, 5, 7, 9, 78, 90, 167};
         boolean isflage = true;
-        int dest = 3;
+        int dest = 167;
         int head = 0;
         int end = num.length - 1;
         while (end >= head) {

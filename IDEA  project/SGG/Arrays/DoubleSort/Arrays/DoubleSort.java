@@ -1,11 +1,11 @@
-package com.sbgTest01.Arrays;
+package DoubleSort.Arrays;
 
 /**
  * @Auther: qiuxinyu
  * @Date: 2022/8/5 - 08 - 05
  * @Description: com.sbgTest01.Arrays
  */
-public class Test {
+public class DoubleSort {
     public static int binarySearch(int[] arr, int key) {
         int low = 0;
         int high = arr.length - 1;
