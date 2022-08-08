@@ -15,13 +15,9 @@ public class Test {// 冒泡排序
                     c = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = c;
-                }else {
-                    int b = arr[j + 1];
-                    arr[j + 1] = arr[j];
-                    arr[j] = b;
                 }
             }
-            }
+         }
         for (int c = 0; c < arr.length; c++) {
             System.out.print(arr[c] + "\t") ;
         }

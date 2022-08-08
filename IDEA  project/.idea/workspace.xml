@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/Arrays/YangHuiTest/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/Arrays/Test/Double.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/Arrays/Test/Find.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/Arrays/Test/dichotomy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/Arrays/Test/fanzhuan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/Arrays/DoubleSort/Arrays/QuicklySort.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/Arrays/DoubleSort/Arrays/QuicklySort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SGG/Arrays/sort/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/Arrays/sort/Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,13 +73,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test (3)">
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sbgTest01.Arrays.Test" />
+  <component name="RunManager" selected="Application.fanzhuan">
+    <configuration name="Double" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.Double" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sbgTest01.Arrays.*" />
+          <option name="PATTERN" value="Test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,12 +87,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sbgDoubleSort.Test" />
+    <configuration name="Find" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.Find" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sbgDoubleSort.*" />
+          <option name="PATTERN" value="Test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,12 +126,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sbgTest01.Arrays.Test02" />
+    <configuration name="fanzhuan" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.fanzhuan" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sbgTest01.Arrays.*" />
+          <option name="PATTERN" value="Test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.fanzhuan" />
+        <item itemvalue="Application.Find" />
+        <item itemvalue="Application.Double" />
         <item itemvalue="Application.Test (3)" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test (2)" />
-        <item itemvalue="Application.Test02" />
-        <item itemvalue="Application.Test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -212,6 +214,7 @@
       <workItem from="1659782291028" duration="2472000" />
       <workItem from="1659798391786" duration="2504000" />
       <workItem from="1659834828623" duration="3193000" />
+      <workItem from="1659921017773" duration="4029000" />
     </task>
     <servers />
   </component>
