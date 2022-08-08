@@ -6,7 +6,7 @@ package Test;
  * @Description: Test
  */
 public class dichotomy {
-    public int Find (int[] arr,int num) {
+    public static int Find (int[] arr,int num) {
         int head = 0;
         int end = arr.length - 1;
         while (end >= head) {
@@ -22,8 +22,7 @@ public class dichotomy {
         return -1;
     }
     public static void main(String[] args) {
-
-
-
+        int[] arr = {2, 3, 5, 7, 9, 78, 90, 167};
+        System.out.println(Find(arr,16));
     }
 }

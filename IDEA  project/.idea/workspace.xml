@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/Arrays/Test/Double.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/Arrays/Test/Find.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/Arrays/Test/dichotomy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/Arrays/Test/fanzhuan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/OOP/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/OOP/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/Arrays/sort/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/Arrays/sort/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/DoubleSort/Arrays/DoubleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/DoubleSort/Arrays/DoubleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/DoubleSort/Arrays/QuicklySort.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/DoubleSort/Arrays/QuicklySort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/DoubleSort/ArraysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/DoubleSort/ArraysTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/Test/Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Test/Double.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/Test/Find.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Test/Find.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/Test/dichotomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Test/dichotomy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/Test/fanzhuan.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Test/fanzhuan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/YangHuiTest/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/YangHuiTest/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/sort/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/sort/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/Arrays/sort/Test02.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/sort/Test02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/SGG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/SGG.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +81,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.fanzhuan">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Double" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test.Double" />
       <module name="SGG" />
@@ -100,12 +108,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="YangHuiTest.Test" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOP.Test" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="YangHuiTest.*" />
+          <option name="PATTERN" value="OOP.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,12 +121,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sort.Test" />
+    <configuration name="dichotomy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.dichotomy" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sort.*" />
+          <option name="PATTERN" value="Test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -141,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.dichotomy" />
         <item itemvalue="Application.fanzhuan" />
         <item itemvalue="Application.Find" />
         <item itemvalue="Application.Double" />
-        <item itemvalue="Application.Test (3)" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -215,6 +223,8 @@
       <workItem from="1659798391786" duration="2504000" />
       <workItem from="1659834828623" duration="3193000" />
       <workItem from="1659921017773" duration="4029000" />
+      <workItem from="1659957192611" duration="1036000" />
+      <workItem from="1659972960412" duration="581000" />
     </task>
     <servers />
   </component>
