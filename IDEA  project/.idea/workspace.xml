@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/CustomerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/StudentTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/CircleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/StudentTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +71,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StudentTest">
+  <component name="RunManager" selected="Application.CircleTest">
+    <configuration name="CircleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DAY08.Exercise.CircleTest" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DAY08.Exercise.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CustomerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DAY08.CustomerTest" />
       <module name="SGG" />
@@ -112,19 +124,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OOP.Test" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="OOP.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="User" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DAY08.User" />
       <module name="SGG" />
@@ -140,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CircleTest" />
         <item itemvalue="Application.StudentTest" />
         <item itemvalue="Application.CustomerTest" />
         <item itemvalue="Application.User" />
         <item itemvalue="Application.TesJava" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -218,6 +217,7 @@
       <workItem from="1659972960412" duration="581000" />
       <workItem from="1660009148071" duration="2471000" />
       <workItem from="1660011952712" duration="4457000" />
+      <workItem from="1660039369562" duration="2215000" />
     </task>
     <servers />
   </component>

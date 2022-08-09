@@ -13,7 +13,7 @@ public class Student {
         System.out.println("studtying");
     }
     public int addAge (int i) {
-        age += i;
+        age += i; // 谁调是谁的age
         return age;
     }
     public void showAge () {
