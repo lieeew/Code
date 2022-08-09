@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/CircleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/Exercise/StudentTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,6 +213,7 @@
       <workItem from="1660009148071" duration="2471000" />
       <workItem from="1660011952712" duration="4457000" />
       <workItem from="1660039369562" duration="2215000" />
+      <workItem from="1660042810464" duration="1000" />
     </task>
     <servers />
   </component>
