@@ -1,7 +1,5 @@
 package DAY08.Exercise;
 
-import java.util.Scanner;
-
 /**
  * @Auther: qiuxinyu
  * @Date: 2022/8/9 - 08 - 09
@@ -9,11 +7,9 @@ import java.util.Scanner;
  */
 public class CircleTest {
     public static void main(String[] args) {
-        System.out.print("请输入圆的半径(精确到小数):");
-        Scanner sc = new Scanner(System.in);
-        double r = sc.nextDouble();
         Circle s = new Circle();
-        double w = s.S(r);
+        s.r = 3.1;
+        double w = s.S();
         System.out.println("面积为:" + w);
     }
 }
@@ -23,7 +19,7 @@ class Circle {
     double r;
     final double PI = 3.1415;
     // 方法
-    public double S (double r) {
+    public double S () { // 不需要定义变量,因为属性有半径
         double s = PI * r * r;
         return s;
 
