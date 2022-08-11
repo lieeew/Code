@@ -69,7 +69,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StudentTest (1)">
+  <component name="RunManager" selected="Application.StudentTest02">
     <configuration name="CircleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DAY08.Exercise.CircleTest" />
       <module name="SGG" />
@@ -137,8 +137,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StudentTest (1)" />
         <item itemvalue="Application.StudentTest02" />
+        <item itemvalue="Application.StudentTest (1)" />
         <item itemvalue="Application.ExerciseTest" />
         <item itemvalue="Application.CircleTest" />
         <item itemvalue="Application.StudentTest" />
@@ -222,6 +222,7 @@
       <workItem from="1660132297975" duration="1881000" />
       <workItem from="1660136038250" duration="4451000" />
       <workItem from="1660145384204" duration="1790000" />
+      <workItem from="1660217857648" duration="1407000" />
     </task>
     <servers />
   </component>

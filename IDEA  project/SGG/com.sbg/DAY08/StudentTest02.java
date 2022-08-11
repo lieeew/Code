@@ -15,7 +15,7 @@ public class StudentTest02 {
             // 年级
             stu[i].state = (int) (Math.random() * 6 + 1);
             // 分数
-            stu[i].score = (int) (Math.random() * 100);
+            stu[i].score = (int) (Math.random() * 101);
             // 顺序
             stu[i].number = (i + 1);
         }
@@ -50,12 +50,12 @@ public class StudentTest02 {
      * @param stu
      */
     public  void sort(Student02[] stu) { // 冒泡排序
-        for (int a = 0; a < stu.length - 1; a++) {
-            for (int j = 0; j < stu.length - 1 - a; a++) {
-                if (stu[j].score > stu[j + 1].score) {
-                    Student02 num = stu[j];
-                    stu[j] = stu[j + 1];
-                    stu[j + 1] = num;
+        for (int j = 0; j < stu.length - 1; j++) {
+            for (int a = 0; a < stu.length - 1 - j; a++) {
+                if (stu[a].score > stu[a + 1].score) {
+                    Student02 temp = stu[a];
+                    stu[a] = stu[a + 1];
+                    stu[a + 1] = temp;
                 }
             }
         }
