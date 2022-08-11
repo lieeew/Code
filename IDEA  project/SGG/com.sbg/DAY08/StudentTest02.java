@@ -38,7 +38,7 @@ public class StudentTest02 {
     public  void seartchState(Student02[] stu, int num) {
         for (int a = 0; a < stu.length; a++) {
             if (num == stu[a].state) {
-                System.out.println(stu[a]);
+                System.out.println(stu[a].inforr());
             }
         }
     }
