@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/InstanceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/DAY08/StudentTest02.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/DAY08/StudentTest02.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,13 +70,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StudentTest02">
-    <configuration name="CircleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DAY08.Exercise.CircleTest" />
+  <component name="RunManager" selected="Application.ArraysUtil">
+    <configuration name="ArraysUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day09.ArraysUtil" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DAY08.Exercise.*" />
+          <option name="PATTERN" value="Day09.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,12 +97,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudentTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DAY08.StudentTest" />
+    <configuration name="InstanceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day09.InstanceTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DAY08.*" />
+          <option name="PATTERN" value="Day09.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,12 +110,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudentTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DAY08.Exercise.StudentTest" />
+    <configuration name="StudentTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DAY08.StudentTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DAY08.Exercise.*" />
+          <option name="PATTERN" value="DAY08.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ArraysUtil" />
+        <item itemvalue="Application.InstanceTest" />
         <item itemvalue="Application.StudentTest02" />
         <item itemvalue="Application.StudentTest (1)" />
         <item itemvalue="Application.ExerciseTest" />
-        <item itemvalue="Application.CircleTest" />
-        <item itemvalue="Application.StudentTest" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +223,8 @@
       <workItem from="1660132297975" duration="1881000" />
       <workItem from="1660136038250" duration="4451000" />
       <workItem from="1660145384204" duration="1790000" />
-      <workItem from="1660217857648" duration="1407000" />
+      <workItem from="1660217857648" duration="2003000" />
+      <workItem from="1660222076981" duration="4614000" />
     </task>
     <servers />
   </component>
