@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/InstanceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysUtil.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +223,7 @@
       <workItem from="1660136038250" duration="4451000" />
       <workItem from="1660145384204" duration="1790000" />
       <workItem from="1660217857648" duration="2003000" />
-      <workItem from="1660222076981" duration="4614000" />
+      <workItem from="1660222076981" duration="4957000" />
     </task>
     <servers />
   </component>

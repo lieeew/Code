@@ -7,14 +7,7 @@ import java.util.*;
  * @Description: Day09
  */
 public class ArraysUtil {
-    public static void main(String[] args) {
-        int[] arr = {14,39,666,23,15,39,89,4556,544,33,22,11};
-        ArraysUtil a = new ArraysUtil();
-        a.Sort(arr);
-        System.out.println(a.getAverrage(arr));
-        System.out.println(a.getMax(arr));
-        System.out.println(a.getSmall(arr));
-    }
+
     // 数组冒泡排序
     public void  Sort (int[] arr) {
         for (int a = 0; a < arr.length; a++) {
