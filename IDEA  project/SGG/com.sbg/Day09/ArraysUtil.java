@@ -22,12 +22,12 @@ public class ArraysUtil {
         System.out.println(Arrays.toString(arr));
     }
     // 最大值
-    public int getMax (int[] arr) {
-        Sort(arr);
+    public int getMax01 (int[] arr) {
+        Sort(arr);// 调这个方法也打印arr数组
         return arr[arr.length - 1];
     }
     // 最小值
-    public int getSmall (int[] arr) {
+    public int getSmall01 (int[] arr) {
         Sort(arr);
         return arr[0];
     }
@@ -38,5 +38,58 @@ public class ArraysUtil {
             sum += arr[a];
         }
         return sum / arr.length;
+    }
+    // 求最大值
+    public int getMax (int[] arr) {
+        int MaxNum = arr[0];
+        for (int a =0; a < arr.length; a++) {
+            if (arr[a] > MaxNum) {
+                MaxNum = arr[a];
+            }
+        }
+        return MaxNum;
+    }
+    // 求最小值
+    public int getMine (int[] arr) {
+        int MineNum = arr[0];
+        for (int a = 0; a < arr.length; a++ ) {
+            if (arr[a] < MineNum) {
+                MineNum = arr[a];
+            }
+        }
+        return MineNum;
+    }
+    // 求总和
+    public int sum (int[] arr) {
+        int sum = 0;
+        for (int a = 0; a < arr.length; a++) {
+            sum += arr[a];
+        }
+        return sum;
+    }
+    // 数组的复制
+    public void copy (int[] arr) {
+        int[] arr2 = new int[arr.length];
+        for (int a =0; a < arr.length; a++) {
+            arr2[a] = arr[a];
+        }
+        System.out.println(Arrays.toString(arr2));
+    }
+    // 翻转数组
+    public void reverse (int[] arr) {
+        int[] arr2 = new int[arr.length];
+        for (int a = 0; a < arr.length; a++) {
+            arr2[a] = arr[arr.length - a - 1];
+        }
+        System.out.println(Arrays.toString(arr2));
+    }
+    // 查找数组中的指定元素
+    public int getNum (int[] arr, int num) {
+        for (int a = 0; a < arr.length; a++) {
+            if (arr[a] == num) {
+                return a;
+            }
+        }
+        return -1; // 需要接收
     }
 }

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysUtil.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,9 +70,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ArraysUtil">
-    <configuration name="ArraysUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day09.ArraysUtil" />
+  <component name="RunManager" selected="Application.ArraysTest">
+    <configuration name="ArraysTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day09.ArraysTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
@@ -83,12 +84,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExerciseTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DAY08.Exercise.ExerciseTest" />
+    <configuration name="ArraysUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day09.ArraysUtil" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DAY08.Exercise.*" />
+          <option name="PATTERN" value="Day09.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ArraysTest" />
         <item itemvalue="Application.ArraysUtil" />
         <item itemvalue="Application.InstanceTest" />
         <item itemvalue="Application.StudentTest02" />
         <item itemvalue="Application.StudentTest (1)" />
-        <item itemvalue="Application.ExerciseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -224,6 +225,7 @@
       <workItem from="1660145384204" duration="1790000" />
       <workItem from="1660217857648" duration="2003000" />
       <workItem from="1660222076981" duration="4957000" />
+      <workItem from="1660265766528" duration="2666000" />
     </task>
     <servers />
   </component>
@@ -265,5 +267,10 @@
         <watch expression="p" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IDEA__project$ArraysTest.ic" NAME="ArraysTest Coverage Results" MODIFIED="1660267936998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Day09.*</FILTER>
+    </SUITE>
   </component>
 </project>
