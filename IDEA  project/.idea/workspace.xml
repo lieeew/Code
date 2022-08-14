@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/MethodArges.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/OverLoadExer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/OverLoadTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ValueTransferTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ValueTransferTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ValueTransferTest02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/Cricle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/Exercise/Cricle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/Exercise/PassObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/TansferTest3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SGG/Day09/ArraysTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SGG/Day09/ArraysTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day09/ValueTransferTest02.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ValueTransferTest02.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,13 +73,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ValueTransferTest02">
-    <configuration name="MethodArges" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day09.MethodArges" />
+  <component name="RunManager" selected="Application.PassObject">
+    <configuration name="PassObject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day09.Exercise.PassObject" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day09.*" />
+          <option name="PATTERN" value="Day09.Exercise.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,8 +87,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OverLoadExer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day09.OverLoadExer" />
+    <configuration name="TansferTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day09.TansferTest3" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
@@ -143,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PassObject" />
+        <item itemvalue="Application.TansferTest3" />
         <item itemvalue="Application.ValueTransferTest02" />
         <item itemvalue="Application.ValueTransferTest01" />
         <item itemvalue="Application.ValueTransferTest" />
-        <item itemvalue="Application.MethodArges" />
-        <item itemvalue="Application.OverLoadExer" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +231,8 @@
       <workItem from="1660265766528" duration="2666000" />
       <workItem from="1660350564492" duration="5678000" />
       <workItem from="1660388008154" duration="2081000" />
-      <workItem from="1660396382042" duration="1562000" />
+      <workItem from="1660396382042" duration="2862000" />
+      <workItem from="1660484452811" duration="5797000" />
     </task>
     <servers />
   </component>
