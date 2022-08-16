@@ -2,12 +2,12 @@ package Day09.Exercise;
 
 /**
  * @Auther: qiuxinyu
- * @Date: 2022/8/14 - 08 - 14
+ * @Date: 2022/8/16 - 08 - 16
  * @Description: Day09.Exercise
  */
-public class Cricle {
-    double redius;
+public class Cricl {
+    double radius;
     public double findArea() {
-        return redius*redius*Math.PI;
+        return radius * radius * Math.PI;
     }
 }
