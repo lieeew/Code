@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/Exercise/Cricl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/RecursionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/Exercise/ValueTransfer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/AnimalTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/PersonTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/PersonTest02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/TriAngle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/TriAngleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day09/Exercise/Cricle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day09/Exercise/PassObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/Exercise/PassObject.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,9 +75,61 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RecursionTest">
-    <configuration name="PassObject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day09.Exercise.PassObject" />
+  <component name="RunManager" selected="Application.TriAngleTest">
+    <configuration name="AnimalTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10.AnimalTest" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10.PersonTest" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonTest02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10.PersonTest02" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriAngleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10.TriAngleTest" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValueTransfer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day09.Exercise.ValueTransfer" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
@@ -86,65 +141,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecursionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day09.RecursionTest" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day09.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TansferTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day09.TansferTest3" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day09.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ValueTransferTest01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day09.ValueTransferTest01" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day09.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ValueTransferTest02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day09.ValueTransferTest02" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day09.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RecursionTest" />
-        <item itemvalue="Application.PassObject" />
-        <item itemvalue="Application.TansferTest3" />
-        <item itemvalue="Application.ValueTransferTest02" />
-        <item itemvalue="Application.ValueTransferTest01" />
+        <item itemvalue="Application.TriAngleTest" />
+        <item itemvalue="Application.PersonTest" />
+        <item itemvalue="Application.PersonTest02" />
+        <item itemvalue="Application.AnimalTest" />
+        <item itemvalue="Application.ValueTransfer" />
       </list>
     </recent_temporary>
   </component>
@@ -234,6 +237,8 @@
       <workItem from="1660484452811" duration="5797000" />
       <workItem from="1660567035732" duration="970000" />
       <workItem from="1660636127885" duration="5049000" />
+      <workItem from="1660708950135" duration="4424000" />
+      <workItem from="1660740235363" duration="4442000" />
     </task>
     <servers />
   </component>
