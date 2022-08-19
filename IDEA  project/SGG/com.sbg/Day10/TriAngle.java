@@ -16,15 +16,18 @@ public class TriAngle {
         height = b;
     }
     public void setBase (double base) {
+
         this.base = base;
     }
     public double getBase () {
         return base;
     }
     public void setHeight (double height) {
+
         this.height = height;
     }
     public double getHeight () {
+
         return height;
     }
     public void s (double base, double height) {
