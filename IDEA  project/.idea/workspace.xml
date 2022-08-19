@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/StudentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Boy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Girl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/GirlBoyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10/TriAngle.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/TriAngle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10/TriAngleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/TriAngleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaTestSE/META-INF/JavaTestSE.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SGG/META-INF/SGG.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10/Person2.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10/Person2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +47,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2C98dgby7J0ThbzpOnJ0fJ86iix" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -56,21 +61,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CODE/JAVA/IDEA  project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "configurable.group.appearance"
+    "settings.editor.selected.configurable": "fileTemplates"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.StudentTest">
-    <configuration name="AnimalTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day10.AnimalTest" />
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="GirlBoyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10Exercise.GirlBoyTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day10.*" />
+          <option name="PATTERN" value="Day10Exercise.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -78,21 +86,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day10.PersonTest" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day10.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonTest02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day10.PersonTest02" />
+    <configuration name="PersonTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10.PersonTest2" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
@@ -117,6 +112,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10Exercise.Test" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day10Exercise.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TriAngleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day10.TriAngleTest" />
       <module name="SGG" />
@@ -132,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.GirlBoyTest" />
+        <item itemvalue="Application.PersonTest2" />
         <item itemvalue="Application.StudentTest" />
         <item itemvalue="Application.TriAngleTest" />
-        <item itemvalue="Application.PersonTest" />
-        <item itemvalue="Application.PersonTest02" />
-        <item itemvalue="Application.AnimalTest" />
       </list>
     </recent_temporary>
   </component>
@@ -238,7 +246,10 @@
       <workItem from="1660867333203" duration="128000" />
       <workItem from="1660867474839" duration="423000" />
       <workItem from="1660869195427" duration="16000" />
-      <workItem from="1660869246427" duration="1312000" />
+      <workItem from="1660869246427" duration="2509000" />
+      <workItem from="1660891900720" duration="44000" />
+      <workItem from="1660892032761" duration="194000" />
+      <workItem from="1660892247613" duration="7747000" />
     </task>
     <servers />
   </component>
@@ -278,6 +289,10 @@
         <watch expression="p" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IDEA__project$ArraysTest.ic" NAME="ArraysTest Coverage Results" MODIFIED="1660267936998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
