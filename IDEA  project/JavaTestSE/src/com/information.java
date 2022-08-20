@@ -42,6 +42,8 @@ public class information {
         this.age = age;
         this.name = name;
         this.sexSex(sex);
+
+
     }
 
 }
