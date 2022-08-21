@@ -12,6 +12,7 @@ public class Customer {
     public Customer () {
 
     }
+
     public Customer (String f, String l) {
         firstName = f;
         lastName = l;
@@ -26,5 +27,8 @@ public class Customer {
     }
     public void setAccount (Account acct) {
         account = acct;
+    }
+    public Account getAccount () {
+        return account;
     }
 }

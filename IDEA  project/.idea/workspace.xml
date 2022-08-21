@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Customer1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Bank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaTestSE/src/com/information.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaTestSE/src/com/information.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaTestSE/com/information.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaTestSE/com/information.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Customer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +68,35 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.BankTest">
+  <component name="RunManager" selected="Application.BankTest3">
     <configuration name="BankTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day10Test.BankTest" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day10Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BankTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10Test.BankTest2" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day10Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BankTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10Test.BankTest3" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
@@ -113,39 +134,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day10.PersonTest2" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day10.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StudentTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day10.StudentTest" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day10.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BankTest3" />
+        <item itemvalue="Application.BankTest2" />
         <item itemvalue="Application.BankTest" />
         <item itemvalue="Application.Day10Exercise.Test" />
         <item itemvalue="Application.Day10Exercise.GirlBoyTest" />
-        <item itemvalue="Application.PersonTest2" />
-        <item itemvalue="Application.StudentTest" />
       </list>
     </recent_temporary>
   </component>
@@ -258,7 +253,8 @@
       <workItem from="1660967789344" duration="966000" />
       <workItem from="1660975323470" duration="6046000" />
       <workItem from="1660990087365" duration="2024000" />
-      <workItem from="1660992139918" duration="301000" />
+      <workItem from="1660992139918" duration="1969000" />
+      <workItem from="1661035747479" duration="1167000" />
     </task>
     <servers />
   </component>

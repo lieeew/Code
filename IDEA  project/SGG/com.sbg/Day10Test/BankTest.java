@@ -10,7 +10,7 @@ public class BankTest {
         Bank b = new Bank();
         Account acc = new Account(2000);
         b.addCustomer("li", "hua");
-        //b.getCustomer(0).setAccount(new Account(1000));
+        // b.getCustomer(0).setAccount(new Account(1000));
         // System.out.println("您的名字为:" + b.getCustomer(0).getFirstName() + b.getCustomer(0).getLastName());
         b.getCustomer(0).setAccount(acc);
         double a = acc.deposit(100);
