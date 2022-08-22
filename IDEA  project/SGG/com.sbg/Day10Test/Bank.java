@@ -18,7 +18,7 @@ public class Bank {
         numberofCustomers ++;
     }
     public int getNumberofCustomers () {
-        return numberofCustomers + 1;
+        return numberofCustomers ;
     }
     public Customer getCustomer (int index) {
         // return  customers[index]; 可能会有角标越界的情况

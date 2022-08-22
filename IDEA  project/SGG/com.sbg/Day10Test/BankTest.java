@@ -16,6 +16,7 @@ public class BankTest {
         double a = acc.deposit(100);
         System.out.println(a);
         acc.withDraw(20);
-        System.out.println();
+        b.addCustomer("万里", "杨");
+        System.out.println("客户的数量" + b.getNumberofCustomers());
     }
 }

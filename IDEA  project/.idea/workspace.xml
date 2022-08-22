@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise2/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise2/Bank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise2/BankTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise2/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myProject/myProject.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/bean/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Bank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/BankTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Test/Customer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,20 +60,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CODE/JAVA/IDEA  project&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/SOFT/BaiduNetdiskDownload/尚硅谷java/4_代码/第1部分：Java基础编程/day06-day18：Eclipse/day06-day18：Eclipse/workspace0105/myproject02",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults"
   }
-}</component>
-  <component name="RunManager" selected="Application.BankTest3">
+}]]></component>
+  <component name="RunManager" selected="Application.Day10Exercise2.BankTest">
     <configuration name="BankTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day10Test.BankTest" />
       <module name="SGG" />
@@ -108,12 +115,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Day10Exercise.GirlBoyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day10Exercise.GirlBoyTest" />
+    <configuration name="Day10Exercise2.BankTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10Exercise2.BankTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day10Exercise.*" />
+          <option name="PATTERN" value="Day10Exercise2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Day10Exercise2.BankTest" />
+        <item itemvalue="Application.BankTest" />
         <item itemvalue="Application.BankTest3" />
         <item itemvalue="Application.BankTest2" />
-        <item itemvalue="Application.BankTest" />
         <item itemvalue="Application.Day10Exercise.Test" />
-        <item itemvalue="Application.Day10Exercise.GirlBoyTest" />
       </list>
     </recent_temporary>
   </component>
@@ -254,7 +261,10 @@
       <workItem from="1660975323470" duration="6046000" />
       <workItem from="1660990087365" duration="2024000" />
       <workItem from="1660992139918" duration="1969000" />
-      <workItem from="1661035747479" duration="1167000" />
+      <workItem from="1661035747479" duration="1771000" />
+      <workItem from="1661079959166" duration="2747000" />
+      <workItem from="1661088774537" duration="76000" />
+      <workItem from="1661089264887" duration="364000" />
     </task>
     <servers />
   </component>
