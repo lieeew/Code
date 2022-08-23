@@ -8,11 +8,22 @@ package com.atguigu.p2.bean;
 public class Customer {
     private String name;
     private int age;
-    private String sex;
+    private char sex;
     private String phone;
     private String email;
-    public void setName (String name) {
+    public Customer () {
+
+    }
+    public Customer (String name, int age, String email) {
+        this.email = email;
+        this.age = age;
         this.name = name;
+    }
+    public void setName (String name, char gender, int age, String phone) {
+        this.name = name;
+        this.age  = age;
+        this.sex = sex;
+        this.email = email;
     }
     public String getName () {
         return name;
@@ -23,10 +34,10 @@ public class Customer {
     public int getAge () {
         return age;
     }
-    public void setSex (String sex) {
+    public void setSex (char sex) {
         this.sex = sex;
     }
-    public String getSex () {
+    public char getSex () {
         return sex;
     }
     public void setPhone (String phone) {
