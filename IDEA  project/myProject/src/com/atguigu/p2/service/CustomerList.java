@@ -17,11 +17,11 @@ public class CustomerList {
      */
     public CustomerList(int totalCustomer) {
 
-        Customer[] cus = new Customer[totalCustomer];
+        customers = new Customer[totalCustomer];
     }
 
     public boolean addCustomer(Customer customer) {
-        if (total < customers.length) {
+        if (customer != null && total < customers.length) {
             customers[total] = customer;
             total ++;
             return true;

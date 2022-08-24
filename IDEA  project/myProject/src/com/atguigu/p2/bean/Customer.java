@@ -14,7 +14,7 @@ public class Customer {
     public Customer () {
 
     }
-    public Customer (String name, int age, String email) {
+    public Customer (String name,char sex, int age, String email) {
         this.email = email;
         this.age = age;
         this.name = name;

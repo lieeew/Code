@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/util/CMUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/bean/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/bean/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/service/CustomerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/service/CustomerList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/ui/CustomerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/ui/CustomerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/util/CMUtility .java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +264,10 @@
       <workItem from="1661141023856" duration="4515000" />
       <workItem from="1661163917390" duration="5720000" />
       <workItem from="1661246807695" duration="3565000" />
-      <workItem from="1661255330304" duration="708000" />
+      <workItem from="1661255330304" duration="2016000" />
+      <workItem from="1661264058160" duration="2348000" />
+      <workItem from="1661323572485" duration="6333000" />
+      <workItem from="1661350569697" duration="2862000" />
     </task>
     <servers />
   </component>
@@ -294,10 +299,6 @@
           <line>14</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="6" />
-        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

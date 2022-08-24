@@ -1,8 +1,8 @@
 package com.atguigu.p2.ui;
 
+import com.atguigu.p2.bean.Customer;
 import com.atguigu.p2.service.CustomerList;
-
-import java.util.Scanner;
+import com.atguigu.p2.util.CMUtility;
 
 /**
  * @Auther: qiuxinyu
@@ -11,33 +11,46 @@ import java.util.Scanner;
  */
 public class CustomerView {
     CustomerList customerList = new CustomerList(10);
-
-    public void enterMainMenu() {
-        Scanner sc = new Scanner(System.in);
-        int choose = sc.nextInt();
-
-        System.out.println("\n-----------------客户信息管理软件-----------------\n");
-        System.out.println("                   1 添 加 客 户");
-        System.out.println("                   2 修 改 客 户");
-        System.out.println("                   3 删 除 客 户");
-        System.out.println("                   4 客 户 列 表");
-        System.out.println("                   5 退       出\n");
-        System.out.print("                   请选择(1-5)：" + choose);
-        switch (choose) {
-            case 1:
-                addNewCustomer();
-            case 2:
-                modifyCustomer();
-            case 3:
-                deleteCustomer();
-            case 4:
-                listAllCustomers();
-            case 5:
-
-
-        }
+    public  CustomerView() {
+        Customer cus = new Customer("lihua", '男', 18, "lihua@gamil.com");
+        customerList.addCustomer(cus);
     }
 
+    public void enterMainMenu() {
+        boolean isflage = true;
+        while (isflage) {
+
+            System.out.println("\n-----------------客户信息管理软件-----------------\n");
+            System.out.println("                   1 添 加 客 户");
+            System.out.println("                   2 修 改 客 户");
+            System.out.println("                   3 删 除 客 户");
+            System.out.println("                   4 客 户 列 表");
+            System.out.println("                   5 退       出\n");
+            System.out.print("                   请选择(1-5)：");
+            char meu = CMUtility.readMenuSelection();
+
+            switch (meu) {
+                case '1':
+                    addNewCustomer();
+                    break;
+                case '2':
+                    modifyCustomer();
+                    break;
+                case '3':
+                    deleteCustomer();
+                    break;
+                case '4':
+                    listAllCustomers();
+                    break;
+                case '5':
+                    System.out.print("是否确认退出");
+                    char ischoice = CMUtility.readConfirmSelection();
+                    if (ischoice == 'Y') {
+                        isflage = false;
+                    }
+            }
+        }
+    }
     /**
      * 添加
      */
@@ -49,6 +62,26 @@ public class CustomerView {
      * 修改
      */
     private void modifyCustomer() {
+        int num = CMUtility.readInt();
+        for (;;) {
+            System.out.println("请输入客户信息(-1退出)");
+            if (num == -1) {
+                return;
+            }
+                Customer cus = customerList.getCustomer(num - 1);
+                if (cus == null) {
+                    System.out.println("无法找到用户");
+                }else {
+                    break;
+                }
+            }
+
+        }
+        // 修改程序的入口
+    
+
+
+
 
     }
 
@@ -56,22 +89,35 @@ public class CustomerView {
      * 删除用户
      */
     private void deleteCustomer() {
-
+        System.out.println("删除用户");
     }
 
     /**
      * 客户列表
-     * @param
+     *
      */
     private void listAllCustomers() {
+        System.out.println("---------------------------客户列表---------------------------");
+        int total = customerList.getTotal();
+        Customer[] customer = customerList.getAllCustomers();// 创建一个新的数组来存储customer数据
+
+        if (total == 0) {
+            System.out.println("没有用户!");
+        } else {
+            System.out.println("编号\t姓名\t性别\t年龄\t\t电话\t\t邮箱");
+            for (int a = 0; a < total; a++) {
+                System.out.println((a + 1) + "\t" + customer[a].getName()
+                        +"\t" + customer[a].getAge() + "\t" + customer[a].getPhone() +
+                        "\t" + customer[a].getEmail() );
+            }
+        }
+        System.out.println("-------------------------客户列表完成-------------------------");
 
     }
-
-
-
-
 
     public static void main(String[] args) {
-
+        CustomerView teat = new CustomerView();
+        teat.enterMainMenu();
     }
+
 }
