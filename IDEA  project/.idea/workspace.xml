@@ -267,7 +267,7 @@
       <workItem from="1661323572485" duration="6333000" />
       <workItem from="1661350569697" duration="3325000" />
       <workItem from="1661381918079" duration="1197000" />
-      <workItem from="1661393805837" duration="3519000" />
+      <workItem from="1661393805837" duration="6686000" />
     </task>
     <servers />
   </component>
@@ -298,11 +298,6 @@
           <url>file://$PROJECT_DIR$/src/com/msb/ccc.java</url>
           <line>14</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/myProject/src/com/atguigu/p2/service/CustomerList.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -56,5 +56,16 @@ public class CustomerList {
     public int getTotal () {
         return total;
     }
+    public boolean deleteCustomer (int index) {
+        if (index < total && index >= 0) {
+            for (int a = index; a < total; a++) {
+                customers[a] = customers[a + 1];
+                customers[--total] = null;
+                return true;
+            }
+        }
+            return false;
+
+    }
 
 }
