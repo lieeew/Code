@@ -12,7 +12,7 @@ import com.atguigu.p2.util.CMUtility;
 public class CustomerView {
     CustomerList customerList = new CustomerList(10);
     public  CustomerView() {
-        Customer cus = new Customer("lihua", '男', 18, "lihua@gamil.com");
+        Customer cus = new Customer("lihua", '男', 18, "lihua@gamil.com","2131232121");
         customerList.addCustomer(cus);
     }
 
@@ -62,28 +62,43 @@ public class CustomerView {
      * 修改
      */
     private void modifyCustomer() {
-        int num = CMUtility.readInt();
+        System.out.println("修改客户");
+        int num  = CMUtility.readInt();       ;
+        ;
+        Customer cus;
         for (;;) {
-            System.out.println("请输入客户信息(-1退出)");
+
             if (num == -1) {
+                System.out.println("请输入客户信息(-1退出)");
                 return;
             }
-                Customer cus = customerList.getCustomer(num - 1);
+                cus = customerList.getCustomer(num - 1);
                 if (cus == null) {
                     System.out.println("无法找到用户");
+                    break;
                 }else {
                     break;
                 }
             }
-
+        System.out.print("姓名(" + cus.getName() + ")");
+        String s = CMUtility.readString(10, cus.getName());
+        System.out.print("性别(" + cus.getSex() +")");
+        char c = CMUtility.readChar(cus.getSex());
+        System.out.print("年龄(" + cus.getAge() +")");
+        int i = CMUtility.readInt(cus.getAge());
+        System.out.print("邮箱(" + cus.getEmail() +")");
+        String s1 = CMUtility.readString(13, cus.getEmail());
+        System.out.print("电话(" + cus.getPhone() + ")");
+        String s2 = CMUtility.readString(30, cus.getPhone());
+        Customer newCust = new Customer(s,c, i, s1,s2);
+        boolean isCustomer = customerList.replaceCustomer(num - 1, newCust);
+        if (isCustomer) {
+            System.out.println("0k");
+        }else {
+            System.out.println("失败");
         }
-        // 修改程序的入口
-    
-
-
-
-
     }
+
 
     /**
      * 删除用户

@@ -14,10 +14,11 @@ public class Customer {
     public Customer () {
 
     }
-    public Customer (String name,char sex, int age, String email) {
+    public Customer (String name,char sex, int age, String email,String phone) {
         this.email = email;
         this.age = age;
         this.name = name;
+        this.phone = phone;
     }
     public void setName (String name, char gender, int age, String phone) {
         this.name = name;

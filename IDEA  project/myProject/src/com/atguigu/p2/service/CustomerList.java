@@ -31,7 +31,7 @@ public class CustomerList {
     }
 
     public boolean replaceCustomer(int index, Customer cust) {
-        if (index < total && index > 0) {
+        if (index <= total && index >= 0) {
             customers[index] = cust;
             return true;
         }else {
