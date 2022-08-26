@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/myProject/src/project/CMUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myProject/src/project/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myProject/src/project/CustomerList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myProject/src/project/CustomerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/bean/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/bean/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/service/CustomerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/service/CustomerList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/ui/CustomerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/ui/CustomerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -267,7 +269,9 @@
       <workItem from="1661323572485" duration="6333000" />
       <workItem from="1661350569697" duration="3325000" />
       <workItem from="1661381918079" duration="1197000" />
-      <workItem from="1661393805837" duration="6686000" />
+      <workItem from="1661393805837" duration="7149000" />
+      <workItem from="1661506321893" duration="660000" />
+      <workItem from="1661520559027" duration="4502000" />
     </task>
     <servers />
   </component>

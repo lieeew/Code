@@ -59,7 +59,25 @@ public class CustomerView {
      * 添加
      */
     private void addNewCustomer() {
-
+        System.out.println("---------添加客户------");
+        System.out.print("姓名:");
+        String name = CMUtility.readString(10);
+        System.out.print("性别:");
+        char sex = CMUtility.readChar();
+        System.out.print("年龄:");
+        int age = CMUtility.readInt();
+        System.out.print("电话:");
+        String phone = CMUtility.readString(14);
+        System.out.print("邮箱:");
+        String email = CMUtility.readString(13);
+        // 将上述的属性封装到对象中
+        Customer cus = new Customer(name,sex,age,email,phone);
+        boolean isSuccess = customerList.addCustomer(cus);
+        if (isSuccess) {
+            System.out.println("--------添加成功------");
+        }else {
+            System.out.println("---------添加失败-----");
+        }
     }
 
     /**
@@ -68,9 +86,8 @@ public class CustomerView {
     private void modifyCustomer() {
         System.out.println("修改客户");
         int num = CMUtility.readInt();
-        ;
         Customer cus;
-        for (; ; ) {
+        for (; ; ) { // 循环
 
             if (num == -1) {
                 System.out.println("请输入客户信息(-1退出)");
@@ -117,7 +134,7 @@ public class CustomerView {
             if (i == -1) {
                 return;
             }
-            customer = customerList.getCustomer(i - 1);
+            customer = customerList.getCustomer(i - 1); // customerlist的地址给了customer
             if (customer == null) {
                 System.out.println("未找到该用户");
             } else {
