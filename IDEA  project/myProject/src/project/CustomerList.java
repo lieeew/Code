@@ -52,5 +52,8 @@ public class CustomerList {
        }
         return customers[index - 1];
     }
+    public int getTotal () {
+        return total;
+    }
 
 }

@@ -46,11 +46,11 @@ public class CustomerList {
         return cus;
     }
     public Customer getCustomer(int index) {
-        if (index >= total || index < 0) {
+        if (index > total || index < 0) {
             System.out.println("从0开始");
             return null;
         }else {
-            return customers[index];
+            return customers[index - 1];
         }
     }
     public int getTotal () {

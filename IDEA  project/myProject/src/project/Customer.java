@@ -11,6 +11,12 @@ public class Customer {
     private String email;
     private char sex;
     private String name;
+    public Customer (String name,char sex, int age, String email,String phone) {
+        this.email = email;
+        this.age = age;
+        this.name = name;
+        this.phone = phone;
+    }
 // alt + insert 快速创建get,set方法
     public int getAge() {
         return age;

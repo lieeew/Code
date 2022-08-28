@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/myProject/src/project/CMUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myProject/src/project/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myProject/src/project/CustomerList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myProject/src/project/CustomerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/service/CustomerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/service/CustomerList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/ui/CustomerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/com/atguigu/p2/ui/CustomerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProject/src/project/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/project/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProject/src/project/CustomerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/project/CustomerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProject/src/project/CustomerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/myProject/src/project/CustomerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,19 +72,6 @@
   }
 }</component>
   <component name="RunManager" selected="Application.CustomerView">
-    <configuration name="BankTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day10Test.BankTest" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day10Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CustomerView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.atguigu.p2.ui.CustomerView" />
       <module name="myProject" />
@@ -137,13 +124,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="project.CustomerView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.CustomerView" />
+      <module name="myProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.CustomerView" />
+        <item itemvalue="Application.project.CustomerView" />
         <item itemvalue="Application.Peach" />
         <item itemvalue="Application.Peach2" />
         <item itemvalue="Application.Day10Exercise2.BankTest" />
-        <item itemvalue="Application.BankTest" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +271,11 @@
       <workItem from="1661381918079" duration="1197000" />
       <workItem from="1661393805837" duration="7149000" />
       <workItem from="1661506321893" duration="660000" />
-      <workItem from="1661520559027" duration="4502000" />
+      <workItem from="1661520559027" duration="4859000" />
+      <workItem from="1661587059848" duration="3416000" />
+      <workItem from="1661661547942" duration="1316000" />
+      <workItem from="1661685413821" duration="4323000" />
+      <workItem from="1661728750246" duration="1965000" />
     </task>
     <servers />
   </component>
@@ -303,6 +307,10 @@
           <line>14</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="6" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

@@ -47,8 +47,8 @@ public class CustomerView {
                     break;
                 case '5':
                     System.out.print("是否确认退出");
-                    char ischoice = CMUtility.readConfirmSelection();
-                    if (ischoice == 'Y') {
+                    char isChoice = CMUtility.readConfirmSelection();
+                    if (isChoice == 'Y') {
                         isflage = false;
                     }
             }
@@ -87,7 +87,7 @@ public class CustomerView {
         System.out.println("修改客户");
         int num = CMUtility.readInt();
         Customer cus;
-        for (; ; ) { // 循环
+        for (; ; ) { // 循环相当于 whil(true)
 
             if (num == -1) {
                 System.out.println("请输入客户信息(-1退出)");
@@ -134,7 +134,7 @@ public class CustomerView {
             if (i == -1) {
                 return;
             }
-            customer = customerList.getCustomer(i - 1); // customerlist的地址给了customer
+            customer = customerList.getCustomer(i ); // customerlist的地址给了customer
             if (customer == null) {
                 System.out.println("未找到该用户");
             } else {
