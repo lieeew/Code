@@ -21,12 +21,15 @@ public class Customer1 {
         return firstName;
     }
     public String getLastName () {
+
         return lastName;
     }
     public void setAccount (Account account) {
+
         this.account = account;
     }
     public Account getAccount () {
+
         return account;
     }
 }

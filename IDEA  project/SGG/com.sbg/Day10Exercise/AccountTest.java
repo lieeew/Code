@@ -5,7 +5,7 @@ package Day10Exercise;
  * @Date: 2022/8/19 - 08 - 19
  * @Description: Day10Exercise
  */
-public class Test {
+public class AccountTest {
     public static void main(String[] args) {
         /*Customer customer = new Customer("li" , "hua");
         Account account = new Account();
