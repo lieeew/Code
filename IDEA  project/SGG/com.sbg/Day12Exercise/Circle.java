@@ -7,7 +7,11 @@ package Day12Exercise;
  */
 public class Circle {
     private double radius;
+    public Circle () {
+        radius = 1;
+    }
     public void setRadius (double radius) {
+
         this.radius = radius;
     }
     public double getRadius () {

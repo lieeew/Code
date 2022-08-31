@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day11/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day11/Students.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Cylinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Kids.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Mankind.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Person1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Student1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/SuperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/CyliderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Customer1.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Customer1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day10Exercise/AccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Cylinder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +74,13 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Kids">
-    <configuration name="CustomerView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.p2.ui.CustomerView" />
-      <module name="myProject" />
+  <component name="RunManager" selected="Application.CyliderTest">
+    <configuration name="CyliderTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12Exercise.CyliderTest" />
+      <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.atguigu.p2.ui.*" />
+          <option name="PATTERN" value="Day12Exercise.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Peach" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test.Peach" />
-      <module name="hanshunping" />
+    <configuration name="Student" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12.Student" />
+      <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Test.*" />
+          <option name="PATTERN" value="Day12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,12 +127,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="project.CustomerView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project.CustomerView" />
-      <module name="myProject" />
+    <configuration name="SuperTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12.SuperTest" />
+      <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="project.*" />
+          <option name="PATTERN" value="Day12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CyliderTest" />
+        <item itemvalue="Application.SuperTest" />
+        <item itemvalue="Application.Student" />
         <item itemvalue="Application.Kids" />
         <item itemvalue="Application.Students" />
-        <item itemvalue="Application.CustomerView" />
-        <item itemvalue="Application.project.CustomerView" />
-        <item itemvalue="Application.Peach" />
       </list>
     </recent_temporary>
   </component>
@@ -281,6 +281,9 @@
       <workItem from="1661728750246" duration="6051000" />
       <workItem from="1661816594442" duration="1507000" />
       <workItem from="1661871181564" duration="722000" />
+      <workItem from="1661902798880" duration="2158000" />
+      <workItem from="1661914998528" duration="4667000" />
+      <workItem from="1661936244203" duration="3851000" />
     </task>
     <servers />
   </component>
