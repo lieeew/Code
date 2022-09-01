@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Person1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Student1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/SuperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/CyliderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/AccountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/CheckAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/CustomerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Cylinder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,16 +68,19 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.CyliderTest">
-    <configuration name="CyliderTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day12Exercise.CyliderTest" />
+  <component name="RunManager" selected="Application.AccountTest">
+    <configuration name="AccountTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12.AccountTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day12Exercise.*" />
+          <option name="PATTERN" value="Day12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,8 +88,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Kids" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day12Exercise.Kids" />
+    <configuration name="CustomerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12.CustomerTest" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day12.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CyliderTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12Exercise.CyliderTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
@@ -114,19 +127,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Students" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day11.Students" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day11.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SuperTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day12.SuperTest" />
       <module name="SGG" />
@@ -142,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AccountTest" />
+        <item itemvalue="Application.CustomerTest" />
         <item itemvalue="Application.CyliderTest" />
         <item itemvalue="Application.SuperTest" />
         <item itemvalue="Application.Student" />
-        <item itemvalue="Application.Kids" />
-        <item itemvalue="Application.Students" />
       </list>
     </recent_temporary>
   </component>
@@ -283,7 +283,10 @@
       <workItem from="1661871181564" duration="722000" />
       <workItem from="1661902798880" duration="2158000" />
       <workItem from="1661914998528" duration="4667000" />
-      <workItem from="1661936244203" duration="3851000" />
+      <workItem from="1661936244203" duration="4731000" />
+      <workItem from="1661988793262" duration="557000" />
+      <workItem from="1661997186192" duration="7671000" />
+      <workItem from="1662025642812" duration="1534000" />
     </task>
     <servers />
   </component>
