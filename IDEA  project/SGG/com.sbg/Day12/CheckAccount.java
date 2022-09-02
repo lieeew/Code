@@ -23,7 +23,7 @@ public class CheckAccount extends Account{
             if (amount > (getBalance() + overdraft)) {// 注意是banlance + overdraft
                 System.out.println("超过可透支额的限额!");
             }else {
-                overdraft -= (amount - getBalance());
+                overdraft -= (amount - getBalance()); //这个语句一定要在吧balance之前
                 setBalance(0);
                 System.out.println("账户余额为:" +getBalance());
                 System.out.println("信用卡可透额" + overdraft);

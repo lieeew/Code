@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/AccountTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/CheckAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/CustomerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/AnimalTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/InterViewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/Man.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/PersonTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/Women.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/Man.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/PersonTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/Women.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day12/CheckAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/CheckAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,25 +62,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/SOFT/BaiduNetdiskDownload/尚硅谷java/4_代码/第1部分：Java基础编程/day06-day18：Eclipse/day06-day18：Eclipse/workspace0105/myproject02&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/CODE/JAVA/IDEA  project/SGG/com.sbg/Day13",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
-  <component name="RunManager" selected="Application.AccountTest">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day13" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Day13" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.PersonTest">
     <configuration name="AccountTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day12.AccountTest" />
       <module name="SGG" />
@@ -88,12 +102,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day12.CustomerTest" />
+    <configuration name="AnimalTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12Polymorphism.AnimalTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day12.*" />
+          <option name="PATTERN" value="Day12Polymorphism.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,12 +115,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CyliderTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day12Exercise.CyliderTest" />
+    <configuration name="Day12Polymorphism.PersonTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12Polymorphism.PersonTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day12Exercise.*" />
+          <option name="PATTERN" value="Day12Polymorphism.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,12 +128,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Student" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day12.Student" />
+    <configuration name="InterViewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day12Polymorphism.InterViewTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day12.*" />
+          <option name="PATTERN" value="Day12Polymorphism.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,12 +141,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SuperTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day12.SuperTest" />
+    <configuration name="PersonTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day13.PersonTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day12.*" />
+          <option name="PATTERN" value="Day13.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PersonTest" />
+        <item itemvalue="Application.InterViewTest" />
+        <item itemvalue="Application.AnimalTest" />
+        <item itemvalue="Application.Day12Polymorphism.PersonTest" />
         <item itemvalue="Application.AccountTest" />
-        <item itemvalue="Application.CustomerTest" />
-        <item itemvalue="Application.CyliderTest" />
-        <item itemvalue="Application.SuperTest" />
-        <item itemvalue="Application.Student" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +300,9 @@
       <workItem from="1661936244203" duration="4731000" />
       <workItem from="1661988793262" duration="557000" />
       <workItem from="1661997186192" duration="7671000" />
-      <workItem from="1662025642812" duration="1534000" />
+      <workItem from="1662025642812" duration="4774000" />
+      <workItem from="1662046768468" duration="1090000" />
+      <workItem from="1662075737734" duration="5367000" />
     </task>
     <servers />
   </component>
