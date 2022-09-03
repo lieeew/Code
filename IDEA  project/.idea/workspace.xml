@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/AnimalTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/InterViewTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/Man.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/PersonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/Women.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/Man.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/PersonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/Women.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/FieldMethodTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/GeometricObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/InstanceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/MyRectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day12/CheckAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day12/CheckAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day13/PersonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/PersonTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +64,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/CODE/JAVA/IDEA  project/SGG/com.sbg/Day13",
+    "last_opened_file_path": "D:/CODE/JAVA/IDEA  project/SGG/com.sbg/Day13exer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,26 +77,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day13exer" />
       <recent name="D:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day13" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Day13" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PersonTest">
-    <configuration name="AccountTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day12.AccountTest" />
-      <module name="SGG" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Day12.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Day13exer.InstanceTest">
     <configuration name="AnimalTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day12Polymorphism.AnimalTest" />
       <module name="SGG" />
@@ -115,12 +98,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Day12Polymorphism.PersonTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day12Polymorphism.PersonTest" />
+    <configuration name="Day13exer.InstanceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day13exer.InstanceTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day12Polymorphism.*" />
+          <option name="PATTERN" value="Day13exer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FieldMethodTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day13.FieldMethodTest" />
+      <module name="SGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day13.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Day13exer.InstanceTest" />
+        <item itemvalue="Application.FieldMethodTest" />
         <item itemvalue="Application.PersonTest" />
         <item itemvalue="Application.InterViewTest" />
         <item itemvalue="Application.AnimalTest" />
-        <item itemvalue="Application.Day12Polymorphism.PersonTest" />
-        <item itemvalue="Application.AccountTest" />
       </list>
     </recent_temporary>
   </component>
@@ -303,6 +299,9 @@
       <workItem from="1662025642812" duration="4774000" />
       <workItem from="1662046768468" duration="1090000" />
       <workItem from="1662075737734" duration="5367000" />
+      <workItem from="1662120569816" duration="26000" />
+      <workItem from="1662130887982" duration="2267000" />
+      <workItem from="1662158989691" duration="6646000" />
     </task>
     <servers />
   </component>
