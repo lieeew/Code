@@ -30,5 +30,10 @@ public class EqualsTest {
         System.out.println(str1.equals(str2)); // true
         System.out.println(cus1.equals(cus2)); // false
 
+
+        System.out.println(cus1);
+
+        System.out.println(cus1.toString());
+
     }
 }

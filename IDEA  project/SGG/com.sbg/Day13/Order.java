@@ -1,7 +1,5 @@
 package Day13;
 
-import java.util.Objects;
-
 /**
  * @Auther: qiuxinyu
  * @Date: 2022/9/4 - 09 - 04
@@ -33,36 +31,38 @@ public class Order {
         this.orderName = orderName;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj instanceof Order) {
-//            Order od = (Order) obj;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof Order) {
+            Order od = (Order) obj;
 //            if (od.orderld == this.orderld && od.orderName.equals(this.orderName)) {
 //                return true;
 //            }
-//            return false;
-//        }
-//        return false;
-//    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
+            if (od.orderld == od.orderld && od.orderName == od.orderName){ // String 比较特殊,String存储在方法区的常量池里面,如果内容一样那么就会变成同一地址
+                return true;
+            }
             return false;
-        Order order = (Order) o;
-        return orderld == order.orderld && Objects.equals(orderName, order.orderName);
+        }
+        return false;
     }
+
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o)
+//            return true;
+//        if (o == null || getClass() != o.getClass())
+//            return false;
+//        Order order = (Order) o;
+//        return orderld == order.orderld && Objects.equals(orderName, order.orderName);
+//    }
 
     public static void main(String[] args) {
         Order o1 = new Order(12, "lihua");
         Order O2 = new Order(12, "lihua");
         System.out.println(o1.equals(O2));
     }
-
 }
