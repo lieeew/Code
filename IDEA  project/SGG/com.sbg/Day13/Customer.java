@@ -51,6 +51,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" + "age=" + age + ", name='" + name + '\'' + '}';
+        return "Customer[ name = " + name + ", age = " + age + "]";
     }
 }
