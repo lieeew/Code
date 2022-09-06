@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="" />
+    <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/MarkDown/Equals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/MarkDown/EqualsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day13/InterviewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/InterviewTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day13/aa.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/PrintlnTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,8 +88,8 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.InterviewTest">
-    <configuration name="InterviewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.EqualsTest">
+    <configuration name="Day13.InterviewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day13.InterviewTest" />
       <module name="SGG" />
       <extension name="coverage">
@@ -96,7 +102,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JuniteTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Day13.JuniteTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day13.JuniteTest" />
       <module name="SGG" />
       <extension name="coverage">
@@ -109,12 +115,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WrapperTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day13.WrapperTest2" />
+    <configuration name="Equals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MarkDown.Equals" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day13.*" />
+          <option name="PATTERN" value="MarkDown.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,12 +128,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WrapperTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day13.WrapperTest3" />
+    <configuration name="EqualsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MarkDown.EqualsTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day13.*" />
+          <option name="PATTERN" value="MarkDown.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,8 +141,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="aa" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day13.aa" />
+    <configuration name="PrintlnTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day13.PrintlnTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
@@ -150,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.InterviewTest" />
-        <item itemvalue="Application.JuniteTest" />
-        <item itemvalue="Application.aa" />
-        <item itemvalue="Application.WrapperTest3" />
-        <item itemvalue="Application.WrapperTest2" />
+        <item itemvalue="Application.EqualsTest" />
+        <item itemvalue="Application.Equals" />
+        <item itemvalue="Application.Day13.InterviewTest" />
+        <item itemvalue="Application.PrintlnTest" />
+        <item itemvalue="Application.Day13.JuniteTest" />
       </list>
     </recent_temporary>
   </component>
@@ -312,7 +318,9 @@
       <workItem from="1662427679267" duration="306000" />
       <workItem from="1662427996992" duration="1287000" />
       <workItem from="1662431802254" duration="5012000" />
-      <workItem from="1662455551967" duration="1134000" />
+      <workItem from="1662455551967" duration="4716000" />
+      <workItem from="1662462285244" duration="812000" />
+      <workItem from="1662467991649" duration="2192000" />
     </task>
     <servers />
   </component>
