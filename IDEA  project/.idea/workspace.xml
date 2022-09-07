@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/ScoreTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/ScoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/ScoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +319,7 @@
       <workItem from="1662462285244" duration="812000" />
       <workItem from="1662467991649" duration="2192000" />
       <workItem from="1662515530757" duration="8783000" />
-      <workItem from="1662554214190" duration="2755000" />
+      <workItem from="1662554214190" duration="3842000" />
     </task>
     <servers />
   </component>

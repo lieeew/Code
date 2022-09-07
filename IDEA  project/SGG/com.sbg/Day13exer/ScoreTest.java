@@ -25,6 +25,7 @@ import java.util.Vector;
 public class ScoreTest {
     public static void main(String[] args) {
         int MaxNum = 0;
+        Vector v = new Vector();
         Scanner sc = new Scanner(System.in);
         for (;;){
             System.out.println("请录入学生成绩(以负数代表输入结束)");
@@ -33,27 +34,27 @@ public class ScoreTest {
                 System.out.println("非法数据");
                 break;
             }
-            Vector v = new Vector();
             v.addElement(score);
             if (score > MaxNum) {
                 MaxNum = score;
             }
-            char level = 0;
-            for ( int a = 0; a < v.size(); a ++) {
-                Object obj = v.elementAt(a);
-                Integer num = (Integer) obj;
-                int i = MaxNum - num; // 成绩差值
-                if (i <= 10 ) {
-                   level = 'A';
-                } else if (i <= 20 ) {
-                    level = 'B';
-                } else if (i <= 30 ){
-                    level = 'C';
-                } else {
-                    level = 'D';
-                }
-                System.out.println("Student-" + a + ", score is" + score + ", level is" + level);
+
+        }
+        char level = 0;
+        for ( int a = 0; a < v.size(); a ++) {
+            Object obj = v.elementAt(a);
+            Integer num = (Integer) obj;
+            int i = MaxNum - num; // 成绩差值
+            if (i <= 10 ) {
+                level = 'A';
+            } else if (i <= 20 ) {
+                level = 'B';
+            } else if (i <= 30 ){
+                level = 'C';
+            } else {
+                level = 'D';
             }
+            System.out.println("Student-" + a + ", score is" + num + ", level is" + level);
          }
     }
 }
