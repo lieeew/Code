@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/MarkDown/WrapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/MarkDown/aaa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/MarkDown/bbb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/ScoreTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,9 +85,9 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.bbb">
-    <configuration name="Equals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkDown.Equals" />
+  <component name="RunManager" selected="Application.ScoreTest">
+    <configuration name="EqualsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MarkDown.EqualsTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
@@ -101,12 +99,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EqualsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkDown.EqualsTest" />
+    <configuration name="ScoreTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day13exer.ScoreTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MarkDown.*" />
+          <option name="PATTERN" value="Day13exer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -155,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ScoreTest" />
         <item itemvalue="Application.bbb" />
         <item itemvalue="Application.aaa" />
         <item itemvalue="Application.WrapperTest" />
         <item itemvalue="Application.EqualsTest" />
-        <item itemvalue="Application.Equals" />
       </list>
     </recent_temporary>
   </component>
@@ -321,6 +319,7 @@
       <workItem from="1662462285244" duration="812000" />
       <workItem from="1662467991649" duration="2192000" />
       <workItem from="1662515530757" duration="8783000" />
+      <workItem from="1662554214190" duration="2755000" />
     </task>
     <servers />
   </component>
