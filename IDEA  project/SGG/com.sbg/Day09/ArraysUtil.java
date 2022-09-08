@@ -10,7 +10,7 @@ public class ArraysUtil {
 
     // 数组冒泡排序
     public void  Sort (int[] arr) {
-        for (int a = 0; a < arr.length; a++) {
+        for (int a = 0; a < arr.length - 1; a++) {
             for (int j = 0; j < arr.length - 1 - a; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];

@@ -5,8 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f408c74c-f754-4df6-b9ff-72f86697dc9e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day14/ArrayUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day14/ArrayUtilTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day14/CircleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day14/ReviewTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day14/StaticTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day14/StaticTest2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day14exer/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SGG/com.sbg/Day14exer/AccountTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/SGG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/SGG.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day09/ArraysUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day13/JuniteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13/JuniteTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/ScoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/Day13exer/ScoreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Test/Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/JavaTest/Double.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Test/Find.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/JavaTest/Find.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Test/dichotomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/JavaTest/dichotomy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SGG/com.sbg/Test/fanzhuan.java" beforeDir="false" afterPath="$PROJECT_DIR$/SGG/com.sbg/JavaTest/fanzhuan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hanshunping/src/Test/Peach.java" beforeDir="false" afterPath="$PROJECT_DIR$/hanshunping/src/JavaTest/Peach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hanshunping/src/Test/Peach2.java" beforeDir="false" afterPath="$PROJECT_DIR$/hanshunping/src/JavaTest/Peach2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SGG/Day09/ArraysUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SGG/Day09/ArraysUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SGG/Day13/JuniteTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SGG/Day13/JuniteTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SGG/Test/Double.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SGG/Test/Find.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SGG/Test/dichotomy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SGG/Test/fanzhuan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hanshunping/Test/Peach.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hanshunping/Test/Peach2.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,25 +77,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CODE/JAVA/IDEA  project/SGG/com.sbg/Day13exer&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;plugins.junitgenerator.application&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/CODE/JAVA/IDEA  project/SGG/com.sbg/Day13exer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day13exer" />
@@ -85,13 +114,13 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ScoreTest">
-    <configuration name="EqualsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkDown.EqualsTest" />
+  <component name="RunManager" selected="Application.CircleTest">
+    <configuration name="CircleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day14.CircleTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MarkDown.*" />
+          <option name="PATTERN" value="Day14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,12 +128,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScoreTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day13exer.ScoreTest" />
+    <configuration name="Day14.ArrayUtilTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day14.ArrayUtilTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Day13exer.*" />
+          <option name="PATTERN" value="Day14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,12 +141,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WrapperTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkDown.WrapperTest" />
+    <configuration name="Day14.ReviewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day14.ReviewTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MarkDown.*" />
+          <option name="PATTERN" value="Day14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,12 +154,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="aaa" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkDown.aaa" />
+    <configuration name="Day14.StaticTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day14.StaticTest" />
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MarkDown.*" />
+          <option name="PATTERN" value="Day14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,26 +167,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="bbb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkDown.bbb" />
+    <configuration name="JuniteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SGG" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MarkDown.*" />
+          <option name="PATTERN" value="Day13.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="Day13" />
+      <option name="MAIN_CLASS_NAME" value="Day13.JuniteTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ScoreTest" />
-        <item itemvalue="Application.bbb" />
-        <item itemvalue="Application.aaa" />
-        <item itemvalue="Application.WrapperTest" />
-        <item itemvalue="Application.EqualsTest" />
+        <item itemvalue="Application.CircleTest" />
+        <item itemvalue="Application.Day14.ArrayUtilTest" />
+        <item itemvalue="Application.Day14.StaticTest" />
+        <item itemvalue="JUnit.JuniteTest" />
+        <item itemvalue="Application.Day14.ReviewTest" />
       </list>
     </recent_temporary>
   </component>
@@ -319,7 +350,12 @@
       <workItem from="1662462285244" duration="812000" />
       <workItem from="1662467991649" duration="2192000" />
       <workItem from="1662515530757" duration="8783000" />
-      <workItem from="1662554214190" duration="3842000" />
+      <workItem from="1662554214190" duration="5201000" />
+      <workItem from="1662592853493" duration="2973000" />
+      <workItem from="1662596457487" duration="734000" />
+      <workItem from="1662597323533" duration="557000" />
+      <workItem from="1662597893229" duration="8336000" />
+      <workItem from="1662621412651" duration="4705000" />
     </task>
     <servers />
   </component>

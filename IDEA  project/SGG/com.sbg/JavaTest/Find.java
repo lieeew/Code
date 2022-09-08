@@ -1,4 +1,4 @@
-package Test;
+package JavaTest;
 
 /**
  * @Auther: qiuxinyu

@@ -54,7 +54,7 @@ public class ScoreTest {
             } else {
                 level = 'D';
             }
-            System.out.println("Student-" + a + ", score is" + num + ", level is" + level);
+            System.out.println("Student- " + a + ", score is " + num + ", level is " + level);
          }
     }
 }
