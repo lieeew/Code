@@ -70,6 +70,6 @@ public class Account {
     }
 
     @Override
-    public String toString() { // 美化代码 Alt + Shift + J
+    public String toString() { // 美化代码 Ctrl + Shift + J
         return "Account{id=" + id + ", password='" + password + '\'' + ", balance=" + balance + '}'; }
 }
