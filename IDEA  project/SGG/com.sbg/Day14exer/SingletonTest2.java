@@ -24,12 +24,15 @@ public class SingletonTest2 {
 
 }
 class Order {
+    // 私有化构造器 ,防止外部造对象
     private Order () {
 
     }
-
+    // 声明当前类的对象, 没有初始化
+    // 此对象必须为static 的
     private static Order instance = null;
 
+    // 声明 public static 的返回当前对象的方法
     public static Order getInstance () {
         if (instance == null) {
             instance = new Order();

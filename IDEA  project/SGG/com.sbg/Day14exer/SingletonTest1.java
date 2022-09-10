@@ -14,14 +14,16 @@ public class SingletonTest1 {
     }
 
 }
-// 饿汉式
+    // 饿汉式
 class Bank {
+    // 私有化构造器
     private Bank () {
 
     }
-
+    // 内部创建类的对象
+    // 要求此对象必须为静态
      private static Bank bank = new Bank();
-
+    // // 提供公共的方法,返回对象
     public static Bank getInstance() {
         return bank;
     }
