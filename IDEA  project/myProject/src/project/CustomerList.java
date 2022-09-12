@@ -10,6 +10,7 @@ public class CustomerList {
     private Customer[] customers; //用来保存客户对象的数组
 
     public CustomerList(int totalCustomer) {
+
         customers = new Customer[totalCustomer];
     }
     public boolean addCustomer(Customer customer) {

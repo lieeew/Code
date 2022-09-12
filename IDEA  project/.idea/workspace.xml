@@ -74,7 +74,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -85,6 +85,7 @@
       <recent name="D:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day13" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="MarkdownTest02" />
       <recent name="Day13" />
     </key>
   </component>
@@ -93,49 +94,49 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.SingletonTest2">
-    <configuration name="BlockTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day14exer.BlockTest" />
+  <component name="RunManager" selected="Application.CustomerView">
+    <configuration name="CustomerView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.p2.ui.CustomerView" />
+      <module name="myProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day0.SingTest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MarkDown.BlockTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkDown.BlockTest" />
+    <configuration name="SingTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day0.SingTest2" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SingletonTest1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkDown.SingletonTest1" />
+    <configuration name="SingletonTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day14exer.SingletonTest3" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SingletonTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day13exer.MarkDown.SingletonTest2" />
-      <module name="SGG" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Son" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day14.Son" />
-      <module name="SGG" />
+    <configuration name="easy1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="easyAlgorithms.easy1" />
+      <module name="Algorithms" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SingletonTest2" />
-        <item itemvalue="Application.SingletonTest1" />
-        <item itemvalue="Application.MarkDown.BlockTest" />
-        <item itemvalue="Application.Son" />
-        <item itemvalue="Application.BlockTest" />
+        <item itemvalue="Application.CustomerView" />
+        <item itemvalue="Application.SingletonTest3" />
+        <item itemvalue="Application.SingTest2" />
+        <item itemvalue="Application.SingTest" />
+        <item itemvalue="Application.easy1" />
       </list>
     </recent_temporary>
   </component>

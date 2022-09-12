@@ -50,7 +50,7 @@ public class CustomerList {
             System.out.println("从0开始");
             return null;
         }else {
-            return customers[index - 1];
+            return customers[index];
         }
     }
     public int getTotal () {
