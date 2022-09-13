@@ -134,7 +134,7 @@ public class CustomerView {
             if (i == -1) {
                 return;
             }
-            customer = customerList.getCustomer(i ); // customerlist的地址给了customer
+            customer = customerList.getCustomer(i - 1 ); // customerlist的地址给了customer
             if (customer == null) {
                 System.out.println("未找到该用户");
             } else {
