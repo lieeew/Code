@@ -5,7 +5,7 @@ package Day15;
  * @Date: 2022/9/13 - 09 - 13
  * @Description: Day15
  */
-public class Manager extends Empoyee{
+public class Manager extends Employee {
 
     private double bonus;
 
