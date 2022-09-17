@@ -9,8 +9,43 @@ public class USBTest {
     public static void main(String[] args) {
 
         Computer test = new Computer();
+        // 1. 创建了非匿名实现类的非匿名对象
         Flash flash = new Flash();
         test.transferDate(flash);
+        System.out.println();
+        // 2. 创建了非匿名实现类的匿名对象
+        test.transferDate(new Flash());
+        System.out.println();
+
+        // 3.创建了匿名实现类的非匿名对象
+        USB phone = new USB() {
+            @Override
+            public void start() {
+                System.out.println("使用手机开始工作");
+            }
+
+            @Override
+            public void stop() {
+                System.out.println("使用手机结束工作");
+            }
+        };
+        test.transferDate(phone);
+        System.out.println();
+
+        // 4.创建了匿名实现类的匿名对象
+        test.transferDate(new USB() {
+            @Override
+            public void start() {
+
+                System.out.println("MP3开始听歌");
+            }
+
+            @Override
+            public void stop() {
+                System.out.println("mp3结束听歌");
+
+            }
+        });
     }
 }
 

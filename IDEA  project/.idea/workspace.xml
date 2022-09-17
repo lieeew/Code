@@ -97,37 +97,37 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.USBTest">
-    <configuration name="AbstractTeat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day15.AbstractTeat" />
+  <component name="RunManager" selected="Application.RealStarTest">
+    <configuration name="C" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MarkdownTest02.C" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AbstractTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkdownTest02.AbstractTest" />
+    <configuration name="RealStarTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MarkdownTest02.RealStarTest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InterfaceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day15.InterfaceTest" />
+    <configuration name="SecondTest.StarTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SecondTest.StarTest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InterfaceTest1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day15.InterfaceTest1" />
+    <configuration name="StarTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day15.StarTest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="USBTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day15.USBTest" />
+    <configuration name="a" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SecondTest.a" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.USBTest" />
-        <item itemvalue="Application.InterfaceTest" />
-        <item itemvalue="Application.AbstractTest" />
-        <item itemvalue="Application.InterfaceTest1" />
-        <item itemvalue="Application.AbstractTeat" />
+        <item itemvalue="Application.RealStarTest" />
+        <item itemvalue="Application.C" />
+        <item itemvalue="Application.SecondTest.StarTest" />
+        <item itemvalue="Application.StarTest" />
+        <item itemvalue="Application.a" />
       </list>
     </recent_temporary>
   </component>
