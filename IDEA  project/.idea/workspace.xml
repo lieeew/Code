@@ -78,10 +78,13 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;yiiguxing.plugin.translate&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Day15exer" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day14" />
       <recent name="E:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day14exer" />
@@ -98,9 +101,9 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.RealStarTest">
-    <configuration name="C" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkdownTest02.C" />
+  <component name="RunManager" selected="应用程序.innerYest">
+    <configuration name="InnerClassTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day15exer.InnerClassTest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,22 +116,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SecondTest.StarTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SecondTest.StarTest" />
+    <configuration name="SecondTest.InterfaceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SecondTest.InterfaceTest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StarTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day15.StarTest" />
+    <configuration name="SubClassTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day15exer.SubClassTest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="a" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SecondTest.a" />
+    <configuration name="innerYest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SecondTest.innerYest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,11 +139,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RealStarTest" />
-        <item itemvalue="Application.C" />
-        <item itemvalue="Application.SecondTest.StarTest" />
-        <item itemvalue="Application.StarTest" />
-        <item itemvalue="Application.a" />
+        <item itemvalue="应用程序.innerYest" />
+        <item itemvalue="应用程序.InnerClassTest" />
       </list>
     </recent_temporary>
   </component>
