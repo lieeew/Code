@@ -101,7 +101,7 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="应用程序.innerYest">
+  <component name="RunManager" selected="应用程序.SingleTest">
     <configuration name="InnerClassTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day15exer.InnerClassTest" />
       <module name="SGG" />
@@ -109,15 +109,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RealStarTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MarkdownTest02.RealStarTest" />
+    <configuration name="SingleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SecondTest.SingleTest" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SecondTest.InterfaceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SecondTest.InterfaceTest" />
+    <configuration name="Sort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SecondTest.Sort" />
       <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,6 +139,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.SingleTest" />
+        <item itemvalue="应用程序.Sort" />
         <item itemvalue="应用程序.innerYest" />
         <item itemvalue="应用程序.InnerClassTest" />
       </list>
