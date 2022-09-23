@@ -26,7 +26,9 @@
       <list>
         <option value="Kotlin Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -67,6 +69,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/CODE/JAVA/IDEA  project/SGG/com.sbg/Day14&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -91,6 +97,12 @@
       <recent name="D:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day13exer" />
       <recent name="D:\CODE\JAVA\IDEA  project\SGG\com.sbg\Day13" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Day15erro" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="MarkdownTest02" />
       <recent name="Day13" />
@@ -101,48 +113,63 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="应用程序.SingleTest">
-    <configuration name="InnerClassTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day15exer.InnerClassTest" />
+  <component name="RunManager" selected="JUnit.finallyTestTest">
+    <configuration name="ExceptionTest2Test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SGG" />
+      <option name="PACKAGE_NAME" value="Day15erro" />
+      <option name="MAIN_CLASS_NAME" value="Day15erro.ExceptionTest2Test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SingleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SecondTest.SingleTest" />
+    <configuration name="ExceptionTestTestTest.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SGG" />
+      <option name="PACKAGE_NAME" value="Day15erro" />
+      <option name="MAIN_CLASS_NAME" value="Day15erro.ExceptionTestTestTest" />
+      <option name="METHOD_NAME" value="test5" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SecondTest.Sort" />
+    <configuration name="finallyTestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SGG" />
+      <option name="PACKAGE_NAME" value="Day15erro" />
+      <option name="MAIN_CLASS_NAME" value="Day15erro.finallyTestTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubClassTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day15exer.SubClassTest" />
+    <configuration name="finallyTestTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SGG" />
+      <option name="PACKAGE_NAME" value="Day15erro" />
+      <option name="MAIN_CLASS_NAME" value="Day15erro.finallyTestTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="innerYest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SecondTest.innerYest" />
+    <configuration name="finallyTestTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SGG" />
+      <option name="PACKAGE_NAME" value="Day15erro" />
+      <option name="MAIN_CLASS_NAME" value="Day15erro.finallyTestTest" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.SingleTest" />
-        <item itemvalue="应用程序.Sort" />
-        <item itemvalue="应用程序.innerYest" />
-        <item itemvalue="应用程序.InnerClassTest" />
+        <item itemvalue="JUnit.finallyTestTest" />
+        <item itemvalue="JUnit.finallyTestTest.test2" />
+        <item itemvalue="JUnit.finallyTestTest.test" />
+        <item itemvalue="JUnit.ExceptionTest2Test.test" />
+        <item itemvalue="JUnit.ExceptionTestTestTest.test5" />
       </list>
     </recent_temporary>
   </component>
