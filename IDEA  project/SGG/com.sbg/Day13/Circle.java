@@ -49,8 +49,4 @@ public class Circle extends GeometricObject{
         return "[ Radius =  " + radius +"]";
     }
 
-
-
-
-
 }

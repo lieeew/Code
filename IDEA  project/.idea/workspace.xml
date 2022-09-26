@@ -27,8 +27,8 @@
         <option value="Kotlin Class" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -101,6 +101,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="SecondTest" />
       <recent name="Day15erro" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -113,23 +114,24 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.finallyTestTest">
-    <configuration name="ExceptionTest2Test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="应用程序.throwTest">
+    <configuration name="ExceptionTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day15erro.ExceptionTest3" />
       <module name="SGG" />
-      <option name="PACKAGE_NAME" value="Day15erro" />
-      <option name="MAIN_CLASS_NAME" value="Day15erro.ExceptionTest2Test" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExceptionTestTestTest.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OverrideTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day16.OverrideTest" />
       <module name="SGG" />
-      <option name="PACKAGE_NAME" value="Day15erro" />
-      <option name="MAIN_CLASS_NAME" value="Day15erro.ExceptionTestTestTest" />
-      <option name="METHOD_NAME" value="test5" />
-      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="throwTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day16.throwTest" />
+      <module name="SGG" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,21 +145,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="finallyTestTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="finallyTestTest.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SGG" />
       <option name="PACKAGE_NAME" value="Day15erro" />
       <option name="MAIN_CLASS_NAME" value="Day15erro.finallyTestTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="finallyTestTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SGG" />
-      <option name="PACKAGE_NAME" value="Day15erro" />
-      <option name="MAIN_CLASS_NAME" value="Day15erro.finallyTestTest" />
-      <option name="METHOD_NAME" value="test2" />
+      <option name="METHOD_NAME" value="test4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -165,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.throwTest" />
+        <item itemvalue="应用程序.OverrideTest" />
+        <item itemvalue="应用程序.ExceptionTest3" />
+        <item itemvalue="JUnit.finallyTestTest.test4" />
         <item itemvalue="JUnit.finallyTestTest" />
-        <item itemvalue="JUnit.finallyTestTest.test2" />
-        <item itemvalue="JUnit.finallyTestTest.test" />
-        <item itemvalue="JUnit.ExceptionTest2Test.test" />
-        <item itemvalue="JUnit.ExceptionTestTestTest.test5" />
       </list>
     </recent_temporary>
   </component>
