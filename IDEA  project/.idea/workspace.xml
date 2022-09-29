@@ -25,9 +25,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -36,6 +36,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/MyProject3/src/com/atguigu/team/domain/Equipment.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SGG/com.sbg/Day12Exercise/Day12Polymorphism/InterfaceTest.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JsFlowSettings">
@@ -80,15 +81,16 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="Day16exer" />
       <recent name="Day15exer" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -105,6 +107,8 @@
       <recent name="Day15erro" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.atguigu.team.service" />
+      <recent name="com.atgigu.team.view" />
       <recent name="MarkdownTest02" />
       <recent name="Day13" />
     </key>
@@ -114,7 +118,14 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="应用程序.throwTest">
+  <component name="RunManager" selected="应用程序.EcmDef">
+    <configuration name="EcmDef" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day16exer.EcmDef" />
+      <module name="SGG" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExceptionTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day15erro.ExceptionTest3" />
       <module name="SGG" />
@@ -136,15 +147,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="finallyTestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SGG" />
-      <option name="PACKAGE_NAME" value="Day15erro" />
-      <option name="MAIN_CLASS_NAME" value="Day15erro.finallyTestTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="finallyTestTest.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SGG" />
       <option name="PACKAGE_NAME" value="Day15erro" />
@@ -157,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.EcmDef" />
         <item itemvalue="应用程序.throwTest" />
         <item itemvalue="应用程序.OverrideTest" />
         <item itemvalue="应用程序.ExceptionTest3" />
         <item itemvalue="JUnit.finallyTestTest.test4" />
-        <item itemvalue="JUnit.finallyTestTest" />
       </list>
     </recent_temporary>
   </component>
