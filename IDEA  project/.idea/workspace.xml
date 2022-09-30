@@ -26,8 +26,8 @@
       <list>
         <option value="Kotlin Class" />
         <option value="JUnit5 Test Class" />
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -103,6 +103,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.atguigu.team.service" />
       <recent name="SecondTest" />
       <recent name="Day15erro" />
     </key>
@@ -118,40 +119,48 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="应用程序.EcmDef">
-    <configuration name="EcmDef" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day16exer.EcmDef" />
-      <module name="SGG" />
+  <component name="RunManager" selected="应用程序.hwb">
+    <configuration name="hwb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="easyAlgorithms.hwb" />
+      <module name="Algorithms" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExceptionTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day15erro.ExceptionTest3" />
-      <module name="SGG" />
+    <configuration name="testNameListServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyProject3" />
+      <option name="PACKAGE_NAME" value="com.atgigu.team.junit" />
+      <option name="MAIN_CLASS_NAME" value="com.atgigu.team.junit.testNameListServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OverrideTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day16.OverrideTest" />
-      <module name="SGG" />
+    <configuration name="testNameListServiceTest.testGetAllEquipment (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyProject3" />
+      <option name="PACKAGE_NAME" value="com.atgigu.team.junit" />
+      <option name="MAIN_CLASS_NAME" value="com.atgigu.team.junit.testNameListServiceTest" />
+      <option name="METHOD_NAME" value="testGetAllEquipment" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="throwTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day16.throwTest" />
-      <module name="SGG" />
+    <configuration name="testNameListServiceTest.testGetAllEquipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyProject3" />
+      <option name="PACKAGE_NAME" value="com.atguigu.team.service" />
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.team.service.testNameListServiceTest" />
+      <option name="METHOD_NAME" value="testGetAllEquipment" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="finallyTestTest.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SGG" />
-      <option name="PACKAGE_NAME" value="Day15erro" />
-      <option name="MAIN_CLASS_NAME" value="Day15erro.finallyTestTest" />
-      <option name="METHOD_NAME" value="test4" />
+    <configuration name="testNameListServiceTest.testGetemployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyProject3" />
+      <option name="PACKAGE_NAME" value="com.atgigu.team.junit" />
+      <option name="MAIN_CLASS_NAME" value="com.atgigu.team.junit.testNameListServiceTest" />
+      <option name="METHOD_NAME" value="testGetemployee" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.EcmDef" />
-        <item itemvalue="应用程序.throwTest" />
-        <item itemvalue="应用程序.OverrideTest" />
-        <item itemvalue="应用程序.ExceptionTest3" />
-        <item itemvalue="JUnit.finallyTestTest.test4" />
+        <item itemvalue="应用程序.hwb" />
+        <item itemvalue="JUnit.testNameListServiceTest.testGetemployee" />
+        <item itemvalue="JUnit.testNameListServiceTest.testGetAllEquipment (1)" />
+        <item itemvalue="JUnit.testNameListServiceTest" />
+        <item itemvalue="JUnit.testNameListServiceTest.testGetAllEquipment" />
       </list>
     </recent_temporary>
   </component>

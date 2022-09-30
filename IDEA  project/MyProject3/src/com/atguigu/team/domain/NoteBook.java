@@ -22,6 +22,6 @@ public class NoteBook implements Equipment{
 
     @Override
     public String getDescription() {
-        return "model = " + model + ", price = " + price;
+        return model + "(" + price + ")";
     }
 }

@@ -30,8 +30,9 @@ public class Printer implements Equipment{
         this.type = type;
     }
 
+
     @Override
     public String getDescription() {
-        return "name = " + name + ", type = " + type;
+        return name + "(" + type + ")";
     }
 }

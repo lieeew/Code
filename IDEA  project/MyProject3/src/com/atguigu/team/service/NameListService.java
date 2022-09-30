@@ -83,12 +83,21 @@ public class NameListService extends Employee {
 
     }
 
-    public Employee getEmployee(int index) throws TeamException {
+    public Employee getAllEmployee(int index) throws TeamException {
         for (int a = 0; a < employees.length; a++) {
             if (employees[a].getId() == index) { // 还记得-127 - 128 之间吗?
                 return employees[a]; // 会运行到找到为止那么就结束不运行后面的代码
             }
         }
         throw new TeamException("找不到指定的员工");
+    }
+
+    public Employee getEmployee(int index) throws TeamException {
+        for (int j = 0; j < employees.length; j++) {
+            if (employees[j].getId() == index) {
+                return employees[j];
+            }
+        }
+        throw new TeamException("未找到该用户");
     }
 }

@@ -7,6 +7,7 @@ package com.atguigu.team.domain;
  */
 public class Designer extends Programmer{
     private double bonus; // 奖金
+    private String id;
 
     public Designer() {
     }
@@ -22,5 +23,11 @@ public class Designer extends Programmer{
 
     public void setBonus(double bonus) {
         this.bonus = bonus;
+    }
+
+    @Override
+    public String toString() {
+        return getDetails() + "\t\t设计师\t" + getStatus() + "\t" +
+                getBonus() +"\t\t\t\t" + getEquipment().getDescription();
     }
 }

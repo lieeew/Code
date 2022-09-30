@@ -11,7 +11,7 @@ import com.atguigu.team.service.Status;
 public class Programmer extends Employee{
 
     private int Architect; // 开发团队后在团队中的ID
-    private Status status; // 表示成员的状态
+    private Status status = Status.FREE; // 表示成员的状态
     private Equipment equipment; // 表示该成员领用的设备
 
     public Programmer() {
@@ -45,4 +45,11 @@ public class Programmer extends Employee{
     public void setEquipment(Equipment equipment) {
         this.equipment = equipment;
     }
+
+    @Override
+    public String toString() {
+        return getDetails() + "\t\t程序员\t" + status + "\t\t\t\t\t\t" + equipment.getDescription() ;
+    }
 }
+
+
