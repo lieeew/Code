@@ -85,7 +85,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;yiiguxing.plugin.translate&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -119,7 +119,14 @@
       <command value="equals" />
     </option>
   </component>
-  <component name="RunManager" selected="应用程序.hwb">
+  <component name="RunManager" selected="应用程序.TeamView">
+    <configuration name="TeamView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atgigu.team.view.TeamView" />
+      <module name="MyProject3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="hwb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="easyAlgorithms.hwb" />
       <module name="Algorithms" />
@@ -146,16 +153,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testNameListServiceTest.testGetAllEquipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyProject3" />
-      <option name="PACKAGE_NAME" value="com.atguigu.team.service" />
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.team.service.testNameListServiceTest" />
-      <option name="METHOD_NAME" value="testGetAllEquipment" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="testNameListServiceTest.testGetemployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyProject3" />
       <option name="PACKAGE_NAME" value="com.atgigu.team.junit" />
@@ -168,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.TeamView" />
         <item itemvalue="应用程序.hwb" />
         <item itemvalue="JUnit.testNameListServiceTest.testGetemployee" />
         <item itemvalue="JUnit.testNameListServiceTest.testGetAllEquipment (1)" />
         <item itemvalue="JUnit.testNameListServiceTest" />
-        <item itemvalue="JUnit.testNameListServiceTest.testGetAllEquipment" />
       </list>
     </recent_temporary>
   </component>

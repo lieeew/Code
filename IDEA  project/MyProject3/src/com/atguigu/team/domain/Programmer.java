@@ -13,6 +13,7 @@ public class Programmer extends Employee{
     private int Architect; // 开发团队后在团队中的ID
     private Status status = Status.FREE; // 表示成员的状态
     private Equipment equipment; // 表示该成员领用的设备
+    public int mermberId;
 
     public Programmer() {
     }
@@ -34,6 +35,10 @@ public class Programmer extends Employee{
         return status;
     }
 
+    public int getMermberId() {
+        return mermberId;
+    }
+
     public void setStatus(Status status) {
         this.status = status;
     }
@@ -46,9 +51,19 @@ public class Programmer extends Employee{
         this.equipment = equipment;
     }
 
+
+    public void setMermberId(int mermberId) {
+        this.mermberId = mermberId;
+    }
+
     @Override
     public String toString() {
         return getDetails() + "\t\t程序员\t" + status + "\t\t\t\t\t\t" + equipment.getDescription() ;
+    }
+
+
+    public String getDetailTeamView() {
+        return mermberId + "/" + getId() + "\t" + getName() + "\t" + getAge() + getSalary() + "\t程序员\t" ;
     }
 }
 
