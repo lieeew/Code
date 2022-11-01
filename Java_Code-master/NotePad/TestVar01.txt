@@ -1,0 +1,5 @@
+public class TestVar01{
+	public static main(String[]  arges){
+		//  
+	}
+}
