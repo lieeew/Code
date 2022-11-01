@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algorithms/Algorithms.iml" filepath="$PROJECT_DIR$/Algorithms/Algorithms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IDE  project.iml" filepath="$PROJECT_DIR$/IDE  project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaTestSE/JavaTestSE.iml" filepath="$PROJECT_DIR$/JavaTestSE/JavaTestSE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaTestSE/JavaTestoop2.iml" filepath="$PROJECT_DIR$/JavaTestSE/JavaTestoop2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyProject3/MyProject3.iml" filepath="$PROJECT_DIR$/MyProject3/MyProject3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SGG/SGG.iml" filepath="$PROJECT_DIR$/SGG/SGG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestOop2.iml" filepath="$PROJECT_DIR$/TestOop2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hanshunping/hanshunping.iml" filepath="$PROJECT_DIR$/hanshunping/hanshunping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myProject/myProject.iml" filepath="$PROJECT_DIR$/myProject/myProject.iml" />
+    </modules>
+  </component>
+</project>
