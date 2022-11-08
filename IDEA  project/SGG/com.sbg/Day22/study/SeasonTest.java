@@ -34,6 +34,7 @@ public class SeasonTest {
         Season1[] values = Season1.values();
         for (int i = 0; i < values.length; i++) {
             System.out.println(values[i]);
+            values[i].show();
         }
 
         Season1 season11 = Season1.valueOf("WINTER"); // 可以把一个字符串转为对应的枚举类对象
@@ -86,12 +87,39 @@ class Season {
     }
 }
 
+
+interface off {
+    void show();
+}
 /**
  *enum 的直接父类是 java.lang.Enum
  */
-enum Season1 {
+enum Season1 implements off{
     // 提供当前枚举类的多个对象 之间用逗号, 最后用分号结尾
-    SPRING("春天", "春光花开"), SUMMER("夏天", "秋高气爽"), WINTER("冬天", "冰天雪地"), AUTUMN("秋天", "秋高气爽");
+    SPRING("春天", "春光花开") {
+        @Override
+        public void show() {
+            System.out.println("春天在哪里?");
+        }
+    },
+    SUMMER("夏天", "秋高气爽") {
+        @Override
+        public void show() {
+            System.out.println("夏天在哪里?");
+        }
+    },
+    WINTER("冬天", "冰天雪地") {
+        @Override
+        public void show() {
+            System.out.println("冬天在哪里?");
+        }
+    },
+    AUTUMN("秋天", "秋高气爽") {
+        @Override
+        public void show() {
+            System.out.println("秋天在哪里?");
+        }
+    };
 
     private final String SeasonName;
     private final String SeasonDec;
@@ -100,4 +128,9 @@ enum Season1 {
         SeasonName = seasonName;
         SeasonDec = seasonDec;
     }
+
+//    @Override
+//    public void show() {
+//        System.out.println("你好啊");
+//    }
 }
