@@ -74,7 +74,6 @@ public class SetTest {
      *LinkedHashSet作为HashSet的子类, 再添加数据时,每个数据还维护两个引用记录
      * 前一个数据和后一个数据.
      * 优点: 对于频繁的遍历操作, LinkedHasHSet效率高于HashSet
-     *
      */
 
     @Test

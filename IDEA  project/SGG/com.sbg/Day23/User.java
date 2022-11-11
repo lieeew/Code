@@ -12,11 +12,6 @@ public class User implements Comparable{
     public User() {
     }
 
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
     public String getName() {
         return name;
     }
@@ -43,7 +38,6 @@ public class User implements Comparable{
 
     @Override
     public boolean equals(Object o) {
-        System.out.println("User Equals()");
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -59,6 +53,12 @@ public class User implements Comparable{
         result = 31 * result + age;
         return result;
     }
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
 
     @Override
     public int compareTo(Object o) {
