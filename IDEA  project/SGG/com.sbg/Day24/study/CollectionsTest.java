@@ -162,4 +162,34 @@ public class CollectionsTest {
 
 
     }
+
+    @Test
+    public void test4() {
+        List list = new ArrayList();
+        list.add(123);
+        list.add(123);
+        list.add(123);
+        list.add(456);
+        list.add(675);
+        list.add(-78);
+        list.add(0);
+
+        System.out.println(list);
+        int frequency = Collections.frequency(list, 123);
+        System.out.println(frequency); // 3
+
+        // copy() 错误的
+//        List dest = new ArrayList();
+//        Collections.copy(dest, list); // IndexOutOfBoundsException: Source does not fit in dest
+//        System.out.println(dest);
+        // 正确的写法
+        List objects = Arrays.asList(new Object[list.size()]);// 造一个和list长度一样的Object[list.size]长度的数组
+        Collections.copy(objects, list);
+        System.out.println(objects);
+
+        // 返回线程安全的对象
+        List list1 = Collections.synchronizedList(list);
+
+    }
+
 }
