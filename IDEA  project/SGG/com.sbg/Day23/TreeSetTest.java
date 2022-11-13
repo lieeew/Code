@@ -3,6 +3,7 @@ package Day23;
 import org.junit.Test;
 
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.TreeSet;
 
@@ -80,5 +81,22 @@ public class TreeSetTest {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+    }
+
+    @Test
+    public void test3() {
+        HashSet set = new HashSet();
+        Person p1 = new Person(1001,"AA");
+        Person p2 = new Person(1002,"BB");
+        set.add(p1);
+        set.add(p2);
+        p1.setName("CC");
+        set.remove(p1);
+        System.out.println(set);
+        set.add(new Person(1001,"CC"));
+        System.out.println(set);
+        set.add(new Person(1001,"AA"));
+        System.out.println(set);
+
     }
 }

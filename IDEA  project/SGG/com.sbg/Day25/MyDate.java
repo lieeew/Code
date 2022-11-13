@@ -1,11 +1,11 @@
-package Day24.exer;
+package Day25;
 
 /**
  * @Auther: QiuXinYu
  * @Date: 2022/11/9 - 11 - 09
  * @Description: Day24
  */
-public class MyDate implements Comparable{
+public class MyDate implements Comparable<MyDate> {
     private int year;
     private int month;
     private int day;
@@ -54,20 +54,16 @@ public class MyDate implements Comparable{
 
 
     @Override
-    public int compareTo(Object o) {
-        if (o instanceof MyDate) {
-            MyDate m = (MyDate) o;
-            int MinYear = m.getYear() - this.year;
-            if (MinYear != 0) {
-                return MinYear;
-            }
-            int MinMonth = m.getMonth() - this.month;
-            if (MinMonth != 0) {
-                return MinMonth;
-            }
-
-            return day - m.getDay();
+    public int compareTo(MyDate o) {
+        int MinYear = o.getYear() - this.year;
+        if (MinYear != 0) {
+            return MinYear;
         }
-        throw new RuntimeException("错误");
+        int MinMonth = o.getMonth() - this.month;
+        if (MinMonth != 0) {
+            return MinMonth;
+        }
+
+        return day - o.getDay();
     }
 }

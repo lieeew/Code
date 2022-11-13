@@ -1,12 +1,14 @@
-package Day24.exer;
+package Day25;
 
+
+import Day24.exer.MyDate;
 
 /**
  * @Auther: QiuXinYu
  * @Date: 2022/11/9 - 11 - 09
  * @Description: Day24
  */
-public class Employee  {
+public class Employee {
     private int age;
     private String name;
     private MyDate birthday;
