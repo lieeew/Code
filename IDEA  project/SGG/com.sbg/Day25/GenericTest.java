@@ -6,63 +6,100 @@ import java.util.*;
 
 /**
  * @Auther: QiuXinYu
- * @Date: 2022/11/13 - 11 - 13
+ * @Date: 2022/11/14 - 11 - 14
  * @Description: Day25
  */
-public class GenericTest {
 
-// 集合使用泛型之前
+/**
+ * 1. 泛型继承相关
+ *
+ * 2. 通配符的使用
+ *    通配符 : ?
+ */
+public class GenericTest {
+/*
+1. 泛型继承相关
+
+类A和类B是子父类的关系, 但是G<A>和 G<B>不是子父类的关系 是并列关系. G<?> 是A和B的公共父类
+类A和类B是子父类的关系, 那么A<G> 和 B<G>是子父类的关系;
+
+       List<Integer> list1 = new ArraysList<Integer>();
+       List<Object> list2 = null;
+       list2 = list1;
+
+可以通过反推发证明
+如果可以添加成功: 在底层创建了List1数组, list2的引用指向list1在推中的对象,
+如果list2.add("Tom")那么就会出现异常
+
+ */
     @Test
     public void test1() {
-        // 录入学生的成绩
-        ArrayList list = new ArrayList();
-        list.add(12);
-        list.add(98);
-        list.add(90);
-        list.add(45);
-        // 混入不是int类型的
-        list.add("Tom");
+        Object obj = null;
+        String str1 = null;
+        obj = str1; // 多态
 
-        // 增强for循环
-        for (Object obj : list) {
-            // 强转时可能会报错, 会错ClassCastException
-            int StudentScore = (int) obj;
-            System.out.println(StudentScore);
-        }
+        String[] str2 = null;
+        Object[] obj2 = null;
+        obj2 = str2; //多态
+
+        List<Integer> list1 = null;
+        List<Object> list2 = null;
+//        list2 = list1; // 报错
+        show(list1);
+        show1(list2);
+
+
     }
 
-    // 集合使用泛型之后
+    public void show(List<Integer> list) {
+        System.out.println("Integer");
+    }
+
+    public void show1(List<Object> list) {
+        System.out.println("Object");
+    }
+
+
     @Test
     public void test2() {
-        ArrayList<Integer> list= new ArrayList<Integer>();
-        list.add(123);
-        list.add(456);
-        list.add(89);
-        list.add(38);
-        // 编译时会报错
-//        list.add("Tom");
+        List<String> list1 = null;
+        ArrayList<String> list2 = null;
+        AbstractList<String> list3 = null;
 
-        for (Integer i : list) {
-            System.out.println(i);
-        }
+        list1 = list2;
+        list1 = list3;
+
     }
 
-    // 集和中使用泛型,以HashMap为例
+    /*
+    通配符 : ?
+    相当于父类
+     */
     @Test
     public void test3() {
-        HashMap<String, Integer> map = new HashMap<String, Integer>();
-        map.put("Tom", 123);
-        map.put("jack", 32);
-        map.put("jerry", 456);
-        map.put("Mick", 89);
-        // 泛型的嵌套
-        Set<Map.Entry<String, Integer>> entry = map.entrySet();
-        Iterator<Map.Entry<String, Integer>> entryIterator = entry.iterator();
+        List<Integer> list1 = Arrays.asList(12, 45, 90);
+        List<String> list2 = Arrays.asList("Tom", "Jack", "Mam");
 
-        while (entryIterator.hasNext()) {
-            Map.Entry<String, Integer> next = entryIterator.next();
-            System.out.println(next);
-        }
+        List<?> list = null;
+
+        Ergodic(list1);
+        System.out.println("***************");
+        Ergodic(list2);
+
+        list = list1;
+
+        // 只允许添加null, 其他的不予许添加
+//        list.add(null);
+        // 允许获取数据,类型是Object
+        Object o = list.get(0);
+        System.out.println(o);
     }
 
+        public void Ergodic(List<?> list) {
+            Iterator<?> iterator = list.iterator();
+            while (iterator.hasNext()) {
+                Object next = iterator.next();
+                System.out.println(next);
+            }
+    }
 }
