@@ -45,10 +45,13 @@ public class ServerConnectClientThread extends Thread {
                 Message message = (Message) objectInputStream.readObject();
                 // 以后处理业务逻辑都在这里
                 if (MessageType.MESSAGE_COME_MES.equals(message.getMessageType())) {
-
-                    ObjectOutputStream objectOutputStream =
-                            new ObjectOutputStream(ManageClientThreads.getThread(message.getGetterId()).getSocket().getOutputStream());
-                    objectOutputStream.writeObject(message);
+                    if (ManageClientThreads.isLine(message.getGetterId())) {
+                        ObjectOutputStream objectOutputStream =
+                                new ObjectOutputStream(ManageClientThreads.getThread(message.getGetterId()).getSocket().getOutputStream());
+                        objectOutputStream.writeObject(message);
+                    } else {
+                        OfflineDataStorage.addInformation(message.getGetterId(), message);
+                    }
                 } else if (MessageType.MESSAGE_GET_ONLINE_FRIEND.equals(message.getMessageType())) {
                     message.setMessageType(MessageType.MESSAGE_RED_ONLINE_FRIEND);
                     HashMap<String, ServerConnectClientThread> hashMap = ManageClientThreads.getHashMap();
@@ -81,8 +84,12 @@ public class ServerConnectClientThread extends Thread {
                     socket.close();
                     break; //如果不break那么在走一圈就会报非常多的异常
                 } else if (MessageType.SEND_FILE_MESSAGE_TO_ONE.equals(message.getMessageType())) {
-                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(ManageClientThreads.getThread(message.getGetterId()).getSocket().getOutputStream());
-                    objectOutputStream.writeObject(message);
+                    if (ManageClientThreads.isLine(message.getGetterId())) {
+                        ObjectOutputStream objectOutputStream = new ObjectOutputStream(ManageClientThreads.getThread(message.getGetterId()).getSocket().getOutputStream());
+                        objectOutputStream.writeObject(message);
+                    } else {
+                        OfflineDataStorage.addInformation(message.getGetterId(), message);
+                    }
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);

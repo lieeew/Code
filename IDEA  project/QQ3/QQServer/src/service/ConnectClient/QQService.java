@@ -11,9 +11,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Auther: QiuXinYu
@@ -57,7 +59,12 @@ public class QQService {
                     String news = Utility.readString(100);
                     sendNewsToAll(news);
                      */
-
+                    if (OfflineDataStorage.isLineForInformation(user.getAccount())) {
+                        Message oneInformation = OfflineDataStorage.getOneInformation(user.getAccount());
+                        ObjectOutputStream objectOutputStream1 = new ObjectOutputStream(ManageClientThreads.getThread(oneInformation.getGetterId()).getSocket().getOutputStream());
+                        objectOutputStream1.writeObject(oneInformation);
+                        OfflineDataStorage.removeInformation(user.getAccount()); // 删除用户
+                    }
                 } else {
                     message.setMessageType(MessageType.MESSAGE_RED_ONLINE_FRIEND);
                     accept.close();
@@ -69,6 +76,7 @@ public class QQService {
         }
     }
     private static HashMap<String, User> hashMap = new HashMap<>();
+
 
     static {
         hashMap.put("100", new User("100", "123456"));

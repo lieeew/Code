@@ -69,8 +69,7 @@ public class QQView {
                             System.out.println("\n\n" + "你要发送给 " + getterID + " 磁盘下的路径为 " + des);
                             break;
                         case "9":
-                            messageClientService.exitSystem(count);
-                            System.exit(0);
+                            (new clientConnectServiceThread()).exitSystem(count);
                             loop = false;
                             break;
                     }

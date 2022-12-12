@@ -111,25 +111,6 @@ public class MessageClientService {
     }
 
     /**
-     * 安全退出系统
-     * @param userId 请求退出的id
-     */
-    public void exitSystem(String userId) {
-        Message message = new Message();
-        message.setSenderId(userId);
-        message.setMessageType(MessageType.MESSAGE_CLIENT_EXI);
-        // 向服务器发送请求
-        try {
-            ObjectOutputStream objectOutputStream =
-                    new ObjectOutputStream(ManageClientConnectServerThread.getClientConnectService(userId).getSocket().getOutputStream());
-            objectOutputStream.writeObject(message);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-    /**
      * 发送文件到对方的目录
      * @param des 接受者存放位置
      * @param src 发送者文件位置

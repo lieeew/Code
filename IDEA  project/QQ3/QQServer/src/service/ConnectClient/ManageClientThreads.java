@@ -1,5 +1,7 @@
 package service.ConnectClient;
 
+import sun.util.locale.provider.FallbackLocaleProviderAdapter;
+
 import java.sql.ClientInfoStatus;
 import java.util.HashMap;
 
@@ -46,5 +48,18 @@ public class ManageClientThreads {
      */
     public static void removeThread(String userId) {
         hashMap.remove(userId);
+    }
+
+    /**
+     * 判断用户是否在线
+     * @param account 用户的id
+     * @return 是否在线, true为是, false为否
+     */
+    public static boolean isLine(String account) {
+        if (hashMap.get(account) != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

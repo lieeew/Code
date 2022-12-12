@@ -28,7 +28,10 @@ public class sendNewsToAll implements Runnable{
 
             System.out.println("请输入你要发送的内容: (exit退出)");
             String content = Utility.readString(20);
-            if (content.equals("exit")) break;
+            if (content.equals("exit")) {
+                System.out.println("退出群发送系统！");
+                break;
+            }
             message.setCount(content);
 
             //将内容发送各个在线用户
