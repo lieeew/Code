@@ -64,7 +64,7 @@ public class Shot implements Runnable{
                     x += speed;
                     break;
             }
-            System.out.println("子弹的 x = " + x + "  y = " + y);
+            // System.out.println("子弹的 x = " + x + "  y = " + y);
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {

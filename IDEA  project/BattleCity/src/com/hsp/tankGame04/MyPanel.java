@@ -9,11 +9,7 @@ import java.awt.event.KeyListener;
 
 import java.util.Vector;
 
-/**
- * @Auther: QiuXinYu
- * @Date: 2022/12/19 - 12 - 19
- * @Description: com.hsp.tankGame
- */
+
 public class MyPanel extends JPanel implements KeyListener , Runnable{
     // 定义一下我的坦克
     private Hero hero = null;
@@ -21,7 +17,7 @@ public class MyPanel extends JPanel implements KeyListener , Runnable{
     private int enemyTankSize = 3;
     private Vector<EnemyTank> enemyTanks = new Vector<>(); // 敌方坦克的集合
     // 定义爆照相关的属性
-    private Vector<Bomb> bombs = new Vector<>();
+    private Vector<Bomb> bombs = new Vector<>(); // 体现爆炸效果的集合
     private Image img1; // 第一张图片资源
     private Image img2;
     private Image img3;
@@ -32,7 +28,7 @@ public class MyPanel extends JPanel implements KeyListener , Runnable{
         for (int i = 0; i < enemyTankSize; i++) {
             EnemyTank enemyTank =  new EnemyTank(100 * (i + 1), 0);
             enemyTanks.add(enemyTank);
-
+            new Thread(enemyTank).start();
             // 初始化子弹
             Shot shot = new Shot(enemyTank.getX() + 10, enemyTank.getY() + 60, "S");
             enemyTank.getShots().add(shot); // 把子弹对象添加成员属性之中便于管理
@@ -87,10 +83,14 @@ public class MyPanel extends JPanel implements KeyListener , Runnable{
        */
 
         // 自己的子弹
-        if (hero.getShot() != null && hero.getShot().isLive()) {
-            System.out.println("*********");
-            Shot shot = hero.getShot();
-            g.draw3DRect(shot.getX(), shot.getY(), 1, 1, false);
+        for (int i = 0; i < hero.getShots().size(); i++) {
+            Shot shot = hero.getShots().get(i);
+            if (shot != null && shot.isLive()) {
+                // System.out.println("*********");
+                g.draw3DRect(shot.getX(), shot.getY(), 1, 1, false);
+            } else { // 如果子弹isLive == false 那么就从集合中删除
+                hero.getShots().remove(shot);
+            }
         }
 
         // 画出爆照效果
@@ -111,6 +111,20 @@ public class MyPanel extends JPanel implements KeyListener , Runnable{
         }
     }
 
+    /**
+     * 多颗子弹打中敌人坦克的判断方法
+     */
+    public void hitEnemyTank() {
+        for (int i = 0; i < hero.getShots().size(); i++) {
+            Shot shot = hero.getShots().get(i);
+            if (shot != null && shot.isLive()) {
+                // 遍历坦克, 不知道子弹会打中哪一个坦克
+                for (EnemyTank enemyTank : enemyTanks) {
+                    stocked(hero.getShot(), enemyTank);
+                }
+            }
+        }
+    }
 
     /**
      * 画坦克
@@ -172,17 +186,30 @@ public class MyPanel extends JPanel implements KeyListener , Runnable{
 
         if (e.getKeyCode() == KeyEvent.VK_W) {
             hero.setDirection("W");
-            hero.moveUp();
+            if (hero.getY() > 0 ) {
+                hero.moveUp();
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_S) {
             hero.setDirection("S");
-            hero.moveDown();
+            if (hero.getY() + 60 < 750) {
+                hero.moveDown();
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_A) {
             hero.setDirection("A");
-            hero.moveLeft();
+            if (hero.getX() > 0) {
+                hero.moveLeft();
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_D) {
             hero.setDirection("D");
-            hero.moveRight();
+            if (hero.getX() + 60 < 1000) {
+                hero.moveRight();
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_J) {
+            // 这里为什么需要这样写, 因为如果shot这个东西, 他还没有启动的时候是为null,
+            // 但是要注意子弹线程结束后也shot并不为null, 但是可以通过isLive()判断
+            // if (hero.getShot() == null || !hero.getShot().isLive()) {
+            //     hero.shotEnemyTank();
+            // }
             hero.shotEnemyTank();
         }
 
@@ -224,21 +251,25 @@ public class MyPanel extends JPanel implements KeyListener , Runnable{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+           /* // 子弹打中敌人
             if (hero.getShot() != null && hero.getShot().isLive()) {
-                /* 这样写的话后面的repaint方法就不会正常运行, 为什么
+                *//* 这样写的话后面的repaint方法就不会正常运行, 为什么, 因为这个方法会导致迭代器死循环
                     while (enemyTanks.iterator().hasNext()) {
                     EnemyTank next = enemyTanks.iterator().next();
                     stocked(hero.getShot(), next);
-                }*/
-                for (int i = 0; i < enemyTanks.size(); i++) {
-                    stocked(hero.getShot(), enemyTanks.get(i));
+                }*//*
+                // 遍历坦克, 不知道子弹会打中哪一个坦克
+                for (EnemyTank enemyTank : enemyTanks) {
+                    stocked(hero.getShot(), enemyTank);
                 }
             }
-            // 我感觉再这里写
-            for (int i = 0; i < enemyTanks.size(); i++) {
+            // 我感觉再这里写, 不是很对的, 超级卡
+            *//*for (int i = 0; i < enemyTanks.size(); i++) {
                 EnemyTank enemyTank = enemyTanks.get(i);
                 EnemyTank.MoveFreely(enemyTank);
-            }
+            }*/
+            hitEnemyTank();
+            // 这个是刷新用的
             this.repaint();
         }
     }

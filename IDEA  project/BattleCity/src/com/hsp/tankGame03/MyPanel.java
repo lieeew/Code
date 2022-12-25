@@ -118,7 +118,9 @@ public class MyPanel extends JPanel implements KeyListener , Runnable{
             hero.setDirection("D");
             hero.moveRight();
         } else if (e.getKeyCode() == KeyEvent.VK_J) {
-            hero.shotEnemyTank();
+            if (hero.getShot() == null || !hero.getShot().isLive()) {
+                hero.shotEnemyTank();
+            }
         }
 
         this.repaint();

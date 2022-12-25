@@ -1,6 +1,5 @@
 package com.hsp.tankGame04;
 
-import java.lang.reflect.GenericArrayType;
 
 /**
  * @Auther: QiuXinYu

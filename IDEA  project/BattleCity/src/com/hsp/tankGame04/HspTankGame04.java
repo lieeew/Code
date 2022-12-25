@@ -2,11 +2,7 @@ package com.hsp.tankGame04;
 
 import javax.swing.*;
 
-/**
- * @Auther: QiuXinYu
- * @Date: 2022/12/19 - 12 - 19
- * @Description: com.hsp.tankGame
- */
+
 public class HspTankGame04 extends JFrame {
     private MyPanel myPanel = null;
 
@@ -24,6 +20,6 @@ public class HspTankGame04 extends JFrame {
     }
 
     public static void main(String[] args) {
-        HspTankGame04 hspTankGame02 = new HspTankGame04();
+        HspTankGame04 hspTankGame = new HspTankGame04();
     }
 }
