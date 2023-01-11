@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+</head>
+<style>
+     /* 浮动, 正作用可以浮动起来, 副作用会对父类元素产生影响 */
+    .fa {
+        background-color: #ccc;
+        border: 3px red solid;
+    }
+    #box1, #box2, #box3 {
+        width: 80px;
+        height: 80px;
+        border: 2px blue solid;
+
+    }
+    #box1, #box2, #box3{
+        float: left;
+        margin:  30px; /* 属性来设置四个方向的外边距 */
+    }
+    p {
+        clear: both; /* 第一种 : 清除由于浮动产生的影响 */
+    }
+    #null {
+        clear: both;
+    }
+
+    .fa:after { /* 第二种: 这个代码一也可以消除影响 */
+        content: ""; /* 内容为空 */
+        display: block; /* 转化为块级元素 */
+        clear: both; /* 清除由于浮动产生的影响 */
+    }
+
+    .fa {
+        overflow: hidden; /* 第三种, 直接作用在父类的块上面, 消除影响 */
+    }
+   
+</style>
+<body>
+    <div class="fa">
+        
+        <div id="box1">box1</div>
+        <div id="box2">box2</div>
+        <div id="box3">box3</div>
+        <!-- <p>这是浮动属性会对其他产生影响</p> -->
+        <!-- <div id="null"></div> 可以创建一个空的盒子,清除影响  -->
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    dd:nth-child(3) { 
+        text-decoration: underline;
+    }
+
+    dd:nth-of-type(2) {
+        color: brown;
+    }
+    
+    
+
+</style>
+<body>
+    <p> dd 表示父类的第几个孩子
+        dd:nth-child(3) { 
+            text-decoration: underline;
+        }
+        
+        dl 的父类(body)的第一个孩子
+        dl:nth-child(1) {
+            color: red;
+        }</p>
+    <dl>
+        <dt>老张家</dt>
+        <dd>女孩1</dd>
+        <dd>男孩1</dd>
+        <dd>男孩2</dd>
+        <dd>女孩2</dd>
+    </dl>
+</body>
+</html>

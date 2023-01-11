@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+</head>
+<style>
+    /* 
+    1.需要按照一定的顺序书写 link-visited-hover-active  lv好不好
+    2.需要链接单独指定格式
+    */
+    /* 未访问的链接 a: link 把未访问过得选择出来 快捷键alt + shift + a*/ 
+    a:link {
+        color: #333;
+        text-decoration: none;
+    }
+    /* 已访问过的链接 a:visited */
+    a:visited {
+        color: orange;
+    }
+    /* a:hover鼠标经经过的后变颜色 */
+    a:hover {
+        color: blue;
+    }
+    /* 鼠标正在一直被选择 */
+    a:active {
+        color: aqua;
+    }
+
+
+</style>
+<body>  
+    <a href="http://www.baidu.com"> 小猪佩奇 </a>
+    
+</body>
+</html>

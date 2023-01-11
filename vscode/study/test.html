@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    :root {
+        color: red;
+    }
+    li:only-child {
+        color: pink;
+    }
+    dt:first-child {
+        font-size: 60px;
+    }
+    dd:last-child {
+        font-size: 60px;
+    }
+    dd:nth-child(3) { 
+        
+        text-decoration: underline;
+    }
+    dd:nth-of-type(2) {
+        text-decoration: underline;
+    }
+</style>
+<body>
+    <h3>水果单</h3>
+    <ul>
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>榴莲</li>
+    </ul>
+    <ol>
+        <li>榴莲</li>
+    </ol>
+    <dl>
+        <dt>水果的营养价值</dt>
+        <dd>水分含量高</dd>
+        <dd>果糖含量高</dd>
+        <dd>总之就是非常高</dd>
+    </dl>
+
+
+</body>
+</html>
