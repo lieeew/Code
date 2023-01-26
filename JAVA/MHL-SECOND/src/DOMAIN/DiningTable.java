@@ -52,4 +52,9 @@ public class DiningTable {
     public void setOrderTel(String orderTel) {
         this.orderTel = orderTel;
     }
+
+    @Override
+    public String toString() {
+        return id + "\t\t" + state;
+    }
 }
