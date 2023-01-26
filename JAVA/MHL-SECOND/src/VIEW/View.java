@@ -1,8 +1,10 @@
 package VIEW;
 
 import DOMAIN.DiningTable;
+import DOMAIN.Menu;
 import SERVICE.DiningTableService;
 import SERVICE.EmployeeService;
+import SERVICE.MenuService;
 import UTILS.Utility;
 import com.alibaba.druid.sql.visitor.functions.If;
 import org.junit.Test;
@@ -18,6 +20,7 @@ public class View {
     private boolean isLoop = true;
     private EmployeeService employeeService = new EmployeeService();
     private DiningTableService diningTableService = new DiningTableService();
+    private MenuService menuService = new MenuService();
     @Test
     public void mainView() {
         while (isLoop) {
@@ -53,7 +56,7 @@ public class View {
                                     orderDiningTable();
                                     break;
                                 case "3":
-                                    System.out.println("显示所有菜品");
+                                    showAllMenu();
                                     break;
                                 case "4":
                                     System.out.println("点餐服务");
@@ -124,6 +127,14 @@ public class View {
             System.out.println("==============预订成功============");
         } else {
             System.out.println("==============预订失败============");
+        }
+    }
+
+    public void showAllMenu() {
+        List<Menu> menus = menuService.menuList();
+        System.out.println("\n菜品编号\t\t菜品名\t\t类别\t\t价格");
+        for (Menu menu : menus) {
+            System.out.println(menu);
         }
     }
 }

@@ -1,5 +1,7 @@
 package DOMAIN;
 
+import VIEW.View;
+
 /**
  * @Author: qxy
  * @Date: 2023/1/25 11
@@ -51,5 +53,10 @@ public class Menu {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return id + "\t\t\t" + name + "\t\t" + type + "\t\t" + price;
     }
 }
