@@ -6,4 +6,5 @@ package SERVICE;
  * @Description:
  */
 public class DiningTableService {
+
 }

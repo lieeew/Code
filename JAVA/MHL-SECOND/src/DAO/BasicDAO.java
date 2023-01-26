@@ -18,7 +18,7 @@ import java.util.List;
  * @Description:
  */
 public class BasicDAO<T> {
-    private QueryRunner qr = null;
+    private QueryRunner qr = new QueryRunner();
 
     /**
      * 执行dml语句
