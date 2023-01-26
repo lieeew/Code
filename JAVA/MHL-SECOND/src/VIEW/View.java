@@ -4,6 +4,7 @@ import DOMAIN.DiningTable;
 import SERVICE.DiningTableService;
 import SERVICE.EmployeeService;
 import UTILS.Utility;
+import com.alibaba.druid.sql.visitor.functions.If;
 import org.junit.Test;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class View {
                     String psw = Utility.readString(20);
                     if (employeeService.logIn(account, psw)) {
                         System.out.println("\n=========登录成功=========");
-                        if (isLoop) {
+                        while (isLoop) {
                             System.out.println("\n===============满汉楼(二级菜单)================");
                             System.out.println("\t\t 1 显示餐桌状态");
                             System.out.println("\t\t 2 预定餐桌");
@@ -98,6 +99,31 @@ public class View {
      * 预订餐桌
      */
     public void orderDiningTable() {
-
+        System.out.println("\n==============预定餐桌============");
+        System.out.print("请选择要预定的餐桌编号(-1退出): ");
+        int id = Utility.readInt(-1);
+        if (id == -1) {
+            System.out.println("==============取消预订餐桌============");
+            return;
+        }
+        if (!diningTableService.isExist(id)) {
+            System.out.println("==============预订餐桌不存在============");
+            return;
+        }
+        System.out.print("确认是否预订Y/N");
+        char c = Utility.readConfirmSelection();
+        if (c == 'N') {
+            System.out.println("==============取消预订餐桌============");
+            return;
+        }
+        System.out.print("预定人的名字: ");
+        String orderName = Utility.readString(50);
+        System.out.print("预定人的电话: ");
+        String orderTel = Utility.readString(50);
+        if (diningTableService.orderDiningTable(orderName, orderTel, id)) {
+            System.out.println("==============预订成功============");
+        } else {
+            System.out.println("==============预订失败============");
+        }
     }
 }

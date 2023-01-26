@@ -26,8 +26,8 @@ public class DiningTableService {
      * 预订餐桌
      * @return 如果为true运行成功, 为false运行失败
      */
-    public boolean orderDiningTable(String orderName, String orderTel) {
-        int update = diningTableDAO.update("update diningtable set state = '已预订', orderName = ?, orderTel = ?", orderName, orderTel);
+    public boolean orderDiningTable(String orderName, String orderTel, int id) {
+        int update = diningTableDAO.update("update diningtable set state = '已预订', orderName = ?, orderTel = ? WHERE id = ?", orderName, orderTel, id);
         return update > 0;
     }
     /**
@@ -35,7 +35,7 @@ public class DiningTableService {
      * true代表存在 false代表不存在
      */
     public boolean isExist(int id) {
-        DiningTable diningTable = diningTableDAO.querySingle("select * from diningtable where id = ? and state = ''", DiningTable.class, id);
+        DiningTable diningTable = diningTableDAO.querySingle("select * from diningtable where id = ? and state = '空'", DiningTable.class, id);
         return diningTable != null;
     }
 

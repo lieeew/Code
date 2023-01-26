@@ -27,7 +27,7 @@ public class BasicDAO<T> {
          Connection connection = JDBCUtilsByDruid.getConnection();
          int update = 0;
          try {
-             update = qr.update(sql, parameters);
+             update = qr.update(connection, sql, parameters);
          } catch (SQLException e) {
              throw new RuntimeException(e);
          } finally {
@@ -43,7 +43,7 @@ public class BasicDAO<T> {
         Connection connection = JDBCUtilsByDruid.getConnection();
         List<T> query = null;
         try {
-            query = qr.query(connection, sql, new BeanListHandler<>(tClass), parameters);
+            query = qr.query(connection, sql, new BeanListHandler<T>(tClass), parameters);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -59,7 +59,7 @@ public class BasicDAO<T> {
         Connection connection = JDBCUtilsByDruid.getConnection();
         T query = null;
         try {
-            query = qr.query(connection, sql, new BeanHandler<>(tClass), parameters);
+            query = qr.query(connection, sql, new BeanHandler<T>(tClass), parameters);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
