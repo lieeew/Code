@@ -22,4 +22,21 @@ public class DiningTableService {
         return diningTableDAO.queryMulti("select id, state  from diningtable", DiningTable.class);
     }
 
+    /**
+     * 预订餐桌
+     * @return 如果为true运行成功, 为false运行失败
+     */
+    public boolean orderDiningTable(String orderName, String orderTel) {
+        int update = diningTableDAO.update("update diningtable set state = '已预订', orderName = ?, orderTel = ?", orderName, orderTel);
+        return update > 0;
+    }
+    /**
+     * 检查餐桌编号是否存在
+     * true代表存在 false代表不存在
+     */
+    public boolean isExist(int id) {
+        DiningTable diningTable = diningTableDAO.querySingle("select * from diningtable where id = ? and state = ''", DiningTable.class, id);
+        return diningTable != null;
+    }
+
 }

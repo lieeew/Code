@@ -87,7 +87,7 @@ public class View {
      */
     public void listDiningTable () {
         List<DiningTable> list = diningTableService.list();
-        System.out.println("\\n餐桌编号\\t\\t餐桌状态");
+        System.out.println("\n餐桌编号\t\t餐桌状态");
         for (DiningTable diningTable : list) {
             System.out.println(diningTable.toString());
         }
