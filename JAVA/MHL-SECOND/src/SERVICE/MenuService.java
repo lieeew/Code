@@ -19,4 +19,20 @@ public class MenuService {
     public List<Menu> menuList () {
         return menuDAO.queryMulti("select * from menu", Menu.class);
     }
+
+    /**
+     * 判断菜品单号是否存在
+     * @return true为存在  false为不存在
+     */
+    public boolean isExist(int id) {
+        Menu menu = menuDAO.querySingle("select * from menu where id = ?", Menu.class, id);
+        return menu != null;
+    }
+
+    /**
+     * 根据id返回菜品对象
+     */
+    public Menu getMenu(int id) {
+        return (Menu) menuDAO.queryScala("select * from menu where id = ?", id);
+    }
 }

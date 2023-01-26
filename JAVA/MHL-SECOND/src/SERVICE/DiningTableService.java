@@ -2,6 +2,7 @@ package SERVICE;
 
 import DAO.DiningTableDAO;
 import DOMAIN.DiningTable;
+import VIEW.View;
 
 import java.util.List;
 
@@ -38,5 +39,15 @@ public class DiningTableService {
         DiningTable diningTable = diningTableDAO.querySingle("select * from diningtable where id = ? and state = '空'", DiningTable.class, id);
         return diningTable != null;
     }
+
+    /**
+     * 判断是否有桌号是否可以点餐
+     * @return true代表存在     false代表不存在
+     */
+    public boolean isExitFree(int id) {
+        DiningTable diningTable = diningTableDAO.querySingle("select * from diningtable where id = ? and state = '已预订'", DiningTable.class, id);
+        return diningTable != null;
+    }
+
 
 }

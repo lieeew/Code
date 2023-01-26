@@ -59,7 +59,7 @@ public class View {
                                     showAllMenu();
                                     break;
                                 case "4":
-                                    System.out.println("点餐服务");
+                                    orderFood();
                                     break;
                                 case "5":
                                     System.out.println("查看账单");
@@ -130,6 +130,9 @@ public class View {
         }
     }
 
+    /**
+     * 显示菜品名称
+     */
     public void showAllMenu() {
         List<Menu> menus = menuService.menuList();
         System.out.println("\n菜品编号\t\t菜品名\t\t类别\t\t价格");
@@ -137,4 +140,12 @@ public class View {
             System.out.println(menu);
         }
     }
+
+    /**
+     * 点餐服务
+     */
+        public void orderFood() {
+            System.out.println("==============点餐服务============");
+
+        }
 }
