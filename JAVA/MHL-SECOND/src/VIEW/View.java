@@ -2,10 +2,12 @@ package VIEW;
 
 import DOMAIN.DiningTable;
 import DOMAIN.Menu;
+import SERVICE.BillService;
 import SERVICE.DiningTableService;
 import SERVICE.EmployeeService;
 import SERVICE.MenuService;
 import UTILS.Utility;
+import com.alibaba.druid.sql.visitor.SQLASTOutputVisitor;
 import com.alibaba.druid.sql.visitor.functions.If;
 import org.junit.Test;
 
@@ -21,6 +23,7 @@ public class View {
     private EmployeeService employeeService = new EmployeeService();
     private DiningTableService diningTableService = new DiningTableService();
     private MenuService menuService = new MenuService();
+    private BillService billService = new BillService();
     @Test
     public void mainView() {
         while (isLoop) {
@@ -146,6 +149,37 @@ public class View {
      */
         public void orderFood() {
             System.out.println("==============点餐服务============");
+            System.out.print("点餐桌号(-1退出) : ");
+            int diningTableId = Utility.readInt();
+            if (diningTableId == -1) {
+                System.out.println("=========退出=========");
+                return;
+            }
+            if (!diningTableService.isExitFree(diningTableId)) {
+                System.out.println("=========该餐桌不存在=========");
+                return;
+            }
+            System.out.print("菜品编号(-1退出) : ");
+            int menuId = Utility.readInt();
+            if (menuId == -1) {
+                System.out.println("=========退出=========");
+                return;
+            }
+            if (!menuService.isExist(menuId)) {
+                System.out.println("=========该餐组不存在=========");
+                return;
+            }
+            System.out.print("菜品数量(-1退出) : ");
+            int nums = Utility.readInt();
+            if (nums == -1) {
+                System.out.println("=========退出=========");
+                return;
+            }
 
+            if (billService.orderMenu(diningTableId, menuId, nums, "就餐中")) {
+                System.out.println("=========成功=========");
+            } else {
+                System.out.println("=========失败=========");
+            }
         }
 }

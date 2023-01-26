@@ -16,7 +16,6 @@ public class BillService {
     private MenuService menuService = new MenuService();
     /**
      * 点餐
-     *
      * @return true成功   false失败
      */
     public boolean orderMenu(int diningTableId, int menuId, int nums, String status) {
