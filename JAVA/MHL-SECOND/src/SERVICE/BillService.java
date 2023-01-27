@@ -64,8 +64,8 @@ public class BillService {
      */
     public boolean payBill(int diningTableId, String state) {
         // 修改bill表
-        int update = billDAO.update("update bill state = ? where diningTableId = ?", state, diningTableId);
-        if (update < 0) {
+        int update = billDAO.update("update bill set state = ? where diningTableId = ?", state, diningTableId);
+        if (update <= 0) {
             return false;
         }
         // 修改diningTable表

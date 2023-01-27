@@ -12,6 +12,8 @@ import com.alibaba.druid.sql.visitor.SQLASTOutputVisitor;
 import com.alibaba.druid.sql.visitor.functions.If;
 import org.junit.Test;
 
+import javax.jws.soap.SOAPBinding;
+import java.nio.channels.Pipe;
 import java.util.List;
 
 /**
@@ -210,6 +212,27 @@ public class View {
             System.out.println("========退出成功========");
             return;
         }
-        if (diningTableService)
+//        if (!diningTableService.isExist(diningTableId)) {
+//            System.out.println("========餐桌不存在========");
+//            return;
+//        }
+        System.out.print("结算方式(现金/支付宝/微信) 回车表示退出 :");
+        String payMethod = Utility.readString(10, "-1");
+        if (payMethod.equals("-1")) {
+            System.out.println("========退出成功========");
+            return;
+        }
+        // System.out.println("确认是否结账(Y/N) : ");
+        char isChoice = Utility.readConfirmSelection();
+        if ('N' == isChoice) {
+            System.out.println("========退出成功========");
+            return;
+        }
+
+        if (billService.payBill(diningTableId, payMethod)) {
+            System.out.println("=======修改成功=======");
+        } else {
+            System.out.println("=======修改失败=======");
+        }
     }
 }
