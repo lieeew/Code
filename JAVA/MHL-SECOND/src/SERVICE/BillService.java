@@ -54,8 +54,25 @@ public class BillService {
      * @return ture代表修改成功   false代表修改失败
      */
     public boolean haveToPay(int diningTableId) {
-        Bill bill = billDAO.querySingle("select * from bill where diningTableId = ? and state = '就餐中' LIMIT 0, 1", Bill.class, diningTableId);
+        Bill bill = billDAO.querySingle("select * from bill where diningTableId = ? and state = '未结账' LIMIT 0, 1", Bill.class, diningTableId);
         return bill != null;
+    }
+
+    /**
+     * 结账
+     * @return true代表成功  false代表失败
+     */
+    public boolean payBill(int diningTableId, String state) {
+        // 修改bill表
+        int update = billDAO.update("update bill state = ? where diningTableId = ?", state, diningTableId);
+        if (update < 0) {
+            return false;
+        }
+        // 修改diningTable表
+        if (!diningTableService.changeStateToFree(diningTableId)) {
+            return false;
+        }
+        return true;
     }
 
 }

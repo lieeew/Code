@@ -69,7 +69,7 @@ public class View {
                                     showBills();
                                     break;
                                 case "6":
-                                    System.out.println("结账");
+                                    pay();
                                     break;
                                 case "9":
                                     isLoop = false;
@@ -177,7 +177,7 @@ public class View {
                 return;
             }
 
-            if (billService.orderMenu(diningTableId, menuId, nums, "就餐中")) {
+            if (billService.orderMenu(diningTableId, menuId, nums, "未结账")) {
                 System.out.println("=========成功=========");
             } else {
                 System.out.println("=========失败=========");
@@ -198,4 +198,18 @@ public class View {
                 System.out.println(bill);
             }
         }
+
+    /**
+     * 支付账单
+     */
+    public void pay() {
+        System.out.println("========结账服务========");
+        System.out.print("请输入你要结账的编号(-1退出) : ");
+        int diningTableId = Utility.readInt();
+        if (diningTableId == -1) {
+            System.out.println("========退出成功========");
+            return;
+        }
+        if (diningTableService)
+    }
 }
