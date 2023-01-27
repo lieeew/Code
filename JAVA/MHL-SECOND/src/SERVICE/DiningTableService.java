@@ -49,5 +49,22 @@ public class DiningTableService {
         return diningTable != null;
     }
 
+    /**
+     * 更新餐桌状态
+     * @return true代表修改成功   false代表修改失败
+     */
+    public boolean changeStatus(int id, String status) {
+        int update = diningTableDAO.update("update diningtable set state = ? where id = ?", status, id);
+        return update > 0;
+    }
+
+    /**
+     * 结账完成, 修改餐桌状态
+     * @return true代表修改成功  false代表修改失败
+     */
+    public boolean changeStateToFree(int id) {
+        int update = diningTableDAO.update("update diningtable set state = '空', orderName = '空', orderTel = '110' where id = ?", id);
+        return update > 0;
+    }
 
 }

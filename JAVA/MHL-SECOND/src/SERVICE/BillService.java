@@ -1,8 +1,10 @@
 package SERVICE;
 
 import DAO.BillDAO;
+import DOMAIN.Bill;
 import DOMAIN.Menu;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -38,6 +40,22 @@ public class BillService {
         } else {
             return true;
         }
+    }
+
+    /**
+     * 返回菜单
+     */
+    public List<Bill> billList () {
+        return billDAO.queryMulti("select * from bill", Bill.class);
+    }
+
+    /**
+     * 判断是否有需要结账的餐桌
+     * @return ture代表修改成功   false代表修改失败
+     */
+    public boolean haveToPay(int diningTableId) {
+        Bill bill = billDAO.querySingle("select * from bill where diningTableId = ? and state = '就餐中' LIMIT 0, 1", Bill.class, diningTableId);
+        return bill != null;
     }
 
 }

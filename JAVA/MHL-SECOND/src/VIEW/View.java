@@ -1,5 +1,6 @@
 package VIEW;
 
+import DOMAIN.Bill;
 import DOMAIN.DiningTable;
 import DOMAIN.Menu;
 import SERVICE.BillService;
@@ -65,7 +66,7 @@ public class View {
                                     orderFood();
                                     break;
                                 case "5":
-                                    System.out.println("查看账单");
+                                    showBills();
                                     break;
                                 case "6":
                                     System.out.println("结账");
@@ -180,6 +181,21 @@ public class View {
                 System.out.println("=========成功=========");
             } else {
                 System.out.println("=========失败=========");
+            }
+
+            // 更新餐桌状态
+            if (diningTableService.changeStatus(diningTableId, "就餐中")) {
+                System.out.println("=========成功=========");
+            } else {
+                System.out.println("=========失败=========");
+            }
+        }
+
+        public void showBills() {
+            System.out.println("\n编号\t\t菜品号\t\t菜品量\t\t金额\t\t桌号\t\t日期\t\t\t\t\t\t\t状态");
+            List<Bill> bills = billService.billList();
+            for (Bill bill : bills) {
+                System.out.println(bill);
             }
         }
 }

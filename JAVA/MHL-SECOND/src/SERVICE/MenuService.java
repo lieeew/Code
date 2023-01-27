@@ -33,6 +33,6 @@ public class MenuService {
      * 根据id返回菜品对象
      */
     public Menu getMenu(int id) {
-        return (Menu) menuDAO.queryScala("select * from menu where id = ?", id);
+        return menuDAO.querySingle("select * from menu where id = ?", Menu.class, id);
     }
 }
