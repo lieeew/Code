@@ -15,4 +15,5 @@ public class Message implements Serializable {
     private String content; // 消息内容
     private Timestamp timestamp; // 发送时间
     private MessageType messageType; // 发送消息类型
+
 }
