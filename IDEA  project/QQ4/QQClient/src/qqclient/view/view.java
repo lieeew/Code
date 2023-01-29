@@ -3,7 +3,9 @@ package qqclient.view;
 import com.sun.media.sound.FFT;
 import com.sun.org.apache.bcel.internal.generic.IFGE;
 import org.junit.Test;
+import qqclient.service.userClientService;
 import qqclient.utils.Utility;
+import sun.applet.Main;
 
 import javax.rmi.CORBA.Util;
 import java.time.temporal.ValueRange;
@@ -14,23 +16,22 @@ import java.time.temporal.ValueRange;
  * @Description:
  */
 public class view {
-    private boolean loop = true;
-
-    @Test
-    public void test() {
+    private static boolean loop = true;
+    private static userClientService userClientService = new userClientService();
+    public static void test() {
         while (loop) {
             System.out.println("========欢迎登陆系统========");
             System.out.println("\t\t 1 表示登录系统: ");
             System.out.println("\t\t 9 表示退出系统: ");
             System.out.print("请输入你的选择 : ");
+            int isChoice = Utility.readInt();
             System.out.print("请输入账号 :");
             String account = Utility.readString(20);
             System.out.print("请输入密码 :");
             String pwd = Utility.readString(20);
-            int isChoice = Utility.readInt();
             switch (isChoice) {
                 case 1:
-                    if (true) {
+                    if (userClientService.checkUer(account, pwd)) {
                         System.out.println("========欢迎登录" + "jack" + "系统========");
                         while (true) {
                             System.out.println("\n=======网络通信二级菜单( 用户" + "jack" + ")======");
@@ -64,5 +65,9 @@ public class view {
                     break;
             }
         }
+    }
+
+    public static void main(String[] args) {
+        test();
     }
 }

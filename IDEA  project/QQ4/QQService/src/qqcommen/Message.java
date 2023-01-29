@@ -14,12 +14,12 @@ public class Message implements Serializable {
     private String getter; // 接收者
     private String content; // 消息内容
     private Timestamp timestamp; // 发送时间
-    private MessageType messageType; // 发送消息类型
+    private String messageType; // 发送消息类型
 
     public Message() {
     }
 
-    public Message(String sender, String getter, String content, Timestamp timestamp, MessageType messageType) {
+    public Message(String sender, String getter, String content, Timestamp timestamp, String messageType) {
         this.sender = sender;
         this.getter = getter;
         this.content = content;
@@ -59,11 +59,11 @@ public class Message implements Serializable {
         this.timestamp = timestamp;
     }
 
-    public MessageType getMessageType() {
+    public String getMessageType() {
         return messageType;
     }
 
-    public void setMessageType(MessageType messageType) {
+    public void setMessageType(String messageType) {
         this.messageType = messageType;
     }
 }

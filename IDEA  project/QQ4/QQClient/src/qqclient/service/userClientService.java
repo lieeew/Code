@@ -19,6 +19,12 @@ public class userClientService {
     private User u = new User(); // 会在外面使用到user属性
     private Socket socket;
 
+    /**
+     * 登录检查
+     * @param userId userId
+     * @param psw 密码
+     * @return true表示登录成功
+     */
     public boolean checkUer(String userId, String psw) {
         boolean isSuccess = true;
         u.setUserId(userId);
