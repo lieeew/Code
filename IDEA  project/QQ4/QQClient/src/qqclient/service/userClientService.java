@@ -33,6 +33,9 @@ public class userClientService {
 
             if (message.getMessageType().equals(MessageType.MESSAGE_LOGIN_SUCCESS)) {
                 // 登录成功, 需要一个线程持有该socket, 保持和服务器的通信
+                // 启动线程
+                new clientConnectServiceThread(socket).start();
+                // 加入到线程管理的集合
 
             } else {
                 // 登录失败
