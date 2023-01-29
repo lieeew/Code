@@ -16,4 +16,54 @@ public class Message implements Serializable {
     private Timestamp timestamp; // 发送时间
     private MessageType messageType; // 发送消息类型
 
+    public Message() {
+    }
+
+    public Message(String sender, String getter, String content, Timestamp timestamp, MessageType messageType) {
+        this.sender = sender;
+        this.getter = getter;
+        this.content = content;
+        this.timestamp = timestamp;
+        this.messageType = messageType;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    public String getGetter() {
+        return getter;
+    }
+
+    public void setGetter(String getter) {
+        this.getter = getter;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public MessageType getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(MessageType messageType) {
+        this.messageType = messageType;
+    }
 }
