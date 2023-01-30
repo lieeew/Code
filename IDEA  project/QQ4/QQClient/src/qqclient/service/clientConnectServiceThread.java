@@ -35,9 +35,9 @@ public class clientConnectServiceThread extends Thread{
                 if (message.getMessageType().equals(MessageType.MESSAGE_RED_ONLINE_FRIEND)) {
                     String content = message.getContent();
                     String[] s = content.split(" ");
-                    System.out.println("\n用户名 : ");
+                    System.out.println();
                     for (String str : s) {
-                        System.out.println(str);
+                        System.out.println("用户 : " + str);
                     }
                 } else {
                     System.out.println("其他来自服务器的消息类型");

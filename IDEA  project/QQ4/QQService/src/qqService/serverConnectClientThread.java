@@ -35,7 +35,7 @@ public class serverConnectClientThread extends Thread {
 
                 if (message.getMessageType().equals(MessageType.MESSAGE_GET_ONLINE_FRIEND)) {
                     // 如果请求这个的话
-                    System.out.println(message.getSender() + "要查看用户列表");
+                    System.out.println(message.getSender() + " 要查看用户列表");
                     message.setMessageType(MessageType.MESSAGE_RED_ONLINE_FRIEND);
                     message.setGetter(message.getSender()); // 设置接收者, 就是发送者
                     String str = ManageServerConnectClient.getOnlineThread();

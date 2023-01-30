@@ -22,7 +22,6 @@ public class qqService {
     private UserService userService = new UserService(); // 数据库相关
 
     public qqService() {
-
         System.out.println("服務器在9999端口監聽");
         try {
             serverSocket = new ServerSocket(9999);
@@ -58,5 +57,6 @@ public class qqService {
             }
         }
     }
+
 
 }
