@@ -5,9 +5,7 @@ import qqcommen.Message;
 import qqcommen.MessageType;
 import qqcommen.User;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 
@@ -22,8 +20,9 @@ public class UserClientService {
 
     /**
      * 登录检查
+     *
      * @param userId userId
-     * @param psw 密码
+     * @param psw    密码
      * @return true表示登录成功
      */
     public boolean checkUer(String userId, String psw) {
@@ -94,8 +93,9 @@ public class UserClientService {
 
     /**
      * 私聊消息
-     * @param getter 接收者
-     * @param sender 发送者
+     *
+     * @param getter  接收者
+     * @param sender  发送者
      * @param content 私聊内容
      */
     public void SendMessageToOne(String getter, String sender, String content) {
@@ -116,10 +116,11 @@ public class UserClientService {
 
     /**
      * 私聊消息
-     * @param sender 发送者
+     *
+     * @param sender  发送者
      * @param content 内容
      */
-    public void SendMessageToAll( String sender, String content) {
+    public void SendMessageToAll(String sender, String content) {
         Message message = new Message();
         message.setSender(sender);
         message.setContent(content);
@@ -132,6 +133,41 @@ public class UserClientService {
             throw new RuntimeException(e);
         }
         System.out.println("\n" + sender + " 对 " + "大家" + " 说 " + content);
+    }
+
+    /**
+     * 发送文件
+     *
+     * @param src    源文件的位置
+     * @param dest   目标文件的位置
+     * @param getter 接收者
+     * @param sender 发送者
+     */
+    public void sendFile(String src, String dest, String getter, String sender) {
+        File file = new File(src);
+        byte[] bytes = new byte[(int) file.length()]; // 根据文件的大小一次性创建一个
+        Message message = new Message();
+        BufferedInputStream bis = null;
+        try {
+            bis = new BufferedInputStream(new FileInputStream(file));
+            bis.read(bytes);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            message.setBytes(bytes);
+            message.setMessageType(MessageType.SEND_FILE_MESSAGE_TO_ONE);
+            message.setGetter(getter);
+            message.setSender(sender);
+            message.setSrc(src);
+            message.setDesc(dest);
+            if (bis != null) {
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 }
 

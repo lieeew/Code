@@ -36,6 +36,7 @@ public class view {
                             System.out.print("请输入你的选择 : ");
                             int Choice = Utility.readInt();
                             String content;
+                            String getter;
                             switch (Choice) {
                                 case 1:
                                     userClientService.showUserList();
@@ -47,13 +48,19 @@ public class view {
                                     break;
                                 case 3:
                                     System.out.print("请输入你想发送的对象id : ");
-                                    String getter = Utility.readString(20);
+                                    getter = Utility.readString(20);
                                     System.out.print("请你写出发送的内容 : ");
                                     content = Utility.readString(20);
                                     userClientService.SendMessageToOne(getter, account, content);
                                     break;
                                 case 4:
-
+                                    System.out.print("请输入你想发送的对象id : ");
+                                    getter = Utility.readString(20);
+                                    System.out.print("输入你文件的位置 : ");
+                                    String src = Utility.readString(30);
+                                    System.out.print("存入到对方的位置 : ");
+                                    String desc = Utility.readString(30);
+                                    userClientService.sendFile(src, desc, getter, account);
                                     break;
                                 case 9:
                                     userClientService.logOut();

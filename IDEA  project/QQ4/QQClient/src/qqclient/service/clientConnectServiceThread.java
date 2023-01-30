@@ -4,9 +4,7 @@ import qqcommen.Message;
 import qqcommen.MessageType;
 
 import javax.xml.transform.Source;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -44,6 +42,11 @@ public class clientConnectServiceThread extends Thread{
                     System.out.println("\n\n" + message.getSender() + " 对 " + message.getGetter() + " 说 " + message.getContent());
                 } else if (message.getMessageType().equals(MessageType.SEND_MESSAGE_TO_ALL)) {
                     System.out.println("\n\n" + message.getSender() + " 对 大家 说 " + message.getContent());
+                } else if (message.getMessageType().equals(MessageType.SEND_FILE_MESSAGE_TO_ONE)) {
+                    File file = new File(message.getDesc());
+                    BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+                    bos.write(message.getBytes());
+                    System.out.println(message.getSender() + " 发送给 " + message.getGetter() + " 存放的位置是 " + message.getDesc());
                 } else {
                     System.out.println("其他来自服务器的消息类型");
                 }
