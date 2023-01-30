@@ -103,7 +103,7 @@ public class UserClientService {
         message.setSender(sender);
         message.setGetter(getter);
         message.setContent(content);
-        message.setMessageType(MessageType.SEND_FILE_MESSAGE_TO_ONE);
+        message.setMessageType(MessageType.MESSAGE_COME_MES);
 
         try {
             ObjectOutputStream oos = new ObjectOutputStream(ManageClientConnectServiceThread.getThread(sender).getSocket().getOutputStream());
@@ -111,6 +111,8 @@ public class UserClientService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        System.out.println("\n" + sender + " 对 " + getter + " 说 " + content);
     }
 }
 

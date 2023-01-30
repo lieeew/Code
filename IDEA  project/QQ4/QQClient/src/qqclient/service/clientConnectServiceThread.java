@@ -3,6 +3,7 @@ package qqclient.service;
 import qqcommen.Message;
 import qqcommen.MessageType;
 
+import javax.xml.transform.Source;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -39,6 +40,8 @@ public class clientConnectServiceThread extends Thread{
                     for (String str : s) {
                         System.out.println("用户 : " + str);
                     }
+                } else if (message.getMessageType().equals(MessageType.MESSAGE_COME_MES)) {
+                    System.out.println("\n\n" + message.getSender() + " 对 " + message.getGetter() + " 说 " + message.getContent());
                 } else {
                     System.out.println("其他来自服务器的消息类型");
                 }

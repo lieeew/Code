@@ -55,6 +55,10 @@ public class serverConnectClientThread extends Thread {
                     ManageServerConnectClient.remove(userId); // 从集合中删除
                     // 退出while循环
                     break;
+                } else if (message.getMessageType().equals(MessageType.MESSAGE_COME_MES)) {
+                    // 这个message就是我需要的message
+                    ObjectOutputStream oos = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(message.getGetter()).socket.getOutputStream());
+                    oos.writeObject(message);
                 } else {
                     System.out.println("其他的消息类型!");
                 }

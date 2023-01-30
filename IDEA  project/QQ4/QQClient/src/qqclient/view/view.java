@@ -42,7 +42,11 @@ public class view {
                                 case 2:
                                     break;
                                 case 3:
-
+                                    System.out.print("请输入你想发送的对象id : ");
+                                    String getter = Utility.readString(20);
+                                    System.out.print("请你写出发送的内容 : ");
+                                    String content = Utility.readString(20);
+                                    userClientService.SendMessageToOne(getter, account, content);
                                     break;
                                 case 4:
                                     break;
