@@ -35,20 +35,25 @@ public class view {
                             System.out.println("\t\t 9.退出系统");
                             System.out.print("请输入你的选择 : ");
                             int Choice = Utility.readInt();
+                            String content;
                             switch (Choice) {
                                 case 1:
                                     userClientService.showUserList();
                                     break;
                                 case 2:
+                                    System.out.print("请你写出发送给全体的内容 : ");
+                                    content = Utility.readString(20);
+                                    userClientService.SendMessageToAll(account, content);
                                     break;
                                 case 3:
                                     System.out.print("请输入你想发送的对象id : ");
                                     String getter = Utility.readString(20);
                                     System.out.print("请你写出发送的内容 : ");
-                                    String content = Utility.readString(20);
+                                    content = Utility.readString(20);
                                     userClientService.SendMessageToOne(getter, account, content);
                                     break;
                                 case 4:
+
                                     break;
                                 case 9:
                                     userClientService.logOut();

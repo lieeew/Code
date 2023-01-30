@@ -111,8 +111,27 @@ public class UserClientService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         System.out.println("\n" + sender + " 对 " + getter + " 说 " + content);
+    }
+
+    /**
+     * 私聊消息
+     * @param sender 发送者
+     * @param content 内容
+     */
+    public void SendMessageToAll( String sender, String content) {
+        Message message = new Message();
+        message.setSender(sender);
+        message.setContent(content);
+        message.setMessageType(MessageType.SEND_MESSAGE_TO_ALL);
+
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(ManageClientConnectServiceThread.getThread(sender).getSocket().getOutputStream());
+            oos.writeObject(message);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("\n" + sender + " 对 " + "大家" + " 说 " + content);
     }
 }
 

@@ -59,6 +59,13 @@ public class serverConnectClientThread extends Thread {
                     // 这个message就是我需要的message
                     ObjectOutputStream oos = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(message.getGetter()).socket.getOutputStream());
                     oos.writeObject(message);
+                } else if (message.getMessageType().equals(MessageType.SEND_MESSAGE_TO_ALL)) {
+                    String onlineThread = ManageServerConnectClient.getOnlineThread();
+                    String[] s = onlineThread.split(" ");
+                    for (String s1 : s) {
+                        ObjectOutputStream oos = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(s1).getSocket().getOutputStream());
+                        oos.writeObject(message);
+                    }
                 } else {
                     System.out.println("其他的消息类型!");
                 }
