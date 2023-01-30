@@ -35,7 +35,7 @@ public class qqService {
                 Message message = new Message();
                 if (userService.check(u.getUserId(), u.getPsw())) {
                     // 账号密码正确
-                    message.setMessageType(MessageType.MESSAGE_LOGIN_SUCCESS);
+                    message.setMessageType(MessageType.MESSAGE_LOGIN_SUCCEED);
                     oos.writeObject(message);
                     serverConnectClientThread serverConnectClientThread = new serverConnectClientThread(socket, u.getUserId());
                     serverConnectClientThread.start();

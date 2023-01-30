@@ -38,7 +38,7 @@ public class userClientService {
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
             Message message = (Message) ois.readObject();
 
-            if (message.getMessageType().equals(MessageType.MESSAGE_LOGIN_SUCCESS)) {
+            if (message.getMessageType().equals(MessageType.MESSAGE_LOGIN_SUCCEED)) {
                 // 登录成功, 需要一个线程持有该socket, 保持和服务器的通信
                 // 启动线程
                 clientConnectServiceThread clientConnectServiceThread = new clientConnectServiceThread(socket);
@@ -54,6 +54,21 @@ public class userClientService {
             throw new RuntimeException(e);
         }
         return isSuccess;
+    }
+
+    /**
+     * 用戶列表
+     */
+    public void showUserList() {
+        Message message = new Message();
+        message.setMessageType(MessageType.MESSAGE_GET_ONLINE_FRIEND);
+        message.setSender(u.getUserId());
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(ManageClientConnectServiceThread.getThread(u.getUserId()).getSocket().getOutputStream());
+            oos.writeObject(message);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

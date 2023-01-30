@@ -1,9 +1,11 @@
 package qqService;
 
 import qqcommen.Message;
+import qqcommen.MessageType;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 /**
@@ -31,6 +33,17 @@ public class serverConnectClientThread extends Thread {
                 ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
                 Message message = (Message) ois.readObject(); // 没有消息就会阻塞在这里
 
+                if (message.getMessageType().equals(MessageType.MESSAGE_GET_ONLINE_FRIEND)) {
+                    // 如果请求这个的话
+                    message.setMessageType(MessageType.MESSAGE_RED_ONLINE_FRIEND);
+                    String str = ManageServerConnectClient.getOnlineThread();
+                    message.setContent(str);
+                    // 把message对象发送给客户端
+                    ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                    oos.writeObject(message);
+                } else {
+                    System.out.println("其他的消息类型!");
+                }
             } catch (IOException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }

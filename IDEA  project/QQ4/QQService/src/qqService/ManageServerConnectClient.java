@@ -1,6 +1,7 @@
 package qqService;
 
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * @Author: qxy
@@ -22,5 +23,17 @@ public class ManageServerConnectClient {
      */
     public static serverConnectClientThread getThreadByUserId(String userId) {
         return hm.get(userId);
+    }
+
+    /**
+     * 获取在线用户列表
+     */
+    public static String getOnlineThread() {
+        Set<String> strings = hm.keySet();
+        StringBuffer stringBuffer = new StringBuffer();
+        for (String string : strings) {
+            stringBuffer.append(string).append(" ");
+        }
+        return stringBuffer.toString();
     }
 }

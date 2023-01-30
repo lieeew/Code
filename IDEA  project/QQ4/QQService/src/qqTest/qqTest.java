@@ -1,6 +1,7 @@
-package qqService;
+package qqTest;
 
 import org.junit.Test;
+import qqService.qqService;
 
 /**
  * @Author: qxy

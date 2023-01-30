@@ -32,9 +32,9 @@ public class view {
             switch (isChoice) {
                 case 1:
                     if (userClientService.checkUer(account, pwd)) {
-                        System.out.println("========欢迎登录" + "jack" + "系统========");
+                        System.out.println("========欢迎登录" + account + "系统========");
                         while (true) {
-                            System.out.println("\n=======网络通信二级菜单( 用户" + "jack" + ")======");
+                            System.out.println("\n=======网络通信二级菜单( 用户" + account + ")======");
                             System.out.println("\t\t 1.显示在线人数");
                             System.out.println("\t\t 2.群发信息");
                             System.out.println("\t\t 3.私聊信息");
