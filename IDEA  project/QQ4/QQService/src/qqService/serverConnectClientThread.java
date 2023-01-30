@@ -20,6 +20,10 @@ public class serverConnectClientThread extends Thread {
     public serverConnectClientThread() {
     }
 
+    public Socket getSocket() {
+        return socket;
+    }
+
     public serverConnectClientThread(Socket socket, String userId) {
         this.socket = socket;
         this.userId = userId;
@@ -29,7 +33,7 @@ public class serverConnectClientThread extends Thread {
     public void run() {
         while (true) {
             try {
-                System.out.println("客户单和服务器保持通信, 读取数据");
+                System.out.println("客户端 " + userId + " 和服务器保持通信, 读取数据");
                 ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
                 Message message = (Message) ois.readObject(); // 没有消息就会阻塞在这里
 
@@ -43,6 +47,14 @@ public class serverConnectClientThread extends Thread {
                     // 把message对象发送给客户端
                     ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
                     oos.writeObject(message);
+                } else if (message.getMessageType().equals(MessageType.MESSAGE_CLIENT_EXI)) {
+                    String sender = message.getSender();
+                    System.out.println(sender + " 请求退出 ");
+                    // 把对应的socket关闭
+                    ManageServerConnectClient.getThreadByUserId(sender).getSocket().close();
+                    ManageServerConnectClient.remove(userId); // 从集合中删除
+                    // 退出while循环
+                    break;
                 } else {
                     System.out.println("其他的消息类型!");
                 }

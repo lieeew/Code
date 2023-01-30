@@ -1,5 +1,6 @@
 package qqclient.service;
 
+import qqclient.utils.Utility;
 import qqcommen.Message;
 import qqcommen.MessageType;
 import qqcommen.User;
@@ -15,7 +16,7 @@ import java.net.Socket;
  * @Date: 2023/1/29 15
  * @Description:
  */
-public class userClientService {
+public class UserClientService {
     private User u = new User(); // 会在外面使用到user属性
     private Socket socket;
 
@@ -65,6 +66,47 @@ public class userClientService {
         message.setSender(u.getUserId());
         try {
             ObjectOutputStream oos = new ObjectOutputStream(ManageClientConnectServiceThread.getThread(u.getUserId()).getSocket().getOutputStream());
+            oos.writeObject(message);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 退出系统的方法
+     */
+    public void logOut() {
+        Message message = new Message();
+        message.setMessageType(MessageType.MESSAGE_CLIENT_EXI);
+        message.setSender(u.getUserId());
+
+        try {
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(ManageClientConnectServiceThread.getThread(u.getUserId()).getSocket().getOutputStream());
+            oos.writeObject(message);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            // 退出系统
+            System.exit(0);
+        }
+    }
+
+    /**
+     * 私聊消息
+     * @param getter 接收者
+     * @param sender 发送者
+     * @param content 私聊内容
+     */
+    public void SendMessageToOne(String getter, String sender, String content) {
+        Message message = new Message();
+        message.setSender(sender);
+        message.setGetter(getter);
+        message.setContent(content);
+        message.setMessageType(MessageType.SEND_FILE_MESSAGE_TO_ONE);
+
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(ManageClientConnectServiceThread.getThread(sender).getSocket().getOutputStream());
             oos.writeObject(message);
         } catch (IOException e) {
             throw new RuntimeException(e);

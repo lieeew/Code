@@ -1,14 +1,7 @@
 package qqclient.view;
 
-import com.sun.media.sound.FFT;
-import com.sun.org.apache.bcel.internal.generic.IFGE;
-import org.junit.Test;
-import qqclient.service.userClientService;
+import qqclient.service.UserClientService;
 import qqclient.utils.Utility;
-import sun.applet.Main;
-
-import javax.rmi.CORBA.Util;
-import java.time.temporal.ValueRange;
 
 /**
  * @Author: qxy
@@ -17,7 +10,7 @@ import java.time.temporal.ValueRange;
  */
 public class view {
     private static boolean loop = true;
-    private static userClientService userClientService = new userClientService();
+    private static UserClientService userClientService = new UserClientService();
     public static void test() {
         while (loop) {
             System.out.println("========欢迎登陆系统========");
@@ -25,9 +18,9 @@ public class view {
             System.out.println("\t\t 9 表示退出系统: ");
             System.out.print("请输入你的选择 : ");
             int isChoice = Utility.readInt();
-            System.out.print("请输入账号 :");
+            System.out.print("请输入账号 : ");
             String account = Utility.readString(20);
-            System.out.print("请输入密码 :");
+            System.out.print("请输入密码 : ");
             String pwd = Utility.readString(20);
             switch (isChoice) {
                 case 1:
@@ -45,14 +38,16 @@ public class view {
                             switch (Choice) {
                                 case 1:
                                     userClientService.showUserList();
-                                break;
+                                    break;
                                 case 2:
                                     break;
                                 case 3:
+
                                     break;
                                 case 4:
                                     break;
                                 case 9:
+                                    userClientService.logOut();
                                     loop = false;
                                     System.out.println("退出系统");
                                     break;

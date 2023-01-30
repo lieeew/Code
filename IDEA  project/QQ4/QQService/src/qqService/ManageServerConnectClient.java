@@ -9,7 +9,7 @@ import java.util.Set;
  * @Description:
  */
 public class ManageServerConnectClient {
-    private static HashMap<String , serverConnectClientThread> hm = new HashMap<String, serverConnectClientThread>();
+    private static HashMap<String, serverConnectClientThread> hm = new HashMap<String, serverConnectClientThread>();
 
     /**
      * 添加方法
@@ -23,6 +23,13 @@ public class ManageServerConnectClient {
      */
     public static serverConnectClientThread getThreadByUserId(String userId) {
         return hm.get(userId);
+    }
+
+    /**
+     * 移除对象
+     */
+    public static void remove(String userId) {
+        hm.remove(userId);
     }
 
     /**
