@@ -40,11 +40,12 @@ public class view {
                             System.out.println("\t\t 3.私聊信息");
                             System.out.println("\t\t 4.发送文件");
                             System.out.println("\t\t 9.退出系统");
-                            System.out.print("请输入你的选择:");
+                            System.out.print("请输入你的选择 : ");
                             int Choice = Utility.readInt();
                             switch (Choice) {
                                 case 1:
-                                    break;
+                                    userClientService.showUserList();
+                                break;
                                 case 2:
                                     break;
                                 case 3:

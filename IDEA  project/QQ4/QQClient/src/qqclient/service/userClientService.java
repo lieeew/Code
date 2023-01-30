@@ -57,7 +57,7 @@ public class userClientService {
     }
 
     /**
-     * 用戶列表
+     * 获取用戶列表
      */
     public void showUserList() {
         Message message = new Message();
