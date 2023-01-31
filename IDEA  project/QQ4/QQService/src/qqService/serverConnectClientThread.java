@@ -20,7 +20,6 @@ public class serverConnectClientThread extends Thread {
     private Socket socket;
     private String userId; // 链接到服务器的id, 区分用户
     private MessageService messageService = new MessageService();
-    private OffLineService offLineService = new OffLineService();
     public serverConnectClientThread() {
     }
 
@@ -69,7 +68,7 @@ public class serverConnectClientThread extends Thread {
 
                    } else {
                        // 不在线
-                       offLineService.saveMessageForOffLine(message.getGetter(), message);
+                       OffLineService.saveMessageForOffLine(message.getGetter(), message);
                    }
                 } else if (message.getMessageType().equals(MessageType.SEND_MESSAGE_TO_ALL)) {
                     String onlineThread = ManageServerConnectClient.getOnlineThread();
@@ -89,5 +88,4 @@ public class serverConnectClientThread extends Thread {
             }
         }
     }
-
 }

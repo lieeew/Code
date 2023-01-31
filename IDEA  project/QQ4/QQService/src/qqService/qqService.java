@@ -43,7 +43,6 @@ public class qqService {
 
                     if (OffLineService.HaveOffLineMessage(u.getUserId())) {
                         Message mes = OffLineService.getMessage(u.getUserId());
-                        mes.setMessageType(MessageType.MESSAGE_COME_MES);
                         ObjectOutputStream objectOutputStream
                                 = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(u.getUserId()).getSocket().getOutputStream());
                         objectOutputStream.writeObject(mes);
