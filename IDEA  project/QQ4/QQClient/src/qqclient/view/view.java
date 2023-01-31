@@ -11,6 +11,7 @@ import qqclient.utils.Utility;
 public class view {
     private static boolean loop = true;
     private static UserClientService userClientService = new UserClientService();
+
     public static void test() {
         while (loop) {
             System.out.println("========欢迎登陆系统========");
@@ -61,6 +62,7 @@ public class view {
                                     System.out.print("存入到对方的位置 : ");
                                     String desc = Utility.readString(30);
                                     userClientService.sendFile(src, desc, getter, account);
+                                    System.out.println("\n\n" + account + " 给 " + getter + " 发送文件的位置在 " + desc);
                                     break;
                                 case 9:
                                     userClientService.logOut();
@@ -75,6 +77,8 @@ public class view {
                     loop = false;
                     System.out.println("退出系统");
                     break;
+                default:
+                    System.out.println("输入有误, 请重新输入!");
             }
         }
     }

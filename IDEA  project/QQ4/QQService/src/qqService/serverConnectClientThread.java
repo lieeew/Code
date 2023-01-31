@@ -67,7 +67,7 @@ public class serverConnectClientThread extends Thread {
                         oos.writeObject(message);
                     }
                 } else if (message.getMessageType().equals(MessageType.SEND_FILE_MESSAGE_TO_ONE)) {
-                    ObjectOutputStream oos = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(message.getGetter()).socket.getOutputStream());
+                    ObjectOutputStream oos = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(message.getGetter()).getSocket().getOutputStream());
                     oos.writeObject(message);
                 } else {
                     System.out.println("其他的消息类型!");

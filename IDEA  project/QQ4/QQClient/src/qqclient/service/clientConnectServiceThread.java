@@ -46,7 +46,7 @@ public class clientConnectServiceThread extends Thread{
                     File file = new File(message.getDesc());
                     BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
                     bos.write(message.getBytes());
-                    System.out.println(message.getSender() + " 发送给 " + message.getGetter() + " 存放的位置是 " + message.getDesc());
+                    System.out.println("\n\n" + message.getSender() + " 发送给 " + message.getGetter() + " 存放的位置是 " + message.getDesc());
                 } else {
                     System.out.println("其他来自服务器的消息类型");
                 }
@@ -55,5 +55,4 @@ public class clientConnectServiceThread extends Thread{
             }
         }
     }
-
 }

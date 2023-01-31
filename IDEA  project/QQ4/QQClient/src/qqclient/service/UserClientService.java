@@ -147,19 +147,23 @@ public class UserClientService {
         File file = new File(src);
         byte[] bytes = new byte[(int) file.length()]; // 根据文件的大小一次性创建一个
         Message message = new Message();
+        message.setBytes(bytes);
+        message.setMessageType(MessageType.SEND_FILE_MESSAGE_TO_ONE);
+        message.setGetter(getter);
+        message.setSender(sender);
+        message.setSrc(src);
+        message.setDesc(dest);
         BufferedInputStream bis = null;
         try {
             bis = new BufferedInputStream(new FileInputStream(file));
             bis.read(bytes);
+
+            // 发送到服务器
+            ObjectOutputStream oos = new ObjectOutputStream(ManageClientConnectServiceThread.getThread(sender).getSocket().getOutputStream());
+            oos.writeObject(message);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
-            message.setBytes(bytes);
-            message.setMessageType(MessageType.SEND_FILE_MESSAGE_TO_ONE);
-            message.setGetter(getter);
-            message.setSender(sender);
-            message.setSrc(src);
-            message.setDesc(dest);
             if (bis != null) {
                 try {
                     bis.close();
