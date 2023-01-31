@@ -61,8 +61,8 @@ public class QQService {
                      */
                     if (OfflineDataStorage.isLineForInformation(user.getAccount())) {
                         Message oneInformation = OfflineDataStorage.getOneInformation(user.getAccount());
-                        ObjectOutputStream objectOutputStream1 = new ObjectOutputStream(ManageClientThreads.getThread(oneInformation.getGetterId()).getSocket().getOutputStream());
-                        objectOutputStream1.writeObject(oneInformation);
+                        ObjectOutputStream oos = new ObjectOutputStream(ManageClientThreads.getThread(oneInformation.getGetterId()).getSocket().getOutputStream());
+                        oos.writeObject(oneInformation);
                         OfflineDataStorage.removeInformation(user.getAccount()); // 删除用户
                     }
                 } else {
@@ -84,14 +84,14 @@ public class QQService {
         hashMap.put("紫霞仙子", new User("紫霞仙子", "123456"));
         hashMap.put("郭德纲", new User("郭德纲", "123456"));
     }
-    public static boolean checkUser(@NotNull User user) {
+    public static boolean checkUser( User user) {
         User u = hashMap.get(user.getAccount());
         if (u == null) return false;
         if (!u.getPassword().equals(user.getPassword())) return false;
         return true;
     }
 
-    public static void sendNewsToAll(@NotNull String content) {
+    public static void sendNewsToAll( String content) {
         while (true) {
             try {
                 if (content.equalsIgnoreCase("EXIT")) {

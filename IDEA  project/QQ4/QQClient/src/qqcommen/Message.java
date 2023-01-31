@@ -10,6 +10,7 @@ import java.sql.Timestamp;
  */
 public class Message implements Serializable {
     private static final long serialVersionUID = -54667710L;
+    private int id;
     private String sender; // 发送者
     private String getter; // 接收者
     private String content; // 消息内容
@@ -91,5 +92,13 @@ public class Message implements Serializable {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

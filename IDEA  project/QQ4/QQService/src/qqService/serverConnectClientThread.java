@@ -1,5 +1,6 @@
 package qqService;
 
+import mysqlService.service.MessageService;
 import qqcommen.Message;
 import qqcommen.MessageType;
 
@@ -7,6 +8,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @Author: qxy
@@ -16,7 +19,8 @@ import java.net.Socket;
 public class serverConnectClientThread extends Thread {
     private Socket socket;
     private String userId; // 链接到服务器的id, 区分用户
-
+    private MessageService messageService = new MessageService();
+    private OffLineService offLineService = new OffLineService();
     public serverConnectClientThread() {
     }
 
@@ -56,9 +60,17 @@ public class serverConnectClientThread extends Thread {
                     // 退出while循环
                     break;
                 } else if (message.getMessageType().equals(MessageType.MESSAGE_COME_MES)) {
-                    // 这个message就是我需要的message
-                    ObjectOutputStream oos = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(message.getGetter()).socket.getOutputStream());
-                    oos.writeObject(message);
+                   if (ManageServerConnectClient.isLive(message.getGetter())) {
+                       // 这个message就是我需要的message
+                       ObjectOutputStream oos = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(message.getGetter()).socket.getOutputStream());
+                       oos.writeObject(message);
+                       // 保存导数据库
+                       messageService.saveMessage(message.getSender(), message.getGetter(), message.getContent(), message.getMessageType());
+
+                   } else {
+                       // 不在线
+                       offLineService.saveMessageForOffLine(message.getGetter(), message);
+                   }
                 } else if (message.getMessageType().equals(MessageType.SEND_MESSAGE_TO_ALL)) {
                     String onlineThread = ManageServerConnectClient.getOnlineThread();
                     String[] s = onlineThread.split(" ");

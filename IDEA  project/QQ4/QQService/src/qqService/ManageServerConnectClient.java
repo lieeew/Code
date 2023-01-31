@@ -43,4 +43,11 @@ public class ManageServerConnectClient {
         }
         return stringBuffer.toString();
     }
+
+    /**
+     * 判断用户是否在线
+     */
+    public static boolean isLive(String userId) {
+        return hm.containsKey(userId);
+    }
 }

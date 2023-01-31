@@ -40,6 +40,15 @@ public class qqService {
                     serverConnectClientThread.start();
                     // 添加线程管理集合
                     ManageServerConnectClient.addToMangeHp(u.getUserId(), serverConnectClientThread);
+
+                    if (OffLineService.HaveOffLineMessage(u.getUserId())) {
+                        Message mes = OffLineService.getMessage(u.getUserId());
+                        mes.setMessageType(MessageType.MESSAGE_COME_MES);
+                        ObjectOutputStream objectOutputStream
+                                = new ObjectOutputStream(ManageServerConnectClient.getThreadByUserId(u.getUserId()).getSocket().getOutputStream());
+                        objectOutputStream.writeObject(mes);
+                        OffLineService.removeMessage(u.getUserId());
+                    }
                 } else {
                     // 账号密码错误
                     message.setMessageType(MessageType.MESSAGE_LOGIN_FAIL);

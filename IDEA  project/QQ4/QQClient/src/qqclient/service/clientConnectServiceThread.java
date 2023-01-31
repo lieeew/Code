@@ -28,7 +28,7 @@ public class clientConnectServiceThread extends Thread{
     public void run() {
         while (true) {
             try {
-                System.out.println("客户端线程, 等待服务端发送的消息");
+                System.out.println("\n客户端线程, 等待服务端发送的消息");
                 ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
                 Message message = (Message) ois.readObject(); // 如果没有消息, 就会一直卡在这里
                 if (message.getMessageType().equals(MessageType.MESSAGE_RED_ONLINE_FRIEND)) {
