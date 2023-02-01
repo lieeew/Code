@@ -10,16 +10,17 @@ import java.util.regex.Pattern;
  */
 public class RegExp05 {
     public static void main(String[] args) {
-        String content = "a211111aaaa1aahello";
+        String content = "a21111111aaaa1aahello";
         // String regStr = "a{3}"; // 匹配aaa
         // String regStr = "1{4}"; // 匹配 1111
         // String regStr = "\\d{2}"; // 匹配两位任意数字字符
 
-        //a{3,4},1{4,5},\\d{2,5}
+        //a{3,4},1{4,5},\\d{2,5}, 1{3,}
         //细节：java 匹配默认贪婪匹配，即尽可能匹配多的
         // String regStr = "a{3,4}"; // 匹配 aaa 或 aaaa
         // String regStr = "1{1,4}"; // 匹配 1 or 11 or 111 or 1111
         // String regStr = "\\d{2,5}"; // 匹配两位数或者三位数或者四位数
+        // String regStr = "1{2,}"; // 匹配最小是11
 
         // 1+
         // String regStr = "1+"; // 匹配一个1或者多个1
@@ -31,7 +32,7 @@ public class RegExp05 {
         // String regStr = "1*"; // 匹配0个1 或者多个1
 
         // ? 表示 0 或 1
-        String regStr = "a1?"; // 匹配a or a1
+        String regStr = "a1?"; // 匹配 a or a1
 
         Pattern compile = Pattern.compile(regStr);
         Matcher matcher = compile.matcher(content);
