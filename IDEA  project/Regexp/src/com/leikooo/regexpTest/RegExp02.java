@@ -28,10 +28,14 @@ public class RegExp02 {
         String regStr1 = "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()!@:%_\\+.~#?&\\/\\/=]*)$"; // 在网上找的
         Pattern pattern = Pattern.compile(regStr);
         Matcher matcher = pattern.matcher(content);
+
         if (matcher.find()) {
             System.out.println("success");
         } else {
             System.out.println("failure");
         }
+        // 整体匹配
+        System.out.println("结果 = " + Pattern.matches(regStr, content));
+
     }
 }
