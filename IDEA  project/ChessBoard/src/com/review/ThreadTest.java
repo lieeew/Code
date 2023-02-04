@@ -32,7 +32,7 @@ class ThreadExample extends Thread {
 }
 
 class ThreadTest {
-    public static void main(StringTest[] args) {
+    public static void main(String[] args) {
         Test mv = new Test();
         Thread t1 = new ThreadExample(mv);
         Thread t2 = new ThreadExample(mv);
