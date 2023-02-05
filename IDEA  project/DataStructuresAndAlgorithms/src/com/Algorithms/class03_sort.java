@@ -74,12 +74,31 @@ public class class03_sort {
             while (newInsertIndex - 1 >= 0 && arr[newInsertIndex - 1] > arr[newInsertIndex]) {
                 swap(arr, newInsertIndex, newInsertIndex - 1);
                 newInsertIndex--; // 这个newInsertIndex必须向前移动
-
                 /*
                 退出的条件已经包含
                 1. 左边没有数
                 2. 左边的数小于newInsertIndex
                  */
+            }
+        }
+    }
+
+    /**
+     * 插入排序, 第二种方式
+     */
+    public static void insertSort2(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        // 0 ~ 0 ok
+        // 0 ~ 1
+        // 0 ~ 2
+        // 0 ~ 3
+        // 0 ~ n -1
+        int N = arr.length;
+        for (int num = 1; num < N; num++) {
+            for (int pre = num - 1; pre > 0 && arr[pre - 1] > arr[pre]; pre--) {
+                swap(arr, pre, pre - 1);
             }
         }
     }
@@ -101,7 +120,7 @@ public class class03_sort {
     public static void main(String[] args) {
         int[] arr = {31, 5, 21, 8, 20, 1, 0, 3, 90, 39, 29};
         printArr(arr);
-        insertSort1(arr);
+        insertSort2(arr);
         printArr(arr);
     }
 }
