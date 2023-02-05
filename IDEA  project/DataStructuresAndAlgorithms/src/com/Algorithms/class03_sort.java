@@ -73,8 +73,13 @@ public class class03_sort {
             int newInsertIndex = num;
             while (newInsertIndex - 1 >= 0 && arr[newInsertIndex - 1] > arr[newInsertIndex]) {
                 swap(arr, newInsertIndex, newInsertIndex - 1);
-                newInsertIndex--;
-                // 退出的条件已经包含
+                newInsertIndex--; // 这个newInsertIndex必须向前移动
+
+                /*
+                退出的条件已经包含
+                1. 左边没有数
+                2. 左边的数小于newInsertIndex
+                 */
             }
         }
     }
