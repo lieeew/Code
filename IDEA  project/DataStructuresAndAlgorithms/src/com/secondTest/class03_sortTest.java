@@ -3,7 +3,7 @@ package com.secondTest;
 /**
  * @Author: qxy
  * @Date: 2023/2/5
- * @Description:
+ * @Description: 重复练习
  */
 public class class03_sortTest {
     /**
@@ -93,6 +93,7 @@ public class class03_sortTest {
         if (arr == null || arr.length < 2) {
             return;
         }
+
         /*
             插入排序
             0 ~ 0 ok
