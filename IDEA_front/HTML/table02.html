@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<!--
+<!-- 菜谱表格
     说明：
   table： 标签是表格标签 border： 设置表格标签
   width： 设置表格宽度 height： 设置表格高度
   align： 设置表格相对于页面的对齐方式
-  cellspacing： 设置单元格间距
+  cellSpacing： 设置单元格间距
   tr ：是行标签 th ：是表头标签 td ：是单元格标签
   align： 设置单元格文本对齐方式 b ：是加粗标签
 -->
 <body>
 
 <!--首先确定最大的行数 5 和列数 3-->
-<table border="6" align="center" width="400">
+<table border="6" align="center" width="500" cellspacing="0" bordercolor="c6a2ca" height="200">
     <tr>
-        <th align="center" colspan="3">星期一菜谱</th>
+       <th align="center" colspan="3">星期一菜谱</th>  <!-- colspan行合并-->
     </tr>
     <tr>
-        <td>素菜</td>
+        <td rowspan="2">素菜</td> <!--rowspan 列合并-->
         <td>茄子</td>
         <td>花椒扁豆</td>
     </tr>
     <tr>
-        <td>荤菜</td>
         <td>油炸大虾</td>
         <td>生蚝暴雨</td>
     </tr>
     <tr>
-        <td>荤菜</td>
+        <td rowspan="2">荤菜</td>
         <td>大虾</td>
+        <td>烤全羊</td>
     </tr>
     <tr>
-        <td>荤菜</td>
-        <td>红烧肉</td>
+        <td>红烧肉<img src="./imgs/2.png" alt="汤" height="50"></td>
+        <td>海参</td>
     </tr>
 </table>
 

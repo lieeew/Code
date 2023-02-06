@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form細節重要！</title>
+</head>
+<body>
+<h4>用户注册信息</h4>
+<!--
+
+        1. action 设置的是提交服务器地址
+        2. method属性没有设置默认 get
+          1)  get  浏览器地址吧信息显示出来
+          2) 不安全
+          3) 有长度限制
+          Post
+            1) 请求在http传输的. 在http体里面相对安全
+          2) 理论上传输的数据可以无限大, 但是实际上不会太大
+        3. 对应 select checkbox  radio 标签 提交的数据时value指定的值
+        4. 对应checkbox 复选框 可以提交对个字, 但是name属性必须统一 都是 sport=xx&sport=yy
+        5. 服务器没有接受到数据的三种情况
+          1) form表单元素没有 name属性, 数据不会提交
+          2) 单选, 复选框 没有添加 value属性
+          3) 表单项不在form标签之中
+-->
+<form action="ok.html" method="post">
+  <table>
+    <tr>
+      <td> 用户名称:</td>
+      <td><input type="text" name="username"></td>
+    </tr>
+    <tr>
+      <td>用户密码:</td>
+      <td><input type="password" name="pswId1"></td>
+    </tr>
+    <tr>
+      <td>确认密码:</td>
+      <td><input type="password" name="pswId2"></td>
+    </tr>
+    <tr>
+      <td>请输入你喜欢的运动项目 :</td>
+      <td><input type="checkbox" name="sport" value="lq"> 篮球
+        <input type="checkbox" name="sport" value="zq" checked> 足球
+        <input type="checkbox" name="sport" value="sq" checked> 手球
+      </td>
+    </tr>
+    <tr>
+      <td>请选择性别 :</td>
+      <td><input type="radio" name="gender"> 男 <input type="radio" name="gender"> 女</td>
+    </tr>
+    <tr>
+      <td>请选择你喜欢的城市 :</td>
+      <td>
+        <select name="city">
+          <option value="cd">重庆</option>
+          <option value="sh">上海</option>
+          <option value="tw">台湾</option>
+          <option value="zjg">芝加哥</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>自我介绍</td>
+      <td><textarea name="content" rows="4" cols="25"></textarea></td>
+    </tr>
+    <tr>
+      <td>请选择你的头像 :</td>
+      <td><input type="file" name="myfile"></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="提交"></td>
+      <td><input type="reset" value="重新提交"></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>

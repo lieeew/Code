@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h4>用户注册信息</h4>
+<!--    一定要给input name属性
+        checkbox 是复选框, 保证name属性一致
+-->
+    <form>
+        <table>
+            <tr>
+                <td> 用户名称:</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>用户密码:</td>
+                <td><input type="password" name="pswId1"></td>
+            </tr>
+            <tr>
+                <td>确认密码:</td>
+                <td><input type="password" name="pswId2"></td>
+            </tr>
+            <tr>
+                <td>请输入你喜欢的运动项目 :</td>
+                <td><input type="checkbox" name="sport" value="lq"> 篮球
+                    <input type="checkbox" name="sport" value="zq" checked> 足球
+                    <input type="checkbox" name="sport" value="sq" checked> 手球
+                </td>
+            </tr>
+            <tr>
+                <td>请选择性别 :</td>
+                <td><input type="radio" name="gender"> 男 <input type="radio" name="gender"> 女</td>
+            </tr>
+            <tr>
+                <td>请选择你喜欢的城市 :</td>
+                <td>
+                    <select name="city">
+                        <option value="cd">重庆</option>
+                        <option value="sh">上海</option>
+                        <option value="tw">台湾</option>
+                        <option value="zjg">芝加哥</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>自我介绍</td>
+                <td><textarea name="content" rows="4" cols="25"></textarea></td>
+            </tr>
+            <tr>
+                <td>请选择你的头像 :</td>
+                <td><input type="file" name="myfile"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="提交"></td>
+                <td><input type="reset" value="重新提交"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
