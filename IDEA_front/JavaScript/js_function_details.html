@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js函数细节</title>
+    <script type="text/javascript">
+        // js 重载会覆盖上一层的定义
+        // 细节1
+        // 当你调用f1()时, 其实调用的是f1(name)
+        // 调用f1(name) 没有传入形参, 那么会输出undefined
+
+        function f1() {
+            alert("hi f1")
+        }
+
+        function f1(name) {
+            alert("hi " + name)
+        }
+
+        f1();
+
+        // 细节2
+        // 函数的 arguments 隐形参数（作用域在 function 函数内）
+        // 隐形参数: 在 function 函数中不需要定义，可以直接用来获取所有参数的变量。
+        function f2() {
+            for (let i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+            console.log("arguments = ", arguments);
+            alert("f2()....");
+        }
+        f2(10, 20, "函数");
+
+        // 细节三
+        // (1)如果我们的函数有形参，在传入实参的时候，仍然按照顺序匹配
+        // (2)如果有匹配上，就赋给他， 如果没有匹配上，也无所谓
+        // (3)仍然会把所有的实参，赋给 arguments
+        // (4)如果形参个数，大于了实参个数，则该形参的值为 undefined
+        function f3(n) {
+            console.log(n); // 10
+            console.log("arguments = ", arguments);// 10, 20, 30
+        }
+        f3(10, 20, 30);
+
+        function f4(a, b, c, d) {
+            console.log("arguments = ", arguments);// 10, 20, 30
+        }
+        f4(10, 20);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
