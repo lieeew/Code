@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementsByName</title>
+    <script type="text/javascript">
+        // 动态加载
+        window.onload= function () {
+            document.getElementById("selectAll").onclick = function () {
+                let sports = document.getElementsByName("sport"); // 这个返回值是一个数组NodeList
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = true;
+                }
+            }
+
+            document.getElementById("selectNone").onclick = function () {
+                let sports = document.getElementsByName("sport"); // 这个返回值是一个数组NodeList
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = false;
+                }
+            }
+
+            document.getElementById("selectReverse").onclick = function () {
+                let sports = document.getElementsByName("sport"); // 这个返回值是一个数组NodeList
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = sports[i].checked !== true;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="checkbox" name="sport" value="zq" checked> 足球
+<input type="checkbox" name="sport" value="tq"> 台球
+<input type="checkbox" name="sport" value="ppq"> 乒乓球 <br><br>
+
+<button id="selectAll">全选</button>
+<button id="selectNone">全不选</button>
+<button id="selectReverse">反向选择</button>
+
+</body>
+</html>

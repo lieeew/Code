@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementsByTagName</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("changeGif").onclick = function () {
+                let imgs = document.getElementsByTagName("img");
+                // 这个是HTMLCollection
+                // alert(imgs);
+                if (document.getElementById("changeGif").innerText === "查看多少小喵, 并切换成小狗") {
+                    alert("小喵的数量为 " + imgs.length);
+                    for (let i = 0; i < imgs.length; i++) {
+                        imgs[i].src = "./imgs/" + (i + 4) + ".png";
+                    }
+                    document.getElementById("changeGif").innerText = "查看多少小狗, 并切换成小猫";
+                } else {
+                    alert("小狗的数量为 " + imgs.length);
+                    for (let i = 0; i < imgs.length; i++) {
+                        imgs[i].src = "./imgs/" + (i + 1) + ".png";
+                    }
+                    document.getElementById("changeGif").innerText = "查看多少小喵, 并切换成小狗";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<img src="./imgs/1.png" alt="cat" height="100">
+<img src="./imgs/2.png" alt="cat" height="100">
+<img src="./imgs/3.png" alt="cat" height="100"> <br><br>
+<button id="changeGif">查看多少小喵, 并切换成小狗</button>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementById</title>
+    <script type="text/javascript">
+        // 1. 先得到h1的dom对象, 通过id获取
+        // 2. 对h1对应的dom对象记性操作
+        function getValues() {
+            let elementById = document.getElementById("myHead");
+            // alert(elementById);
+            // innerText
+            //老韩解读 myHeader.innerText 获取到 myHeader 的包含的文本
+            //看看 innerText , innerHTML
+             alert(elementById.innerText);//文本 韩顺平教育
+            alert(elementById.innerHTML);//html <div>韩顺平教育</di>
+        }
+    </script>
+</head>
+<body>
+<h1 id="myHead" onclick="getValues()"><div>韩顺平教育</div></h1>
+<p> Click on the header to alert its value</p>
+</body>
+</html>

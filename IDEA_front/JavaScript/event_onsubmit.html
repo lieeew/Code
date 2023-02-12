@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <title>提交</title>
     <script type="text/javascript">
+        // 静态加载
+        function register() {
+            let acount = document.getElementById("account1");
+            let passWord = document.getElementById("passWord1");
+            if (acount.value === "" || passWord.value === "") {
+                alert("账号或密码不能为空!!!");
+                return false;
+            }
+            return true;
+        }
 
+        // 动态加载
+        window.onload = function () {
+            let elementById = document.getElementById("form");
+            elementById.onsubmit = function () {
+                if (elementById.name.value === "" || elementById.psw.value === "") { // 通过名字获取
+                    alert("账号或密码不能为空!!!~~");
+                    return false;
+                }
+                return true;
+            }
+        }
     </script>
 </head>
 <body>
+<h1>注册页面1</h1>
+<form action="ok.html" onsubmit="return register()"> <!--action表示, 提交到ok.html页面,这里需要添加return-->
+    u : <input type="text" id="account1" name="name"> <br>
+    p : <input type="password" id="passWord1" name="psw"> <br>
+    <input type="submit">
+</form>
 
+<h1>注册页面2</h1>
+<form action="ok.html" id="form">
+    u : <input type="text" id="account2" name="name"> <br>
+    p " <input type="password" id="passWorld2" name="psw"> <br>
+    <input type="submit">
+</form>
 </body>
 </html>

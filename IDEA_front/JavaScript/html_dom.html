@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./style/css.css">
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+
+<div id="total">
+    <div class="inner">
+        <P>
+            你会的运动项目：
+        </P>
+        <input type="checkbox" name="sport" value="zq" checked="checked">足球
+        <input type="checkbox" name="sport" value="tq">台球
+        <input type="checkbox" name="sport" value="ppq">乒乓球 <br/>
+        <hr/>
+        <P>
+            你当前女友是谁：
+        </P>
+        <select id="sel01">
+            <option>---女友---</option>
+            <option>艳红</option>
+            <option id="ct" value="春桃菇凉">春桃</option>
+            <option>春花</option>
+            <option>桃红</option>
+        </select>
+        <hr/>
+        <p>
+            你的编程语言?
+        </p>
+
+        <ul id="language">
+            <li id="java">Java~~~</li>
+            <li>PHP</li>
+            <li>C++</li>
+            <li>Python</li>
+        </ul>
+
+
+        <br>
+        <br>
+        <hr/>
+        <p>
+            个人介绍:
+        </p>
+        <textarea name="person" id="person">个人介绍</textarea>
+    </div>
+
+</div>
+<div id="btnList">
+    <div>
+        <button id="btn01">查找id=java节点</button>
+    </div>
+    <div>
+        <button id="btn02">查找所有option节点</button>
+    </div>
+    <div>
+        <button id="btn03">查找name=sport的节点</button>
+    </div>
+    <div>
+        <button id="btn04">查找id=language 下所有li节点</button>
+    </div>
+    <div>
+        <button id="btn05">返回id=sel01 的所有子节点</button>
+    </div>
+    <div>
+        <button id="btn06">返回id=sel01 的第一个子节点</button>
+    </div>
+    <div>
+        <button id="btn07">返回id=java 的父节点</button>
+    </div>
+    <div>
+        <button id="btn08">返回id=ct 的前后兄弟节点</button>
+    </div>
+    <div>
+        <button id="btn09">读取id=ct 的 value 属性值</button>
+    </div>
+    <div>
+        <button id="btn10">设置#person的文本域</button>
+    </div>
+</div>
+</body>
+</html>

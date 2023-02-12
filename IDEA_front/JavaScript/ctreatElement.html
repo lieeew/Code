@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>creatElement</title>
+    <script type="text/javascript">
+        function creatImgs() {
+          // 创建一只小猫
+          // 1. 拿到img的对象, 有了对象就好办
+          let img = document.createElement("img");
+          // alert(img); // HTMLImageElement
+          img.src = "./imgs/1.png";
+          img.width = "100"; // "100px"不能通过
+          // 2. 展示, 添加到 body之中  有内存中的dom影响到显示
+          document.body.appendChild(img);
+        }
+    </script>
+</head>
+<body>
+<input type="button" onclick="creatImgs()" value="点击创建一只小猫">
+</body>
+</html>

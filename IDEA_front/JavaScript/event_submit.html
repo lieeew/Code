@@ -18,6 +18,7 @@
         // 动态加载
         window.onload = function () { // 这句话是加载页面
             let elementById = document.getElementById("form2");
+            // onsubmit 绑定的函数，会直接将结果(f,t)返回给 onsubmit, 他们是直接关联在一起的
             elementById.onsubmit = function () {
                 if (elementById.name.value === "" || elementById.word.value === "") { // 整个form当成一个dom对象
                     alert("账号或密码不能为空!!!~~");
