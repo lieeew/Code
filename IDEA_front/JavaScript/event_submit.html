@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>submit提交</title>
+    <script>
+        function register() {
+            let user = document.getElementById("userId");
+            let psw = document.getElementById("psw");
+
+            if (user.value == "" || psw.value == "") {
+                alert("账号或密码不能为空!!!");
+                return false;
+            }
+            return true;
+        }
+
+        // 动态加载
+        window.onload = function () { // 这句话是加载页面
+            let elementById = document.getElementById("form2");
+            elementById.onsubmit = function () {
+                if (elementById.name.value === "" || elementById.word.value === "") { // 整个form当成一个dom对象
+                    alert("账号或密码不能为空!!!~~");
+                    return false;
+                }
+                return true;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<h1>注册用户1</h1>
+<form action="ok.html" onsubmit="return register()">
+    u : <input type="text" id="userId" name="username"> <br>
+    p : <input type="password" id="psw" name="passWord"> <br>
+    <input type="submit">
+</form>
+<h1>注册用户2</h1>
+<form action="ok.html" id="form2">
+    u : <input type="text" id="user" name="name"><br>
+    p : <input type="password" id="pass" name="word"><br>
+    <input type="submit">
+</form>
+</body>
+</html>

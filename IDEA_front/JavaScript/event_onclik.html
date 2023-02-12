@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击事件</title>
+    <script type="text/javascript">
+        function sayOk() {
+            alert("ok");
+        }
+
+        window.onload = function () {
+            // 动态注册对象
+            //1. 先拿到 id=btn01 的 button 对应 dom 对象
+            //2. 通过 dom 对象动态的绑定 onclick 事件
+            //3. 通过 document 的 getElementById 获取对应的 dom 对象
+            let bun01 = document.getElementById("bun1");
+            bun01.onclick = function () {
+                alert("hi~~");
+            }
+        }
+
+    </script>
+</head>
+<body>
+<!--静态注册onclick事件-->
+<button onclick="sayOk()">sayOk按钮</button>
+<button id="bun1">sayHi按钮</button>
+</body>
+</html>
