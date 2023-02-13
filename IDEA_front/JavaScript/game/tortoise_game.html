@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乌龟吃鸡</title>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td></td>
+        <td><input type="button" value="向上走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="向左走" onclick="move(this)"/></td>
+        <td></td>
+        <td><input type="button" value="向右走" onclick="move(this)"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" value="向下走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+</table>
+<!--
+    把乌龟放在一个div
+    absolute 绝对定位 相对不最左上角
+    left:100px  表示图片距离窗口的坐标
+    top:120px  具体图片举例窗口的原点坐标
+    针对图片而言, 定位的点, 是图片的左上角
+    坐标体系和java类似
+-->
+<div id="wugui" style="position: absolute ;left:100px;top:120px;">
+    <img src="1.bmp" border="1" alt=""/>
+</div>
+<!--公鸡图片div-->
+<div id="cock" style="left:200px;position:absolute;top:200px;">
+    <img src="2.bmp" border="1" alt=""/>
+</div>
+
+</body>
+</html>
