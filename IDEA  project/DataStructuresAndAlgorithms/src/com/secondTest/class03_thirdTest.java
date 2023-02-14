@@ -1,7 +1,5 @@
 package com.secondTest;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 /**
  * @Author: qxy
  * @Date: 2023/2/14
@@ -79,7 +77,11 @@ public class class03_thirdTest {
          */
         int N = arr.length;
         for (int i = 1; i < N; i++) {
-
+            int newNum = i;
+            while (newNum - 1 >= 0 && arr[newNum - 1] > arr[newNum]) {
+                swap(arr, newNum, newNum - 1);
+                newNum--;
+            }
         }
     }
 
@@ -101,7 +103,8 @@ public class class03_thirdTest {
         int[] arr = {31, 5, 21, 8, 20, 1, 0, 3, 90, 39, 29};
         print(arr);
         // selectSort(arr);
-        doubbleSort(arr);
+        // doubbleSort(arr);
+        insertSort(arr);
         print(arr);
     }
 }
