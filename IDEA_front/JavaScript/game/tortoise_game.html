@@ -4,13 +4,90 @@
     <meta charset="UTF-8">
     <title>乌龟吃鸡</title>
     <script type="text/javascript">
+        // 定义公鸡的坐标
+        var cock_top = 200;
+        var cock_left = 200;
+        // 乌龟的长度
+        var tortoise_height = 67;
+        var tortoise_width = 94;
+        // 鸡的长度和宽度
+        var cock_height = 73;
+        var cock_width = 76;
 
+        // 用乌龟的dom对象, 修改属性实现运动
+        function move(val) {
+            // alert(val.value);
+            // 利用属性value.value的值
+            // 获取到乌龟
+            let tortoise = document.getElementById("wugui");
+            // alert(tortoise.style.top); // 120px
+            // alert(typeof tortoise.style.top); // String类型的
+            let top = parseInt(tortoise.style.top);
+            let left = parseInt(tortoise.style.left);
+            if (val.value === "向上走") {
+                // alert(number); // 120
+                top -= 10;
+                tortoise.style.top = top + "px";
+            } else if (val.value === "向左走") {
+                left -= 10;
+                tortoise.style.left = left + "px";
+            } else if (val.value === "向右走") {
+                left += 10;
+                tortoise.style.left = left+ "px";
+            } else if (val.value === "向下走") {
+                // alert(number); 120
+                top += 10;
+                tortoise.style.top = top + "px";
+            }
+            // 检查碰撞
+            Touch(tortoise);
+
+        }
+
+        // 完成碰撞的代码
+        function Touch(tortoise) {
+            let tortoise_left = parseInt(tortoise.style.left);
+            let tortoise_top = parseInt(tortoise.style.top);
+
+            const top_sub = Math.abs(tortoise_top - cock_top); // 纵向距离
+            const left_sub = Math.abs(tortoise_left - cock_left); // 横向距离
+            var yy = 0; //默认没有碰撞 纵坐标
+            var xx = 0; // 默认没有碰撞 横坐标
+
+            if (tortoise_top < cock_top) { //乌龟在上
+                if (top_sub < tortoise_height) {
+                    yy = 1;
+                }
+            } else { // 乌龟下面
+                if (top_sub < cock_height) {
+                    yy = 1;
+                }
+            }
+
+            if (tortoise_left < cock_left) { //乌龟左边
+                if (left_sub < tortoise_width) {
+                    xx = 1;
+                }
+
+            } else { // 乌龟右边
+                if (left_sub < cock_width) {
+                    xx = 1;
+                }
+            }
+            if (xx && yy) {
+                alert("碰撞!!");
+                // 乌龟放到原来的位置
+                tortoise.style.left = "100px";
+                tortoise.style.top = "120px";
+            }
+        }
     </script>
 </head>
 <body>
 <table border="1">
     <tr>
         <td></td>
+        <!--这个this就是这个button, 而且已经是dom对象, 不知道是什么那么就可以输出打印, debug, 日志-->
         <td><input type="button" value="向上走" onclick="move(this)"/></td>
         <td></td>
     </tr>
