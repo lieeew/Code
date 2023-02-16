@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<books>
+    <book id="100">
+        <name>西游记</name>
+        <author>吴承恩</author>
+        <price>80</price>
+    </book>
+    <book id="200">
+        <name>三国</name>
+        <author>罗贯中</author>
+        <price>100</price>
+    </book>
+</books>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<!--
+        1.每个 XML 文档必须有且只有一个根元素。
+        2.根元素是一个完全包括文档中其他所有元素的元素。
+        3.根元素的起始标记要放在所有其他元素的起始标记之前。
+        4.根元素的结束标记要放在所有其他元素的结束标记之后
+        5.XML 元素指 XML 文件中出现的标签，一个标签分为开始标签和结束标签，一个标签
+        有如下几种书写形式
+        包含标签体：<a>www.sohu.cn</a>
+        不含标签体的：<a></a>, 简写为：<a/>
+        韩顺平 Java 工程师
+        6.一个标签中也可以嵌套若干子标签。但所有标签必须合理的嵌套，绝对不允许交叉嵌套
+-->
+<student>
+    <student id="01">
+        <name>tom</name>
+        <age>10</age>
+        <gender>女</gender>
+
+    </student>
+    <student id="02">
+        <gender>男</gender>
+        <age>18</age>
+        <name>LiHua</name>
+    </student>
+
+    <school>大学</school> <!--同属于一个大学-->
+    <city>重庆</city>
+
+</student>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<student>
+    <student id="01">
+        <name>tom</name>
+        <age>10</age>
+        <gender>女</gender>
+<!--        区分大小写-->
+        <email>jack@sohu.com</email>
+        <Email>jack@gmial.com</Email>
+        <job>Java工程师</job>
+<!--        不能再之间添加空格, 但是可以下划线分割-->
+        <java_book>on Java</java_book>
+<!--        <java book></java> 错误-->
+
+    </student>
+</student>

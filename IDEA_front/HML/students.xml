@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+1. xml表示文件名是xml
+2. version="1.0" 版本号
+3. encoding="utf-8" 文件编码
+4. students : root 元素/根目录 , 程序员自己决定
+5. <students.xml></students.xml> 表示students一个子元素, 可以有多个
+6. id 是属性 name age gender 是student的子元素
+-->
+
+<students>
+    <student id="01">
+        <name>tom</name>
+        <age>10</age>
+        <gender>女</gender>
+
+    </student>
+    <student id="02">
+        <gender>男</gender>
+        <age>18</age>
+        <name>LiHua</name>
+    </student>
+</students>

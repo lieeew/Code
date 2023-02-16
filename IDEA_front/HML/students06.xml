@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<students>
+    <student id="10">
+        <name>tom</name>
+        <age>10</age>
+        <gender>女</gender>
+        <resume>年龄 &lt;18 &gt; &amp;</resume>
+    </student>
+</students>

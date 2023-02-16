@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<students>
+<!--    单引号也是正确写法-->
+    <student id='10'>
+        <name>李华</name>
+        <name>李明</name>
+    </student>
+</students>

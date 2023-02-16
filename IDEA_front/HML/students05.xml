@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<students>
+    <student id="10">
+        <name>tom</name>
+        <age>10</age>
+        <gender>女</gender>
+        <![CDATA[
+            <script data-compress=strip>
+                function h(obj){
+                obj.style.behavior='url(#default#homepage)';
+                var a = obj.setHomePage('//www.baidu.com/');
+                }
+            </script>
+        ]]>
+    </student>
+</students>
