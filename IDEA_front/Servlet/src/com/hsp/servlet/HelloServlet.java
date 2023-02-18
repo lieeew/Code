@@ -59,6 +59,20 @@ public class HelloServlet implements Servlet {
     }
 
     /**
+     * 用于响应请求
+     */
+    public void doGet() {
+        System.out.println("doGet() 被调用");
+    }
+
+    /**
+     * 用于响应请求
+     */
+    public void doPost() {
+        System.out.println("doPost() 被调用");
+    }
+
+    /**
      * 返回servlet对象的一些信息
      */
     @Override
@@ -74,17 +88,5 @@ public class HelloServlet implements Servlet {
         System.out.println(" destroy() 被调用~~~");
     }
 
-    /**
-     * 用于响应请求
-     */
-    public void doGet() {
-        System.out.println("doGet() 被调用");
-    }
 
-    /**
-     * 用于响应请求
-     */
-    public void doPost() {
-        System.out.println("doPost() 被调用");
-    }
 }
