@@ -26,6 +26,14 @@
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/helloServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>HiServlet</servlet-name>
+        <servlet-class>com.hsp.servlet.HiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HiServlet</servlet-name>
+        <url-pattern>/hiServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 
