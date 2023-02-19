@@ -55,7 +55,7 @@ import java.io.IOException;
    11. *.action 这时 zs.action ls.action
    12. http://localhost:8080/servlet/register.html
  */
-@WebServlet(urlPatterns = {"/ok1", "/ok2"}, loadOnStartup = 1, initParams = {@WebInitParam(name = "xx", value = "yy"), @WebInitParam(name = "kk", value = "zz")})
+@WebServlet(urlPatterns = {"/ok1*"})
 public class OkServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
