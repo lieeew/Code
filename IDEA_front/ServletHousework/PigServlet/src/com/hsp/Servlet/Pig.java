@@ -29,4 +29,9 @@ public class Pig extends HttpServlet {
         System.out.println("客户端的ip " + req.getRemoteAddr()); // 获取ip地址
 
     }
+
+    @Override
+    public void init() throws ServletException {
+        System.out.println("init 被调用了~~~~");
+    }
 }
