@@ -42,6 +42,58 @@
         <servlet-name>OkServlet</servlet-name>
         <url-pattern>/ok</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DBServlet</servlet-name>
+        <servlet-class>com.hsp.servletConfig.servletConfig</servlet-class>
+        <!--配置信息而不是硬编码到程序-->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>hsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>pwd</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DBServlet</servlet-name>
+        <url-pattern>/db</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servletContext_</servlet-name>
+        <servlet-class>com.hsp.servletContext.servletContext_</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletPayServlet</servlet-name>
+        <servlet-class>com.hsp.ServletPayServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.hsp.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/orderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletPayServlet</servlet-name>
+        <url-pattern>/payServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servletContext_</servlet-name>
+        <url-pattern>/servletContext_</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>website</param-name>
+        <param-value>www.google.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>company</param-name>
+        <param-value>韩顺平</param-value>
+    </context-param>
 </web-app>
 
 
