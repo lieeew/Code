@@ -21,16 +21,7 @@ public class OrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 获取到servlet-context对象
         ServletContext servletContext = this.getServletContext();
-        // getAttribute从 ServletContext 的域属性空间中获取指定名称的数据。
-        Integer visit_count = (Integer) servletContext.getAttribute("visit_count");
-        if (visit_count == null) {
-            visit_count = 1;
-            servletContext.setAttribute("visit_count", 1);
-        } else {
-            visit_count = visit_count + 1;
-            servletContext.setAttribute("visit_count", visit_count);
-        }
-
+        int visit_count = ServletUtils.count_nums(servletContext);
         // 输出内容
         response.setContentType("text/html;charset=utf-8");
         PrintWriter writer = response.getWriter();
