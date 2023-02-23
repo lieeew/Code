@@ -12,7 +12,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.security.Principal;
 
-@WebServlet(urlPatterns = "/requestMethods")
+@WebServlet(urlPatterns = "/requestMethods2")
 public class ServletRequestMethods extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
