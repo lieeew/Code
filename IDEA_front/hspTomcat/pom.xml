@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.hspedu</groupId>
+  <artifactId>hsptomecat</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!--
+      老韩解读
+      1.引入 servlet-api.jar , 为了开发servlet
+      2. dependency 标签是表示引入一个包
+      3. groupId 包的公司/组织/开发团队/个人 信息 javax.servlet
+      4. artifactId : 项目名 javax.servlet-api
+         补充: groupId+artifactId 是以目录形式体现
+      5. version 版本
+      6. scope 表示引入的包的作用范围
+      7. provided: 表示tomcat本身有jar包，这里你引入的jar包，在编译，测试有有效,但是在打包发布的
+         时候，不要带上这个jar包
+      8. 下载的包在你指定的目录: C:\Users\Administrator\.m2\repository
+      9. 可以去修改我们要下载包的位置 ->
+      10. 我们可以去指定maven仓库，即配置maven镜像 C:\Users\Administrator\.m2\settings.xml
+      <mirrors>
+        <mirror>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+        </mirrors>
+    -->
+    <!--引入servlet.jar包-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+</project>

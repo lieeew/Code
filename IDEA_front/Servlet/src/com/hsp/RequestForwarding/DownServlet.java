@@ -27,6 +27,14 @@ public class DownServlet extends HttpServlet {
 //        writer.flush();
 //        writer.close();
 
+        //1. 因为请求重定向 是将请求返回给 Location: /downServletNew
+        // 2. 所以浏览器来解析 /downServletNew, 而不是服务端解析
+        // 3. 会以当前浏览器的地址栏的 主机+/downServletNew 也就是
+        String contextPath = getServletContext().getContextPath();
+        System.out.println("主机名 = " + contextPath);
+        // response.sendRedirect( contextPath + "/DownServletNew");
 
+//        response.setStatus(302);
+//        response.setHeader("Location", "/Servlet/DownServletNew");
     }
 }
