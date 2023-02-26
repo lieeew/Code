@@ -1,6 +1,5 @@
 package com.Algorithms;
 
-import org.junit.Test;
 
 import java.sql.ResultSet;
 
@@ -27,7 +26,6 @@ public class class02_test {
         return sum;
     }
 
-    @Test
     public void test1() {
         System.out.println("sum = " + sum(10));
         System.out.println("sum = " + betterAdd(10));
