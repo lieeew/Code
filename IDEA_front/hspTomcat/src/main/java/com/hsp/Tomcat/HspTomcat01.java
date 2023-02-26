@@ -28,35 +28,30 @@ public class HspTomcat01 {
                 System.out.println("接收到浏览器发送的数据~~");
                 while ((message = bufferedReader.readLine()) != null) {
                     if (message.length() == 0) { //字符串没有东西
-                        return;
+                        break;
                     }
                     System.out.println(message);
                 }
+
+                // 我们的tomcat会发送http响应的方式
+                OutputStream outputStream = socket.getOutputStream();
+                // 构建一个http响应的头部
+                // \r\n 表示换行 (回车换行)
+                // http响应体，需要前面有两个换行 \r\n\r\n
+                String respHeader = "HTTP/1.1 200 OK\r\n" +
+                        "Content-Type: text/html;charset=utf-8\r\n\r\n";
+                // 响应体和响应头之间会以一个换行
+                String rep = respHeader + "hi, hspedu 韩顺平教育";
+                System.out.println("============浏览器发送的内容==========");
+                System.out.println(rep);
+                outputStream.write(rep.getBytes()); // 把rep以byte[]数组发送给过去取
+                outputStream.flush();
+                inputStream.close();
+                outputStream.close();
+                socket.close();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } finally {
-            if (socket != null) {
-                try {
-                    socket.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
         }
     }
 }
