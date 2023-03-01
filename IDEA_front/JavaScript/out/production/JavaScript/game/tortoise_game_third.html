@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tortoise</title>
+    <script type="text/javascript">
+        function move() {
+            alert(this)
+        }
+    </script>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <td></td>
+        <td onclick="move(this)">向上走</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td onclick="move(this)">向左走</td>
+        <td></td>
+        <td onclick="move(this)">向右走</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td onclick="move(this)">向下走</td>
+        <td></td>
+    </tr>
+</table>
+</body>
+</html>

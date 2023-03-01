@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容变化</title>
+    <script type="text/javascript">
+        function change() {
+            alert("内容发生变化");
+        }
+
+        // 动态注册
+        window.onload = function () {
+            // 获取friend的dom对象
+            let elementById = document.getElementById("friend");
+            elementById.onchange = function () {
+                alert("content has change");
+            }
+        }
+    </script>
+</head>
+<body>
+你当前的工作薪资水平
+<select onchange="change()">
+    <option> 工资范围 </option>
+    <option>10k以下</option>
+    <option>10k ~ 30k</option>
+    <option>30K ~ 60k</option>
+</select> <br>
+
+你当前的女友
+<select name="girlfriend" id="friend">
+    <option> 春花</option>
+    <option> 小红</option>
+    <option> 小化</option>
+</select>
+</body>
+</html>

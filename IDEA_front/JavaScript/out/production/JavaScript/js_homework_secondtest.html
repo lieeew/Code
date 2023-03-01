@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js</title>
+    <script type="text/javascript">
+        var sum = function () {
+            var total = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                if (typeof (arguments[i]) == "number") {
+                    total += arguments[i];
+                }
+            }
+            return total;
+        }
+
+
+        console.log(sum(12, 30, "java", 70))
+    </script>
+</head>
+<body>
+
+</body>
+</html>

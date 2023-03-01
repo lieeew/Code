@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var name = "leikooo";
+        var age = 100;
+        if (name) {
+            alert("hi~")
+        }
+        if (age) {
+            alert("hi")
+        }
+        var n1 = null;
+        if (!n1) {
+            alert("空串")
+        }
+        var n2 = "";
+        if (!n2) {
+            alert("我是空");
+        }
+        if (!(100 * "hello")) {
+            alert("ok~~~")
+        }
+        //  0 、null、 undefined、""(空串) NaN都认为是 false
+
+        // 逻辑计算
+        var a = "韩顺平教育" && 800;
+        console.log(a); // 800
+        var b = null && 800;
+        console.log(b); // null
+
+        var c = "韩顺平教育" || 800;
+        console.log(c); // "hsp education"
+        var d = null || 800;
+        console.log(d); //800
+        var res1 = (10 > 1) && (6 < 0);
+        console.log(res1); // false
+        var rest2 = (10 + 1) || (6 < 0);
+        console.log(rest2); // 11
+        n1 = 1;
+        n2 = 3;
+        var resr4 = (n1++ > 100) || n2++;
+        console.log("n1 = " + n1 + " n2 = " + n2)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

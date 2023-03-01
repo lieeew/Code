@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event作业</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            let elementById = document.getElementById("form");
+            elementById.onsubmit = function () {
+                document.getElementById("submit").value = "注册用户"; // 设置submit提交框
+                // 过关斩将 + 取反
+                if (!(elementById.name.value.length >= 4 && elementById.name.value.length <= 6)) {
+                    alert("用户名错误!!");
+                    return false;
+                }
+                if (elementById.psd1.value.length !== 6) {
+                    alert("密码格式错误!!");
+                    return false;
+                }
+                if (elementById.psd1.value !== elementById.psd2.value) {
+                    alert("输入的密码不一致!!")
+                    return false;
+                }
+                // 使用正则表达式
+                // 如何在js中使用正则表达式
+                // java转译\\
+                // js 转译 \
+                var emailPattern = /^[\w-]+@([a-zA-Z]+\.)+[a-zA-Z]+$/;
+                // 这里可以验证是否符合Pattern
+                if (!emailPattern.test(elementById.email.value)) {
+                    alert("邮箱错误!!");
+                    return false;
+                }
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>注册用户</h1>
+<form action="ok.html" id="form">
+    account : <input type="text" id="account" name="name"> 长度(4-6)<br>
+    password: <input type="password" id="passWord1" name="psd1">长度6<br>
+    confirm : <input type="password" id="passWord2" name="psd2">长度6<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;email : <input type="text" id="Email" name="email"><br>
+    <input type="submit" id="submit">
+</form>
+</body>
+</html>

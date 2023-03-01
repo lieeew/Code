@@ -18,7 +18,7 @@ public class HspTomcat01 {
         Socket socket = null;
         BufferedReader bufferedReader = null;
         try {
-            ServerSocket serverSocket = new ServerSocket(8080);
+            ServerSocket serverSocket = new ServerSocket(8088);
             System.out.println("====服务器在8080端口监听====");
             while (!serverSocket.isClosed()) {
                 socket = serverSocket.accept();

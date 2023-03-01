@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //定义公鸡的坐标
+        var cock_top = 200;
+        var cock_left = 200;
+
+        //定义乌龟的高度和宽度
+        var tortoise_height = 67;
+        var tortoise_width = 94;
+        //定义公鸡的高度和宽度
+        var cock_height = 73;
+        var cock_width = 76;
+
+        function move(val) {
+            // alert(val.value);
+            let value = val.value; // HtmlElement
+            // 得到乌龟dom对象
+            let tortoise = document.getElementById("wugui");
+            let tortoise_left = parseInt(tortoise.style.left.substring(0, tortoise.style.left.indexOf("p")));
+            let tortoise_top = parseInt(tortoise.style.top.substring(0, tortoise.style.top.indexOf("p")));
+
+            if (value === "向上走") {
+                tortoise_top -= 10;
+                tortoise.style.top = tortoise_top + "px";
+            } else if (value === "向下走") {
+                tortoise_top += 10;
+                tortoise.style.top = tortoise_top + "px";
+            } else if (value === "向左走") {
+                tortoise_left -= 10;
+                tortoise.style.left = tortoise_left + "px";
+            } else if (value === "向右走"){
+                tortoise_left += 10;
+                tortoise.style.left = tortoise_left + "px";
+            }
+            Touch(tortoise);
+        }
+
+        // 碰撞函数
+        function Touch(tortoise) {
+            let left = parseInt(tortoise.style.left); // string
+            // alert(typeof left)
+            let top = parseInt(tortoise.style.top); // string
+            var top_sub = Math.abs(top - cock_top);
+            var left_sub = Math.abs(left - cock_left);
+            // alert(top_sub + " " + left_sub)
+            // 这两个变量用于判断是否重叠, 由于0是false所以就很easy
+            var xx= 0;
+            var yy = 0;
+            if (top > cock_top) { //乌龟在下面
+                if (top_sub < cock_height) {
+                    yy = 1;
+                }
+            } else { // 乌龟在上面
+                if (top_sub < tortoise_height) {
+                    yy = 1;
+                }
+            }
+            if (left < cock_left) { // 乌龟在左边
+                if (left_sub < tortoise_width) {
+                    xx = 1;
+                }
+            } else { // 乌龟在右边
+                if (left_sub < cock_width) {
+                    xx = 1;
+                }
+            }
+            if (xx && yy) {
+                alert("成功!!!!");
+                tortoise.style.left = "100px";
+                tortoise.style.top = "120px";
+            }
+        }
+    </script>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td></td>
+        <td><input type="button" value="向上走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="向左走" onclick="move(this)"/></td>
+        <td></td>
+        <td><input type="button" value="向右走" onclick="move(this)"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" value="向下走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+</table>
+<!--把乌龟放在一个div-->
+<div id="wugui" style="position: absolute ;left:100px;top:120px;">
+    <img src="1.bmp" border="1" alt=""/>
+</div>
+<!--公鸡图片div-->
+<div id="cock" style="left:200px;position:absolute;top:200px;">
+    <img src="2.bmp" border="1" alt=""/>
+</div>
+</body>
+</html>

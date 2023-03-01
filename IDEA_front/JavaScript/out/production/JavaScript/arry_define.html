@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组定义</title>
+    <script type="text/javascript">
+      // 方式一 :
+      var chars1 = ["a", "b", 100]; // 从0开始
+      console.log(chars1)
+      console.log("第一个元素" + chars1[0]);
+
+      // 方式二:
+      var chars2 = [];
+      chars2[0] = "a";
+      chars2[1] = "b";
+      chars2[2] = "666";
+      console.log(chars2);
+      console.log(chars2[2]);
+      console.log(chars2[10]); // undefined
+
+      // 方式三 :
+      var chars3 = new Array("a", "b", "c", "121");
+      console.log(chars3);
+      chars3[0] = "hsp"; // 替换索引为 0 位置的数据
+      console.log(chars3)
+
+      // 方式四;
+      var chars4 = new Array();
+      chars4[0] = "BWM";
+      chars4[1] = "AlfaRomeo";
+      chars4[2] = "AstonMartin";
+      chars4[10] = "nb";
+      console.log(chars4);
+      console.log(chars4[9]); // undefine
+    </script>
+</head>
+<body>
+
+</body>
+</html>

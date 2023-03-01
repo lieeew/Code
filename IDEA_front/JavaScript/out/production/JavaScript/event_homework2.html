@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            let elementById = document.getElementById("form");
+            elementById.onsubmit = function () {
+                if (!(elementById.name.value.length >= 4 && elementById.name.value.length <= 6)) {
+                    alert("用户名不符合格式!!!");
+                    return false;
+                }
+                if (elementById.psd1.value.length !== 6) {
+                    alert("密码长度不符合规范!!!");
+                    return false;
+                }
+                if (elementById.psd1.value !== elementById.psd2.value) {
+                    alert("两次输入的密码不一致!!!");
+                    return false;
+                }
+                var pattern = /^[\w-]+@([a-zA-Z]+\.)+[a-zA-Z]+$/;
+                if (!pattern.test(elementById.email.value)) {
+                    alert("邮箱格式错误!!!")
+                    return false;
+                }
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+
+<h1>注册用户</h1>
+<form action="ok.html" id="form">
+    account : <input type="text" name="name"> 长度(4 - 6)<br>
+    password: <input type="password" name="psd1">长度6<br>
+    confirm : <input type="password" name="psd2">长度6<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;email : <input type="text" name="email"><br>
+    <input type="submit" id="submit">
+</form>
+</body>
+</html>

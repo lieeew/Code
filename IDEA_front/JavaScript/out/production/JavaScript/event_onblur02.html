@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>失去焦点</title>
+    <SCRIPT TYPE="text/javascript">
+        // 静态加载
+        function toUpperCase() {
+            let elementById = document.getElementById("input01");
+            elementById.value = elementById.value.toUpperCase();
+        }
+
+        // 动态加载
+        window.onload = function (){
+                let elementById = document.getElementById("input02"); // 获取标签<--->dom 对象
+            elementById.onblur = function () {
+                elementById.value = elementById.value.toUpperCase();
+            }
+        }
+    </SCRIPT>
+</head>
+<body>
+账户名 : <input type="text" id="input01" onblur="toUpperCase()"> <br>
+账户名 : <input type="text" id="input02" >
+</body>
+</html>

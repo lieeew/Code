@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object类型</title>
+    <script type="text/javascript">
+        var student = new Object(); // 空对象
+        student.name = "小明";
+        student.age = 12;
+        student.eat = function (foodName){
+            alert(this.name + " 吃 " + foodName);
+        }
+
+        student.eat("西红柿炒鸡蛋");
+        alert(student.wage); // undefined
+
+        var teacher = new Object();
+        teacher.name = "张三";
+        teacher.age = 30;
+        teacher.wage = 4000;
+        teacher.teach = function (student) {
+            alert("教授 " + student)
+        }
+        teacher.teach("张三");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义对象方式{}</title>
+    <script type="text/javascript">
+        var student = {
+            name: "李华",
+            age: 18,
+            eat: function () {
+                alert("吃饭!");
+            },
+            hi: function () {
+                console.log("person信息 = " + this.name + " " + this.age);
+            },
+            sum: function (n1, n2) {
+                return n1 + n2;
+            },
+            hi_ : function () {
+                return "person信息 = " + this.name + " " + this.age;
+            }
+        }
+        console.log(student.age);
+        student.hi();
+        console.log(student.sum(12, 30)); // 42
+        console.log(student.hi_()); // person信息 = 李华 18
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

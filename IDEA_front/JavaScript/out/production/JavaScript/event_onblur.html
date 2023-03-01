@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>失去焦点</title>
+    <script type="text/javascript">
+        function toUpperCase() {
+            let in1 = document.getElementById("in1");
+            in1.value = in1.value.toUpperCase();
+
+        }
+
+        // 动态绑定
+        window.onload = function () {
+            let elementById = document.getElementById("in2");
+            elementById.onblur = function () {
+                elementById.value = elementById.value.toUpperCase();
+            }
+        }
+    </script>
+</head>
+<body>
+账户名 : <input type="text" id="in1" onblur="toUpperCase()"> <br>
+账户名 : <input type="text" id="in2">
+
+</body>
+</html>
