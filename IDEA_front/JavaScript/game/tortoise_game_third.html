@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tortoise</title>
+    <script type="text/javascript">
+        function move(val) {
+            // alert(val); // [object HTMLInputElement]
+            let derictionValue = val.value;
+            let tortoise = document.getElementById("wugui");
+            let tortoise_left = document.getElementById("wugui").style.left;
+            let tortoise_top = document.getElementById("wugui").style.top;
+
+            if (derictionValue === "向上走") {
+                // 把乌龟的top减少
+                // alert(typeof tortoise_left); // string类型
+                let number = parseInt(tortoise_top.substring(0, tortoise_left.charAt("p")));
+                number -= 10;
+                tortoise.style.top = number + "px";
+                alert(tortoise_left);
+            } else if (derictionValue === "向下走") {
+                // 把乌龟的top增加
+            } else if (derictionValue === "向左走") {
+                // 把乌龟的left减少
+            } else if (derictionValue === "向右走") {
+                // 把乌龟的left增加
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <td></td>
+        <td><input type="button" value="向上走" onclick="move(this)"/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="button" onclick="move(this)" value="向左走"></td>
+        <td></td>
+        <td><input type="button" onclick="move(this)" value="向右走"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" onclick="move(this)" value="向下走"></td>
+        <td></td>
+    </tr>
+
+</table>
+<!--把乌龟放在一个div-->
+<div id="wugui" style="position: absolute ;left:100px;top:120px;">
+    <img src="1.bmp" border="1" alt=""/>
+</div>
+<!--公鸡图片div-->
+<div id="cock" style="left:200px;position:absolute;top:200px;">
+    <img src="2.bmp" border="1" alt=""/>
+</div>
+</body>
+</html>

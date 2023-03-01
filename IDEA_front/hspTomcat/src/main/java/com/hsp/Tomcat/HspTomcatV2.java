@@ -15,6 +15,7 @@ public class HspTomcatV2 {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(8080);
         System.out.println("tomcatV2版本~~~");
+        // 只要浏览器没有关闭就ok
         while (!serverSocket.isClosed()) {
             Socket socket = serverSocket.accept();
             // 1. 接收浏览器连接后, 如果成功就会的得到socket
