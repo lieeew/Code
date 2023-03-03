@@ -7,8 +7,8 @@ package com.hsp.utils;
  */
 public class WebUtils {
 
-    public static int parseInt(String num, int defaultval) {
-        int i = defaultval;
+    public static int parseInt(String num, int defaults) {
+        int i = defaults;
         try {
             i = Integer.parseInt(num);
         } catch (NumberFormatException e) {

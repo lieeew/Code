@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <!--由于自己配置的servlet所以不识别, 没有问题-->
+  <servlet>
+    <servlet-name>calServlet</servlet-name>
+    <servlet-class>com.hsp.Tomcat.servlet.hspCalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>calServlet</servlet-name>
+    <url-pattern>/calServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

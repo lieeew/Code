@@ -22,9 +22,11 @@ public class HspRequest {
     private String uri;
     // 存放参数(因为可能会有多个)所以可以使用一个HashMap
     private HashMap<String, String> parametersMaps = new HashMap<>();
-
+    // 以后要是使用的话, 可以在其他方法使用, 所以尽量还是一个属性
+    private InputStream inputStream = null;
     public HspRequest(InputStream inputStream) {
-        init(inputStream);
+        this.inputStream = inputStream;
+        escapHttpRequest();
     }
 
     public String getMethod() {
@@ -45,9 +47,9 @@ public class HspRequest {
     }
 
     /**
-     * 初始化代码,完成對http請求的封裝
+     * 完成對http請求的封裝, 将http请求的方式进行封装
      */
-    public void init(InputStream inputStream) {
+    public void escapHttpRequest() {
         System.out.println("init()被调用");
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
@@ -82,4 +84,5 @@ public class HspRequest {
                 ", parametersMaps=" + parametersMaps +
                 '}';
     }
+
 }

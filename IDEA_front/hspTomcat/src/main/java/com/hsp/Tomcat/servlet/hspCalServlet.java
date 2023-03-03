@@ -1,36 +1,39 @@
-package com.hsp.servlet;
+package com.hsp.Tomcat.servlet;
 
 import com.hsp.http.HspRequest;
 import com.hsp.http.HspResponse;
+import com.hsp.servlet.HspHttpServlet;
 import com.hsp.utils.WebUtils;
 
-import javax.servlet.ServletConfig;
 import java.io.IOException;
 import java.io.OutputStream;
 
 /**
  * @Author: qxy
- * @Date: 2023/2/28
+ * @Date: 2023/3/2
  * @Description:
  */
-public class HspCalServlet extends HspHttpServlet {
-
+public class hspCalServlet extends HspHttpServlet{
     @Override
     public void doGet(HspRequest request, HspResponse response) {
+        //java基础的 OOP 的动态绑定机制..
+        //写业务代码，完成计算任务
         int num1 = WebUtils.parseInt(request.getParameterts("num1"), 0);
         int num2 = WebUtils.parseInt(request.getParameterts("num2"), 0);
 
-        int result = num1 + num2;
-        // 返回计算结果
+        int sum = num1 + num2;
+
+        //返回计算结果给浏览器
+        //outputStream 和 当前的socket关联
         OutputStream outputStream = response.getOutputStream();
         String respMes = HspResponse.respHeader
-                + "<h1>" + num1 + " + " + num2 + " = " + result + " hspTomcat V3版本</h1>";
+                + "<h1>" + num1 + " + " + num2 + " = " + sum + " HspTomcatV3 - 反射+xml创建</h1>";
         try {
             outputStream.write(respMes.getBytes());
             outputStream.flush();
             outputStream.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

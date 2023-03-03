@@ -1,6 +1,6 @@
 package com.hsp.Tomcat;
 
-import com.hsp.Tomcat.handler.HspRequestHander;
+import com.hsp.Tomcat.handler.HspRequestHandler;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -21,7 +21,7 @@ public class HspTomcatV2 {
             // 1. 接收浏览器连接后, 如果成功就会的得到socket
             // 2. 这个socket就是服务器和浏览器的通信线程
             // 这个是Java线程基础      两次请求(网页数据 + 小图标)
-            new Thread(new HspRequestHander(socket)).start();
+            new Thread(new HspRequestHandler(socket)).start();
         }
     }
 }

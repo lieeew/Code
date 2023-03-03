@@ -4,12 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    td {
+      text-align: center;
+    }
+    #one {
+      background-color: pink;
+    }
+    .odd {
+      background-color: blue;
+    }
+    .x1 {
+      color: pink;
+    }
+    .x2 {
+      color: green;
+    }
+
+  </style>
   <title>课程表</title>
 </head>
 <body>
 <h1 align="center">计算机2195年级-课程表</h1>
-<table border="1" align="center" cellspacing="0">
-  <tr bgcolor="blue">
+<table border="1" align="center" cellspacing="0" height="200">
+  <tr id="one">
     <th>日期课节</th>
     <th>星期一</th>
     <th>星期二</th>
@@ -25,24 +43,24 @@
     <td>英语</td>
     <td>英语</td>
   </tr>
-  <tr bgcolor="#ffc0cb">
+  <tr class="odd">
     <td>第二节</td>
     <td>英语</td>
     <td>英语</td>
-    <td>英语</td>
+    <td class="x1">英语</td>
     <td>英语</td>
     <td>英语</td>
   </tr>
   <tr>
     <td>第三节</td>
-    <td>英语</td>
+    <td class="x1">英语</td>
     <td>英语</td>
     <td></td>
     <td></td>
     <td>英语</td>
   </tr>
   <tr bgcolor="#ff7f50">
-    <td>第四节</td>
+    <td class="x2">第四节</td>
     <td></td>
     <td></td>
     <td>英语</td>
