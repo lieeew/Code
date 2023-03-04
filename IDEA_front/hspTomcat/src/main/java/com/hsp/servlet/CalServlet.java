@@ -17,7 +17,7 @@ import java.lang.ref.WeakReference;
  * @Description:
  */
 
-@WebServlet(urlPatterns = "/calServlet", name = "CalServlet")
+
 public class CalServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

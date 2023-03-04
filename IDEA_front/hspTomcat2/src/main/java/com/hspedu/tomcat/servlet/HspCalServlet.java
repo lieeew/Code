@@ -1,26 +1,23 @@
-package com.hsp.Tomcat.servlet;
+package com.hspedu.tomcat.servlet;
 
-
-import com.hsp.Tomcat.http.HspRequest;
-import com.hsp.Tomcat.http.HspResponse;
-import com.hsp.servlet.HspHttpServlet;
-import com.hsp.utils.WebUtils;
+import com.hspedu.tomcat.http.HspRequest;
+import com.hspedu.tomcat.http.HspResponse;
+import com.hspedu.utils.WebUtils;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * @Author: qxy
- * @Date: 2023/3/2
- * @Description:
+ * @author 韩顺平
+ * @version 1.0
  */
-public class hspCalServlet extends HspHttpServlet{
+public class HspCalServlet extends HspHttpServlet {
     @Override
     public void doGet(HspRequest request, HspResponse response) {
         //java基础的 OOP 的动态绑定机制..
         //写业务代码，完成计算任务
-        int num1 = WebUtils.parseInt(request.getParameterts("num1"), 0);
-        int num2 = WebUtils.parseInt(request.getParameterts("num2"), 0);
+        int num1 = WebUtils.parseInt(request.getParameter("num1"), 0);
+        int num2 = WebUtils.parseInt(request.getParameter("num2"), 0);
 
         int sum = num1 + num2;
 

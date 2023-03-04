@@ -1,5 +1,6 @@
 package com.hsp.Tomcat;
 
+import com.hsp.Tomcat.handler.HspRequestHandler;
 import com.hsp.servlet.HspHttpServlet;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -7,7 +8,10 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -53,7 +57,8 @@ public class HspTomcatV3 {
                     Element servletName = element.element("servlet-name");
                     Element servletClass = element.element("servlet-class");
 
-                    servletHashMapping.put(servletName.getText(), (HspHttpServlet) Class.forName(servletClass.getText()).newInstance());
+                    servletHashMapping.put(servletName.getText(),
+                            (HspHttpServlet) Class.forName(servletClass.getText().trim()).newInstance());
                 } else if ("servlet-mapping".equalsIgnoreCase(element.getName())) {
                     // System.out.println("发现一个servlet-mapping节点");
                     Element urlPattern = element.element("url-pattern");
@@ -67,13 +72,30 @@ public class HspTomcatV3 {
             throw new RuntimeException(e);
         }
 
-        // 验证容器是否初始化成功, 非常成功的!!!
+        // 验证容器是否初始化成功
         System.out.println("servletHashMap = " + servletHashMapping);
         System.out.println("servletUrlMapping = " + servletUrlMapping);
+    }
+
+    public void run() {
+        try {
+            System.out.println("======服务器在8080端口监听用======");
+            ServerSocket serverSocket = new ServerSocket(8080);
+            Socket socket = serverSocket.accept();
+
+            while (!serverSocket.isClosed()) {
+                HspRequestHandler hspRequestHandler = new HspRequestHandler(socket);
+                new Thread(hspRequestHandler).start();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void main(String[] args) {
         HspTomcatV3 hspTomcatV3 = new HspTomcatV3();
         hspTomcatV3.init();
+
+        hspTomcatV3.run();
     }
 }

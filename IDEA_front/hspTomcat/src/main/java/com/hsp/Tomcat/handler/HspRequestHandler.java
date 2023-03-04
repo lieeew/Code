@@ -7,9 +7,8 @@ package com.hsp.Tomcat.handler;
  */
 
 import com.hsp.Tomcat.HspTomcatV3;
-import com.hsp.http.HspRequest;
-import com.hsp.http.HspResponse;
-import com.hsp.servlet.HspCalServlet;
+import com.hsp.Tomcat.http.HspRequest;
+import com.hsp.Tomcat.http.HspResponse;
 import com.hsp.servlet.HspHttpServlet;
 
 import java.io.*;
@@ -20,7 +19,7 @@ import java.net.Socket;
  * 1. HspRequestHander 对象是一个线程对象
  * 2. 处理一个http请求
  */
-public class HspRequestHandler implements Runnable{
+public class HspRequestHandler implements Runnable {
     // 定义一个socket
     private Socket socket = null;
 
@@ -70,18 +69,27 @@ public class HspRequestHandler implements Runnable{
             HspResponse hspResponse = new HspResponse(socket.getOutputStream());
 
             // 创建HspResponse对象, 返回浏览器给数据 --> 先死后活
-            HspCalServlet hspCalServlet = new HspCalServlet();
-            hspCalServlet.doPost(hspRequest, hspResponse);
+//            HspCalServlet hspCalServlet = new HspCalServlet();
+//            hspCalServlet.service(hspRequest, hspResponse);
 
             // 这里需要利用反射, 思路很重要
             // 得到uri 获取url-pattern
             String uri = hspRequest.getParameterts("uri"); // /hspServlet
-            HspTomcatV3 hspTomcatV3 = new HspTomcatV3();
-            hspTomcatV3.init();
+
             String servletName = HspTomcatV3.servletUrlMapping.get(uri);
             // 通过 servletName -> servlet的实例, 真正的运行类型是器子类hspCalServlet
             HspHttpServlet hspHttpServlet = HspTomcatV3.servletHashMapping.get(servletName);
-            hspHttpServlet.service(hspRequest, hspResponse);
+            if (hspHttpServlet != null) {
+                hspHttpServlet.service(hspRequest, hspResponse);
+            } else {
+                // 如果没有这个servlet就返回提示信息
+                String regMes = HspResponse.respHeader + "<h1>404 NOT FOUND</h1>";
+                OutputStream outputStream = hspResponse.getOutputStream();
+                outputStream.write(regMes.getBytes());
+                outputStream.flush();
+                outputStream.close();
+
+            }
 
 //            String regStr = HspResponse.respHeader + "<h1>hi ~~~ 这是一个测试</h1>";
 //

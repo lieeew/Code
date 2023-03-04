@@ -1,0 +1,20 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>CalServlet</servlet-name>
+        <servlet-class>com.hspedu.tomcat.servlet.HspCalServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CalServlet</servlet-name>
+        <url-pattern>/calServlet</url-pattern>
+    </servlet-mapping>
+
+    <!--配置自己设计的Servlet
+        老韩提示： 因为这是我们自己的servlet , 所以不识别, 没有关系
+
+    -->
+</web-app>

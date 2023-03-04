@@ -1,12 +1,8 @@
 package com.hsp.servlet;
 
-import com.hsp.http.HspRequest;
-import com.hsp.http.HspResponse;
+import com.hsp.Tomcat.http.HspRequest;
+import com.hsp.Tomcat.http.HspResponse;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import java.io.IOException;
 
 /**
