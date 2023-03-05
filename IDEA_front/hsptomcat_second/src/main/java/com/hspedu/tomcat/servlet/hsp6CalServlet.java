@@ -9,10 +9,10 @@ import java.io.OutputStream;
 
 /**
  * @Author: qxy
- * @Date: 2023/3/4
- * @Description: 计算类
+ * @Date: 2023/3/5
+ * @Description:
  */
-public class hspCalServlet extends hspHttpServlet{
+public class hsp6CalServlet extends hspHttpServlet {
     @Override
     public void doPost(HspRequest request, HspResponse response) {
         doGet(request, response);
@@ -22,11 +22,13 @@ public class hspCalServlet extends hspHttpServlet{
     public void doGet(HspRequest request, HspResponse response) {
         int num1 = WebUtils.parseInt(request.getParameter("num1"), 0);
         int num2 = WebUtils.parseInt(request.getParameter("num2"), 0);
-        int result = num1 + num2;
+
+        int result = num1 * num2;
+
         OutputStream outputStream = response.getOutputStream();
+        String Mes = HspResponse.respHeader + "<h1>结果为 " + num1 + " * " + num2 + " = " + result + "<h1>  ~~反射 + xml调用";
         try {
-            String str = HspResponse.respHeader + "<h1>" + num1 + " + " + num2 + " = " + result + " hspTomcatV3  反射 + xml创建~~    <h1>";
-            outputStream.write(str.getBytes());
+            outputStream.write(Mes.getBytes());
             outputStream.flush();
             outputStream.close();
         } catch (IOException e) {

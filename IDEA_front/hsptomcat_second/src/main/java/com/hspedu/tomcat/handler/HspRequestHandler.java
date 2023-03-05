@@ -57,17 +57,38 @@ public class HspRequestHandler implements Runnable {
 //            outputStream.close();
 //            inputStream.close();
 
-            // 一会使用反射进行
+            // 使用反射进行构造
 //            hspCalServlet hspCalServlet = new hspCalServlet();
 //            hspCalServlet.service(hspRquest, hspResponse);
             String uri = hspRquest.getUri();
-            // 通过  uri --> servletName
-            String servletName = HspTomcatV3.servletUrlMapping.get(uri);
-            // 通过servletName -->  类的实例化对象
-            // 多态  子类指向父类, 真正的运行类型就是hspCalServlet
-            hspHttpServlet hspHttpServlet = HspTomcatV3.servletMapping.get(servletName);
-            // 通过动态绑定可以调用doGet/doPost
-            hspHttpServlet.service(hspRquest, hspResponse);
+
+            // ==========新增业务逻辑=========
+            // (1) 判断是什么资源
+            // (2) 如果是静态资源, 就读取该资源, 并且返回给浏览器 Content-type text/html
+            // (3) 目前暂时支持html
+            if (uri.contains(".")) {
+                staticFile(hspResponse, hspRquest);
+            } else {
+                // 通过  uri --> servletName
+                String servletName = HspTomcatV3.servletUrlMapping.get(uri);
+                if (servletName == null) {
+                    servletName = ""; // 这样就会不报异常
+                }
+                // 通过servletName -->  类的实例化对象
+                // 多态  子类指向父类, 真正的运行类型就是hspCalServlet
+                hspHttpServlet hspHttpServlet = HspTomcatV3.servletMapping.get(servletName);
+                // 通过动态绑定可以调用doGet/doPost
+                if (hspHttpServlet != null) { // CurrentHashMap不的key能为null
+                    hspHttpServlet.service(hspRquest, hspResponse);
+                } else {
+                    // 没有这个servlet, 返回404提示信息
+                    String strMes = HspResponse.respHeader + "<h1> 404 NOT FOUND <h1>";
+                    OutputStream outputStream = hspResponse.getOutputStream();
+                    outputStream.write(strMes.getBytes());
+                    outputStream.flush();
+                    outputStream.close();
+                }
+            }
             socket.close();
 
         } catch (IOException e) {
@@ -83,6 +104,33 @@ public class HspRequestHandler implements Runnable {
                     throw new RuntimeException(e);
                 }
             }
+        }
+    }
+
+    /**
+     * 返回静态资源, 不要servlet参与
+     */
+    public void staticFile(HspResponse response, HspRequest hspRequest) {
+        try {
+            String staticName = hspRequest.getUri();
+            File file = new File("E:\\github\\IDEA_front\\hsptomcat_second\\target\\classes\\" + staticName);
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            String mes = null;
+            StringBuffer sb = new StringBuffer();
+            sb.append(HspResponse.respHeader);
+            while ((mes = bufferedReader.readLine()) != null) {
+                if (mes.length() == 0) {
+                    break;
+                }
+                sb.append(mes).append("\n");
+            }
+            // System.out.println(sb.toString());
+            OutputStream outputStream = response.getOutputStream();
+            outputStream.write(sb.toString().getBytes());
+            outputStream.flush();
+            outputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
