@@ -9,7 +9,7 @@ package com.hsp.Tomcat.handler;
 import com.hsp.Tomcat.HspTomcatV3;
 import com.hsp.Tomcat.http.HspRequest;
 import com.hsp.Tomcat.http.HspResponse;
-import com.hsp.servlet.HspHttpServlet;
+import com.hsp.Tomcat.servlet.HspHttpServlet;
 
 import java.io.*;
 import java.net.Socket;
@@ -78,9 +78,11 @@ public class HspRequestHandler implements Runnable {
 
             String servletName = HspTomcatV3.servletUrlMapping.get(uri);
             // 通过 servletName -> servlet的实例, 真正的运行类型是器子类hspCalServlet
-            HspHttpServlet hspHttpServlet = HspTomcatV3.servletHashMapping.get(servletName);
-            if (hspHttpServlet != null) {
-                hspHttpServlet.service(hspRequest, hspResponse);
+            if (servletName != null) {
+                HspHttpServlet hspHttpServlet = HspTomcatV3.servletHashMapping.get(servletName);
+                if (hspHttpServlet != null) {
+                    hspHttpServlet.service(hspRequest, hspResponse);
+                }
             } else {
                 // 如果没有这个servlet就返回提示信息
                 String regMes = HspResponse.respHeader + "<h1>404 NOT FOUND</h1>";
@@ -88,7 +90,6 @@ public class HspRequestHandler implements Runnable {
                 outputStream.write(regMes.getBytes());
                 outputStream.flush();
                 outputStream.close();
-
             }
 
 //            String regStr = HspResponse.respHeader + "<h1>hi ~~~ 这是一个测试</h1>";

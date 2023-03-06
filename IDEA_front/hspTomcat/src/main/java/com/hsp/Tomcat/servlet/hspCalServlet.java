@@ -3,7 +3,6 @@ package com.hsp.Tomcat.servlet;
 
 import com.hsp.Tomcat.http.HspRequest;
 import com.hsp.Tomcat.http.HspResponse;
-import com.hsp.servlet.HspHttpServlet;
 import com.hsp.utils.WebUtils;
 
 import java.io.IOException;

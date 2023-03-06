@@ -1,7 +1,7 @@
 package com.hsp.Tomcat;
 
 import com.hsp.Tomcat.handler.HspRequestHandler;
-import com.hsp.servlet.HspHttpServlet;
+import com.hsp.Tomcat.servlet.HspHttpServlet;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -81,9 +81,8 @@ public class HspTomcatV3 {
         try {
             System.out.println("======服务器在8080端口监听用======");
             ServerSocket serverSocket = new ServerSocket(8080);
-            Socket socket = serverSocket.accept();
-
             while (!serverSocket.isClosed()) {
+                Socket socket = serverSocket.accept(); //这个socket必须在外面, 如果在外面的化那么就会出问题, 对个线程使用一个socket, 而且在HttpHandler中会把socket关闭
                 HspRequestHandler hspRequestHandler = new HspRequestHandler(socket);
                 new Thread(hspRequestHandler).start();
             }

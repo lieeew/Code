@@ -5,6 +5,7 @@ import com.hspedu.tomcat.http.HspRequest;
 import com.hspedu.tomcat.http.HspResponse;
 import com.hspedu.tomcat.servlet.hspCalServlet;
 import com.hspedu.tomcat.servlet.hspHttpServlet;
+import com.hspedu.tomcat.utils.WebUtils;
 
 import java.io.*;
 import java.net.Socket;
@@ -66,28 +67,38 @@ public class HspRequestHandler implements Runnable {
             // (1) 判断是什么资源
             // (2) 如果是静态资源, 就读取该资源, 并且返回给浏览器 Content-type text/html
             // (3) 目前暂时支持html
-            if (uri.contains(".")) {
-                staticFile(hspResponse, hspRquest);
+
+            // 通过  uri --> servletName
+            String servletName = HspTomcatV3.servletUrlMapping.get(uri);
+            // 这里判断是都为.html文件
+            // 过滤器, 拦截 ,权限等待 以后就在这里
+            if (WebUtils.isHtml(uri)) {
+                String html = WebUtils.readHtml(uri);
+                String responseMes = HspResponse.respHeader + html;
+                OutputStream outputStream = hspResponse.getOutputStream();
+                outputStream.write(responseMes.getBytes());
+                outputStream.flush();
+                outputStream.close();
+                socket.close();
+                return; // 退出这个方法
+            }
+
+            if (servletName == null) {
+                servletName = ""; // 这样就会不报异常
+            }
+            // 通过servletName -->  类的实例化对象
+            // 多态  子类指向父类, 真正的运行类型就是hspCalServlet
+            hspHttpServlet hspHttpServlet = HspTomcatV3.servletMapping.get(servletName);
+            // 通过动态绑定可以调用doGet/doPost
+            if (hspHttpServlet != null) { // CurrentHashMap不的key能为null
+                hspHttpServlet.service(hspRquest, hspResponse);
             } else {
-                // 通过  uri --> servletName
-                String servletName = HspTomcatV3.servletUrlMapping.get(uri);
-                if (servletName == null) {
-                    servletName = ""; // 这样就会不报异常
-                }
-                // 通过servletName -->  类的实例化对象
-                // 多态  子类指向父类, 真正的运行类型就是hspCalServlet
-                hspHttpServlet hspHttpServlet = HspTomcatV3.servletMapping.get(servletName);
-                // 通过动态绑定可以调用doGet/doPost
-                if (hspHttpServlet != null) { // CurrentHashMap不的key能为null
-                    hspHttpServlet.service(hspRquest, hspResponse);
-                } else {
-                    // 没有这个servlet, 返回404提示信息
-                    String strMes = HspResponse.respHeader + "<h1> 404 NOT FOUND <h1>";
-                    OutputStream outputStream = hspResponse.getOutputStream();
-                    outputStream.write(strMes.getBytes());
-                    outputStream.flush();
-                    outputStream.close();
-                }
+                // 没有这个servlet, 返回404提示信息
+                String strMes = HspResponse.respHeader + "<h1> 404 NOT FOUND <h1>";
+                OutputStream outputStream = hspResponse.getOutputStream();
+                outputStream.write(strMes.getBytes());
+                outputStream.flush();
+                outputStream.close();
             }
             socket.close();
 
@@ -108,14 +119,14 @@ public class HspRequestHandler implements Runnable {
     }
 
     /**
-     * 返回静态资源, 不要servlet参与
+     * 返回静态资源, 不要servlet参与, 这样写不是很好
      */
     public void staticFile(HspResponse response, HspRequest hspRequest) {
         try {
-            String staticName = hspRequest.getUri();
+            String staticName = hspRequest.getUri(); // 这个应该是的得到
             File file = new File("E:\\github\\IDEA_front\\hsptomcat_second\\target\\classes\\" + staticName);
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            String mes = null;
+            String mes = "";
             StringBuffer sb = new StringBuffer();
             sb.append(HspResponse.respHeader);
             while ((mes = bufferedReader.readLine()) != null) {
