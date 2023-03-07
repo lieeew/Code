@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<!--    <base href="/webPatch/">-->
+<!--    <base href="/webPatch/"> 该标浏览器解析, 第一个/会被解析为http://ip:port/-->
     <base href="http://localhost:8888/webPatch/">
 </head>
 <body>
 <h1>用户界面</h1>
-
+<!--使用相对路径可以进行定位, 比较麻烦不推荐-->
 <!--<a href="../../login.html">返回登录页面!!!</a>-->
 
+<!--base标签就好很多, 可以给一个固定的相对路径-->
 <a href="login.html">返回登录页面!!!</a>
 </body>
 </html>

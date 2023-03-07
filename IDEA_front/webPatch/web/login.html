@@ -6,6 +6,7 @@
 </head>
 <body>
 <!--这里不要写/ 如果写的话会解析到 http://ip:port/views/user/user.html-->
+<!--这里不写/ 使用相对路径-->
 <form action="views/user/user.html">
     u : <input type="text" name="num1"> <br> <br>
     <input type="submit" value="登录">
@@ -17,18 +18,11 @@
     <input type="submit" value="登录">
 </form>
 <br><br><br>
-
+<!--写/ 表示 http://ip:port/-->
 <form action="/webPatch/views/user/user.html">
     u : <input type="text" name="num1"> <br> <br>
     <input type="submit" value="登录">
 </form>
-<br> <br> <br>
-
-<form action="login">
-    u : <input type="text" name="num1"> <br> <br>
-    <input type="submit" value="登录">
-</form>
-
 <br> <br> <br>
 
 <form action="http://localhost:8888/webPatch/login">
@@ -45,6 +39,17 @@
 </form>
 
 <br><br><br>
+
+<form action="login">
+    u : <input type="text" name="num1"> <br> <br>
+    <input type="submit" value="登录">
+</form>
+
+<br> <br> <br>
+<form action="hello">
+    u : <input type="text" name="num1"> <br> <br>
+    <input type="submit" value="登录">
+</form>
 
 </body>
 </html>
