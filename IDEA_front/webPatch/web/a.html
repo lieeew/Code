@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a.html</title>
+</head>
+<body>
+<h1>这是a.html~~~~~</h1>
+<!-- 相对路径
+    1. href="d1/d2/b.html" 等价于 http://localhost:8080/项目名/d1/d2/b.html
+-->
+<a href="d1/d2/b.html">跳转到/d1/d2/b.html</a>
+<br/><br/>
+<!--
+    老韩解析
+    1. 在实际开发中，往往不是直接访问一个资源的而是在服务端进行转发或者重定向来访问资源
+    2. 演示转发定位 b.html
+    3. href="servlet03" http://localhost:8080/webpath/servlet03
+    4. href="/servlet03" 这个不需要带/ 如果带上那么意思就变为 http://localhost:8080/servlet03
+-->
+<a href="servlet03">转发到/d1/d2/b.html</a>
+</body>
+</html>
