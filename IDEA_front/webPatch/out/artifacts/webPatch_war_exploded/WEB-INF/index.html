@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>base 标签</title>
+</head>
+<body>
+<h1>注册用户~~</h1>
+<!--
+    老韩解读:
+    1. 可以看到，我们原来的访问一个web资源的路径非常的麻烦
+    2. 目前我们访问的是 ok的资源
+    3. 我们可以使用相对路径来解决
+    4. http://localhost:8080/webpath/ok => ok
+    5. 如果你action="ok" 等价 http://localhost:8080/webpath/ok
+-->
+<form action="OK"
+      method="post">
+  u:　<input type="text" name="username"/><br><br>
+  <input type="submit" value="注册用户"/>
+</form>
+<h1>讨论区~</h1>
+<form action="ok"
+      method="post">
+  讨论内容:　<textarea cols="50" rows="5"></textarea><br><br>
+  <input type="submit" value="发布讨论"/>
+</form>
+<h1>回复区~</h1>
+<form action="ok"
+      method="post">
+  回复内容:　<textarea cols="50" rows="5"></textarea><br><br>
+  <input type="submit" value="回复"/>
+</form>
+</body>
+</html>
