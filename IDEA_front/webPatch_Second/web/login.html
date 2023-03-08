@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+    不适用servlet转发
+    1. views/user/user.html 使用相对路径
+    2. /webPatch/views/user/user.html 第一个/被解析为 http://ip:port/
+
+    使用servlet转发
+    1. 写法一   Login
+    2. 写法二    /webPatch/Login 第一个/浏览器解析会变成 http://ip:port/
+    3. 写法三    http://localhost:8888/webPatch/Login 完整的路径没毛病
+-->
+<form action="Login">
+    u : <input type="text" name="username"> <br> <br>
+    <input type="submit" name="提交数据">
+</form>
+</body>
+</html>
