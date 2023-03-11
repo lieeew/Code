@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function print(num1, num2) {
+            alert("num1 + num2 = " + (num1 + num2));
+        }
+
+        function openFile() {
+            alert("test");
+            window.open("./class.html");
+        }
+
+
+    </script>
+</head>
+<body>
+
+<form action="?">
+    <input type="button" onclick="openFile()" value="打开表单文件"> <br><br>
+    <hr>
+    <input type="button" onclick="print(12,20)" value="启动a + b = " name="离谱"> <br><br>
+    <input type="button" onclick="var a = 10;var b = 30;alert('a + b = ' + (a + b)); alert('a * b = ' + a * b)" value="启动a + b = " name="离谱"> <br><br>
+    <a href="javascrip:windows.open('http://www.bing.com')"> bing</a>
+</form>
+
+
+</body>
+</html>
