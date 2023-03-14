@@ -48,6 +48,5 @@ public class CookieLive extends HttpServlet {
         writer.println("<h1>设置cookie声明周期成功~~~</h1>");
         writer.flush();
         writer.close();
-
     }
 }
