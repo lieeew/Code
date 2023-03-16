@@ -23,6 +23,7 @@ public class LoginCheckServlet extends HttpServlet {
         System.out.println("LoginCheckServlet ~~~~");
         HttpSession session = request.getSession();
         session.setAttribute("pwd", request.getParameter("pwd"));
+        session.setAttribute("account", request.getParameter("account"));
 
         request.getRequestDispatcher("/CheckServlet").forward(request, response);
     }
