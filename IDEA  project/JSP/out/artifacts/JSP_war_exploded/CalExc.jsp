@@ -20,37 +20,49 @@
     System.out.println("num2 = " + num2);
 
     String symbol = request.getParameter("symbol");
-
-    if ("add".equals(symbol)) {
+    int result = 0;
+    if ("add".equals(   symbol)) {
         // 加法
-        out.print("num1 + num2 = " + (num2 + num1));
+        result = (num2 + num1);
+        symbol = "+";
     } else if ("delete".equals(symbol)) {
         // 减法
-        out.print("num1 - num2 = " + (num1 - num2));
+        result = (num1 - num2);
+        symbol = "-";
     } else if ("multiplication".equals(symbol)) {
         // 乘法
-        out.print("num1 * num2 = " + (num1 * num2));
+        result = (num1 * num2);
+        symbol = "*";
     } else if ("division".equals(symbol)) {
         // 除法
-        out.print("num1 / num2 = " + (num1 / num2));
+        result = (num1 / num2);
+        symbol = "/";
     } else {
         System.out.println("内部问题!!!");
     }
+
+    // 设置结果和num1和num2的值
+    session.setAttribute("num1", num1);
+    session.setAttribute("num2", num2);
+    session.setAttribute("result", result);
+    session.setAttribute("symbol", symbol);
+    // 请求转发一波
+    request.getRequestDispatcher("/success.jsp").forward(request, response);
+
+
 %>
 
 <%!
     public Integer parseInt(String num, int defaultNum) {
-        Pattern pattern = Pattern.compile("[+,-]{0,2}\\d+");
+        Pattern pattern = Pattern.compile("^[+,-]{0,2}\\d+$");
         Matcher matcher = pattern.matcher(num);
 
         if (matcher.find()) {
             System.out.println("~~~~~~~~~~~");
-            int i = defaultNum;
-            i = Integer.parseInt(num);
-            return i;
+            return Integer.parseInt(num);
         } else {
             // 输出错误一些信息, 转发页面
-            return null;
+            return defaultNum;
         }
     }
 %>
