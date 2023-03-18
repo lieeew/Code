@@ -14,8 +14,8 @@
 
 <h1>计算结果</h1>
 
-<h2><%=session.getAttribute("num1")%> <%=session.getAttribute("symbol")%> <%=session.getAttribute("num2")%> = <%=session.getAttribute("result")%></h2> <br>
+<h2><%=session.getAttribute("format")%></h2> <br>
 
-<a href="<%=request.getContextPath()%>/CalUi.jsp">点击返回计算</a>
+<a href="<%=request.getContextPath()%>/Cal/CalUi.jsp">点击返回计算</a>
 </body>
 </html>

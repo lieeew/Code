@@ -35,7 +35,7 @@
 <h1>JSP 版本计算器</h1>
 
 <%--action="/JSP/CalExc.jsp"--%>
-<form action="/JSP/CalExc.jsp" method="post" onsubmit="return check()">
+<form action="/JSP/Cal/CalExc.jsp" method="post" onsubmit="return check()">
     num1 : <input type="text" name="num1" id="num1"> <br><br>
     num2 : <input type="text" name="num2" id="num2"> <br><br>
 
