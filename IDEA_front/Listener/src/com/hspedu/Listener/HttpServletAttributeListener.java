@@ -17,7 +17,7 @@ public class HttpServletAttributeListener implements ServletContextAttributeList
 
     @Override
     public void attributeRemoved(ServletContextAttributeEvent servletContextAttributeEvent) {
-        System.out.println("检测到 添加删除属性 " + servletContextAttributeEvent.getName() + " == " + servletContextAttributeEvent.getValue());
+        System.out.println("检测到 添加删除属性 " + servletContextAttributeEvent.getName());
 
     }
 

@@ -25,6 +25,10 @@ public class HiServlet extends HttpServlet {
         servletContext.removeAttribute("name");
 
         HttpSession session = req.getSession();
+        session.setMaxInactiveInterval(30);
+        session.setAttribute("age", 100);
+        session.setAttribute("age", 400);
+        session.removeAttribute("age");
         System.out.println("HiServlet创建完成 ~~~");
 
     }

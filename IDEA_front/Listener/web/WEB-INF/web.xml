@@ -24,4 +24,12 @@
         <listener-class>com.hspedu.Listener.HspHttpServletSessionListener</listener-class>
     </listener>
 
+    <listener>
+        <listener-class>com.hspedu.Listener.HspHttpSessionAttributeListener</listener-class>
+    </listener>
+    
+    <listener>
+        <listener-class>com.hspedu.Listener.HspHttpRequestListener</listener-class>
+    </listener>
+
 </web-app>
