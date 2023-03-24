@@ -43,9 +43,17 @@
     <filter>
         <filter-name>IpFilter</filter-name>
         <filter-class>com.hspedu.Filter.IpFilter</filter-class>
+        <init-param>
+            <param-name>ip</param-name>
+            <param-value>127.0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>email</param-name>
+            <param-value>lihua@qq.com</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>IpFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/manage/*</url-pattern>
     </filter-mapping>
 </web-app>

@@ -18,17 +18,34 @@
         <url-pattern>/abc/*</url-pattern>
     </filter-mapping>
     
+    <!--<filter>-->
+    <!--    <filter-name>HspFilterConfig</filter-name>-->
+    <!--    <filter-class>com.hspedu.Filter.HspFilterConfig</filter-class>-->
+    <!--     &lt;!&ndash;这里就是给该filter配置的信息, 由程序员根据逻辑设置&ndash;&gt;-->
+    <!--    <init-param>-->
+    <!--        <param-name>ip</param-name>-->
+    <!--        <param-value>166.66.66.66</param-value>-->
+    <!--    </init-param>-->
+    <!--    <init-param>-->
+    <!--        <param-name>port</param-name>-->
+    <!--        <param-value>8888</param-value>-->
+    <!--    </init-param>-->
+    <!--    <init-param>-->
+    <!--        <param-name>email</param-name>-->
+    <!--        <param-value>lihua@qq.com</param-value>-->
+    <!--    </init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+    <!--    <filter-name>HspFilterConfig</filter-name>-->
+    <!--    <url-pattern>/manage/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
     <filter>
-        <filter-name>HspFilterConfig</filter-name>
-        <filter-class>com.hspedu.Filter.HspFilterConfig</filter-class>
-         <!--这里就是给该filter配置的信息, 由程序员根据逻辑设置-->
+        <filter-name>IpFilter</filter-name>
+        <filter-class>com.hspedu.Filter.IpFilter</filter-class>
         <init-param>
             <param-name>ip</param-name>
-            <param-value>166.66.66.66</param-value>
-        </init-param>
-        <init-param>
-            <param-name>port</param-name>
-            <param-value>8888</param-value>
+            <param-value>127.0</param-value>
         </init-param>
         <init-param>
             <param-name>email</param-name>
@@ -36,16 +53,7 @@
         </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>HspFilterConfig</filter-name>
+        <filter-name>IpFilter</filter-name>
         <url-pattern>/manage/*</url-pattern>
-    </filter-mapping>
-
-    <filter>
-        <filter-name>IpFilter</filter-name>
-        <filter-class>com.hspedu.Filter.IpFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>IpFilter</filter-name>
-        <url-pattern>/*</url-pattern>
     </filter-mapping>
 </web-app>
