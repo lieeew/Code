@@ -3,4 +3,49 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--filter一般写在最前面
+            1. 观察我们发现filter和servlet配置相似 filter也是Tomcat创建和维护的
+            2. url-pattern 就是相当于url 和匹配的时候, 就会调用 filter
+            3. /manage/* 第一个/ 会被解析为 http://ip:port/工程路径
+            4. 完整的路径就是 http://ip:port/工程路径/manage/* 当请求的资源该条件时就会调用该filter
+    -->
+    <filter>
+        <filter-name>ManageFilter</filter-name>
+        <filter-class>com.hspedu.Filter.ManageFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ManageFilter</filter-name>
+        <url-pattern>/abc/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>HspFilterConfig</filter-name>
+        <filter-class>com.hspedu.Filter.HspFilterConfig</filter-class>
+         <!--这里就是给该filter配置的信息, 由程序员根据逻辑设置-->
+        <init-param>
+            <param-name>ip</param-name>
+            <param-value>166.66.66.66</param-value>
+        </init-param>
+        <init-param>
+            <param-name>port</param-name>
+            <param-value>8888</param-value>
+        </init-param>
+        <init-param>
+            <param-name>email</param-name>
+            <param-value>lihua@qq.com</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>HspFilterConfig</filter-name>
+        <url-pattern>/manage/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>IpFilter</filter-name>
+        <filter-class>com.hspedu.Filter.IpFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>IpFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

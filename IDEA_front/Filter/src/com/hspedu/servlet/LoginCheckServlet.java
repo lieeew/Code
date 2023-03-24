@@ -26,8 +26,11 @@ public class LoginCheckServlet extends HttpServlet {
         String pwd = request.getParameter("pwd");
 
         if ("123456".equals(pwd)) {
+            // 合法加入session
+            request.getSession().setAttribute("username", userName);
             System.out.println(userName + "登录成功!!!");
             // 请求转发到 admin.jsp
+            // 请求转发不会过 filter
             request.getRequestDispatcher("/manage/admin.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("/login.jsp").forward(request, response);

@@ -13,9 +13,13 @@
     <base href="<%=request.getContextPath()%>/manage/">
 </head>
 <body>
-<h1>资源</h1>
+<h1>后台管理</h1>
+<%
+    System.out.println("request = " + request);
+%>
 
-<img src="beautifulGirl.jpg" alt="beautifulGirl">
+<a href="#">用户列表</a> || <a href="#">添加用户</a> || <a href="#">删除用户</a> <br><br>
+<img src="beautifulGirl.jpg" alt="beautifulGirl" width="500">
 </body>
 
 </html>
