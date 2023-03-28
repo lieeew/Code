@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery选择器的使用特点</title>
+    <script type="text/javascript" src="jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            // 如果是dom对象
+            // 这个会报错, 健壮性完美
+            let elementById = document.getElementById("username");
+            if (elementById){
+                alert(elementById.value);
+            } else {
+                alert("未定义~");
+            }
+
+            // jQuery就可以解决这个问题, 会报undefined
+            let $username = $("#username");
+            alert($username.val());
+
+        }
+    </script>
+</head>
+<body>
+    用户名 <input type="text" id="username~" name="username" value="韩顺平教育"/>
+</body>
+</html>

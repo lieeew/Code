@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        // 需要写外面的$() 记住了
+        $(function () {
+            let $username = $("#username");
+            alert("$username = " + $username.val());
+
+        /*
+            jQuery对象转化为dom对象
+            (1) jQuery 是一个数组对象, 封装了dom对象
+            (2) 可以通过[index]来获取, 或者可以get(index)
+
+         */
+        // 方式一 $name[]
+        let usernameElement = $username[0];
+        alert(usernameElement);
+        alert("username value = " + usernameElement.value);
+
+        // 方式二
+        let username = $username.get(0);
+        alert("username value ~~~= " + username.value);
+
+        });
+    </script>
+</head>
+<body>
+    用户名 <input type="text" id="username" name="username" value="韩顺平教育"/>
+</body>
+</html>

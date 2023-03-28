@@ -56,4 +56,30 @@
         <filter-name>IpFilter</filter-name>
         <url-pattern>/manage/*</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>AFilter</filter-name>
+        <filter-class>com.hspedu.Filter.AFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>BFilter</filter-name>
+        <filter-class>com.hspedu.Filter.BFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>BFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>workFilter</filter-name>
+        <filter-class>com.hspedu.Filter.workFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>workFilter</filter-name>
+        <url-pattern>/homework/*</url-pattern>
+    </filter-mapping>
 </web-app>

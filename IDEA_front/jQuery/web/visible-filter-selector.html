@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>可见度过滤选择器-应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman;
+        }
+
+        div.mini {
+            width: 30px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family: Roman;
+        }
+
+        div.visible {
+            /*设置为none就是不可见*/
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="./jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //*****改变所有可见的div元素的背景色为 #0000FF
+            $("#b1").click(function () {
+                $("div:visible").css("background", "red");
+            })
+            //**选取所有不可见的div元素, 利用 jQuery 中的 show() 方法将它们显示出来, 并设置其背景色为 #0000FF
+            $("#b2").click(function () {
+                $("div:hidden").css("background", "green");
+                $("div:hidden").show();
+            })
+            //**选取所有的文本隐藏域, 并打印它们的值
+            $("#b3").click(function () {
+                // 1. 先得到所有的hidden元素
+                // 2. $inputs 是一个jQuery对象, 而且是一个数组对象
+                let $inputs = $("input:hidden");
+                alert("$inputs = " + $inputs.length);
+                // 1. 方式一 for循环
+                // for (let i = 0; i < $inputs.length; i++) {
+                //     // 这个取出的是dom对象
+                //     console.log("值 = " + $inputs[i].value)
+                // }
+
+                // 方式二 each方法 推荐
+                // 遍历时会将, $inputs 数组的元素取出, 传给function() {} 中的 this对象中, 每一次循环都会覆盖循环
+                $inputs.each(function () {
+                    // this对象就是dom对象
+                    console.log("值(dom)" + this.value);
+
+                    // 使用jQuery方法 --> jQuery方法取出
+                    console.log("值(jQuery) = " + $(this).val());
+                })
+            })
+        });
+    </script>
+</head>
+<body>
+
+<input type="button" value="改变所有可见的div元素的背景色为 #0000FF" id="b1"/> <br/><br/>
+<input type="button" value="选取所有不可见的div, 利用 jQuery 中的 show() 方法将它们显示出来, 并设置其背景色为 #0000FF"
+       id="b2"/> <br/><br/>
+<input type="button" value="选取所有的文本隐藏域, 并打印它们的值" id="b3"/> <br/><br/>
+<hr/>
+
+<input type="hidden" value="hidden1"/>
+<input type="hidden" value="hidden2"/>
+<input type="hidden" value="hidden3"/>
+<input type="hidden" value="hidden4"/>
+
+<div id="one" class="visible">
+    div id为one
+</div>
+
+<div id="two" class="visible">
+    div id为two
+</div>
+
+<div id="three" class="one">
+    div id为three
+</div>
+
+</body>
+</html>
