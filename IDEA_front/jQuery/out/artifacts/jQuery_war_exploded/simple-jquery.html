@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery快速入门</title>
+    <!--    引入jquery库-->
+    <script type="text/javascript" src="jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        /**
+         * 使用dom编程
+         * 1. 代码比较麻烦
+         * 2. document.getElementById("btn01") 返回的是dom对象
+         */
+        // window.onload = function () {
+        //     // 先得到对象
+        //     let byId = document.getElementById("btn01");
+        //     // 绑定一个事件
+        //     byId.onclick = function () {
+        //         alert("hello js !!");
+        //     }
+        // }
+
+        /**
+         * 老师说明
+         * 1. 初次使用jquery , 你会觉得语法比较奇怪，其实jquery的底层仍然是js,只是做了封装
+         * 2. $(function () {} 等价  window.onload = function () {}
+         * 3. $() 可以理解成是一个函数 [可以定义 function $(id) {} ...]
+         * 3. $("#btn01") 底层: document.getElementById("btn01")
+         * 4. 注意 $("#btn01") 不能写成 $("btn01")
+         * 5. 通过$("#btn01") 返回的对象就是 jquery对象(即进行了封装)，而不是原生的dom对象
+         */
+
+        //使用jquery
+        //1. 引入jquery库文件->感情的自然流露
+        //2. $(function(){}) 等价原生的js的, 当页面加载完毕就会执行 function(){}
+        /*
+                window.onload= function(){}
+         */
+
+        $(function () {
+            // 得到btn01这个对象 --> jQuery对象
+            // $btn01 是一个jQuery对象, 其实就是一个jQuery对象包装
+            // 这时候我们就能使用jQuery对象的相关方法和事件
+            // 通过debug我们发现jQuery是数组对象
+            // jquery中, 我们获取对象的方法是 $("#id")
+            // 默认规则是 jQuery变量名用 $ 开头
+            var $btn01 = $("#btn01");
+            alert($btn01);
+            // 2. 绑定事件
+            $btn01.click(function () {
+                alert("hello jQuery ~~~");
+            })
+        });
+
+    </script>
+</head>
+<body>
+<button id="btn01">按钮1</button>
+</body>
+</html>
