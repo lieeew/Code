@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制节点-应用实例</title>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script>
+        $(
+            function () {
+                //点击p, 弹出文本信息
+                $("p").click(function () {
+                    // 隐式传入this --> p 的dom对象
+                    alert("段落的内容 = " + $(this).text());
+                })
+
+                //克隆p, 插入到按钮后面
+                //老韩解读
+                //1. $("p").clone() 表示克隆p元素，但是没有复制事件
+                // $("P").clone().insertAfter($("button"));
+                //2. $("p").clone(true) 表示克隆p元素，同时复制事件
+                $("P").clone(true).insertAfter($("button"));
+            }
+        )
+    </script>
+</head>
+<body>
+<button>保存</button>
+<br><br><br><br><br>
+///////////////////////////////////////////////<br>
+<p>段落1</p>
+<p>段落2</p>
+<p>段落3</p>
+<p>段落4</p>
+<p>段落5</p>
+</body>
+</html>

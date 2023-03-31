@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用遍历节点方法-应用实例</title>
+    <style type="text/css">
+        div, span {
+            width: 140px;
+            height: 60px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Roman,serif;
+        }
+
+    </style>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 查找所有子元素 class 为 one 的div的
+            $("#b1").click(function () {
+                // 遍历class为one的所有div
+                $("div.one").children().each(function () {
+                    alert("子div的元素 = " + $(this).text());
+                })
+                // 获取指定某一个div 其中index从0开始
+                alert($("div.one").children().eq(1).text());
+            })
+
+            // 获取后面的同辈元素 (class 为 one 的div的
+            $("#b2").click(function () {
+                // nextAll() 获取后面所有的同辈标签
+                // filter("div") 过滤非div的标签
+                $("div.one").nextAll().filter("div").each(function () {
+                    alert("同辈div的元素 = " + $(this).text());
+                })
+
+                // 如果我们希望得到, 后面的同辈元素的第几个, 可以使用eq()
+                // 获取到后面同辈div元素的第二个
+                let text = $("div.one").nextAll().filter("div").eq(1).text();
+                alert(text);
+            })
+
+            
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="查找所有子元素 (class 为 one 的div的)" id="b1"/><br/><br/>
+<input type="button" value="获取后面的同辈元素 (class 为 one 的div的)" id="b2"/><br/><br/>
+<input type="button" value="获取前面的同辈元素 (class 为 one 的div的)" id="b3"/><br/><br/>
+<input type="button" value="获取所有的同辈元素 (class 为 one 的div的)" id="b4"/>
+<hr/>
+<div>
+    ccccccc
+</div>
+
+<p class="one">
+    ccccccc
+</p>
+
+<div class="one">
+    <div id="one">
+        XXXXXXXXX one
+    </div>
+
+    <div id="two">
+        XXXXXXXXX two
+    </div>
+
+    <div id="three">
+        XXXXXXXXX three
+    </div>
+
+    <div id="four">
+        XXXXXXXXX four
+    </div>
+</div>
+<div>
+    tttttttttt
+</div>
+<div>
+    aaaaaaa
+</div>
+<div>bbbbbb</div>
+<p>hello, pp</p>
+</body>
+</html>

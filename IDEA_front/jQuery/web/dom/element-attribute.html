@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作节点的属性</title>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                $("button").click(function () {
+                    // 不填属性直接弹出属性值, 填属性属于是设置值
+                    $("img").attr("src", "../image/1.png");
+                    $("img").attr("height", "500");
+                    alert($("img").attr("src"))
+                })
+            }
+        )
+    </script>
+</head>
+<body>
+<img src="../image/2.png" height="100"/>
+<br/>
+<button>设置图像的 height 属性</button>
+</body>
+</html>

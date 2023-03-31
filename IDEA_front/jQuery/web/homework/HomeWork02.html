@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork02</title>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                // 如果不使用id属性怎么选择
+                // $("#table1 tr:nth-child(2n+1)").css("background", "green");
+                // $("#table1 tr:nth-child(2n)").css("background", "yellow");
+                //
+                // $("#table2 tr:nth-child(2n+1)").css("background", "blue");
+                // $("#table2 tr:nth-child(2n)").css("background", "red");
+
+                // 如果不使用id属性
+                // index 是从0开始的
+                $("table:eq(0) tr:odd").css("background", "green");
+                $("table:eq(0) tr:even").css("background", "red");
+
+                $("table:eq(1) tr:odd").css("background", "black");
+                $("table:eq(1) tr:even").css("background", "blue");
+
+            }
+        )
+
+    </script>
+</head>
+<body>
+<h1>表格隔行变色</h1>
+
+<h4>表格1</h4>
+<table border="2px" cellspacing="20" width="400" id="table1">
+    <tr>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>6</td>
+    </tr>
+
+
+</table>
+
+<h4>表格2</h4>
+<table border="2px" cellspacing="20" width="400" id="table2">
+        <tr>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>6</td>
+        </tr>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>val()课堂练习</title>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                // $("#b3").click(function () {
+                //     let $b1 = $("#b1");
+                //     alert($b1.val()); // 值
+                //     let val = $b1.val("离谱");
+                // })
+                // 通过上面的案例得出, 可以通过val() 获取属性值
+                // 没想到要绑定两个事件就轻松解决了
+                // 需要绑定两个事件, 获取焦点和失去焦点
+                let defaultValue = "";
+
+                $("#b1").focus(function () {
+                    let val = $(this).val();
+                    defaultValue = this.defaultValue;
+                    if (val === defaultValue) {
+                        $(this).val(""); // default become ""
+                    }
+                })
+
+                // 失去焦点
+                $("#b1").blur(function () {
+                    let val = $(this).val();
+                    if (val === "") {
+                        $(this).val(defaultValue); // value become defaultValue
+                    }
+                })
+            }
+        )
+    </script>
+</head>
+<body>
+<input type="text" value="用户邮箱/手机号/用户名" id="b1"/><br>
+<input type="password" value="" id="b2"/><br>
+<input type="button" value="登陆" id="b3"/>
+</body>
+</html>

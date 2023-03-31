@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单选择器-应用实例</title>
+    <script type="text/javascript" src="./jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                // 选择所有的button
+                // this will choose the button  <input type="button" value="按钮1"/><br/>
+                // and <button>按钮2</button>
+                let length = $(":button").length;
+                alert("长度1 = " + length);
+
+                // this will choose the button <input type="button" value="">
+                let $input = $("input[type=button]");
+                alert("长度2 = " + $input.length);
+
+                // this will choose the button <button>按钮2</button>
+                var $button = $("button");
+                alert("长度3 = " + $button.length);
+            }
+        )
+    </script>
+</head>
+<body>
+<form>
+    <input type="text"/><br/>
+    <input type="checkbox"/><br/>
+    <input type="radio"/><br/>
+    <input type="image" src="../image/2.png" height="100"/><br/>
+    <input type="file"/><br/>
+    <input type="submit"/><br/>
+    <input type="reset"/><br/>
+    <input type="password"/><br/>
+    <input type="button" value="按钮1"/><br/>
+    <select>
+        <option/>
+    </select><br/>
+    <textarea></textarea><br/>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <br/>
+</form>
+</body>
+</html>
