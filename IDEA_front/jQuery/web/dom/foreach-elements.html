@@ -12,7 +12,7 @@
             border: #000 1px solid;
             float: left;
             font-size: 17px;
-            font-family: Roman,serif;
+            font-family: Roman, serif;
         }
 
     </style>
@@ -41,9 +41,26 @@
                 // 获取到后面同辈div元素的第二个
                 let text = $("div.one").nextAll().filter("div").eq(1).text();
                 alert(text);
+
+                // 如果我们希望得到紧邻的后面的同辈元素
+                alert("后面的同辈元素 " + $("div.one").next().text())
             })
 
-            
+            // 获取前面的同辈元素 (class 为 one 的div的
+            $("#b3").click(function () {
+                $("div.one").prevAll().filter("div").each(function () {
+                    alert("前面的元素 = " + $(this).text());
+                })
+                // 获取前面紧邻的标签
+                alert($("div.one").prev().filter("div").text());
+            })
+
+            // 获取所有的同辈元素 (class 为 one 的div的)
+            $("#b4").click(function () {
+                $("div.one").siblings().filter("div").each(function () {
+                    alert($(this).text());
+                })
+            })
         })
     </script>
 </head>
