@@ -247,6 +247,21 @@
                 })
             }
         )
+        // 只有写在这里面的代码才能加载dom树之后拿到对象
+        // window.onload = function () {
+        //     alert("success");
+        // }
+        //
+        // $(document).ready(function () {
+        //     alert("success");
+        // })
+        //
+        // // 上面方式的简化
+        // $(
+        //     function () {
+        //         alert("success");
+        //     }
+        // )
 
     </script>
 </head>

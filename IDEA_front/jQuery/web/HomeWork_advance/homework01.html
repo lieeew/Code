@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对多选框进行操作</title>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                // 1. 绑定按钮
+                $("#b1").click(function () {
+                    // 2.弹出测试一下有没有成功
+                    // alert("hello!");
+                    // 3.获取顺序性是checkbox的input标签同时是被选中的
+                    let length = $("input[type='checkbox']:checked").length;
+                    alert("checked num = " + length);
+                })
+            }
+        )
+    </script>
+</head>
+<body>
+<h1>对多选框进行操作</h1>
+<input type="checkbox" name="hobby" value="篮球"/>篮球
+<input type="checkbox" name="hobby" value="足球"/>足球
+<input type="checkbox" name="hobby" value="网球"/>网球
+<input type="checkbox" name="hobby" value="排球"/>排球
+<input type="button" id="b1" value="点击测试"/>
+</body>
+</html>

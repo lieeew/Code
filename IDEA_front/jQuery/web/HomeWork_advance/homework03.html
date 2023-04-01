@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>根据给出的示意图，完成相应的功能. homework03.html</title>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                $('#checkedAll_2').on('change', function () {
+                    if ($(this).is(':checked')) {
+                        console.log("The checkbox is checked.");
+                        // 在此处添加您要执行的代码
+                        $("input[name='items']").attr('checked', true);
+                    } else {
+                        console.log("The checkbox is not checked.");
+                        $("input[name='items']").attr('checked', false);
+                    }
+                });
+
+                // 全选
+                $("#CheckedAll").click(function () {
+                    // alert("hello");
+                    $("input[name='items']").each(function () {
+                        $(this).attr('checked', true);
+                    })
+                });
+
+                // 全不选
+                $("#CheckedNo").click(function () {
+                    // alert("hello");
+                    $("input[name='items']").each(function () {
+                        $(this).attr('checked', false);
+                    })
+                });
+
+                // 反选
+                $("#CheckedRev").click(function () {
+                    // alert("hello");
+                    // 1. 选择非checked的
+                    $("input[name='items']").each(function () {
+                        if ($(this).is(':checked')) {
+                            $(this).attr('checked', false);
+                        } else {
+                            $(this).attr('checked', true);
+                        }
+                    })
+                })
+            }
+        )
+    </script>
+</head>
+<body>
+<form method="post" action="">
+    请选择您的爱好!
+    <br><input type="checkbox" id="checkedAll_2"/>全选/全不选
+    <br/>
+    <input type="checkbox" name="items" value="足球"/>足球
+    <input type="checkbox" name="items" value="篮球"/>篮球
+    <input type="checkbox" name="items" value="游泳"/>游泳
+    <input type="checkbox" name="items" value="唱歌"/>唱歌
+    <br/>
+    <input type="button" id="CheckedAll" value="全　选"/>
+    <input type="button" id="CheckedNo" value="全不选"/>
+    <input type="button" id="CheckedRev" value="反　选"/>
+
+    <input type="button" id="send" value="提　交"/>
+</form>
+</body>
+</html>

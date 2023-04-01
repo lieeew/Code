@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用 JQuery 实现动态添加用户效果</title>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 先获取到提交的信息
+            $("#addUser").click(function () {
+                // alert("hello");
+                let name = $("#name").val();
+                let email = $("#email").val();
+                let tel = $("#tel").val();
+                // 取出对象信息
+                console.log(name, email, tel);
+
+                // 创建节点加入到 dom树中
+                let $tr = $("<tr/>");
+                let $name = $("<td/>").text(name);
+                let $email = $("<td/>").text(email);
+                let $tel = $("<td/>").text(tel);
+                $tr.append($name, $email, $tel);
+                $tr.append("<td><a id=\"Tom\" href=\"deleteEmp?id=Tom\">Delete</a></td>");
+
+                $("#usertable tbody").append($tr);
+            })
+        });
+
+    </script>
+</head>
+<body>
+<center>
+    <br><br>
+    添加用户:<br><br>
+    姓名: <input type="text" name="name" id="name"/>&nbsp;&nbsp;
+    email: <input type="text" name="email" id="email"/>&nbsp;&nbsp;
+    电话: <input type="text" name="tel" id="tel"/><br><br>
+    <button id="addUser">提交</button>
+    <br><br>
+    <hr>
+    <br><br>
+    <table id="usertable" border="1" cellpadding="5" cellspacing=0>
+        <tbody>
+        <tr>
+            <th>姓名</th>
+            <th>email</th>
+            <th>电话</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a id="Tom" href="deleteEmp?id=Tom">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a id="Jerry" href="deleteEmp?id=Jerry">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</center>
+
+</body>
+</html>
