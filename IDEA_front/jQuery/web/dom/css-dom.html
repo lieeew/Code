@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css-dom操作</title>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                $("#b1").click(function () {
+                    let width = $("img").width();
+                    alert("width=" + width);
+
+                    let offset = $("img").offset();
+                    alert("img  top=" + offset.top);
+                    alert("img  left=" + offset.left);
+                })
+            }
+        )
+    </script>
+</head>
+<body>
+<br/><br/><br/>
+hello,world~<img src="../image/1.png" width="200">
+<button id="b1" type="button">获取图片信息</button>
+</body>
+</html>

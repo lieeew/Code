@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多选框应用</title>
+    <style type="text/css">
+
+        BODY {
+            font-size: 12px;
+            margin: 0px 0px 0px 0px;
+            overflow-x: auto;
+            overflow-y: auto;
+            background-color: #B8D3F4;
+        }
+
+        .default_input {
+            border: 1px solid #666666;
+            height: 18px;
+            font-size: 12px;
+        }
+
+        .default_input2 {
+            border: 1px solid #666666;
+            height: 18px;
+            font-size: 12px;
+        }
+
+        .nowrite_input {
+            border: 1px solid #849EB5;
+            height: 18px;
+            font-size: 12px;
+            background-color: #EBEAE7;
+            color: #9E9A9E;
+        }
+
+        .default_list {
+            font-size: 12px;
+            border: 1px solid #849EB5;
+        }
+
+        .default_textarea {
+            font-size: 12px;
+            border: 1px solid #849EB5;
+        }
+
+        .nowrite_textarea {
+            border: 1px solid #849EB5;
+            font-size: 12px;
+            background-color: #EBEAE7;
+            color: #9E9A9E;
+        }
+
+        .wordtd5 {
+            font-size: 12px;
+            text-align: center;
+            vertical-align: top;
+            padding-top: 6px;
+            padding-right: 5px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            background-color: #b8c4f4;
+        }
+
+        .wordtd {
+            font-size: 12px;
+            text-align: left;
+            vertical-align: top;
+            padding-top: 6px;
+            padding-right: 5px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            background-color: #b8c4f4;
+        }
+
+        .wordtd_1 {
+            font-size: 12px;
+            vertical-align: top;
+            padding-top: 6px;
+            padding-right: 5px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            background-color: #516CD6;
+            color: #fff;
+        }
+
+        .wordtd_2 {
+            font-size: 12px;
+            text-align: right;
+            vertical-align: top;
+            padding-top: 6px;
+            padding-right: 5px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            background-color: #64BDF9;
+        }
+
+        .wordtd_3 {
+            font-size: 12px;
+            text-align: right;
+            vertical-align: top;
+            padding-top: 6px;
+            padding-right: 5px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            background-color: #F1DD34;
+        }
+
+        .inputtd {
+            font-size: 12px;
+            vertical-align: top;
+            padding-top: 3px;
+            padding-right: 3px;
+            padding-bottom: 3px;
+            padding-left: 3px;
+        }
+
+        .inputtd2 {
+            text-align: center;
+            font-size: 12px;
+            vertical-align: top;
+            padding-top: 3px;
+            padding-right: 3px;
+            padding-bottom: 3px;
+            padding-left: 3px;
+        }
+
+        .tablebg {
+            font-size: 12px;
+        }
+
+        .tb {
+            border-collapse: collapse;
+            border: 1px outset #999999;
+            background-color: #FFFFFF;
+        }
+
+        .td2 {
+            line-height: 22px;
+            text-align: center;
+            background-color: #F6F6F6;
+        }
+
+        .td3 {
+            background-color: #B8D3F4;
+            text-align: center;
+            line-height: 20px;
+            width: 100px;
+        }
+
+        .td4 {
+            background-color: #F6F6F6;
+            line-height: 20px;
+        }
+
+        .td5 {
+            border: #000000 solid;
+            border-right-width: 0px;
+            border-left-width: 0px;
+            border-top-width: 0px;
+            border-bottom-width: 1px;
+        }
+
+        .tb td {
+            font-size: 12px;
+            border: 2px groove #ffffff;
+        }
+
+
+        .noborder {
+            border: none;
+        }
+
+        .button {
+            border: 1px ridge #ffffff;
+            line-height: 18px;
+            height: 20px;
+            width: 45px;
+            padding-top: 0px;
+            background: #CBDAF7;
+            color: #000000;
+            font-size: 9pt;
+        }
+
+        .textarea {
+            font-family: Arial, Helvetica, sans-serif, "??";
+            font-size: 9pt;
+            color: #000000;
+            border-bottom-width: 1px;
+            border-top-style: none;
+            border-right-style: none;
+            border-bottom-style: solid;
+            border-left-style: none;
+            border-bottom-color: #000000;
+            background-color: transparent;
+            text-align: left
+        }
+    </style>
+    <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                //关于页面加载完毕后, 触发的方法 的几种写法
+                //1. js 的原生方式
+                // window.onload = function () {
+                //     alert("页面加载完毕后。。")
+                // }
+                //2.方式 jquery方式
+                // $(document).ready(function () {
+                //     alert("页面加载完毕后。。方式2")
+                // })
+                //3. 上面的方式可以简化写法
+
+                $("#add_all").click(function () {
+                    // alert("hello ~~"); 建议测试一下
+                    $("#first > option").appendTo($("#second"));
+
+                })
+
+                $("#add").click(function () {
+                    // alert("hello~~");
+                    // 选择过滤器 非常的香
+                    $("#first > option:checked").appendTo($("#second"))
+                })
+
+                $("#remove").click(function () {
+                    // alert("hello ~~~~"); // 建议测试一下
+                    $("#second > option:checked").appendTo($("#first"));
+                })
+
+                $("#remove_all").click(function () {
+                    // alert("hello $$"); // 建议测试一下
+                    $("#second > option").appendTo($("#first"))
+                })
+
+                // 双击移动位置向右移动
+                $("#first").dblclick(function () {
+                    // alert("hello ~~~~");
+                    // 这里的this是dom对象, $(this) 就变成了jQuery对象
+                    // 这里会有问题就是这个this对象指的是 select
+                    // $(this).appendTo($("#second"));
+                    $("#first > option:checked").appendTo($("#second"));
+                })
+
+                // 双击向左移动
+                $("#second").dblclick(function () {
+                    $("#second > option:checked").appendTo($("#first"));
+                })
+            }
+        )
+
+    </script>
+</head>
+<body>
+<div style="border:1px dashed #E6E6E6;margin:50px 0px 0px 50px; width:350px; height:260px; background-color:#E6E6E6;">
+    <table width="285" height="169" border="0" align="left" cellpadding="0" cellspacing="0"
+           style="margin:15px 0px 0px 15px;">
+        <tr>
+            <td width="126">
+                <!--multiple="multiple" 能同时选择多个   size="10"  确定下拉选的长度-->
+                <select name="first" size="10" multiple="multiple" class="td3" id="first">
+                    <option value="选项1">选项1</option>
+                    <option value="选项2">选项2</option>
+                    <option value="选项3">选项3</option>
+                    <option value="选项4">选项4</option>
+                    <option value="选项5">选项5</option>
+                    <option value="选项6">选项6</option>
+                    <option value="选项7">选项7</option>
+                    <option value="选项8">选项8</option>
+                </select>
+            </td>
+            <td width="69" valign="middle">
+                <input name="add" id="add" type="button" class="button" value="-->"/>
+                <input name="add_all" id="add_all" type="button" class="button" value="==>"/>
+                <input name="remove" id="remove" type="button" class="button" value="&lt;--"/>
+                <input name="remove_all" id="remove_all" type="button" class="button" value="&lt;=="/>
+            </td>
+            <td width="127" align="left">
+                <select name="second" size="10" multiple="multiple" class="td3" id="second">
+                    <option value="选项9">选项9</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
