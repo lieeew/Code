@@ -8,13 +8,14 @@
         $(
             function () {
                 $('#checkedAll_2').on('change', function () {
-                    if ($(this).is(':checked')) {
+                    if ($(this).is(':checked')) { // 这里简单的写法是 this.checked this是dom对象, 因为checked是input的一个基本顺序性
                         console.log("The checkbox is checked.");
                         // 在此处添加您要执行的代码
-                        $("input[name='items']").attr('checked', true);
+                        // 这个attr 方法有点小问题 可以使用 prop 代替
+                        $("input[name='items']").prop('checked', true);
                     } else {
                         console.log("The checkbox is not checked.");
-                        $("input[name='items']").attr('checked', false);
+                        $("input[name='items']").prop('checked', false);
                     }
                 });
 
@@ -22,7 +23,7 @@
                 $("#CheckedAll").click(function () {
                     // alert("hello");
                     $("input[name='items']").each(function () {
-                        $(this).attr('checked', true);
+                        $(this).prop('checked', true);
                     })
                 });
 
@@ -30,7 +31,7 @@
                 $("#CheckedNo").click(function () {
                     // alert("hello");
                     $("input[name='items']").each(function () {
-                        $(this).attr('checked', false);
+                        $(this).prop('checked', false);
                     })
                 });
 
@@ -40,9 +41,9 @@
                     // 1. 选择非checked的
                     $("input[name='items']").each(function () {
                         if ($(this).is(':checked')) {
-                            $(this).attr('checked', false);
+                            $(this).prop('checked', false);
                         } else {
-                            $(this).attr('checked', true);
+                            $(this).prop('checked', true);
                         }
                     })
                 })

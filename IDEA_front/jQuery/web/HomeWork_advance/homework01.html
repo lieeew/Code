@@ -12,8 +12,9 @@
                     // 2.弹出测试一下有没有成功
                     // alert("hello!");
                     // 3.获取顺序性是checkbox的input标签同时是被选中的
-                    let length = $("input[type='checkbox']:checked").length;
-                    alert("checked num = " + length);
+                    $("input[type='checkbox']:checked").each(function () {
+                        alert("checkbox name=" + $(this).val() + " checked=" + $(this).length);
+                    })
                 })
             }
         )

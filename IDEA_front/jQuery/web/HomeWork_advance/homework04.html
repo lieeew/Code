@@ -6,6 +6,22 @@
     <script type="text/javascript" src="../jQueryLab/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         $(function () {
+            /*
+             最终的效果
+              <table id="usertable" border="1" cellpadding="5" cellspacing=0>
+                <tbody>
+                <tr>
+                    <td>姓名</td>
+                    <td>email</td>
+                    <td>电话</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+                1. 使用的是 jQuery dom操作
+                2. 添加的内容对象到 table -> tbody
+                3. 逐步去构建td
+             */
             // 先获取到提交的信息
             $("#addUser").click(function () {
                 // alert("hello");
@@ -20,12 +36,45 @@
                 let $name = $("<td/>").text(name);
                 let $email = $("<td/>").text(email);
                 let $tel = $("<td/>").text(tel);
-                $tr.append($name, $email, $tel);
-                $tr.append("<td><a id=\"Tom\" href=\"deleteEmp?id=Tom\">Delete</a></td>");
+                // 构建delete
+                // <a id="Jerry" href="deleteEmp?id=Jerry">Delete</a>
+                let $delete = $("<tr/>");
+                let $a = $("<a/>").text("Delete");
+                $a.attr("id", name);
+                $a.attr("href", "deleteEmp?id=" + name);
 
+                $a.click(function() {
+                    // 调用一个删除方法
+                    // 函数的返回值返回给调用者。如果没有添加 return，则函数调用者将无法得到返回值。
+                    // 在这种情况下，添加或不添加 return 的影响取决于是否需要获取函数的返回值
+                    return deleteEmp($a);
+                });
+
+                $delete.append($a);
+                $tr.append($name, $email, $tel, $delete);
                 $("#usertable tbody").append($tr);
             })
+
+            $("a").click(function() {
+                // 调用一个删除方法
+                // 函数的返回值返回给调用者。如果没有添加 return，则函数调用者将无法得到返回值。
+                // 在这种情况下，添加或不添加 return 的影响取决于是否需要获取函数的返回值
+                // return 为 false时就会放弃提交
+                return deleteEmp($(this));
+            })
         });
+
+        function deleteEmp($a) {
+            let confirm = window.confirm("确认是否删除" + $a.attr("id") + "的个人信息");
+
+            if (!confirm) {
+                return false;
+            }
+            // 继续删除, 需要删除tr 也就是当前a标签的 父元素的父元素
+            $a.parent().parent().remove();
+
+            return false;
+        }
 
     </script>
 </head>
