@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json细节</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            // 这里面key 怎么写都行
+            var json_person = {
+                'name' : "李华",
+                'age' : 12
+            }
+
+            let s = JSON.stringify(json_person);
+            // 对原来的没有任何的影响
+            console.log("json_person type=",  typeof json_person);
+
+            // 这里只能是 "" 引起来, 其他的都不行
+            let parse = JSON.parse("{\"name\" : \"hello\"}");
+
+            // 这样转也没毛病
+            let parse1 = JSON.parse(JSON.stringify(json_person));
+
+
+        }
+    </script>
+</head>
+<body>
+
+<H1>json细节</H1>
+</body>
+</html>

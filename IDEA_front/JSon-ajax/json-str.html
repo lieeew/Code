@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON对象和字符串之间的转换</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            /*
+            老韩解读 :
+                1) JSON是js的一个内置的对象(build-in), 可以直接使用
+                2) console.log("JSON =  ", JSON)
+             */
+            // JSON --> String
+            console.log("JSON = ", JSON)
+            var Jsonperson = {
+                "name" : "李华",
+                "age" : 30
+            }
+            let strPerson = JSON.stringify(Jsonperson);
+            console.log("strPerson = ", strPerson, " 类型 = " + typeof strPerson);
+
+            // String --> JSON
+            let strDog = "{\"name\":\"小黄狗\",\"age\":30}";
+            let JSONDog = JSON.parse(strDog );
+            console.log("jsonDog = ", JSONDog, " 类型 = " + typeof JSONDog);
+
+        };
+    </script>
+</head>
+<body>
+<h1>JSON对象和字符串之间的转换</h1>
+</body>
+</html>

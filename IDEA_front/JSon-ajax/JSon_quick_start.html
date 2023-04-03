@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSon快速入门</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var myJson = {
+                "key1": "韩顺平教育",
+                "key2": 123,
+                "key3": [1, "hello", 2.3],
+                "key4": {"age": 12, "name": "jack"},
+                "key5": [{"key1": "10", "key2": "20"},
+                    {"key1": "30", "key2": "40"}]
+            }
+
+            console.log(myJson);
+            console.log("key1 = ", myJson.key1);
+            console.log("key2 = ", myJson.key2);
+            console.log("数组 = ", myJson.key3);
+
+            for (let i = 0; i < myJson.key3.length; i++) {
+                console.log("值为 = ", myJson.key3[i])
+            }
+
+            console.log("key5的值 = ", myJson.key5[1].key1);
+        }
+    </script>
+</head>
+<body>
+
+<h1> JSon快速入门 </h1>
+</body>
+</html>
