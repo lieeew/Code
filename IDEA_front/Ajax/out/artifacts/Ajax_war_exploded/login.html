@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            let checkButton = document.getElementById("checkButton");
+            checkButton.onclick = function () {
+                alert("hello!");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<h1>用户注册~</h1>
+<form action="/Ajax/CheckUserServlet" method="post">
+    用户名字:<input type="text" name="username" id="uname">
+    <input type="button" id="checkButton" value="验证用户名">
+    <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>
+    用户密码:<input type="password" name="password"><br/><br/>
+    电子邮件:<input type="text" name="email"><br/><br/>
+    <input type="submit" value="用户注册">
+</form>
+<h1>返回的json数据</h1>
+<div id="div1"></div>
+</body>
+</html>
