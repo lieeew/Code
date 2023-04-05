@@ -25,6 +25,6 @@ interface Bell {
 class CellPhone {
 
     public void alarmClock(Bell bell) {
-        bell.ring();
+        bell.ring(); // 动态绑定
     }
 }

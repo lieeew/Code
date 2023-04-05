@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -61,13 +62,36 @@ public class JavaJson {
                 1. 返回类型的完整路径 java.util.List<com.hspedu.JSon.Book>
                 2. gson 设计者需要得到类型完整路径然后进行底层反射
 
+                二说 TypeToken 为什么要加 {}
+                (1) 如果我们直接调用TypeToken的无参构造器, 会报错, 由于无参构造器是protected的
+                (2) 根据Java基础, 如果一个方法是protected时, 不在同一个包时不能直接访问
+                (3) new TypeToken<List<Book>>() {} 就是匿名实现类, 可以理解成TypeToken的子类, 在这个匿名实现类中有一个隐私的无参构造器 默认有super()
+
+
          */
 
         Type type = new TypeToken<List<Book>>() {
         }.getType();
-        // Type = java.util.List<com.hspedu.JSon.Book>
-        System.out.println("Type = " + type);
+        // TypeClass = java.util.List<com.hspedu.JSon.Book>
+        System.out.println("TypeClass = " + type);
+        // 地址 class com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl
+        System.out.println("Type = " + type.getClass());
         List<Book> o = gson.fromJson(strBookList, type);
         System.out.println(o);
+
+
+        // 把Map对象 --> json字符串
+        HashMap<String, Book> stringBookHashMap = new HashMap<>();
+        stringBookHashMap.put("1", new Book(400, "hello world"));
+        stringBookHashMap.put("2", new Book(500, "hello world"));
+
+        String JsonBook = gson.toJson(stringBookHashMap);
+        System.out.println("JsonBook = " + JsonBook);
+
+        // 把json字符串 --> Map对象
+        HashMap<String, Book> HashMap2 = gson.fromJson(JsonBook, new TypeToken<HashMap<String, Book>>() {
+        }.getType());
+        System.out.println("HashMap2 = " + HashMap2);
+
     }
 }
