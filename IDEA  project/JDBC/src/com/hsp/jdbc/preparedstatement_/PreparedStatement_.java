@@ -38,8 +38,8 @@ public class PreparedStatement_ {
         preparedStatement.setString(1, admin_user);
         preparedStatement.setString(2, admin_psw);
         /*
-        执行select 语句使用 executeQuery()
-        执行dml语句使用executeUpdate()
+            执行select 语句使用 executeQuery()
+            执行dml语句使用executeUpdate()
          */
         // 这里不要在写sql写到参数里面
         ResultSet resultSet = preparedStatement.executeQuery();

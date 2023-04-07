@@ -7,16 +7,38 @@
         window.onload = function () {
             let checkButton = document.getElementById("checkButton");
             checkButton.onclick = function () {
-                alert("hello!");
-            }
+                // 1.创建对象 XMLHttpRquest 对象 [ajax引擎对象]
+                let xhr = new XMLHttpRequest();
+                // 2.发送指定的数据 open send
 
+                let uname = document.getElementById("uname").value;
+                // alert("name=" + uname)
+                // 第一个参数 发送消息的方式GET/POST
+                // 第二个参数 就是url
+                // 第三个参数 true 表示异步  false 表示同步
+                // 这个服务器取数据使用的是uname 而不表单的name
+                xhr.open("GET", "/Ajax/CheckUserServlet?uname=" + uname, true);
+
+                // 注意在send函数调用之前, 需要对XMLHttpRquest 绑定一个事件onreadystatechange
+                // 每当 readyState 发生变化时就会调用 onreadystatechange 函数
+                // 写一个方法
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log("xhr", xhr);
+                    }
+                }
+
+                // 3. 真正的发送Ajax请求[http请求]
+                // 如果是post请求, 那么就需要填写数据 shr.send("填入数据")
+                xhr.send();
+            }
         }
 
     </script>
 </head>
 <body>
 <h1>用户注册~</h1>
-<form action="/Ajax/CheckUserServlet" method="post">
+<form action="/Ajax/CheckUserServlet" method="get">
     用户名字:<input type="text" name="username" id="uname">
     <input type="button" id="checkButton" value="验证用户名">
     <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>

@@ -7,8 +7,8 @@ import java.io.Serializable;
  * @Date: 2023/4/5
  * @Description: domain/JavaBean/entity/pojo
  */
-public class User implements Serializable {
-    private static final long serialVersionUID = 100L;
+public class User {
+
     private Integer id;
     private String username;
     private String password;
@@ -56,13 +56,4 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }

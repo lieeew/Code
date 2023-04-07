@@ -24,10 +24,16 @@
                 // 写一个方法
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
-                        console.log("xhr", xhr);
+                        // console.log("xhr", xhr);
+                        let responseText = xhr.responseText;
+                        if (responseText !== "") {
+                            document.getElementById("myres").value = "该用户名已经使用!!!";
+                            document.getElementById("div1").innerHTML = responseText;
+                        } else {
+                            document.getElementById("myres").value = "该用户名没有使用!!!";
+                        }
                     }
                 }
-
                 // 3. 真正的发送Ajax请求[http请求]
                 // 如果是post请求, 那么就需要填写数据 shr.send("填入数据")
                 xhr.send();
