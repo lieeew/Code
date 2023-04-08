@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <!--    引入jQuery库-->
+    <script type="text/javascript" src="./jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#checkButton").click(function () {
+                // alert("hello~~");
+                // 发出Ajax
+                /*
+                 dateType 后端返回的数据
+                 success 就是回调函数
+                 */
+                // $.ajax({
+                //     url: "/Ajax/CheckUserServlet2",
+                //     type: "POST",
+                //     data: { // 这里的下面的date是为了防止浏览器的缓存
+                //         username: $("#uname").val(),
+                //         date: new Date()
+                //     },
+                //     dateType: "JSON",
+                //     error: function () {
+                //         // 失败后的回调函数
+                //         console.log("失败~~");
+                //     },
+                //     success: function (response, status, xhr) {
+                //         console.log("成功");
+                //         // 这个response是String类型的, 本身服务器发送的就是JSON字符串
+                //         console.log("response = ", response);
+                //         console.log("xhr = ", xhr);
+                //         console.log("status = ", status);
+                //
+                //         // 这里是由于JavaBean中的属性进行判断的, 其实是由于User对象转化为JSON数据之后发送给前端, 所以获取的时候需要使用属性名
+                //         if ("" === response.name) { // 名称可以使用
+                //             $("#myres").val("用户名可以使用!")
+                //         } else {
+                //             $("#myres").val("用户名不以使用")
+                //             $("#div1").html(JSON.stringify(response));
+                //         }
+                //     }
+                // })
+
+                // $.get(
+                //     "/Ajax/CheckUserServlet2",
+                //     function (response, status, xhr) {
+                //         console.log("成功");
+                //         // 这个response是String类型的, 本身服务器发送的就是JSON字符串
+                //         console.log("response = ", response);
+                //         console.log("xhr = ", xhr);
+                //         console.log("status = ", status);
+                //
+                //         // 这里是由于JavaBean中的属性进行判断的, 其实是由于User对象转化为JSON数据之后发送给前端, 所以获取的时候需要使用属性名
+                //         if ("" === response.name) { // 名称可以使用
+                //             $("#myres").val("用户名可以使用!")
+                //         } else {
+                //             $("#myres").val("用户名不以使用")
+                //             $("#div1").html(JSON.stringify(response));
+                //         }
+                //     },
+                //     "JSON"
+                // )
+
+                // $.post(
+                //     "/Ajax/CheckUserServlet2",
+                //     { // 这里的下面的date是为了防止浏览器的缓存
+                //         username: $("#uname").val(),
+                //         date: new Date()
+                //     },
+                //     function (response, status, xhr) {
+                //         console.log("成功");
+                //         // 这个response是String类型的, 本身服务器发送的就是JSON字符串
+                //         console.log("response = ", response);
+                //         console.log("xhr = ", xhr);
+                //         console.log("status = ", status);
+                //
+                //         // 这里是由于JavaBean中的属性进行判断的, 其实是由于User对象转化为JSON数据之后发送给前端, 所以获取的时候需要使用属性名
+                //         if ("" === response.name) { // 名称可以使用
+                //             $("#myres").val("用户名可以使用!")
+                //         } else {
+                //             $("#myres").val("用户名不以使用")
+                //             $("#div1").html(JSON.stringify(response));
+                //         }
+                //     },
+                //     "JSON"
+                // )
+
+                $.getJSON(
+                    "/Ajax/CheckUserServlet2",
+                    { // 这里的下面的date是为了防止浏览器的缓存
+                        username: $("#uname").val(),
+                        date: new Date()
+                    },
+                    function (response, status, xhr) {
+                        console.log(" toJson 成功");
+                        // 这个response是String类型的, 本身服务器发送的就是JSON字符串
+                        console.log("response = ", response);
+                        console.log("xhr = ", xhr);
+                        console.log("status = ", status);
+
+                        // 这里是由于JavaBean中的属性进行判断的, 其实是由于User对象转化为JSON数据之后发送给前端, 所以获取的时候需要使用属性名
+                        if ("" === response.name) { // 名称可以使用
+                            $("#myres").val("用户名可以使用!")
+                        } else {
+                            $("#myres").val("用户名不以使用")
+                            $("#div1").html(JSON.stringify(response));
+                        }
+                    }
+                )
+            })
+        })
+    </script>
+</head>
+<body>
+<h1>用户注册~ JQuery + Ajax</h1>
+<form action="/Ajax/CheckUserServlet2" method="get">
+    用户名字:<input type="text" name="username" id="uname">
+    <input type="button" id="checkButton" value="验证用户名">
+    <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>
+    用户密码:<input type="password" name="password"><br/><br/>
+    电子邮件:<input type="text" name="email"><br/><br/>
+    <input type="submit" value="用户注册">
+</form>
+<h1>返回的json数据</h1>
+<div id="div1"></div>
+</body>
+</html>
