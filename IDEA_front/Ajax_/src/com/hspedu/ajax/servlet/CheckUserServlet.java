@@ -22,18 +22,13 @@ public class CheckUserServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("CheckUserServlet~~~");
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {;
         String uname = request.getParameter("uname");
         System.out.println("uname=" + uname);
-
         response.setContentType("text/html;charset=UTF-8");
         if ("king".equals(uname)) {
             User king = new User(1, "king", "king@gmail.com", "123123");
             String s = new Gson().toJson(king);
-            System.out.println(s);
-
             response.getWriter().write(s);
         } else {
             response.getWriter().write("");

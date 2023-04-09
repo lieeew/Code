@@ -28,10 +28,9 @@ public class CheckUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = getInitParameter("username");
+        String username = request.getParameter("username");
         response.setContentType("text/html;charset=UTF-8");
         User user = userService.getUserByName(username);
-        System.out.println("user = " + user);
         if (user != null) {
             String s = new Gson().toJson(user);
             response.getWriter().write(s);

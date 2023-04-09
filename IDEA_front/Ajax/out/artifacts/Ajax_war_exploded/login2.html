@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script type="text/javascript" src="./jQueryLab/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                $("#checkButton").click(function () {
+                    // $.ajax({
+                    //     url: "/Ajax/CheckUserServlet",
+                    //     data: {
+                    //         username: $("#uname").val(),
+                    //         date: new Date()
+                    //     },
+                    //     type: "GET",
+                    //     success: function (response, status, xhr) {
+                    //         console.log("success!");
+                    //         // 这个response是String类型的, 本身服务器发送的就是JSON字符串
+                    //         console.log("response = ", response);
+                    //         console.log(typeof response) // Object 应该是底层进行了转化
+                    //         console.log("xhr = ", xhr);
+                    //         console.log("status = ", status);
+                    //     },
+                    //     error: function () {
+                    //         console.log("error!");
+                    //     },
+                    //     dataType: "JSON"
+                    // })
+
+                    // $.get(
+                    //     "/Ajax/CheckUserServlet",
+                    //     {
+                    //         username: $("#uname").val(),
+                    //         date: new Date()
+                    //     },
+                    //     function (data, status, xhr) {
+                    //         console.log("$.get() success!");
+                    //         if (xhr.status === 200) {
+                    //             console.log(typeof data);
+                    //             console.log("data = ", data);
+                    //             console.log("status = ", status);
+                    //             console.log("status = ", xhr);
+                    //         }
+                    //     },
+                    //     "JSON"
+                    // )
+
+                    // $.post(
+                    //     "/Ajax/CheckUserServlet",
+                    //     {
+                    //         username: $("#uname").val(),
+                    //         date: new Date()
+                    //     },
+                    //     function (data, status, xhr) {
+                    //         console.log(typeof data);
+                    //         console.log("data = ", data);
+                    //         console.log("status = ", status);
+                    //         console.log("status = ", xhr);
+                    //     },
+                    //     "JSON"
+                    // )
+
+                    $.getJSON(
+                        "/Ajax/CheckUserServlet",
+                        {
+                            username: $("#uname").val(),
+                            date: new Date()
+                        },
+                        function (data, status, xhr) {
+                            console.log(typeof data);
+                            console.log("data = ", data);
+                            console.log("status = ", status);
+                            console.log("status = ", xhr);
+                        }
+                    )
+                })
+            }
+        )
+
+    </script>
+</head>
+<body>
+<h1>用户注册~</h1>
+<form action="/Ajax/CheckUserServlet" method="get">
+    用户名字:<input type="text" name="username" id="uname">
+    <input type="button" id="checkButton" value="验证用户名">
+    <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>
+    用户密码:<input type="password" name="password"><br/><br/>
+    电子邮件:<input type="text" name="email"><br/><br/>
+    <input type="submit" value="用户注册">
+</form>
+<h1>返回的json数据</h1>
+<div id="div1"></div>
+</body>
+</html>

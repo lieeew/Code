@@ -19,7 +19,6 @@ public class JDBCDruidFactory {
     private static DataSource ds;
 
     static {
-        System.out.println("静态代码块 ~~~");
         Properties properties = new Properties();
         try {
             // 这里报错了
