@@ -6,6 +6,7 @@ package com.hspedu.furns.web;
  * @Description:
  */
 
+import com.hspedu.furns.entity.Member;
 import com.hspedu.furns.service.MemberService;
 import com.hspedu.furns.service.impl.MemberServiceImpl;
 
@@ -30,13 +31,16 @@ public class RegisterServlet extends HttpServlet {
         String pwd = request.getParameter("user-password");
         String email = request.getParameter("user-email");
 
-        System.out.println("username" + username + " password" + pwd + " email" + email);
         if (!memberService.isExistsUsername(username)) {
             // 可以注册
-            System.out.println(username + "可以注册!!!");
+            if (memberService.register(new Member(null, username, pwd, email))) {;
+                // 请求转发
+                request.getRequestDispatcher("/views/member/register_ok.html").forward(request, response);
+            } else {
+                request.getRequestDispatcher("/views/member/register_fail.html").forward(request, response);
+            }
         } else {
-            System.out.println(username + "不可以注册");
+            request.getRequestDispatcher("/views/member/login.html").forward(request, response);
         }
-
     }
 }

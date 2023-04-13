@@ -52,4 +52,10 @@ public class MemberDAOImp extends BasicDAO<Member> implements MemberDAO {
             return -1;
         }
     }
+
+
+    @Override
+    public Member queryMemberByNameAndPwd(String name, String pwd) {
+        return querySingle("SELECT * FROM member WHERE username = ? AND `password` = MD5(?)", Member.class, name, pwd);
+    }
 }

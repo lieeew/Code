@@ -18,4 +18,9 @@ public interface MemberService {
      * 判断用户是否存在
      */
     boolean isExistsUsername(String username);
+
+    /**
+     * 登录方法
+     */
+    boolean login(String username, String password);
 }

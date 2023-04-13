@@ -3,55 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-<!--    后面持续优化, 使用jsp 或者 vue -->
-    <base href="http://localhost:8888/jiaju_mall/">
     <title>韩顺平教育-家居网购</title>
+    <base href="http://localhost:8888/jiaju_mall/">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css"/>
-    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $("#sub-btn").click(function () {
-                let usernameVal = $("#username").val();
-                // alert(username);
-                // 编写正则表达式判断
-                var usernamePattern = /^\w{6,10}$/;
-                if (!usernamePattern.test(usernameVal)) {
-                    // 属性过滤器
-                    $("span[class='errorMsg']").text("用户名不符合要求");
-                    return false; // 拒绝提交, 不会跳转
-                }
 
-                let pwdVal = $("#password").val();
-                var pwdPattern = /^\w{6,10}$/;
-                if (!pwdPattern.test(pwdVal)) {
-                    // 基本过滤器
-                    $("span.errorMsg").text("密码不符合规范");
-                    return false;
-                }
-
-                let repwd = $("#repwd").val();
-                if (repwd !== pwdVal) {
-                    $("span[class='errorMsg']").text("两次输入的密码的密码不一致");
-                    return false;
-                }
-
-                let email = $("#email").val();
-                var emailPattern = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(?:\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+$/;
-                if (!emailPattern.test(email)) {
-                    $("span[class='errorMsg']").text("邮箱格式错误");
-                    return false;
-                }
-
-                // 到这里就全部合规了
-            })
-        })
-
-    </script>
 </head>
-
 <body>
 <!-- Header Area start  -->
 <div class="header section">
@@ -68,7 +27,6 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-
             </div>
         </div>
     </div>
@@ -99,53 +57,9 @@
             <div class="col-lg-7 col-md-12 ml-auto mr-auto">
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
-                        <a class="active" data-bs-toggle="tab" href="#lg1">
-                            <h4>会员登录</h4>
+                        <a class="active"  href="index.html">
+                            <h4>登录成功, 返回首页</h4>
                         </a>
-                        <a data-bs-toggle="tab" href="#lg2">
-                            <h4>会员注册</h4>
-                        </a>
-                    </div>
-                    <div class="tab-content">
-                        <div id="lg1" class="tab-pane active">
-                            <div class="login-form-container">
-                                <div class="login-register-form">
-                                    <form action="LoginServlet" method="post">
-                                        <input type="text" name="user-name" placeholder="Username"/>
-                                        <input type="password" name="user-password" placeholder="Password"/>
-                                        <div class="button-box">
-                                            <div class="login-toggle-btn">
-                                                <input type="checkbox"/>
-                                                <a class="flote-none" href="javascript:void(0)">Remember me</a>
-                                                <a href="#">Forgot Password?</a>
-                                            </div>
-                                            <button type="submit"><span>Login</span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="lg2" class="tab-pane">
-                            <div class="login-form-container">
-                                <div class="login-register-form">
-                                    <span class="errorMsg"
-                                          style="float: right; font-weight: bold; font-size: 20pt; margin-left: 10px;"></span>
-                                    <form action="RegisterServlet" method="post">
-                                        <input type="text" id="username" name="user-name" placeholder="Username"/>
-                                        <input type="password" id="password" name="user-password"
-                                               placeholder="输入密码"/>
-                                        <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
-                                        <input name="user-email" id="email" placeholder="电子邮件" type="email"/>
-                                        <input type="text" id="code" name="user-name" style="width: 50%" id="code"
-                                               placeholder="验证码"/>　　<img alt=""
-                                                                            src="assets/images/code/code.bmp">
-                                        <div class="button-box">
-                                            <button type="submit" id="sub-btn"><span>会员注册</span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -172,8 +86,7 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
                                         <li class="li"><a class="single-link" href="#">交货信息</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a>
-                                        </li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
                                         <li class="li"><a class="single-link" href="#">条款和条件</a></li>
                                         <li class="li"><a class="single-link" href="#">制造</a></li>
                                     </ul>

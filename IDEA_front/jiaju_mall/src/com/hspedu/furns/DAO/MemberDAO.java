@@ -26,4 +26,8 @@ public interface MemberDAO {
      */
     int deleteMember(Member member);
 
+    /**
+     * 查询用户是否存在
+     */
+    Member queryMemberByNameAndPwd(String name, String pwd);
 }
