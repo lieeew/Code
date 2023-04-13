@@ -6,6 +6,8 @@ package com.hspedu.furns.web;
  * @Description:
  */
 
+import com.google.gson.Gson;
+import com.hspedu.furns.entity.Member;
 import com.hspedu.furns.service.MemberService;
 import com.hspedu.furns.service.impl.MemberServiceImpl;
 
@@ -27,12 +29,20 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("user-name");
         String password = request.getParameter("user-password");
-
-        if (memberService.login(username, password)) {
-            request.getRequestDispatcher("/views/member/login_ok.html").forward(request, response);
+        // 如果用户没有输入内容, 就直接提交, 后台接收到的数据是""
+        System.out.println("username = " + username + " password = " + password);
+        Member member = new Member(null, username, null, password);
+        Member login = memberService.login(member);
+        Gson gson = new Gson();
+        response.setContentType("application/json;charset=utf-8");
+        if (login != null) {
+            String s = gson.toJson(login);
+            System.out.println(s);
+            response.getWriter().write(s);
+            // request.getRequestDispatcher("/views/member/login_ok.html").forward(request, response);
         } else {
-            System.out.println("失败!!");
+            response.getWriter().write("");
+            // request.getRequestDispatcher("/views/member/login.html").forward(request, response);
         }
-
     }
 }

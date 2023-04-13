@@ -20,7 +20,7 @@ public interface MemberService {
     boolean isExistsUsername(String username);
 
     /**
-     * 登录方法
+     * 根据传入的member信息返回对应的在DB中的member对象
      */
-    boolean login(String username, String password);
+    Member login(Member member);
 }

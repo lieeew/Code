@@ -46,11 +46,11 @@ public class MemverDAOTest {
 
     @Test
     public void test4() {
-        Member admin = memberDAOImp.queryMemberByNameAndPwd("king", "11111111");
-        if (admin == null) {
-            System.out.println("不存在");
-        } else {
-            System.out.println("存在");
-        }
+        // Member admin = memberDAOImp.queryMemberByNameAndPwd("king", "11111111");
+        // if (admin == null) {
+        //     System.out.println("不存在");
+        // } else {
+        //     System.out.println("存在");
+        // }
     }
 }
