@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
@@ -105,7 +105,7 @@
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
                                         <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
-                                        <li class="li"><a class="single-link" href="login.html">登录</a></li>
+                                        <li class="li"><a class="single-link" href="login.jsp">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
                                         <li class="li"><a class="single-link" href="checkout.html">结账</a></li>
                                     </ul>

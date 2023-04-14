@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false"%>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
 <!--    后面持续优化, 使用jsp 或者 vue -->
-    <base href="http://localhost:8888/jiaju_mall/">
+    <base href="<%=request.getContextPath() + "/"%>">
     <title>韩顺平教育-家居网购</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
@@ -45,28 +46,8 @@
                     return false;
                 }
 
-                // 到这里就全部合规了
+                // 到这里就全部合规了, 规则效应, 规则的力量
             });
-
-            // $("#Login").click(function () {
-            //     $.get(
-            //         "/jiaju_mall/LoginServlet",
-            //         {
-            //             username: $("input[name='user-name']:first").val(),
-            //             password: $("input[name='user-password']:first").val()
-            //         },
-            //         function (data, status, xhr) {
-            //             console.log("$.get() success!");
-            //             if (xhr.status === 200) {
-            //                 console.log(typeof data);
-            //                 console.log("data = ", data);
-            //                 console.log("status = ", status);
-            //                 console.log("status = ", xhr);
-            //             }
-            //         },
-            //         "JSON"
-            //     )
-            // })
         })
 
     </script>
@@ -130,9 +111,14 @@
                         <div id="lg1" class="tab-pane active">
                             <div class="login-form-container">
                                 <div class="login-register-form">
+                                    <%-- 这里显示错误信息 --%>
+                                    <span style="font-size: 18pt; font-weight: bold; float: right; color: black">
+                                        ${requestScope.msg}
+                                    </span>
                                     <!-- 这里的路径参考base页面 -->
-                                    <form action="LoginServlet" method="post">
-                                        <input type="text" name="user-name" placeholder="Username"/>
+                                    <form action="memberServlet" method="post">
+                                        <input type="hidden" name="action" value="login">
+                                        <input type="text" name="user-name" value="${requestScope.username}" placeholder="Username"/>
                                         <input type="password" name="user-password" placeholder="Password"/>
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
@@ -151,15 +137,15 @@
                                 <div class="login-register-form">
                                     <span class="errorMsg"
                                           style="float: right; font-weight: bold; font-size: 20pt; margin-left: 10px;"></span>
-                                    <form action="RegisterServlet" method="post">
+                                    <form action="memberServlet" method="post">
+                                        <input type="hidden" name="action" value="register">
                                         <input type="text" id="username" name="user-name" placeholder="Username"/>
                                         <input type="password" id="password" name="user-password"
                                                placeholder="输入密码"/>
                                         <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
                                         <input name="user-email" id="email" placeholder="电子邮件" type="email"/>
                                         <input type="text" id="code" name="user-name" style="width: 50%" id="code"
-                                               placeholder="验证码"/>　　<img alt=""
-                                                                            src="assets/images/code/code.bmp">
+                                               placeholder="验证码"/>　　<img alt="" src="assets/images/code/code.bmp">
                                         <div class="button-box">
                                             <button type="submit" id="sub-btn"><span>会员注册</span></button>
                                         </div>
@@ -213,7 +199,7 @@
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
                                         <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
-                                        <li class="li"><a class="single-link" href="login.html">登录</a></li>
+                                        <li class="li"><a class="single-link" href="login.jsp">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
                                         <li class="li"><a class="single-link" href="checkout.html">结账</a></li>
                                     </ul>
