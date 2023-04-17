@@ -11,6 +11,24 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".icon-close").click(function(){
+                if (confirm("你确定删除吗?")) {
+                    // 用户点击了“确认”按钮
+                    // 在这里执行您的操作
+                    return true;
+                } else {
+                    // 用户点击了“取消”按钮
+                    // 在这里执行其他操作或不执行任何操作
+                    return false;
+                }
+            })
+
+        })
+
+    </script>
 </head>
 
 <body>
@@ -109,7 +127,7 @@
                                     </td>
                                     <td class="product-remove">
                                         <a href="#"><i class="icon-pencil"></i></a>
-                                        <a href="#"><i class="icon-close"></i></a>
+                                        <a href="manage/FurnServlet?action=del&id=${furn.id}"><i class="icon-close"></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>

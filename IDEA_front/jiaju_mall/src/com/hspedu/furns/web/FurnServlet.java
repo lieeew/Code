@@ -9,12 +9,14 @@ package com.hspedu.furns.web;
 import com.hspedu.furns.entity.Furn;
 import com.hspedu.furns.service.FurnService;
 import com.hspedu.furns.service.impl.FurnServiceImpl;
+import com.hspedu.furns.utils.DataUtils;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.math.BigDecimal;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @WebServlet(name = "FurnServlet", urlPatterns = "/manage/FurnServlet")
@@ -39,20 +41,72 @@ public class FurnServlet extends BasicServlet {
 
 
     protected void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String maker = request.getParameter("maker");
-        BigDecimal price = new BigDecimal(request.getParameter("price"));
-        int sales = Integer.parseInt(request.getParameter("sales"));
-        int stock = Integer.parseInt(request.getParameter("stock"));
-        String imgPath = "assets/images/product-image/6.jpg"; // 默认地址
-        if (furnService.add(new Furn(null, name, maker, price, sales, stock, imgPath))) {
-            // 这里还是需要重新查询数据库, 所以还需要list方法
-            // request.getRequestDispatcher("/manage/FurnServlet?action=list").forward(request, response);
-            // 这里重定向的化就会, 防止重复加入的问题
+        // 方式一
+        // String name = request.getParameter("name");
+        // String maker = request.getParameter("maker");
+        // BigDecimal price = null;
+        // int sales = 0;
+        // int stock = 0;
+        // try {
+        //     // 这里有很多写法, 如果数据转化在new Furn()中, 那么就就可以直接把try + catch 套到new Furn()中
+        //     // 之后SpringMVC 也有解决方案
+        //     price = new BigDecimal(request.getParameter("price"));
+        //     sales = Integer.parseInt(request.getParameter("sales"));
+        //     stock = Integer.parseInt(request.getParameter("stock"));
+        // } catch (Exception e) {
+        //     // 把消息放到request域中
+        //     request.setAttribute("mes", "输入的信息格式有误");
+        //     request.getRequestDispatcher("/views/manage/furn_add.jsp").forward(request, response);
+        //     return; // 不要忘了加一个return退出方法
+        // }
+        // String imgPath = "assets/images/product-image/6.jpg"; // 默认地址
+        // if (furnService.add(new Furn(null, name, maker, price, sales, stock, imgPath))) {
+        //     // 这里还是需要重新查询数据库, 所以还需要list方法
+        //     // request.getRequestDispatcher("/manage/FurnServlet?action=list").forward(request, response);
+        //     // 这里重定向的化就会, 防止重复加入的问题
+        //     response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=list");
+        // } else {
+        //     System.out.println("失败 ~~");
+        // }
+
+        // 方式二 使用BeanUtils对JavaBean自动封装
+        /*
+            需要注意一点
+            像<input name="name" style="width: 60%" type="text" value="Name"/>
+            的 name属性需要 和 JavaBean中的属性名称一致否则失败, 底层仍然数调用反射
+         */
+        // Furn furn = new Furn();
+        // try {
+        //     BeanUtils.populate(furn, request.getParameterMap());
+        //     if (furnService.add(furn)) {
+        //         response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=list");
+        //     } else {
+        //         System.out.println("失败 ~~");
+        //     }
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
+
+        // 封装上面的代码
+        // 自动封装
+        Furn furn = DataUtils.copyParamToBean(request.getParameterMap(), new Furn());
+        if (furnService.add(furn)) {
+            // 成功的话, 直接重定向, 防止刷新重新提交
             response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=list");
         } else {
             System.out.println("失败 ~~");
         }
     }
 
+
+    protected void del(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Furn furn = new Furn();
+        furn.setId(id);
+        if (furnService.remove(furn)) {
+            resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=list");
+        } else {
+            System.out.println("删除失败~");
+        }
+    }
 }

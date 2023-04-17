@@ -22,10 +22,16 @@ public class FurnServiceImpl implements FurnService {
 
     /**
      * 添加账单
+     *
      * @return true 表示添加成功      false 表示添加失败
      */
     @Override
     public boolean add(Furn furn) {
         return furnDAO.add(furn) > 0;
+    }
+
+    @Override
+    public boolean remove(Furn furn) {
+        return furnDAO.delete(furn) > 0;
     }
 }

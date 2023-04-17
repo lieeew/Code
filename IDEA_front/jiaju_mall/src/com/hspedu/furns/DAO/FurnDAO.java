@@ -14,4 +14,6 @@ public interface FurnDAO {
     List<Furn> queryFurns();
 
     Integer add(Furn furn);
+
+    int delete(Furn furn);
 }

@@ -23,4 +23,9 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
         return update("INSERT INTO furn (name, maker, price, sales, stock, img_path) VALUES (?, ?, ?, ?, ?, ?)",
                 furn.getName(), furn.getMaker(), furn.getPrice(), furn.getSales(), furn.getStock(), furn.getImgPath());
     }
+
+    @Override
+    public int delete(Furn furn) {
+        return update("DELETE FROM furn WHERE id = ?", furn.getId());
+    }
 }

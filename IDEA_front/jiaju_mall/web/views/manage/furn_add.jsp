@@ -10,6 +10,44 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("input[type='submit']").click(function(){
+                let name = $("input[name='name']").val();
+                var namePattern = /.+/;
+                if (!namePattern.test(name)) {
+                    alert("请输入符合的格式商品名");
+                    return false;
+                }
+                let maker = $("input[name='maker']").val();
+                if (!namePattern.test(maker)) {
+                    alert("请输入符合的格式制造名");
+                    return false;
+                }
+
+                let price = $("input[name='price']").val();
+                var pricePattern = /^\d+(\.)?\d+$/;
+                if (!pricePattern.test(price)) {
+                    alert("请输入正确的价格");
+                    return false;
+                }
+                let stock = $("input[name='stock']").val();
+
+                if (!pricePattern.test(stock)) {
+                    alert("请输入正确的库存");
+                    return false;
+                }
+
+                let sales = $("input[name='sales']").val();
+                if (!pricePattern.test(sales)) {
+                    alert("请输入正确的销量");
+                    return false;
+                }
+            })
+        })
+
+    </script>
 </head>
 
 <body>
@@ -67,6 +105,7 @@
 <!-- Cart Area Start -->
 <div class="cart-main-area pt-100px pb-100px">
     <div class="container">
+        ${requestScope.mes}
         <h3 class="cart-page-title">家居后台管理-添加家居</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">

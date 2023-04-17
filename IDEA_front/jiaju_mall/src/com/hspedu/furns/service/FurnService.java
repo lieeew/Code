@@ -14,4 +14,6 @@ public interface FurnService {
     List<Furn> list();
 
     boolean add(Furn furn);
+
+    boolean remove(Furn furn);
 }

@@ -17,7 +17,7 @@ public class Furn {
     // 这里有一个坑
     // 表的字段是 img_path 而这里写的是imgPath
     // 解决方案 使用 别名
-    private String imgPath;
+    private String imgPath = "assets/images/product-image/7.jpg";
 
     public Furn() {
     }
@@ -29,7 +29,9 @@ public class Furn {
         this.price = price;
         this.sales = sales;
         this.stock = stock;
-        this.imgPath = imgPath;
+        if (!(imgPath == null || imgPath.equals(""))) {
+            this.imgPath = imgPath;
+        }
     }
 
     public Integer getId() {
