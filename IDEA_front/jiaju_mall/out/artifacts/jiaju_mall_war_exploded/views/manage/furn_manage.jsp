@@ -13,19 +13,16 @@
     <link rel="stylesheet" href="assets/css/style.min.css">
     <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-        $(function(){
-            $(".icon-close").click(function(){
-                if (confirm("你确定删除吗?")) {
-                    // 用户点击了“确认”按钮
-                    // 在这里执行您的操作
-                    return true;
-                } else {
-                    // 用户点击了“取消”按钮
-                    // 在这里执行其他操作或不执行任何操作
-                    return false;
-                }
+        $(function () {
+            // 绑定一个事件
+            $("a.deleteCss").click(function () {
+                // 只需要文件的内容 text()
+                let furnName = $(this).parent().parent().find("td:eq(1)").text();
+                // 老韩解析
+                // 1. confirm 点击确定返回true
+                // 2. 点击取消 返回false 取消提交
+                return confirm("你确定删除【" + furnName + "】吗?");
             })
-
         })
 
     </script>
@@ -126,8 +123,8 @@
                                             ${furn.stock}
                                     </td>
                                     <td class="product-remove">
-                                        <a href="#"><i class="icon-pencil"></i></a>
-                                        <a href="manage/FurnServlet?action=del&id=${furn.id}"><i class="icon-close"></i></a>
+                                        <a class="updateCss" href="manage/FurnServlet?action=show&id=${furn.id}"><i class="icon-pencil"></i></a>
+                                        <a class="deleteCss" href="manage/FurnServlet?action=del&id=${furn.id}"><i class="icon-close"></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>

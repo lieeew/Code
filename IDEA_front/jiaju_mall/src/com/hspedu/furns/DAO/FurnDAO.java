@@ -15,5 +15,9 @@ public interface FurnDAO {
 
     Integer add(Furn furn);
 
-    int delete(Furn furn);
+    int deleteFurnById(Furn furn);
+
+    Furn getFurnById(int id);
+
+    int update (Furn furn);
 }

@@ -100,13 +100,45 @@ public class FurnServlet extends BasicServlet {
 
 
     protected void del(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+        int id = DataUtils.pareseInt(req.getParameter("id"), 0);
         Furn furn = new Furn();
         furn.setId(id);
-        if (furnService.remove(furn)) {
+        if (furnService.deleteFurnById(furn)) {
+            // 不要请求转发, 要重定向
             resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=list");
         } else {
             System.out.println("删除失败~");
         }
+    }
+
+
+    protected void show(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int i = DataUtils.pareseInt(req.getParameter("id"), 1);
+        Furn furn = new Furn();
+        furn.setId(i);
+        ServletContext servletContext = this.getServletContext();
+        servletContext.setAttribute("id", i);
+        Furn furnById = furnService.getFurnById(furn);
+        if (furnById == null) {
+            System.out.println("未查询到数据");
+        } else {
+            req.setAttribute("furn", furnById);
+            req.getRequestDispatcher("/views/manage/furn_update.jsp").forward(req, resp);
+        }
+
+    }
+
+
+    protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Furn furn = DataUtils.copyParamToBean(req.getParameterMap(), new Furn());
+        int id = (int) this.getServletContext().getAttribute("id");
+        furn.setId(id);
+        if (furnService.updateFurnInfo(furn)) {
+            // success
+            resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=list");
+        } else {
+            System.out.println("Failure");
+        }
+
     }
 }

@@ -53,4 +53,17 @@ public class FurnTest {
             System.out.println("FAILURE");
         }
     }
+
+    @Test
+    public void test4() throws Exception {
+        Furn furnById = furnDAO.getFurnById(1);
+        System.out.println("furnById = " + furnById);
+    }
+
+    @Test
+    public void test5() throws Exception {
+        Furn furn = new Furn(6, "Chair", "ABC", new BigDecimal("123.45"), 100, 50, null);
+        int update = furnDAO.update(furn);
+        System.out.println("update = " + update);
+    }
 }

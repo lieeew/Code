@@ -15,5 +15,9 @@ public interface FurnService {
 
     boolean add(Furn furn);
 
-    boolean remove(Furn furn);
+    boolean deleteFurnById(Furn furn);
+
+    Furn getFurnById(Furn furn);
+
+    boolean updateFurnInfo(Furn furn);
 }

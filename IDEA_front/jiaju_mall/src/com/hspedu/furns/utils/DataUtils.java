@@ -20,4 +20,16 @@ public class DataUtils {
         }
         return bean;
     }
+
+    /**
+     * 转化字符串变成数字
+     */
+    public static int pareseInt(String val, int defaultValue) {
+        try {
+            return Integer.parseInt(val);
+        } catch (NumberFormatException e) {
+            System.out.println(val + "的格式不正确 ~~");
+        }
+        return defaultValue;
+    }
 }

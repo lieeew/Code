@@ -25,7 +25,18 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
     }
 
     @Override
-    public int delete(Furn furn) {
+    public int deleteFurnById(Furn furn) {
         return update("DELETE FROM furn WHERE id = ?", furn.getId());
+    }
+
+    @Override
+    public Furn getFurnById(int id) {
+        return querySingle("select `id`, `name`, `maker`, `price`, `sales`, `stock`, `img_path` FROM furn where id = ?", Furn.class, id);
+    }
+
+    @Override
+    public int update(Furn furn) {
+        return update("UPDATE furn SET `name` = ?, `maker` = ?, `price` = ?, `sales` = ?, `stock` = ? ,`img_path` = ? WHERE id = ?",
+                furn.getName(), furn.getMaker(), furn.getPrice(), furn.getSales(), furn.getStock(),furn.getImgPath(), furn.getId());
     }
 }
