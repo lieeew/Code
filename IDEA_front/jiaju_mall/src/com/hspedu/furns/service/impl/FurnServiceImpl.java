@@ -3,6 +3,7 @@ package com.hspedu.furns.service.impl;
 import com.hspedu.furns.DAO.FurnDAO;
 import com.hspedu.furns.DAO.impl.FurnDAOImpl;
 import com.hspedu.furns.entity.Furn;
+import com.hspedu.furns.entity.Page;
 import com.hspedu.furns.service.FurnService;
 
 import java.util.List;
@@ -44,4 +45,25 @@ public class FurnServiceImpl implements FurnService {
     public boolean updateFurnInfo(Furn furn) {
         return furnDAO.update(furn) > 0;
     }
+
+    @Override
+    public Page<Furn> page(int pageNo, int pageSize) {
+        // 创建一个page对象的数据, 填充属性
+        Page<Furn> page = new Page<>();
+        page.setPageSize(pageSize);
+        page.setPageNo(pageNo);
+        // 从数据库拿到数据
+        int totalRow = furnDAO.getTotalRow();
+        page.setTotalRow(totalRow);
+        int pageTotalCount = totalRow / pageSize;
+        if (pageTotalCount % 2 > 0) {
+            pageTotalCount += 1;
+        }
+        page.setPageTotalCount(pageTotalCount);
+        // LIMIT 每页的数据量 * (第n页 - 1) , 每页的数据量
+        page.setItems(furnDAO.getItems(pageSize * (pageNo - 1), pageSize));
+        return page;
+    }
+
+
 }

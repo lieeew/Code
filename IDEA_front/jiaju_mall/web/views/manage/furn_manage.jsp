@@ -1,3 +1,4 @@
+<%@ page import="com.hspedu.furns.utils.DataUtils" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
@@ -23,6 +24,15 @@
                 // 2. 点击取消 返回false 取消提交
                 return confirm("你确定删除【" + furnName + "】吗?");
             })
+
+            // $('.pro-pagination-style ul li a').click(function () {
+            //     let id = $(this).text();
+            //     // alert("id = " + id)
+            //     // $(this).attr("href", "manage/FurnServlet?action=page&pageSize=3&pageNo" + id);
+            //     // e.preventDefault();
+            //     // $('.pro-pagination-style ul li a').removeClass('active');
+            //     // $(this).addClass('active');
+            // });
         })
 
     </script>
@@ -107,7 +117,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${requestScope.furns}" var="furn">
+                            <c:forEach items="${requestScope.pageFurn}" var="furn">
                                 <tr>
                                     <td class="product-thumbnail">
                                         <a href="#"><img class="img-responsive ml-3" src="${furn.imgPath}"
@@ -123,8 +133,10 @@
                                             ${furn.stock}
                                     </td>
                                     <td class="product-remove">
-                                        <a class="updateCss" href="manage/FurnServlet?action=show&id=${furn.id}"><i class="icon-pencil"></i></a>
-                                        <a class="deleteCss" href="manage/FurnServlet?action=del&id=${furn.id}"><i class="icon-close"></i></a>
+                                        <a class="updateCss" href="manage/FurnServlet?action=showFurn&id=${furn.id}"><i
+                                                class="icon-pencil"></i></a>
+                                        <a class="deleteCss" href="manage/FurnServlet?action=del&id=${furn.id}"><i
+                                                class="icon-close"></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -134,6 +146,20 @@
                 </form>
             </div>
         </div>
+    </div>
+
+    <%-- 导航栏复制的 --%>
+    <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
+        <ul>
+            <%
+                int num = Integer.parseInt(String.valueOf(request.getAttribute("pageTotalCount")));
+                int pageSize = Integer.parseInt(String.valueOf(request.getAttribute("pageSize")));
+                for (int i = 1; i <= num; i++) {
+            %>
+            <li><a href="manage/FurnServlet?action=page&pageSize=<%=pageSize%>&pageNo=<%=i%>">第<%=i%>页
+            </a></li>
+            <% } %>
+        </ul>
     </div>
 </div>
 <!-- Cart Area End -->

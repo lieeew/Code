@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="assets/css/style.min.css">
     <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-        $(function(){
-            $("input[type='submit']").click(function(){
+        $(function () {
+            $("input[type='submit']").click(function () {
                 let name = $("input[name='name']").val();
                 var namePattern = /.+/;
                 if (!namePattern.test(name)) {
@@ -127,12 +127,16 @@
                             <tbody>
                             <tr>
                                 <td class="product-thumbnail">
-                                    <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/default.jpg"
+                                    <a href="#"><img class="img-responsive ml-3"
+                                                     src="assets/images/product-image/default.jpg"
                                                      alt=""/></a>
                                 </td>
-                                <td class="product-name"><input name="name" style="width: 60%" type="text" value="Name"/></td>
-                                <td class="product-name"><input name="maker" style="width: 90%" type="text" value="蚂蚁家居"/></td>
-                                <td class="product-price-cart"><input name="price" style="width: 90%" type="text" value="60.00"/></td>
+                                <td class="product-name"><input name="name" style="width: 60%" type="text"
+                                                                value="Name"/></td>
+                                <td class="product-name"><input name="maker" style="width: 90%" type="text"
+                                                                value="蚂蚁家居"/></td>
+                                <td class="product-price-cart"><input name="price" style="width: 90%" type="text"
+                                                                      value="60.00"/></td>
                                 <td class="product-quantity">
                                     <input name="sales" style="width: 90%" type="text" value="100"/>
                                 </td>
@@ -140,9 +144,11 @@
                                     <input name="stock" style="width: 90%" type="text" value="80"/>
                                 </td>
                                 <td>
-<!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
-<!--                                    <a href="#"><i class="icon-close"></i></a>-->
-                                    <input type="submit" style="width: 90%;background-color: silver;border: silver;border-radius: 20%;" value="添加家居"/>
+                                    <!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
+                                    <!--                                    <a href="#"><i class="icon-close"></i></a>-->
+                                    <input type="submit"
+                                           style="width: 90%;background-color: silver;border: silver;border-radius: 20%;"
+                                           value="添加家居"/>
                                 </td>
                             </tr>
                             </tbody>
@@ -173,7 +179,8 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
                                         <li class="li"><a class="single-link" href="#">交货信息</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a>
+                                        </li>
                                         <li class="li"><a class="single-link" href="#">条款和条件</a></li>
                                         <li class="li"><a class="single-link" href="#">制造</a></li>
                                     </ul>

@@ -3,6 +3,7 @@ package com.hspedu.furns.test;
 import com.hspedu.furns.DAO.FurnDAO;
 import com.hspedu.furns.DAO.impl.FurnDAOImpl;
 import com.hspedu.furns.entity.Furn;
+import com.hspedu.furns.entity.Page;
 import com.hspedu.furns.service.FurnService;
 import com.hspedu.furns.service.impl.FurnServiceImpl;
 import org.junit.Test;
@@ -65,5 +66,26 @@ public class FurnTest {
         Furn furn = new Furn(6, "Chair", "ABC", new BigDecimal("123.45"), 100, 50, null);
         int update = furnDAO.update(furn);
         System.out.println("update = " + update);
+    }
+
+    @Test
+    public void test6() throws Exception {
+        int totalRow = furnDAO.getTotalRow();
+        System.out.println("totalRow = " + totalRow);
+    }
+
+    @Test
+    public void test7() throws Exception {
+        List<Furn> items = furnDAO.getItems(0, 3);
+        for (Furn item : items) {
+            System.out.println(item);
+        }
+    }
+
+    @Test
+    public void test8() throws Exception {
+        // 看不到数据的话, 直接debug模式查看
+        Page<Furn> page = service.page(2, 1);
+        System.out.println(page);
     }
 }

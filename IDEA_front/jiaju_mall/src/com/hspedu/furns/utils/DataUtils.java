@@ -24,7 +24,7 @@ public class DataUtils {
     /**
      * 转化字符串变成数字
      */
-    public static int pareseInt(String val, int defaultValue) {
+    public static int parseInt(String val, int defaultValue) {
         try {
             return Integer.parseInt(val);
         } catch (NumberFormatException e) {

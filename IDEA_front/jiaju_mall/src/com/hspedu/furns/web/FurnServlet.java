@@ -7,10 +7,10 @@ package com.hspedu.furns.web;
  */
 
 import com.hspedu.furns.entity.Furn;
+import com.hspedu.furns.entity.Page;
 import com.hspedu.furns.service.FurnService;
 import com.hspedu.furns.service.impl.FurnServiceImpl;
 import com.hspedu.furns.utils.DataUtils;
-import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -100,7 +100,7 @@ public class FurnServlet extends BasicServlet {
 
 
     protected void del(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = DataUtils.pareseInt(req.getParameter("id"), 0);
+        int id = DataUtils.parseInt(req.getParameter("id"), 0);
         Furn furn = new Furn();
         furn.setId(id);
         if (furnService.deleteFurnById(furn)) {
@@ -112,12 +112,12 @@ public class FurnServlet extends BasicServlet {
     }
 
 
-    protected void show(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int i = DataUtils.pareseInt(req.getParameter("id"), 1);
+    protected void showFurn(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int i = DataUtils.parseInt(req.getParameter("id"), 1);
         Furn furn = new Furn();
         furn.setId(i);
-        ServletContext servletContext = this.getServletContext();
-        servletContext.setAttribute("id", i);
+        // ServletContext servletContext = this.getServletContext();
+        // servletContext.setAttribute("id", i);
         Furn furnById = furnService.getFurnById(furn);
         if (furnById == null) {
             System.out.println("未查询到数据");
@@ -131,14 +131,37 @@ public class FurnServlet extends BasicServlet {
 
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Furn furn = DataUtils.copyParamToBean(req.getParameterMap(), new Furn());
-        int id = (int) this.getServletContext().getAttribute("id");
-        furn.setId(id);
+        // 前端设置一个hidden标签就可以解决
+        // int id = (int) this.getServletContext().getAttribute("id");
+        // furn.setId(id);
         if (furnService.updateFurnInfo(furn)) {
             // success
+            // 重定向, 可以防止重复修改
             resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=list");
         } else {
             System.out.println("Failure");
         }
+    }
 
+
+    protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
+        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), 3);
+
+        Page<Furn> page = furnService.page(pageNo, pageSize);
+        List<Furn> items = page.getItems();
+        StringBuffer sb = new StringBuffer();
+        sb.append(pageNo);
+        // sb.append(pageNo).append("$");
+        // for (int i = 1; i <= page.getPageTotalCount(); i++) {
+        //     sb.append("第").append(i).append("页").append("&");
+        // }
+        page.setUrl(sb.toString());
+        // System.out.println(page.getUrl()); // 1$第1页&第2页
+        req.setAttribute("pageFurn", items);
+        req.setAttribute("pageInfor", page.getUrl());
+        req.setAttribute("pageSize", page.getPageSize());
+        req.setAttribute("pageTotalCount", page.getPageTotalCount());
+        req.getRequestDispatcher("/views/manage/furn_manage.jsp").forward(req, resp);
     }
 }
