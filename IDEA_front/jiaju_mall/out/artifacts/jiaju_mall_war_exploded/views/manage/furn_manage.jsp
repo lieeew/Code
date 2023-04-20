@@ -1,4 +1,4 @@
-<%@ page import="com.hspedu.furns.utils.DataUtils" %>
+<%@ page import="com.hspedu.furns.entity.Page" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
@@ -25,14 +25,13 @@
                 return confirm("你确定删除【" + furnName + "】吗?");
             })
 
-            // $('.pro-pagination-style ul li a').click(function () {
-            //     let id = $(this).text();
-            //     // alert("id = " + id)
-            //     // $(this).attr("href", "manage/FurnServlet?action=page&pageSize=3&pageNo" + id);
-            //     // e.preventDefault();
-            //     // $('.pro-pagination-style ul li a').removeClass('active');
-            //     // $(this).addClass('active');
-            // });
+            $('.pro-pagination-style ul li a').click(function (e) {
+                e.preventDefault();
+                $('.pro-pagination-style ul li a').removeClass('active');
+                $(this).addClass('active');
+                var href = $(this).attr('href');
+                window.location.href = href; // 跳转到目标链接
+            });
         })
 
     </script>
@@ -117,7 +116,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${requestScope.pageFurn}" var="furn">
+                            <c:forEach items="${requestScope.page.items}" var="furn">
                                 <tr>
                                     <td class="product-thumbnail">
                                         <a href="#"><img class="img-responsive ml-3" src="${furn.imgPath}"
@@ -133,9 +132,9 @@
                                             ${furn.stock}
                                     </td>
                                     <td class="product-remove">
-                                        <a class="updateCss" href="manage/FurnServlet?action=showFurn&id=${furn.id}"><i
+                                        <a class="updateCss" href="manage/FurnServlet?action=showFurn&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i
                                                 class="icon-pencil"></i></a>
-                                        <a class="deleteCss" href="manage/FurnServlet?action=del&id=${furn.id}"><i
+                                        <a class="deleteCss" href="manage/FurnServlet?action=del&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i
                                                 class="icon-close"></i></a>
                                     </td>
                                 </tr>
@@ -146,20 +145,55 @@
                 </form>
             </div>
         </div>
-    </div>
+        <%-- 导航栏复制的 --%>
+        <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
+            <ul>
+                <c:if test="${requestScope.page.pageNo > 1}">
+                    <li>
+                        <a href="manage/FurnServlet?action=page&pageNo=${requestScope.page.pageNo - 1}&pageSize=${requestScope.page.pageSize}">上一页</a>
+                    </li>
+                </c:if>
+                <%--                <%--%>
+                <%--                    int num = Integer.parseInt(String.valueOf(((Page)request.getAttribute("page")).getPageTotalCount()));--%>
+                <%--                    int pageSize = Integer.parseInt(String.valueOf(((Page)request.getAttribute("page")).getPageSize()));--%>
+                <%--                    for (int i = 1; i <= num; i++) {--%>
+                <%--                %>--%>
+                <%--                <li><a href="manage/FurnServlet?action=page&pageSize=<%=pageSize%>&pageNo=<%=i%>">第<%=i%>页--%>
+                <%--                </a></li>--%>
+                <%--                <% } %>--%>
+                <%--                 使用c标签库
+                                    1. 先确定开始的页数 begin 是 1
+                                    2. 却定结束的页数 end 和 pageTotalCount
 
-    <%-- 导航栏复制的 --%>
-    <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
-        <ul>
-            <%
-                int num = Integer.parseInt(String.valueOf(request.getAttribute("pageTotalCount")));
-                int pageSize = Integer.parseInt(String.valueOf(request.getAttribute("pageSize")));
-                for (int i = 1; i <= num; i++) {
-            %>
-            <li><a href="manage/FurnServlet?action=page&pageSize=<%=pageSize%>&pageNo=<%=i%>">第<%=i%>页
-            </a></li>
-            <% } %>
-        </ul>
+                                    如果是多页的话, 后面设计一个算法
+                --%>
+
+                <%-- 但是这里有条件, 下面还有文件 --%>
+                <c:set var="begin" value="${1}"> </c:set>
+                <c:set var="end" value="${requestScope.page.pageTotalCount}"> </c:set>
+                <c:forEach begin="${begin}" end="${end}" var="i">
+                    <%-- 这个方式不错, 比原生的简单 --%>
+                    <c:if test="${i == requestScope.page.pageNo}">
+                        <li>
+                            <a class="active"
+                               href="manage/FurnServlet?action=page&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a>
+                        </li>
+                    </c:if>
+                    <%-- 这个不要这样写 ${i} == ${requestScope.page.pageNo} --%>
+                    <c:if test="${i != requestScope.page.pageNo}">
+                        <li>
+                            <a href="manage/FurnServlet?action=page&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a>
+                        </li>
+                    </c:if>
+                </c:forEach>
+
+                <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotalCount}">
+                    <li>
+                        <a href="manage/FurnServlet?action=page&pageNo=${requestScope.page.pageNo + 1}&pageSize=${requestScope.page.pageSize}">下一页</a>
+                    </li>
+                </c:if>
+            </ul>
+        </div>
     </div>
 </div>
 <!-- Cart Area End -->

@@ -65,5 +65,4 @@ public class FurnServiceImpl implements FurnService {
         return page;
     }
 
-
 }

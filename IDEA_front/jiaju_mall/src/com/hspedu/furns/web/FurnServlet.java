@@ -92,7 +92,7 @@ public class FurnServlet extends BasicServlet {
         Furn furn = DataUtils.copyParamToBean(request.getParameterMap(), new Furn());
         if (furnService.add(furn)) {
             // 成功的话, 直接重定向, 防止刷新重新提交
-            response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=list");
+            response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=page&pageNo=1");
         } else {
             System.out.println("失败 ~~");
         }
@@ -105,7 +105,7 @@ public class FurnServlet extends BasicServlet {
         furn.setId(id);
         if (furnService.deleteFurnById(furn)) {
             // 不要请求转发, 要重定向
-            resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=list");
+            resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=page&pageNo=1");
         } else {
             System.out.println("删除失败~");
         }
@@ -113,16 +113,19 @@ public class FurnServlet extends BasicServlet {
 
 
     protected void showFurn(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int i = DataUtils.parseInt(req.getParameter("id"), 1);
+        int id = DataUtils.parseInt(req.getParameter("id"), 1);
+        int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
+        // System.out.println("pageNo=" + pageNo); // 3
         Furn furn = new Furn();
-        furn.setId(i);
+        furn.setId(id);
         // ServletContext servletContext = this.getServletContext();
         // servletContext.setAttribute("id", i);
         Furn furnById = furnService.getFurnById(furn);
         if (furnById == null) {
-            System.out.println("未查询到数据");
+            System.out.println("showFurn ： 未查询到数据");
         } else {
             req.setAttribute("furn", furnById);
+            req.setAttribute("pageNo", pageNo);
             req.getRequestDispatcher("/views/manage/furn_update.jsp").forward(req, resp);
         }
 
@@ -131,13 +134,15 @@ public class FurnServlet extends BasicServlet {
 
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Furn furn = DataUtils.copyParamToBean(req.getParameterMap(), new Furn());
+        int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
+        // System.out.println("update = pageNo=" + pageNo);
         // 前端设置一个hidden标签就可以解决
         // int id = (int) this.getServletContext().getAttribute("id");
         // furn.setId(id);
         if (furnService.updateFurnInfo(furn)) {
             // success
             // 重定向, 可以防止重复修改
-            resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=list");
+            resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=page&pageNo=" + pageNo);
         } else {
             System.out.println("Failure");
         }
@@ -146,22 +151,17 @@ public class FurnServlet extends BasicServlet {
 
     protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
-        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), 3);
+        // 没有传入的话, 默认的值是Page.PAGE_SIZE
+        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
 
         Page<Furn> page = furnService.page(pageNo, pageSize);
         List<Furn> items = page.getItems();
-        StringBuffer sb = new StringBuffer();
-        sb.append(pageNo);
-        // sb.append(pageNo).append("$");
-        // for (int i = 1; i <= page.getPageTotalCount(); i++) {
-        //     sb.append("第").append(i).append("页").append("&");
-        // }
-        page.setUrl(sb.toString());
+        // StringBuffer sb = new StringBuffer();
+        // sb.append(pageNo);
+        // page.setUrl(sb.toString());
         // System.out.println(page.getUrl()); // 1$第1页&第2页
-        req.setAttribute("pageFurn", items);
-        req.setAttribute("pageInfor", page.getUrl());
-        req.setAttribute("pageSize", page.getPageSize());
-        req.setAttribute("pageTotalCount", page.getPageTotalCount());
+        // System.out.println("page = pageNo = " + pageNo);
+        req.setAttribute("page", page); // 直接含有超多数据
         req.getRequestDispatcher("/views/manage/furn_manage.jsp").forward(req, resp);
     }
 }

@@ -74,6 +74,7 @@
                     <%-- 传入id属性 --%>
                     <input type="hidden" name="action" value="update"/>
                     <input type="hidden" name="id" value="${requestScope.furn.id}"/>
+                    <input type="hidden" name="pageNo" value="${requestScope.pageNo}">
                     <%-- 因为是post请求, 所以不要写在请求头后面 --%>
                     <div class="table-content table-responsive cart-table-content">
                         <table>
