@@ -85,7 +85,7 @@ public class FurnTest {
     @Test
     public void test8() throws Exception {
         // 看不到数据的话, 直接debug模式查看
-        Page<Furn> page = service.page(2, 1);
+        Page<Furn> page = service.page(5, 3);
         System.out.println(page);
     }
 }

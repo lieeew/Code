@@ -92,7 +92,7 @@ public class FurnServlet extends BasicServlet {
         Furn furn = DataUtils.copyParamToBean(request.getParameterMap(), new Furn());
         if (furnService.add(furn)) {
             // 成功的话, 直接重定向, 防止刷新重新提交
-            response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=page&pageNo=1");
+            response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=page&pageNo=" + request.getParameter("pageNo"));
         } else {
             System.out.println("失败 ~~");
         }
@@ -105,7 +105,7 @@ public class FurnServlet extends BasicServlet {
         furn.setId(id);
         if (furnService.deleteFurnById(furn)) {
             // 不要请求转发, 要重定向
-            resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=page&pageNo=1");
+            resp.sendRedirect(req.getContextPath() + "/manage/FurnServlet?action=page&pageNo=" + req.getParameter("pageNo"));
         } else {
             System.out.println("删除失败~");
         }
@@ -155,7 +155,7 @@ public class FurnServlet extends BasicServlet {
         int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
 
         Page<Furn> page = furnService.page(pageNo, pageSize);
-        List<Furn> items = page.getItems();
+        // List<Furn> items = page.getItems();
         // StringBuffer sb = new StringBuffer();
         // sb.append(pageNo);
         // page.setUrl(sb.toString());

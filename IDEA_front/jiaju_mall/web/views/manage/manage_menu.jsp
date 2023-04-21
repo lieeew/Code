@@ -35,9 +35,7 @@
                         <div class="header-bottom-set dropdown">
                             <%--<a href="manage/furnServlet?action=list">家居管理</a>--%>
                             <a href="manage/FurnServlet?action=page&pageSize=3&pageNo=1">家居管理</a>
-                        </div>
-                        <div class="header-bottom-set dropdown">
-                            <a href="views/manage/furn_add.jsp">订单管理</a>
+                            | <a href="views/manage/furn_add.jsp">添加家居</a>
                         </div>
                     </div>
                 </div>
