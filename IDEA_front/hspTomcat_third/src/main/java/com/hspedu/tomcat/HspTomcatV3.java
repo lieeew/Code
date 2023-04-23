@@ -38,19 +38,29 @@ public class HspTomcatV3 {
         SAXReader saxReader = new SAXReader();
         String path = HspHttpHandler.class.getResource("/").getPath();
         try {
-            Element rootElement = saxReader.read(new File(path + "web.xml")).getRootElement();
+            Element rootElement = saxReader.
+                    read(new File(path + "web.xml"))
+                    .getRootElement();
             List<Element> elements = rootElement.elements();
             for (Element element : elements) {
                 if ("servlet".equals(element.getName())) {
                     // System.out.println("servlet~~~");
                     String text = element.element("servlet-name").getText();
-                    ServletHash.put(element.element("servlet-name").getText(),
-                            (HspHttpServlet) Class.forName(element.element("servlet-class").getText()).newInstance());
-
+                    ServletHash.put(element
+                                    .element("servlet-name")
+                                    .getText(),
+                            (HspHttpServlet) Class.
+                                    forName(element.element("servlet-class").getText())
+                                    .newInstance());
                 } else if ("servlet-mapping".equals(element.getName())) {
                     // System.out.println("servlet-mapping~~~");
-                    ServletMappingHash.put(element.element("url-pattern").getText(),
-                            element.element("servlet-name").getText());
+                    ServletMappingHash.put(
+                            element
+                                    .element("url-pattern")
+                                    .getText(),
+                            element
+                                    .element("servlet-name")
+                                    .getText());
                 }
             }
         } catch (DocumentException e) {
@@ -73,7 +83,6 @@ public class HspTomcatV3 {
             ServerSocket serverSocket = new ServerSocket(8080);
             while (!serverSocket.isClosed()) {
                 Socket socket = serverSocket.accept();
-
                 new Thread(new HspHttpHandler(socket)).start();
             }
         } catch (IOException e) {

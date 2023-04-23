@@ -16,6 +16,7 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
 
     /**
      * 返回查询的结果分页的信息
+     *
      * @return 每一个的Furn类型的List
      */
     @Override
@@ -50,7 +51,7 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
     @Override
     public int getTotalRow() {
         // 这里不要直接 向下转型为Integer 会报错, 原因是他其实是long类型的
-        return ((Number)queryScalar("SELECT COUNT(*) FROM furn")).intValue();
+        return ((Number) queryScalar("SELECT COUNT(*) FROM furn")).intValue();
     }
 
 
@@ -58,5 +59,17 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
     public List<Furn> getItems(int begin, int pageSize) {
         String sql = "SELECT `id`, `name`, `maker`, `price`, `sales`, `stock`, `img_path` imgPath FROM furn LIMIT ? ,?";
         return queryMulti(sql, Furn.class, begin, pageSize);
+    }
+
+    @Override
+    public int getTotalRowByName(String name) {
+        String sql = "SELECT COUNT(*) FROM furn WHERE `name` LIKE ?";
+        return ((Number) queryScalar(sql, "%" + name + "%")).intValue();
+    }
+
+    @Override
+    public List<Furn> getPageItemsByName(String name, int begin, int pageSize) {
+        String sql = "SELECT `id`, `name`, `maker`, `price`, `sales`, `stock`, `img_path` imgPath FROM furn WHERE name LIKE ? LIMIT ? ,?";
+        return queryMulti(sql, Furn.class,"%" + name + "%", begin, pageSize);
     }
 }

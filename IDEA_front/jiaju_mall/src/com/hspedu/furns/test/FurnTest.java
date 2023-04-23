@@ -88,4 +88,18 @@ public class FurnTest {
         Page<Furn> page = service.page(5, 3);
         System.out.println(page);
     }
+
+    @Test
+    public void test9() throws Exception {
+        int air = furnDAO.getTotalRowByName("Chair");
+        System.out.println(air);
+    }
+
+    @Test
+    public void test10() throws Exception {
+        List<Furn> chair = furnDAO.getPageItemsByName("air", 0, 4);
+        for (Furn furn : chair) {
+            System.out.println(furn);
+        }
+    }
 }

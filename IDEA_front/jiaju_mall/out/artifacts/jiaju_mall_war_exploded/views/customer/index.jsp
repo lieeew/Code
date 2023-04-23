@@ -37,16 +37,31 @@
                             <a href="javascript:void(0)" class="header-action-btn search-btn"><i
                                     class="icon-magnifier"></i></a>
                             <div class="dropdown_search">
-                                <form class="action-form" action="#">
-                                    <input class="form-control" placeholder="Enter your search key" type="text">
+                                <form class="action-form" action="CustomerServlet">
+                                    <input type="hidden" name="action" value="pageByName">
+                                    <%-- 这里可以不要需要设置 --%>
+                                    <%-- <input type="hidden" name="pageNo" value="${requestScope.page.pageNo}"> --%>
+                                    <%-- <input type="hidden" name="pageSize" value="${requestScope.page.pageSize}"> --%>
+                                    <input class="form-control" placeholder="Enter your search key" type="text"
+                                           name="name">
                                     <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
                                 </form>
                             </div>
                         </div>
                         <!-- Single Wedge Start -->
-                        <div class="header-bottom-set dropdown">
-                            <a href="member/login.jsp">登录|注册</a>
-                        </div>
+                        <c:if test="${not empty sessionScope.name}">
+                            <!-- 在这里放置当 session 中存在 'name' 属性时需要执行的代码 -->
+                            <div class="header-bottom-set dropdown">
+                                <a>欢迎 : ${sessionScope.name}</a>
+                            </div>
+                            <div class="header-bottom-set dropdown"><a
+                                    href="manage/FurnServlet?action=page">订单管理</a></div>
+                            <div class="header-bottom-set dropdown"><a href="memberServlet?action=LogOut">安全退出</a></div>
+                        </c:if>
+                        <c:if test="${empty sessionScope.name}">
+                            <div class="header-bottom-set dropdown"><a href="views/member/login.jsp">登录 | 注册</a></div>
+                        </c:if>
+
                         <div class="header-bottom-set dropdown">
                             <a href="views/manage/manage_login.jsp">后台管理</a>
                         </div>
@@ -160,10 +175,44 @@
 </div>
 <!--  Pagination Area Start -->
 <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
+    <%-- 这里还可以直接使用pageByName方法获取相关的items内容， 模糊查询的时候可以获取所有的数据, 所以不需要在这这里进行区分 --%>
+    <%-- <ul> --%>
+    <%--     <c:if test="${empty requestScope.name}"> --%>
+    <%--         &lt;%&ndash; 名为 name 的属性存在时执行的代码 &ndash;%&gt; --%>
+    <%--         <c:if test="${requestScope.page.pageNo > 1}"> --%>
+    <%--             <li> --%>
+    <%--                 <a href="CustomerServlet?action=page&pageNo=${requestScope.page.pageNo - 1}&pageSize=${requestScope.page.pageSize}">上一页</a> --%>
+    <%--             </li> --%>
+    <%--         </c:if> --%>
+    <%--         <c:set var="begin" value="${1}"> </c:set> --%>
+    <%--         <c:set var="end" value="${requestScope.page.pageTotalCount}"> </c:set> --%>
+    <%--         <c:forEach begin="${begin}" end="${end}" var="i"> --%>
+    <%--             &lt;%&ndash; 这个方式不错, 比原生的简单 &ndash;%&gt; --%>
+    <%--             <c:if test="${i == requestScope.page.pageNo}"> --%>
+    <%--                 <li> --%>
+    <%--                     <a class="active" --%>
+    <%--                        href="CustomerServlet?action=page&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a> --%>
+    <%--                 </li> --%>
+    <%--             </c:if> --%>
+    <%--             &lt;%&ndash; 这个不要这样写 ${i} == ${requestScope.page.pageNo} &ndash;%&gt; --%>
+    <%--             <c:if test="${i != requestScope.page.pageNo}"> --%>
+    <%--                 <li> --%>
+    <%--                     <a href="CustomerServlet?action=page&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a> --%>
+    <%--                 </li> --%>
+    <%--             </c:if> --%>
+    <%--         </c:forEach> --%>
+
+    <%--         <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotalCount}"> --%>
+    <%--             <li> --%>
+    <%--                 <a href="CustomerServlet?action=page&pageNo=${requestScope.page.pageNo + 1}&pageSize=${requestScope.page.pageSize}">下一页</a> --%>
+    <%--             </li> --%>
+    <%--         </c:if> --%>
+    <%--     </c:if> --%>
+    <%-- </ul> --%>
     <ul>
         <c:if test="${requestScope.page.pageNo > 1}">
             <li>
-                <a href="CustomerServlet?action=page&pageNo=${requestScope.page.pageNo - 1}&pageSize=${requestScope.page.pageSize}">上一页</a>
+                <a href="${requestScope.page.url}&pageNo=${requestScope.page.pageNo - 1}&pageSize=${requestScope.page.pageSize}">上一页</a>
             </li>
         </c:if>
         <c:set var="begin" value="${1}"> </c:set>
@@ -173,20 +222,20 @@
             <c:if test="${i == requestScope.page.pageNo}">
                 <li>
                     <a class="active"
-                       href="CustomerServlet?action=page&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a>
+                       href="${requestScope.page.url}&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a>
                 </li>
             </c:if>
             <%-- 这个不要这样写 ${i} == ${requestScope.page.pageNo} --%>
             <c:if test="${i != requestScope.page.pageNo}">
                 <li>
-                    <a href="CustomerServlet?action=page&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a>
+                    <a href="${requestScope.page.url}&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a>
                 </li>
             </c:if>
         </c:forEach>
 
         <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotalCount}">
             <li>
-                <a href="CustomerServlet?action=page&pageNo=${requestScope.page.pageNo + 1}&pageSize=${requestScope.page.pageSize}">下一页</a>
+                <a href="${requestScope.page.url}&pageNo=${requestScope.page.pageNo + 1}&pageSize=${requestScope.page.pageSize}">下一页</a>
             </li>
         </c:if>
     </ul>
@@ -260,7 +309,7 @@
                                         </li>
                                         <li class="li"><a class="single-link" href="login.html">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
-                                        <li class="li"><a class="single-link" href="../order/checkout.html">结账</a>
+                                        <li class="li"><a class="single-link" href="../order/checkout.jsp">结账</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -281,7 +330,9 @@
                 <div class="row flex-sm-row-reverse">
                     <div class="col-md-6 text-right">
                         <div class="payment-link">
-                            <img src="#" alt="">
+                            <%-- 这里会有一个小bug,  img src="#" 会导致请求当前页, 由于有base标签所以 http://localhost:8888/jiaju_mall/#,
+                            导致访问 web/index.jsp --%>
+                            <%-- <img src="#" alt=""> --%>
                         </div>
                     </div>
                     <div class="col-md-6 text-left">

@@ -29,4 +29,6 @@ public interface FurnService {
      * @return
      */
     Page<Furn> page(int pageNo, int pageSize);
+
+    Page<Furn> pageByName(String name, int pageNo, int pageSize);
 }

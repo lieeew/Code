@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page isELIgnored="false"%>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-<!--    后面持续优化, 使用jsp 或者 vue -->
+    <!--    后面持续优化, 使用jsp 或者 vue -->
     <base href="<%=request.getContextPath() + "/"%>">
     <title>韩顺平教育-家居网购</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -14,6 +14,18 @@
     <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         $(function () {
+
+            if ("${requestScope.active}" === "register") {
+                $("#register_tab")[0].click(); // 模拟点击
+            }
+
+            $("#codeImg").click(function () {
+                // alert("hello~")
+                // 这里需要带有date属性, 因为如果没有变化, 浏览器就不会把数据提交
+                // 这里我定义了base标签, 所以可以不写全路径
+                this.src = "<%=request.getContextPath() + "/"%>kaptchaServlet?a=" + new Date();
+            })
+
             $("#sub-btn").click(function () {
                 let usernameVal = $("#username").val();
                 // alert(username);
@@ -46,7 +58,15 @@
                     return false;
                 }
 
+                // 检查验证码
+                let code = $("#code").val();
+                let codeText = $.trim(code);
+                if (codeText === null || codeText === "") {
+                    $("span[class='errorMsg']").text("验证码不为空!")
+                    return false;
+                }
                 // 到这里就全部合规了, 规则效应, 规则的力量
+                return true;
             });
         })
 
@@ -103,7 +123,7 @@
                         <a class="active" data-bs-toggle="tab" href="#lg1">
                             <h4>会员登录</h4>
                         </a>
-                        <a data-bs-toggle="tab" href="#lg2">
+                        <a id="register_tab" data-bs-toggle="tab" href="#lg2">
                             <h4>会员注册</h4>
                         </a>
                     </div>
@@ -118,7 +138,8 @@
                                     <!-- 这里的路径参考base页面 -->
                                     <form action="memberServlet" method="post">
                                         <input type="hidden" name="action" value="login">
-                                        <input type="text" name="user-name" value="${requestScope.username}" placeholder="Username"/>
+                                        <input type="text" name="user-name" value="${requestScope.username}"
+                                               placeholder="Username"/>
                                         <input type="password" name="user-password" placeholder="Password"/>
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
@@ -135,17 +156,19 @@
                         <div id="lg2" class="tab-pane">
                             <div class="login-form-container">
                                 <div class="login-register-form">
-                                    <span class="errorMsg"
-                                          style="float: right; font-weight: bold; font-size: 20pt; margin-left: 10px;"></span>
+                                    <span style="font-size: 18pt; font-weight: bold; float: right; color: black">
+                                        ${requestScope.msg}
+                                    </span>
                                     <form action="memberServlet" method="post">
                                         <input type="hidden" name="action" value="register">
-                                        <input type="text" id="username" name="user-name" placeholder="Username"/>
+                                        <input type="text" id="username" name="user-name" placeholder="Username" value="${requestScope.user.username}"/>
                                         <input type="password" id="password" name="user-password"
                                                placeholder="输入密码"/>
                                         <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
-                                        <input name="user-email" id="email" placeholder="电子邮件" type="email"/>
-                                        <input type="text" id="code" name="user-name" style="width: 50%" id="code"
-                                               placeholder="验证码"/>　　<img alt="" src="assets/images/code/code.bmp">
+                                        <input name="user-email" id="email" placeholder="电子邮件" type="email" value="${requestScope.user.email}"/>
+                                        <input type="text" id="code" name="code" style="width: 50%"
+                                               placeholder="验证码"/>　　<img id="codeImg" alt="" src="kaptchaServlet"
+                                                                            style="width: 120px;height: 50px">
                                         <div class="button-box">
                                             <button type="submit" id="sub-btn"><span>会员注册</span></button>
                                         </div>
