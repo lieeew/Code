@@ -1,14 +1,44 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>韩顺平教育-家居网购</title>
+    <base href="<%=request.getContextPath() + "/"%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="stylesheet" href="../../assets/css/vendor/vendor.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/plugins/plugins.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/style.min.css"/>
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.min.css"/>
+    <script src="script/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var CartPlusMinus = $(".cart-plus-minus");
+            CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
+            CartPlusMinus.append('<div class="inc qtybutton">+</div>');
+            $(".qtybutton").on("click", function () {
+                var $button = $(this);
+                var oldValue = $button.parent().find("input").val();
+                if ($button.text() === "+") {
+                    var newVal = parseFloat(oldValue) + 1;
+                    //todo
+                } else {
+                    // Don't allow decrementing below zero
+                    if (oldValue > 1) {
+                        var newVal = parseFloat(oldValue) - 1;
+                        //todo
+                    } else {
+                        newVal = 1;
+                    }
+                }
+                $button.parent().find("input").val(newVal);
+                // alert("new value = " + newVal)
+                let cartId = $button.parent().find("input").attr("cartId");
+                location.href = "CartServlet?action=updateCount&newNum=" + newVal + "&id=" + cartId;
+            });
+        })
+    </script>
 </head>
 
 <body>
@@ -23,7 +53,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="../customer/index.jsp"><img src="../../assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="customer/index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -52,8 +82,8 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="../customer/index.jsp"><img width="280px" src="../../assets/images/logo/logo.png"
-                                                             alt="Site Logo"/></a>
+                        <a href="customer/index.jsp"><img width="280px" src="assets/images/logo/logo.png"
+                                                          alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -100,36 +130,47 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <a href="#"><img class="img-responsive ml-3" src="../../assets/images/product-image/1.jpg"
-                                                     alt=""/></a>
-                                </td>
-                                <td class="product-name"><a href="#">Product Name</a></td>
-                                <td class="product-price-cart"><span class="amount">$60.00</span></td>
-                                <td class="product-quantity">
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1"/>
-                                    </div>
-                                </td>
-                                <td class="product-subtotal">$70.00</td>
-                                <td class="product-remove">
-                                    <a href="#"><i class="icon-close"></i></a>
-                                </td>
-                            </tr>
+                            <%-- el表达式
+                                1. ${sessionScope.cart.items} => 取出的是HashMap<Integer,CartItem>
+                                2. 所以通过foreach 取出的每一个对象时 HashMap<Integer,CartItem> 的 k-v
+                                3. 这里的v就是entry
+                            --%>
+                            <c:forEach items="${sessionScope.cart.items}" var="entry">
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <a href="#"><img class="img-responsive ml-3"
+                                                         src="assets/images/product-image/1.jpg"
+                                                         alt=""/></a>
+                                    </td>
+                                    <td class="product-name"><a href="#">${entry.value.name}</a></td>
+                                    <td class="product-price-cart"><span class="amount">$${entry.value.price}</span>
+                                    </td>
+                                    <td class="product-quantity">
+                                        <div class="cart-plus-minus">
+                                            <input cartId="${entry.key}" class="cart-plus-minus-box" type="text"
+                                                   name="qtybutton"
+                                                   value="${entry.value.count}"/>
+                                        </div>
+                                    </td>
+                                    <td class="product-subtotal">￥${entry.value.totalPrice}</td>
+                                    <td class="product-remove">
+                                        <a href="CartServlet?action=deleteCartItem&id=${entry.key}"><i class="icon-close"></i></a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="cart-shiping-update-wrapper">
-                                <h4>共xx件商品 总价 xxxx.xx元</h4>
+                                <h4>共${sessionScope.cart.totalCount}件商品 总价 ${sessionScope.cart.totalPrice}元</h4>
                                 <div class="cart-shiping-update">
                                     <a href="#">购 物 车 结 账</a>
                                 </div>
                                 <div class="cart-clear">
                                     <button>继 续 购 物</button>
-                                    <a href="#">清 空 购 物 车</a>
+                                    <a href="CartServlet?action=clearAllItems">清 空 购 物 车</a>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +201,8 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
                                         <li class="li"><a class="single-link" href="#">交货信息</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a>
+                                        </li>
                                         <li class="li"><a class="single-link" href="#">条款和条件</a></li>
                                         <li class="li"><a class="single-link" href="#">制造</a></li>
                                     </ul>
@@ -178,10 +220,10 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
+                                        <li class="li"><a class="single-link" href="cart.jsp">我的购物车</a></li>
                                         <li class="li"><a class="single-link" href="login.html">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
-                                        <li class="li"><a class="single-link" href="../order/checkout.jsp">结账</a></li>
+                                        <li class="li"><a class="single-link" href="order/checkout.jsp">结账</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -213,9 +255,9 @@
     </div>
 </div>
 <!-- Footer Area End -->
-<script src="../../assets/js/vendor/vendor.min.js"></script>
-<script src="../../assets/js/plugins/plugins.min.js"></script>
+<script src="assets/js/vendor/vendor.min.js"></script>
+<script src="assets/js/plugins/plugins.min.js"></script>
 <!-- Main Js -->
-<script src="../../assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

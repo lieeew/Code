@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("button.add-to-cart").click(function () {
+                let furnId = $(this).attr("furnId");
+                location.href = "CartServlet?action=addItem&id=" + furnId;
+            })
+        })
+    </script>
 </head>
 
 <body>
@@ -56,20 +66,25 @@
                             </div>
                             <div class="header-bottom-set dropdown"><a
                                     href="manage/FurnServlet?action=page">订单管理</a></div>
-                            <div class="header-bottom-set dropdown"><a href="memberServlet?action=LogOut">安全退出</a></div>
+                            <div class="header-bottom-set dropdown"><a href="memberServlet?action=LogOut">安全退出</a>
+                            </div>
                         </c:if>
                         <c:if test="${empty sessionScope.name}">
-                            <div class="header-bottom-set dropdown"><a href="views/member/login.jsp">登录 | 注册</a></div>
+                            <div class="header-bottom-set dropdown"><a href="views/member/login.jsp">登录 | 注册</a>
+                            </div>
                         </c:if>
 
                         <div class="header-bottom-set dropdown">
                             <a href="views/manage/manage_login.jsp">后台管理</a>
                         </div>
                         <!-- Single Wedge End -->
-                        <a href="#offcanvas-cart"
-                           class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
+                        <a href="views/cart/cart.jsp"
+                        <%-- 点击调转是什么鬼 , 试试到servlet转发--%>
+                        <%-- offcanvas-toggle 这个底层阻止超链接， 所以可以直接去去掉--%>
+                           class="header-action-btn header-action-btn-cart pr-0">
                             <i class="icon-handbag"> 购物车</i>
-                            <span class="header-action-num">88</span>
+                            <%-- 本质调用getTotalCount()方法 --%>
+                            <span class="header-action-num">${sessionScope.cart.totalCount}</span>
                         </a>
                         <a href="#offcanvas-mobile-menu"
                            class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
@@ -138,7 +153,7 @@
                                                    data-bs-target="#exampleModal"><i
                                                         class="icon-size-fullscreen"></i></a>
                                             </div>
-                                            <button title="Add To Cart" class=" add-to-cart">Add
+                                            <button title="Add To Cart" class=" add-to-cart" furnId="${furn.id}">Add
                                                 To Cart
                                             </button>
                                         </div>
@@ -305,7 +320,7 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="../cart/cart.html">我的购物车</a>
+                                        <li class="li"><a class="single-link" href="../cart/cart.jsp">我的购物车</a>
                                         </li>
                                         <li class="li"><a class="single-link" href="login.html">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>

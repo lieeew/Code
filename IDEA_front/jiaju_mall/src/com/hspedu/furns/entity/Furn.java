@@ -22,6 +22,10 @@ public class Furn {
     public Furn() {
     }
 
+    public Furn(Integer id) {
+        this.id = id;
+    }
+
     public Furn(Integer id, String name, String maker, BigDecimal price, Integer sales, Integer stock, String imgPath) {
         this.id = id;
         this.name = name;
