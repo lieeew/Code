@@ -1,13 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>韩顺平教育-家居网购</title>
+    <%-- 定义一个base标签 --%>
+    <base href="<%=request.getContextPath() + "/"%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="stylesheet" href="../../assets/css/vendor/vendor.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/plugins/plugins.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/style.min.css"/>
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.min.css"/>
 
 </head>
 <body>
@@ -22,22 +25,29 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="../customer/index.jsp"><img src="../../assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="customer/index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
-                        <div class="header-bottom-set dropdown">
-                            <a>欢迎: hello</a>
-                        </div>
-                        <div class="header-bottom-set dropdown">
-                            <a href="#">订单管理</a>
-                        </div>
-                        <div class="header-bottom-set dropdown">
-                            <a href="memberServlet?action=logout">安全退出</a>
-                        </div>
+                        <c:if test="${not empty sessionScope.name}">
+                            <div class="header-bottom-set dropdown">
+                                <a>欢迎: ${sessionScope.name}</a>
+                            </div>
+                            <div class="header-bottom-set dropdown">
+                                <a href="#">订单管理</a>
+                            </div>
+                            <div class="header-bottom-set dropdown">
+                                <a href="memberServlet?action=logout">安全退出</a>
+                            </div>
+                        </c:if>
+                        <c:if test="${empty sessionScope.name}">
+                            <div class="header-bottom-set dropdown">
+                                请登录账号结账
+                            </div>
+                        </c:if>
                     </div>
                 </div>
                 <!-- Header Action End -->
@@ -51,7 +61,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="../customer/index.jsp"><img width="280px" src="../../assets/images/logo/logo.png"
+                        <a href="customer/index.jsp"><img width="280px" src="assets/images/logo/logo.png"
                                                              alt="Site Logo"/></a>
                     </div>
                 </div>
@@ -71,8 +81,9 @@
             <div class="col-lg-7 col-md-12 ml-auto mr-auto">
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
-                        <a class="active" href="../customer/index.jsp">
-                            <h4>订单已结算, 订单号-hello</h4>
+                        <a class="active" href="views/order/order_detail.jsp">
+                            <%-- todo 点击超链接时, 显示生成的订单信息 --%>
+                            <h4>订单已结算, 订单号-${sessionScope.orderId}</h4>
                         </a>
                     </div>
                 </div>
@@ -118,7 +129,7 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="../cart/cart.jsp">我的购物车</a></li>
+                                        <li class="li"><a class="single-link" href="cart/cart.jsp">我的购物车</a></li>
                                         <li class="li"><a class="single-link" href="login.html">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
                                         <li class="li"><a class="single-link" href="checkout.jsp">结账</a></li>
@@ -153,9 +164,9 @@
     </div>
 </div>
 <!-- Footer Area End -->
-<script src="../../assets/js/vendor/vendor.min.js"></script>
-<script src="../../assets/js/plugins/plugins.min.js"></script>
+<script src="assets/js/vendor/vendor.min.js"></script>
+<script src="assets/js/plugins/plugins.min.js"></script>
 <!-- Main Js -->
-<script src="../../assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

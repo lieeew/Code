@@ -1,22 +1,20 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>韩顺平教育-家居网购</title>
-    <%-- 定义一个base标签 --%>
     <base href="<%=request.getContextPath() + "/"%>">
+    <!-- 移动端适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
-    <link rel="stylesheet" href="assets/css/style.min.css"/>
-
+    <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
+
 <body>
 <!-- Header Area start  -->
 <div class="header section">
-    <!-- Header Top Message Start -->
     <!-- Header Top  End -->
     <!-- Header Bottom  Start -->
     <div class="header-bottom d-none d-lg-block">
@@ -25,35 +23,29 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="customer/index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
-                        <c:if test="${not empty sessionScope.name}">
-                            <div class="header-bottom-set dropdown">
-                                <a>欢迎: ${sessionScope.name}</a>
-                            </div>
-                            <div class="header-bottom-set dropdown">
-                                <a href="#">订单管理</a>
-                            </div>
-                            <div class="header-bottom-set dropdown">
-                                <a href="memberServlet?action=logout">安全退出</a>
-                            </div>
-                        </c:if>
-                        <c:if test="${empty sessionScope.name}">
-                            <div class="header-bottom-set dropdown">
-                                请登录账号结账
-                            </div>
-                        </c:if>
+                        <div class="header-bottom-set dropdown">
+                            <a>欢迎: ${sessionScope.name}</a>
+                        </div>
+                        <div class="header-bottom-set dropdown">
+                            <a href="#">订单管理</a>
+                        </div>
+                        <div class="header-bottom-set dropdown">
+                            <a href="#">安全退出</a>
+                        </div>
                     </div>
                 </div>
                 <!-- Header Action End -->
             </div>
         </div>
     </div>
+    <!-- Header Bottom  End -->
     <!-- Header Bottom  Start 手机端的header -->
     <div class="header-bottom d-lg-none sticky-nav bg-white">
         <div class="container position-relative">
@@ -61,8 +53,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="customer/index.jsp"><img width="280px" src="assets/images/logo/logo.png"
-                                                             alt="Site Logo"/></a>
+                        <a href="index.html"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -73,25 +64,43 @@
     <div style="width: 100%;height: 50px;background-color: black"></div>
     <!-- Main Menu End -->
 </div>
-<!-- Header Area End  -->
-<!-- login area start -->
-<div class="login-register-area pt-70px pb-100px">
+<!-- Cart Area Start -->
+<div class="cart-main-area pt-70px pb-100px">
     <div class="container">
+        <h3 class="cart-page-title">订单管理</h3>
         <div class="row">
-            <div class="col-lg-7 col-md-12 ml-auto mr-auto">
-                <div class="login-register-wrapper">
-                    <div class="login-register-tab-list nav">
-                        <a class="active" href="views/order/order_detail.jsp">
-                            <%-- todo 点击超链接时, 显示生成的订单信息 --%>
-                            <h4>订单已结算, 订单号-${sessionScope.orderId}</h4>
-                        </a>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <form action="#">
+                    <div class="table-content table-responsive cart-table-content">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>订单</th>
+                                <th>日期</th>
+                                <th>金额</th>
+                                <th>状态</th>
+                                <th>详情</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="product-name">16248893425621</td>
+                                <td class="product-name">2100-12-12 22:10:10</td>
+                                <td class="product-price-cart"><span class="amount">160.00</span></td>
+                                <td class="product-name"><a href="#">未发货</a></td>
+                                <td class="product-remove">
+                                    <a href="#"><i class="icon-eye"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-<!-- login area end -->
+<!-- Cart Area End -->
 
 <!-- Footer Area Start -->
 <div class="footer-area">
@@ -111,7 +120,8 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
                                         <li class="li"><a class="single-link" href="#">交货信息</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a>
+                                        </li>
                                         <li class="li"><a class="single-link" href="#">条款和条件</a></li>
                                         <li class="li"><a class="single-link" href="#">制造</a></li>
                                     </ul>
@@ -129,10 +139,10 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="cart/cart.jsp">我的购物车</a></li>
+                                        <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
                                         <li class="li"><a class="single-link" href="login.html">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
-                                        <li class="li"><a class="single-link" href="checkout.jsp">结账</a></li>
+                                        <li class="li"><a class="single-link" href="checkout.html">结账</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -156,7 +166,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-left">
-                        <p class="copy-text">Copyright &copy; 2021 韩顺平教育</p>
+                        <p class="copy-text">Copyright &copy; 2021 韩顺平教育~</p>
                     </div>
                 </div>
             </div>

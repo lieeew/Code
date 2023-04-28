@@ -51,8 +51,7 @@ public class memberServlet extends BasicServlet {
         String username = request.getParameter("user-name");
         String password = request.getParameter("user-password");
         // 如果用户没有输入内容, 就直接提交, 后台接收到的数据是""
-        Member member = new Member(null, username, null, password);
-        Member login = memberService.login(member);
+        Member login = memberService.login(new Member(null, username, null, password));
         // Gson gson = new Gson();
         // response.setContentType("application/json;charset=utf-8");
         if (login != null) {
@@ -62,6 +61,7 @@ public class memberServlet extends BasicServlet {
             // 老韩思路, 放入到session中
             HttpSession session = request.getSession();
             session.setAttribute("name", username);
+            session.setAttribute("member", login);
             request.getRequestDispatcher("/views/member/login_ok.jsp").forward(request, response);
         } else {
             request.setAttribute("msg", "用户名或者密码错误");

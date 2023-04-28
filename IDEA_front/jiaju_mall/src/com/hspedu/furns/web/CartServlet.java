@@ -97,7 +97,8 @@ public class CartServlet extends BasicServlet {
         Cart cart = (Cart) req.getSession().getAttribute("cart");
         cart.clearAllCartItems();
 
-        resp.sendRedirect(req.getContextPath() + "/views/cart/cart.jsp");
+        // resp.sendRedirect(req.getContextPath() + "/views/cart/cart.jsp");
+        resp.sendRedirect(req.getHeader("Referer"));
     }
 
 
@@ -108,9 +109,6 @@ public class CartServlet extends BasicServlet {
         Cart cart = (Cart) req.getSession().getAttribute("cart");
         cart.updateCount(cart.getItems().get(id), newNum);
         req.getSession().setAttribute("cart", cart);
-        // System.out.println("id = " + id);
-        // System.out.println("newNum = " + newNum);
-        // System.out.println(cart);
         // req.getRequestDispatcher("/CartServlet?action=showItems").forward(req, resp);
         resp.sendRedirect(req.getHeader("Referer"));
     }
@@ -121,7 +119,10 @@ public class CartServlet extends BasicServlet {
     protected void deleteCartItem(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = DataUtils.parseInt(req.getParameter("id"), 0);
         Cart cart = (Cart) req.getSession().getAttribute("cart");
-        cart.deleteCartItem(cart.getItems().get(id));
-        req.getRequestDispatcher("/CartServlet?action=showItems").forward(req, resp);
+        if (null != cart) {
+            cart.deleteCartItem(cart.getItems().get(id));
+        }
+        // req.getRequestDispatcher("/CartServlet?action=showItems").forward(req, resp);
+        resp.sendRedirect(req.getHeader("Referer"));
     }
 }

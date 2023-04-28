@@ -37,6 +37,28 @@
                 let cartId = $button.parent().find("input").attr("cartId");
                 location.href = "CartServlet?action=updateCount&newNum=" + newVal + "&id=" + cartId;
             });
+
+
+            // 监听删除按钮的点击事件
+            $('.product-remove a').click(function (event) {
+                event.preventDefault(); // 阻止默认行为，即不跳转到 href 属性指定的链接
+                // 弹出确认对话框
+                let ItemName = $(this).attr("ItemName");
+                // 也可以通过第二种方式获取数据 好像不行啊
+                // let text = $(this).parent().find("td:eq(1)").text();
+                if (confirm("确定要删除【" + ItemName + "】吗？")) {
+                    // 获取被点击的链接的 href 属性值，即对应的 servlet 的 URL
+                    var servletUrl = $(this).attr('href');
+                    // 跳转到 servlet
+                    window.location.href = servletUrl;
+                }
+                // 否则什么都不做
+            });
+
+            $(".cart-clear a").click(function () {
+                // alert("ok~")
+                return confirm("确认删除所有购物车");
+            })
         })
     </script>
 </head>
@@ -60,15 +82,22 @@
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
-                        <div class="header-bottom-set dropdown">
-                            <a>欢迎: hello</a>
-                        </div>
-                        <div class="header-bottom-set dropdown">
-                            <a href="#">订单管理</a>
-                        </div>
-                        <div class="header-bottom-set dropdown">
-                            <a href="#">安全退出</a>
-                        </div>
+                        <c:if test="${not empty sessionScope.name}">
+                            <div class="header-bottom-set dropdown">
+                                <a>欢迎: ${sessionScope.name}</a>
+                            </div>
+                            <div class="header-bottom-set dropdown">
+                                <a href="manage/FurnServlet?action=page">订单管理</a>
+                            </div>
+                            <div class="header-bottom-set dropdown">
+                                <a href="memberServlet?action=LogOut">安全退出</a>
+                            </div>
+                        </c:if>
+                        <c:if test="${empty sessionScope.name}">
+                            <div class="header-bottom-set dropdown">
+                                <a href="views/member/login.jsp">请登录账号</a>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
                 <!-- Header Action End -->
@@ -154,7 +183,9 @@
                                     </td>
                                     <td class="product-subtotal">￥${entry.value.totalPrice}</td>
                                     <td class="product-remove">
-                                        <a href="CartServlet?action=deleteCartItem&id=${entry.key}"><i class="icon-close"></i></a>
+                                        <a ItemName="${entry.value.name}"
+                                           href="CartServlet?action=deleteCartItem&id=${entry.value.id}"><i
+                                                class="icon-close"></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -166,7 +197,8 @@
                             <div class="cart-shiping-update-wrapper">
                                 <h4>共${sessionScope.cart.totalCount}件商品 总价 ${sessionScope.cart.totalPrice}元</h4>
                                 <div class="cart-shiping-update">
-                                    <a href="#">购 物 车 结 账</a>
+                                    <%-- todo 这里还需要修改href标签--%>
+                                    <a href="OrderServlet?action=saveOrder">购 物 车 结 账</a>
                                 </div>
                                 <div class="cart-clear">
                                     <button>继 续 购 物</button>

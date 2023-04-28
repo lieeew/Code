@@ -11,7 +11,7 @@ public class Member {
     private String email;
     private String password;
 
-    // 一定要提供无偿构造器, 底层通过使用无参构造器
+    // 一定要提供无参构造器, 底层通过使用无参构造器
     public Member() {
     }
 
