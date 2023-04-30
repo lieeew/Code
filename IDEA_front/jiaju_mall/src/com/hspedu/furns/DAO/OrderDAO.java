@@ -10,4 +10,6 @@ import com.hspedu.furns.entity.Order;
 public interface OrderDAO {
 
     int saveOrder(Order order);
+
+
 }

@@ -74,4 +74,16 @@ public class OrderItem {
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", count=" + count +
+                ", totalPrice=" + totalPrice +
+                ", orderId='" + orderId + '\'' +
+                '}';
+    }
 }

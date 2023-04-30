@@ -26,14 +26,17 @@ public class BasicDAO<T> { // 泛型指定具体类型
         Connection connection = null;
 
         try {
+            // 我们已经从当前线程的 ThreadLocal 取出的connection
             connection = JDBCUtilsByDruid.getConnection();
             int update = qr.update(connection, sql, parameters);
             return update;
         } catch (SQLException e) {
             throw new RuntimeException(e); // 将编译异常->运行异常 ,抛出
-        } finally {
-            JDBCUtilsByDruid.close(null, null, connection);
         }
+        // 这里不需要修改了
+        // finally {
+        //     JDBCUtilsByDruid.close(null, null, connection);
+        // }
 
     }
 
@@ -54,9 +57,10 @@ public class BasicDAO<T> { // 泛型指定具体类型
 
         } catch (SQLException e) {
             throw new RuntimeException(e); // 将编译异常->运行异常 ,抛出
-        } finally {
-            JDBCUtilsByDruid.close(null, null, connection);
         }
+        // finally {
+        //     JDBCUtilsByDruid.close(null, null, connection);
+        // }
 
     }
 
@@ -70,9 +74,10 @@ public class BasicDAO<T> { // 泛型指定具体类型
 
         } catch (SQLException e) {
             throw new RuntimeException(e); // 将编译异常->运行异常 ,抛出
-        } finally {
-            JDBCUtilsByDruid.close(null, null, connection);
         }
+        // finally {
+        //     JDBCUtilsByDruid.close(null, null, connection);
+        // }
     }
 
     // 查询单行单列的方法,即返回单值的方法
@@ -86,9 +91,10 @@ public class BasicDAO<T> { // 泛型指定具体类型
 
         } catch (SQLException e) {
             throw new RuntimeException(e); // 将编译异常->运行异常 ,抛出
-        } finally {
-            JDBCUtilsByDruid.close(null, null, connection);
         }
+        // finally {
+        //     JDBCUtilsByDruid.close(null, null, connection);
+        // }
     }
 
 }

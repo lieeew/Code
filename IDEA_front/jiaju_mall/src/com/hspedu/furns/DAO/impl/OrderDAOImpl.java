@@ -19,4 +19,5 @@ public class OrderDAOImpl extends BasicDAO<Order> implements OrderDAO {
                 order.getId(), order.getPrice(), order.getStatus(), order.getMemberId());
     }
 
+
 }

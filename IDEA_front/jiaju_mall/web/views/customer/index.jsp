@@ -153,9 +153,16 @@
                                                    data-bs-target="#exampleModal"><i
                                                         class="icon-size-fullscreen"></i></a>
                                             </div>
-                                            <button title="Add To Cart" class=" add-to-cart" furnId="${furn.id}">Add
-                                                To Cart
-                                            </button>
+                                            <c:if test="${furn.stock <= 0}">
+                                                <button title="Add To Cart" class=" add-to-cart" furnId="${furn.id}">Add
+                                                    To Cart【缺货】
+                                                </button>
+                                            </c:if>
+                                            <c:if test="${furn.stock >= 1}">
+                                                <button title="Add To Cart" class=" add-to-cart" furnId="${furn.id}">Add
+                                                    To Cart
+                                                </button>
+                                            </c:if>
                                         </div>
 
                                         <div class="content">

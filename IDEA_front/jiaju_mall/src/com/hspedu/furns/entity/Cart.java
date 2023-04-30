@@ -1,11 +1,10 @@
 package com.hspedu.furns.entity;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
 
 /**
  * @Author: qxy

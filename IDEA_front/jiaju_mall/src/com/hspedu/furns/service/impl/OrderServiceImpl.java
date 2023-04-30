@@ -8,12 +8,7 @@ import com.hspedu.furns.DAO.impl.OrderDAOImpl;
 import com.hspedu.furns.DAO.impl.OrderItemDAOImpl;
 import com.hspedu.furns.entity.*;
 import com.hspedu.furns.service.OrderService;
-
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @Author: qxy
@@ -21,9 +16,9 @@ import java.util.UUID;
  * @Description:
  */
 public class OrderServiceImpl implements OrderService {
-    OrderDAO orderDAO = new OrderDAOImpl();
-    OrderItemDAO orderItemDAO = new OrderItemDAOImpl();
-    FurnDAO furnDAO = new FurnDAOImpl();
+    private OrderDAO orderDAO = new OrderDAOImpl();
+    private OrderItemDAO orderItemDAO = new OrderItemDAOImpl();
+    private FurnDAO furnDAO = new FurnDAOImpl();
 
     @Override
     public String saveOrder(Cart cart, int memberId) {
@@ -51,12 +46,13 @@ public class OrderServiceImpl implements OrderService {
                 orderItemDAO.saveOrderItem(orderItem);
                 // 修改furn表数据
                 Furn furn = furnDAO.getFurnById(item.getId());
-                if (furn.getStock() > item.getCount()) { // 库存大于买的总数
+                if (furn.getStock() >= item.getCount()) { // 库存大于买的总数
                     // Furn furn = new Furn(item.getId(), item.getName(), furn.getMaker(),
                     //         furn.getPrice(), furn.getSales() + item.getCount(), furn.getStock() - item.getCount(), furn.getImgPath());
                     furn.setSales(furn.getSales() + item.getCount());
                     furn.setStock(furn.getStock() - item.getCount());
                     furnDAO.update(furn);
+                    System.out.println("由于stock不足, 添加是失败~~");
                 }
             }
 

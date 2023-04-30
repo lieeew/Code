@@ -34,6 +34,7 @@ public class AdminServlet extends BasicServlet {
         if (admin != null) {
             // 登录成功
             session.setAttribute("status", "SUCCESS");
+            session.setAttribute("member", admin);
             request.getRequestDispatcher("/views/manage/manage_menu.jsp").forward(request, response);
         } else {
             session.setAttribute("status", "FAILURE");

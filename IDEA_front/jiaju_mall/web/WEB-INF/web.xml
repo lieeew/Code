@@ -3,6 +3,33 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <!--过滤器配置一般在最上面-->
+    <!--老韩分析
+        1. 在filter-mapping 配置要拦截/验证的url
+        2. 对于我们不起拦截的url, 不需要配置
+        3. 对于要拦截的目录需要放行的资源, 在通过init-param配置指定
+    -->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.hspedu.furns.Filter.AuthFilter</filter-class>
+        <init-param>
+            <!--这里只是配置文件, 配置之后不会起作用, 需要在filter读取-->
+            <param-name>excludeUrls</param-name>
+            <param-value>/views/manage/manage_login.jsp, /views/member/login.jsp</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/views/cart/*</url-pattern>
+        <url-pattern>/views/manage/*</url-pattern>
+        <url-pattern>/views/member/*</url-pattern>
+        <url-pattern>/views/order/*</url-pattern>
+        <url-pattern>/CartServlet</url-pattern>
+        <url-pattern>/manage/FurnServlet</url-pattern>
+        <url-pattern>/OrderServlet</url-pattern>
+    </filter-mapping>
+
+
     <!--配置com.google.code.kaptcha.servlet-->
     <servlet>
         <servlet-name>Kaptcha</servlet-name>
