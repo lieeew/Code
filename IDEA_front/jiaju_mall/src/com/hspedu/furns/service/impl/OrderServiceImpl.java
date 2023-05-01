@@ -8,6 +8,7 @@ import com.hspedu.furns.DAO.impl.OrderDAOImpl;
 import com.hspedu.furns.DAO.impl.OrderItemDAOImpl;
 import com.hspedu.furns.entity.*;
 import com.hspedu.furns.service.OrderService;
+
 import java.util.*;
 
 /**
@@ -46,19 +47,13 @@ public class OrderServiceImpl implements OrderService {
                 orderItemDAO.saveOrderItem(orderItem);
                 // 修改furn表数据
                 Furn furn = furnDAO.getFurnById(item.getId());
-                if (furn.getStock() >= item.getCount()) { // 库存大于买的总数
-                    // Furn furn = new Furn(item.getId(), item.getName(), furn.getMaker(),
-                    //         furn.getPrice(), furn.getSales() + item.getCount(), furn.getStock() - item.getCount(), furn.getImgPath());
-                    furn.setSales(furn.getSales() + item.getCount());
-                    furn.setStock(furn.getStock() - item.getCount());
-                    furnDAO.update(furn);
-                    System.out.println("由于stock不足, 添加是失败~~");
-                }
+                furn.setSales(furn.getSales() + item.getCount());
+                furn.setStock(furn.getStock() - item.getCount());
+                // 更新到数据库
+                furnDAO.update(furn);
             }
-
-            //清空购物车, 防止重复购买
+            // 清空购物车, 防止重复购买
             cart.clearAllCartItems();
-
             return orderId;
         } catch (Exception e) {
             e.printStackTrace();

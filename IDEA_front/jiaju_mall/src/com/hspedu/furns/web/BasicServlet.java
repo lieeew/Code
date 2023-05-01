@@ -37,7 +37,7 @@ public abstract class BasicServlet extends HttpServlet {
             // 使用方法对象, 直接反射调用
             declareMethod.invoke(this, req, resp);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

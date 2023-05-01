@@ -68,6 +68,28 @@
                 // 到这里就全部合规了, 规则效应, 规则的力量
                 return true;
             });
+
+            // 检查用户名是否存在
+            $("input[name='user-name']").mouseleave(function () {
+                let name = $(this).val();
+                // alert(val);
+                $.post(
+                    "memberServlet?action=verifyUsername",
+                    {
+                        name: name,
+                        date: new Date()
+                    },
+                    function (response, status, xhr) {
+                        if (response.existsUsername === "false") {
+                            alert("用户名可用")
+                        } else {
+                            alert("用户名不可用")
+                        }
+                    },
+                    // dateType 后端返回的数据, 前端拿到的数据必须是这个
+                    "JSON"
+                )
+            });
         })
 
     </script>
@@ -161,11 +183,13 @@
                                     </span>
                                     <form action="memberServlet" method="post">
                                         <input type="hidden" name="action" value="register">
-                                        <input type="text" id="username" name="user-name" placeholder="Username" value="${requestScope.user.username}"/>
+                                        <input type="text" id="username" name="user-name" placeholder="Username"
+                                               value="${requestScope.user.username}"/>
                                         <input type="password" id="password" name="user-password"
                                                placeholder="输入密码"/>
                                         <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
-                                        <input name="user-email" id="email" placeholder="电子邮件" type="email" value="${requestScope.user.email}"/>
+                                        <input name="user-email" id="email" placeholder="电子邮件" type="email"
+                                               value="${requestScope.user.email}"/>
                                         <input type="text" id="code" name="code" style="width: 50%"
                                                placeholder="验证码"/>　　<img id="codeImg" alt="" src="kaptchaServlet"
                                                                             style="width: 120px;height: 50px">

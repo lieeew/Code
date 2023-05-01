@@ -6,6 +6,7 @@ package com.hspedu.furns.web;
  * @Description:
  */
 
+import com.google.gson.Gson;
 import com.hspedu.furns.entity.Member;
 import com.hspedu.furns.service.MemberService;
 import com.hspedu.furns.service.impl.MemberServiceImpl;
@@ -14,6 +15,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Objects;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_DATE;
@@ -96,7 +98,7 @@ public class memberServlet extends BasicServlet {
             return;
         }
         // 验证码关卡通过
-        if (!memberService.isExistsUsername(username)) {
+        if (memberService.isExistsUsername(username)) {
             if (memberService.register(new Member(null, username, email, pwd))) {
                 request.getRequestDispatcher("/views/member/register_ok.jsp").forward(request, response);
             } else {
@@ -115,5 +117,17 @@ public class memberServlet extends BasicServlet {
         session.invalidate();
         //  重定向 --> 目的 : 刷新首页
         resp.sendRedirect(req.getContextPath() + "/index.jsp");
+    }
+
+    /**
+     * 验证用户名是否存在
+     */
+    protected void verifyUsername(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        Gson gson = new Gson();
+        boolean existsUsername = memberService.isExistsUsername(name);
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("existsUsername", existsUsername);
+        resp.getWriter().write(gson.toJson(params));
     }
 }

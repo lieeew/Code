@@ -17,7 +17,7 @@ public class MemberServiceTest {
 
     @Test
     public void test1() {
-        if (!memberService.isExistsUsername("king")) {
+        if (!memberService.isExistsUsername("admin")) {
             System.out.println("用户名不存在!");
         } else {
             System.out.println("用户名存在!");

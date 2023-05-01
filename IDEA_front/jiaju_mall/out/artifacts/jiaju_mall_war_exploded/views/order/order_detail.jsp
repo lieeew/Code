@@ -32,7 +32,7 @@
                 <div class="col align-self-center">
                     <div class="header-actions">
                         <div class="header-bottom-set dropdown">
-                            <a>欢迎: hello</a>
+                            <a>欢迎: ${sessionScope.name}</a>
                         </div>
                         <div class="header-bottom-set dropdown">
                             <a href="#">订单管理</a>

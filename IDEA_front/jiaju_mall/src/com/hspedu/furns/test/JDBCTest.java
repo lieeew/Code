@@ -19,8 +19,8 @@ public class JDBCTest {
             // Member king = memberDAO.querySingle("SELECT * FROM member WHERE username = ?", Member.class, "admin");
             // System.out.println("king = " + king);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

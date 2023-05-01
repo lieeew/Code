@@ -23,6 +23,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public boolean isExistsUsername(String username) {
+        // false 表示存在用户名
         return memberDAO.getMemberByName(username) != null;
     }
 
