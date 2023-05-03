@@ -34,10 +34,10 @@ public class TransactionFilter implements Filter {
             JDBCUtilsByDruid.rollBack(); // 出现异常, 就回滚
             HttpServletResponse response = (HttpServletResponse) servletResponse;
             response.sendRedirect(((HttpServletRequest) servletRequest).getContextPath() + "/views/order/checkout.jsp");
-            ((Cart)((HttpServletRequest) servletRequest)
-                    .getSession()
-                    .getAttribute("cart"))
-                    .clearAllCartItems();
+            Cart cart = (Cart) ((HttpServletRequest) servletRequest).getSession().getAttribute("cart");
+            if (cart != null) {
+                cart.clearAllCartItems();
+            }
             // 抛出去给到tomcat
             throw new RuntimeException(e);
             // e.printStackTrace();

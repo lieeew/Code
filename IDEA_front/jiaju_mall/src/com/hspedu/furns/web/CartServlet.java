@@ -1,5 +1,6 @@
 package com.hspedu.furns.web;
 
+import com.google.gson.Gson;
 import com.hspedu.furns.entity.Cart;
 import com.hspedu.furns.entity.CartItem;
 import com.hspedu.furns.entity.Furn;
@@ -24,7 +25,7 @@ import java.util.HashMap;
  * @Description:
  */
 
-@WebServlet(name = "CartServlet", value = "/CartServlet")
+@WebServlet(name = "CartServlet", urlPatterns = "/CartServlet")
 public class CartServlet extends BasicServlet {
     private FurnService furnService = new FurnServiceImpl();
 
@@ -45,7 +46,8 @@ public class CartServlet extends BasicServlet {
                 furnById.getName(),
                 furnById.getPrice(),
                 count,
-                furnById.getPrice().multiply(new BigDecimal(count)));
+                furnById.getPrice().multiply(new BigDecimal(count)),
+                furnById.getImgPath());
         // Cart cart = new Cart();
         // // 判断是否有session, 如果没有这个属性直接创建 我的写法
         // HttpSession session = req.getSession();
@@ -71,6 +73,50 @@ public class CartServlet extends BasicServlet {
         // Referer: http://localhost:8888/jiaju_mall/ 就是请求的地址
         String referer = req.getHeader("Referer");
         resp.sendRedirect(referer);
+    }
+
+
+    /**
+     * 使用ajax添加购物车
+     */
+    protected void addItemsByAjax(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 先得到添加家居的信息
+        int id = DataUtils.parseInt(req.getParameter("id"), 0);
+        int count = DataUtils.parseInt(req.getParameter("count"), 1);
+
+        Furn furnById = furnService.getFurnById(new Furn(id));
+        if (furnById == null) {
+            // 可以记录一下自己还需要写一些逻辑
+            // todo
+            return;
+        }
+        // 根据Furn构建 CartItems
+        CartItem cartItem = new CartItem(
+                furnById.getId(),
+                furnById.getName(),
+                furnById.getPrice(),
+                count,
+                furnById.getPrice().multiply(new BigDecimal(count)),
+                furnById.getImgPath());
+        Cart cart = (Cart) req.getSession().getAttribute("cart");
+        if (cart == null) {
+            // 如果没有的画就创建一个在设置到session之中
+            cart = new Cart(); // 这个是空的, 不要在添加数据, 不然就多了, 下面有一个添加数据的操作
+            req.getSession().setAttribute("cart", cart);
+        }
+        cart.add(cartItem);
+
+        HashMap<Integer, CartItem> items = cart.getItems();
+        for (CartItem value : items.values()) {
+            System.out.println("value = " + value);
+        }
+
+        // 返回json数据， 进行局部刷新
+        HashMap<String, Integer> ItemsCount = new HashMap<>();
+        ItemsCount.put("count", cart.getTotalCount());
+        String json = new Gson().toJson(ItemsCount);
+        // System.out.println("json = " + json);
+        resp.getWriter().write(json);
 
     }
 

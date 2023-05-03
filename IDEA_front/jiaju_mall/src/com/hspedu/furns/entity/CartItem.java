@@ -15,16 +15,18 @@ public class CartItem {
     private BigDecimal price; // 家居价格
     private Integer count; // 家居数量
     private BigDecimal totalPrice; // 家居总金额
+    private String imgPath; // 图片地值
 
     public CartItem() {
     }
 
-    public CartItem(Integer id, String name, BigDecimal price, Integer count, BigDecimal totalPrice) {
+    public CartItem(Integer id, String name, BigDecimal price, Integer count, BigDecimal totalPrice, String imgPath) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.count = count;
         this.totalPrice = totalPrice;
+        this.imgPath = imgPath;
     }
 
     public Integer getId() {
@@ -67,6 +69,14 @@ public class CartItem {
         this.totalPrice = totalPrice;
     }
 
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
     @Override
     public String toString() {
         return "CartItem{" +
@@ -75,6 +85,7 @@ public class CartItem {
                 ", price=" + price +
                 ", count=" + count +
                 ", totalPrice=" + totalPrice +
+                ", imgPath='" + imgPath + '\'' +
                 '}';
     }
 }

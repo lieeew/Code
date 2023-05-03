@@ -127,7 +127,7 @@ public class memberServlet extends BasicServlet {
         Gson gson = new Gson();
         boolean existsUsername = memberService.isExistsUsername(name);
         HashMap<String, Object> params = new HashMap<>();
-        params.put("existsUsername", existsUsername);
+        params.put("isExist", existsUsername);
         resp.getWriter().write(gson.toJson(params));
     }
 }

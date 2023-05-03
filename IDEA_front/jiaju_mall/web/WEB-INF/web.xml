@@ -15,7 +15,7 @@
         <init-param>
             <!--这里只是配置文件, 配置之后不会起作用, 需要在filter读取-->
             <param-name>excludeUrls</param-name>
-            <param-value>/views/manage/manage_login.jsp, /views/member/login.jsp</param-value>
+            <param-value>/views/manage/manage_login.jsp,/views/member/login.jsp</param-value>
         </init-param>
     </filter>
     <filter-mapping>

@@ -70,20 +70,22 @@
             });
 
             // 检查用户名是否存在
-            $("input[name='user-name']").mouseleave(function () {
+            $("#username").mouseleave(function () {
                 let name = $(this).val();
-                // alert(val);
-                $.post(
+                // alert(name);
+                $.get(
+                    // 这里尽量准确
                     "memberServlet?action=verifyUsername",
-                    {
+                    { // 相当与发送的时ajax请求， 携带的数据时通过json对象放入的， 我比较喜欢这种方式
                         name: name,
-                        date: new Date()
+                        date: new Date() // 保证浏览器的缓存
                     },
-                    function (response, status, xhr) {
-                        if (response.existsUsername === "false") {
-                            alert("用户名可用")
+                    function (response) {
+                        console.log("response = ", response.isExist)
+                        if (response.isExist) {
+                            $("span[class='errorMsg']").text("用户名存在");
                         } else {
-                            alert("用户名不可用")
+                            $("span[class='errorMsg']").text("用户名不存在");
                         }
                     },
                     // dateType 后端返回的数据, 前端拿到的数据必须是这个
@@ -178,7 +180,7 @@
                         <div id="lg2" class="tab-pane">
                             <div class="login-form-container">
                                 <div class="login-register-form">
-                                    <span style="font-size: 18pt; font-weight: bold; float: right; color: black">
+                                    <span class="errorMsg" style="font-size: 18pt; font-weight: bold; float: right; color: black">
                                         ${requestScope.msg}
                                     </span>
                                     <form action="memberServlet" method="post">

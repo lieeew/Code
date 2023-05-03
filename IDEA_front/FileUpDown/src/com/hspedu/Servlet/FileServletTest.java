@@ -24,6 +24,9 @@ public class FileServletTest extends HttpServlet {
         doPost(request, response);
     }
 
+    /**
+     * 上传代码
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -53,13 +56,13 @@ public class FileServletTest extends HttpServlet {
                         String fileRealPath = request.getServletContext().getRealPath(filePath); // 这里时servletContext()方法
                         // System.out.println("fileRealPath=" + fileRealPath);
                         // 创建目录, 存放文件, 这里可以实现老韩写的需求
-                        File FileStorageLocation = new File(fileRealPath);
-                        if (!FileStorageLocation.exists()) {
+                        File fileStorageLocation = new File(fileRealPath);
+                        if (!fileStorageLocation.exists()) {
                             // 不存在就创建
-                            FileStorageLocation.mkdirs();
+                            fileStorageLocation.mkdirs();
                         }
                         // 将文件拷贝到FileStorageLocation目录
-                        fileItem.write(new File(FileStorageLocation + "//" + name));
+                        fileItem.write(new File(fileStorageLocation + "//" + name));
 
                         response.setContentType("text/html;charset=utf-8");
                         response.getWriter().write("上传成功");

@@ -17,7 +17,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "CustomerServlet", value = "/CustomerServlet")
+@WebServlet(name = "CustomerServlet", urlPatterns = "/CustomerServlet")
 public class CustomerServlet extends BasicServlet {
     private FurnService furnService = new FurnServiceImpl();
 

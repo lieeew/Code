@@ -38,7 +38,7 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
 
     @Override
     public Furn getFurnById(int id) {
-        return querySingle("select `id`, `name`, `maker`, `price`, `sales`, `stock`, `img_path` FROM furn where id = ?", Furn.class, id);
+        return querySingle("select `id`, `name`, `maker`, `price`, `sales`, `stock`, `img_path` AS `imgPath` FROM furn where id = ?", Furn.class, id);
     }
 
     @Override

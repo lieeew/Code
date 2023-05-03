@@ -16,9 +16,29 @@
     <script type="text/javascript">
 
         $(function () {
+            // $("button.add-to-cart").click(function () {
+            //     let furnId = $(this).attr("furnId");
+            //     location.href = "CartServlet?action=addItem&id=" + furnId;
+            // });
+
             $("button.add-to-cart").click(function () {
-                let furnId = $(this).attr("furnId");
-                location.href = "CartServlet?action=addItem&id=" + furnId;
+                $.get(
+                    "CartServlet?action=addItemsByAjax",
+                    {
+                        "id": $(this).attr("furnId"),
+                        "date": new Date()
+                    },
+                    function (response) {
+                        // console.log("response", response)
+                        if (response.url === undefined) {
+                            // 表示已经登录过系统了
+                            $("span[class='header-action-num']").text(response.count);
+                        } else {
+                            location.href = response.url;
+                        }
+                    },
+                    "JSON"
+                )
             })
         })
     </script>
@@ -84,6 +104,8 @@
                            class="header-action-btn header-action-btn-cart pr-0">
                             <i class="icon-handbag"> 购物车</i>
                             <%-- 本质调用getTotalCount()方法 --%>
+                            <%-- todo 购物车的数量 --%>
+                            <%-- ${sessionScope.cart.totalCount} 购物车的数量--%>
                             <span class="header-action-num">${sessionScope.cart.totalCount}</span>
                         </a>
                         <a href="#offcanvas-mobile-menu"
@@ -140,7 +162,7 @@
                                     <div class="product">
                                         <div class="thumb">
                                             <a href="shop-left-sidebar.html" class="image">
-                                                <img src="assets/images/product-image/6.jpg" alt="Product"/>
+                                                <img src="${furn.imgPath}" alt="Product"/>
                                                 <img class="hover-image" src=assets/images/product-image/5.jpg"
                                                      alt="Product"/>
                                             </a>
@@ -153,13 +175,14 @@
                                                    data-bs-target="#exampleModal"><i
                                                         class="icon-size-fullscreen"></i></a>
                                             </div>
+                                            <%-- todo --%>
                                             <c:if test="${furn.stock <= 0}">
-                                                <button title="Add To Cart" class=" add-to-cart" furnId="${furn.id}">Add
+                                                <button title="Add To Cart" class="add-to-cart" furnId="${furn.id}">Add
                                                     To Cart【缺货】
                                                 </button>
                                             </c:if>
                                             <c:if test="${furn.stock >= 1}">
-                                                <button title="Add To Cart" class=" add-to-cart" furnId="${furn.id}">Add
+                                                <button title="Add To Cart" class="add-to-cart" furnId="${furn.id}">Add
                                                     To Cart
                                                 </button>
                                             </c:if>

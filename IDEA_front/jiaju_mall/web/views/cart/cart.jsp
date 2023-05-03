@@ -167,9 +167,11 @@
                             <c:forEach items="${sessionScope.cart.items}" var="entry">
                                 <tr>
                                     <td class="product-thumbnail">
-                                        <a href="#"><img class="img-responsive ml-3"
-                                                         src="assets/images/product-image/1.jpg"
-                                                         alt=""/></a>
+                                        <a>
+                                            <img class="img-responsive ml-3"
+                                                 src="${entry.value.imgPath}"
+                                                 alt=""/>
+                                        </a>
                                     </td>
                                     <td class="product-name"><a href="#">${entry.value.name}</a></td>
                                     <td class="product-price-cart"><span class="amount">$${entry.value.price}</span>
@@ -208,7 +210,7 @@
                         </div>
                     </div>
                 </form>
-
+            
             </div>
         </div>
     </div>
@@ -264,7 +266,7 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-
+                    
                     </div>
                     <!-- End single blog -->
                 </div>

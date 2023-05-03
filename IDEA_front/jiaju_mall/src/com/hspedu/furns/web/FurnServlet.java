@@ -11,13 +11,25 @@ import com.hspedu.furns.entity.Page;
 import com.hspedu.furns.service.FurnService;
 import com.hspedu.furns.service.impl.FurnServiceImpl;
 import com.hspedu.furns.utils.DataUtils;
+import com.hspedu.furns.utils.WebUtils;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @WebServlet(name = "FurnServlet", urlPatterns = "/manage/FurnServlet")
 public class FurnServlet extends BasicServlet {
@@ -163,5 +175,109 @@ public class FurnServlet extends BasicServlet {
         // System.out.println("page = pageNo = " + pageNo);
         req.setAttribute("page", page); // 直接含有超多数据
         req.getRequestDispatcher("/views/manage/furn_manage.jsp").forward(req, resp);
+    }
+
+    /**
+     * 修改update方法, 实现文件的上传
+     */
+    protected void updateMore(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 如果表单是enctype="multipart/form-data" 那么request.getParameter("id")拿不到数据
+        // String id = request.getParameter("id");
+        // System.out.println("id = " + id);
+        int id = DataUtils.parseInt(request.getParameter("id"), 0);
+        Furn furn = furnService.getFurnById(new Furn(id));
+        if (furn == null) {
+            System.out.println("不存在该用户~");
+            return;
+        }
+
+        // 1. 判断是不是文件表单(enctype="multipart/form-data")
+        if (ServletFileUpload.isMultipartContent(request)) {
+            DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
+            ServletFileUpload servletFileUpload =
+                    new ServletFileUpload(diskFileItemFactory);
+            // 解决接收到文件名是中文乱码问题
+            servletFileUpload.setHeaderEncoding("utf-8");
+
+            // 4. 关键的地方, servletFileUpload 对象可以把表单提交的数据text / 文件
+            //   将其封装到 FileItem 文件项中
+            //   老师的编程心得体会: 如果我们不知道一个对象是什么结构[1.输出 2.debug 3. 底层自动看到]
+            try {
+                List<FileItem> list = servletFileUpload.parseRequest(request);
+                /*
+                list==>
+
+                [name=3.jpg, StoreLocation=D:\hspedu_javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\temp\xupload__7e34374f_17fce4168b1__7f4b_00000000.tmp, size=106398bytes, isFormField=false, FieldName=pic,
+                name=null, StoreLocation=D:\hspedu_javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\temp\xupload__7e34374f_17fce4168b1__7f4b_00000001.tmp, size=6bytes, isFormField=true, FieldName=name]
+
+                 */
+                // System.out.println("list==>" + list);
+                // 遍历，并分别处理=> 自然思路
+                for (FileItem fileItem : list) {
+                    if (fileItem.isFormField()) {// 如果是true就是文本 input text
+                        String fieldName = fileItem.getFieldName();
+                        if ("name".equals(fieldName)) {
+                            furn.setName(fileItem.getString("utf-8"));
+                        } else if ("stock".equals(fieldName)) {
+                            furn.setStock(new Integer(fileItem.getString()));
+                        } else if ("price".equals(fieldName)) {
+                            furn.setPrice(new BigDecimal(fileItem.getString()));
+                        } else if ("maker".equals(fieldName)) {
+                            furn.setMaker(fileItem.getString("utf-8"));
+                        }
+                    } else {// 是一个文件
+                        // 用一个方法
+                        // 获取上传的文件的名字
+                        String name = fileItem.getName();
+                        // System.out.println("上传的文件名=" + name);
+
+                        // 把这个上传到 服务器的 temp下的文件保存到你指定的目录
+                        // 1.指定一个目录 , 就是我们网站工作目录下
+                        String filePath = "/upload/";
+                        // 2. 获取到完整目录 [io/servlet基础]
+                        //  这个目录是和你的web项目运行环境绑定的. 是动态.
+                        String fileRealPath = request.getServletContext().getRealPath(filePath);
+                        // System.out.println("fileRealPath=" + fileRealPath);
+
+                        // 3. 创建这个上传的目录=> 创建目录?=> Java基础
+                        //   老师思路; 我们也一个工具类，可以返回 /2024/11/11 字符串
+                        File fileRealPathDirectory = new File(fileRealPath + WebUtils.getYearMonthDay());
+                        if (!fileRealPathDirectory.exists()) {// 不存在，就创建
+                            fileRealPathDirectory.mkdirs();// 创建
+                        }
+
+                        // 4. 将文件拷贝到fileRealPathDirectory目录
+                        //   构建一个上传文件的完整路径 ：目录+文件名
+                        //   对上传的文件名进行处理, 前面增加一个前缀，保证是唯一即可, 不错
+                        name = UUID.randomUUID().toString() + "_" + System.currentTimeMillis() + "_" + name;
+                        String fileFullPath = fileRealPathDirectory + "/" + name;
+                        fileItem.write(new File(fileFullPath));
+                        // 到这里就图片赋值成功了
+                        furn.setImgPath("upload/2023/5/3/" + name);
+                        if (furnService.updateFurnInfo(furn)) {
+                            response.sendRedirect(request.getContextPath() + "/views/manage/update_ok.jsp");
+                        } else {
+                            System.out.println("失败了, 哥们");
+                        }
+
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("不是文件表单...");
+        }
+    }
+
+    private String readParameterValue(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, bytesRead);
+        }
+        return new String(outputStream.toByteArray(), StandardCharsets.UTF_8);
     }
 }

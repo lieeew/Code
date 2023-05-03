@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@WebServlet(name = "OrderServlet", value = "/OrderServlet")
+@WebServlet(name = "OrderServlet", urlPatterns = "/OrderServlet")
 public class OrderServlet extends BasicServlet {
     private OrderService orderService = new OrderServiceImpl();
     private OrderItemDAO orderItemDAO = new OrderItemDAOImpl();
