@@ -73,7 +73,7 @@
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
                         <%--老师说明:当点击超链接时,可以显示订单信息--%>
-                        <a class="active" href="manage/FurnServlet?action=page&pageNo=${param.pageNo}">
+                        <a class="active" href="manage/FurnServlet?action=page&pageNo=${requestScope.pageNo}">
                             <h4>家居修改成功, 点击返回家居管理页面</h4>
                         </a>
                     </div>

@@ -185,6 +185,7 @@ public class FurnServlet extends BasicServlet {
         // String id = request.getParameter("id");
         // System.out.println("id = " + id);
         int id = DataUtils.parseInt(request.getParameter("id"), 0);
+        int pageNo = DataUtils.parseInt(request.getParameter("pageNo"), 1);
         Furn furn = furnService.getFurnById(new Furn(id));
         if (furn == null) {
             System.out.println("不存在该用户~");
@@ -204,13 +205,6 @@ public class FurnServlet extends BasicServlet {
             //   老师的编程心得体会: 如果我们不知道一个对象是什么结构[1.输出 2.debug 3. 底层自动看到]
             try {
                 List<FileItem> list = servletFileUpload.parseRequest(request);
-                /*
-                list==>
-
-                [name=3.jpg, StoreLocation=D:\hspedu_javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\temp\xupload__7e34374f_17fce4168b1__7f4b_00000000.tmp, size=106398bytes, isFormField=false, FieldName=pic,
-                name=null, StoreLocation=D:\hspedu_javaweb\apache-tomcat-8.0.50-windows-x64\apache-tomcat-8.0.50\temp\xupload__7e34374f_17fce4168b1__7f4b_00000001.tmp, size=6bytes, isFormField=true, FieldName=name]
-
-                 */
                 // System.out.println("list==>" + list);
                 // 遍历，并分别处理=> 自然思路
                 for (FileItem fileItem : list) {
@@ -233,51 +227,37 @@ public class FurnServlet extends BasicServlet {
 
                         // 把这个上传到 服务器的 temp下的文件保存到你指定的目录
                         // 1.指定一个目录 , 就是我们网站工作目录下
-                        String filePath = "/upload/";
+                        String filePath = WebUtils.FURN_IMG_DIRECTORY;
                         // 2. 获取到完整目录 [io/servlet基础]
                         //  这个目录是和你的web项目运行环境绑定的. 是动态.
                         String fileRealPath = request.getServletContext().getRealPath(filePath);
-                        // System.out.println("fileRealPath=" + fileRealPath);
-
                         // 3. 创建这个上传的目录=> 创建目录?=> Java基础
-                        //   老师思路; 我们也一个工具类，可以返回 /2024/11/11 字符串
-                        File fileRealPathDirectory = new File(fileRealPath + WebUtils.getYearMonthDay());
+                        File fileRealPathDirectory = new File(fileRealPath);
                         if (!fileRealPathDirectory.exists()) {// 不存在，就创建
                             fileRealPathDirectory.mkdirs();// 创建
                         }
-
                         // 4. 将文件拷贝到fileRealPathDirectory目录
                         //   构建一个上传文件的完整路径 ：目录+文件名
                         //   对上传的文件名进行处理, 前面增加一个前缀，保证是唯一即可, 不错
                         name = UUID.randomUUID().toString() + "_" + System.currentTimeMillis() + "_" + name;
                         String fileFullPath = fileRealPathDirectory + "/" + name;
-                        fileItem.write(new File(fileFullPath));
+                        fileItem.write(new File(fileFullPath)); // 保存成功
                         // 到这里就图片赋值成功了
-                        furn.setImgPath("upload/2023/5/3/" + name);
-                        if (furnService.updateFurnInfo(furn)) {
-                            response.sendRedirect(request.getContextPath() + "/views/manage/update_ok.jsp");
-                        } else {
-                            System.out.println("失败了, 哥们");
-                        }
-
+                        fileItem.getOutputStream().close();
+                        furn.setImgPath(filePath + "/" + name);
                     }
                 }
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+        // 完成上面对于furn代码的更新之后, 更新到DB数据层
+        if (furnService.updateFurnInfo(furn)) {
+            request.setAttribute("pageNo", pageNo);
+            request.getRequestDispatcher("/views/manage/update_ok.jsp").forward(request, response);
         } else {
-            System.out.println("不是文件表单...");
+            System.out.println("失败了, 哥们");
         }
     }
 
-    private String readParameterValue(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        byte[] buffer = new byte[4096];
-        int bytesRead;
-        while ((bytesRead = inputStream.read(buffer)) != -1) {
-            outputStream.write(buffer, 0, bytesRead);
-        }
-        return new String(outputStream.toByteArray(), StandardCharsets.UTF_8);
-    }
 }

@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
  */
 public class WebUtils {
 
+    public static String FURN_IMG_DIRECTORY = "assets/images/product-image";
     public static boolean isAjaxRequest(ServletRequest request) {
         HttpServletRequest req = (HttpServletRequest) request;
         return "XMLHttpRequest".equals(req.getHeader("X-Requested-With"));
