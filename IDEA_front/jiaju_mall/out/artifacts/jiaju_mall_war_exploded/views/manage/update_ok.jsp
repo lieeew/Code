@@ -31,7 +31,7 @@
                 <div class="col align-self-center">
                     <div class="header-actions">
                         <div class="header-bottom-set dropdown">
-                            <a>欢迎: ${sessionScope.member.name}</a>
+                            <a>欢迎: ${sessionScope.admin.name}</a>
                         </div>
                         <div class="header-bottom-set dropdown">
                             <a href="#">订单管理</a>

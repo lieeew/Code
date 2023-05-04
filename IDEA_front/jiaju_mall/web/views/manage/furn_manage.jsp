@@ -33,7 +33,7 @@
                 window.location.href = href; // 跳转到目标链接
             });
         })
-
+    
     </script>
 </head>
 
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-
+                
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
@@ -135,9 +135,11 @@
                                             ${furn.stock}
                                     </td>
                                     <td class="product-remove">
-                                        <a class="updateCss" href="manage/FurnServlet?action=showFurn&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i
+                                        <a class="updateCss"
+                                           href="manage/FurnServlet?action=showFurn&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i
                                                 class="icon-pencil"></i></a>
-                                        <a class="deleteCss" href="manage/FurnServlet?action=del&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i
+                                        <a class="deleteCss"
+                                           href="manage/FurnServlet?action=del&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i
                                                 class="icon-close"></i></a>
                                     </td>
                                 </tr>
@@ -170,10 +172,36 @@
 
                                     如果是多页的话, 后面设计一个算法
                 --%>
-
+                
                 <%-- 但是这里有条件, 下面还有文件 --%>
-                <c:set var="begin" value="${1}"> </c:set>
-                <c:set var="end" value="${requestScope.page.pageTotalCount}"> </c:set>
+                <c:choose>
+                    <%-- 如果总页数 <= 5 --%>
+                    <c:when test="${requestScope.page.pageTotalCount <= 5}">
+                        <c:set var="begin" value="${1}"> </c:set>
+                        <c:set var="end" value="${requestScope.page.pageTotalCount}"> </c:set>
+                    </c:when>
+                    <%-- 如果总页数 > 5 --%>
+                    <c:when test="${requestScope.page.pageTotalCount > 5}">
+                        <c:choose>
+                            <%-- 如果当前是前三页, 就显示1-5页 --%>
+                            <c:when test="${requestScope.page.pageNo <= 3}">
+                                <c:set var="begin" value="${1}"> </c:set>
+                                <c:set var="end" value="${5}"> </c:set>
+                            </c:when>
+                            <%-- 如果是后三页 , 就显示后5页--%>
+                            <c:when test="${requestScope.page.pageNo > requestScope.page.pageTotalCount - 3}">
+                                <c:set var="begin" value="${requestScope.page.pageTotalCount - 4}"> </c:set>
+                                <c:set var="end" value="${requestScope.page.pageTotalCount}"> </c:set>
+                            </c:when>
+                            <c:otherwise>
+                                <c:set var="begin" value="${requestScope.page.pageNo - 2}"> </c:set>
+                                <c:set var="end" value="${requestScope.page.pageNo + 2}"> </c:set>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:when>
+                </c:choose>
+<%--                <c:set var="begin" value="${1}"> </c:set>--%>
+<%--                <c:set var="end" value="${requestScope.page.pageTotalCount}"> </c:set>--%>
                 <c:forEach begin="${begin}" end="${end}" var="i">
                     <%-- 这个方式不错, 比原生的简单 --%>
                     <c:if test="${i == requestScope.page.pageNo}">
@@ -189,7 +217,7 @@
                         </li>
                     </c:if>
                 </c:forEach>
-
+                
                 <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotalCount}">
                     <li>
                         <a href="manage/FurnServlet?action=page&pageNo=${requestScope.page.pageNo + 1}&pageSize=${requestScope.page.pageSize}">下一页</a>
@@ -250,7 +278,7 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-
+                    
                     </div>
                     <!-- End single blog -->
                 </div>

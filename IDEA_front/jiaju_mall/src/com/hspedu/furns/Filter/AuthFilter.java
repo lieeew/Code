@@ -7,6 +7,8 @@ package com.hspedu.furns.Filter;
  */
 
 import com.google.gson.Gson;
+import com.hspedu.furns.entity.Admin;
+import com.hspedu.furns.entity.Member;
 import com.hspedu.furns.utils.WebUtils;
 
 import javax.servlet.*;
@@ -34,7 +36,7 @@ public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest hsr = (HttpServletRequest) request;
-        Object member =  hsr.getSession().getAttribute("member");
+        Member member = (Member) hsr.getSession().getAttribute("member");
         String url = hsr.getServletPath();
         if (member == null) {
             if (WebUtils.isAjaxRequest(request)) {

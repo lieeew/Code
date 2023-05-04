@@ -23,7 +23,7 @@ public class WebUtils {
         int year = ldt.getYear();
         int monthValue = ldt.getMonthValue();
         int dayOfMonth = ldt.getDayOfMonth();
-        String yearMonthDay = year + "/" + monthValue + "/" + dayOfMonth + "/";
+        String yearMonthDay = "/" + year + "/" + monthValue + "/" + dayOfMonth + "/";
         return yearMonthDay;
     }
 }

@@ -6,6 +6,7 @@ package com.hspedu.furns.web;
  * @Description:
  */
 import com.hspedu.furns.entity.Admin;
+import com.hspedu.furns.entity.Member;
 import com.hspedu.furns.service.AdminService;
 import com.hspedu.furns.service.impl.AdminServiceImpl;
 
@@ -34,7 +35,7 @@ public class AdminServlet extends BasicServlet {
         if (admin != null) {
             // 登录成功
             session.setAttribute("status", "SUCCESS");
-            session.setAttribute("member", admin);
+            session.setAttribute("admin", admin);
             request.getRequestDispatcher("/views/manage/manage_menu.jsp").forward(request, response);
         } else {
             session.setAttribute("status", "FAILURE");

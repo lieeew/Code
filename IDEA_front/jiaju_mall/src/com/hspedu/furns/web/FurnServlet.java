@@ -224,27 +224,39 @@ public class FurnServlet extends BasicServlet {
                         // 获取上传的文件的名字
                         String name = fileItem.getName();
                         // System.out.println("上传的文件名=" + name);
+                        if (!"".equals(name)) {
+                            // 如果不写的话, 那么就会发生很离谱的事情, 没有上传图片结果图片却没了
 
-                        // 把这个上传到 服务器的 temp下的文件保存到你指定的目录
-                        // 1.指定一个目录 , 就是我们网站工作目录下
-                        String filePath = WebUtils.FURN_IMG_DIRECTORY;
-                        // 2. 获取到完整目录 [io/servlet基础]
-                        //  这个目录是和你的web项目运行环境绑定的. 是动态.
-                        String fileRealPath = request.getServletContext().getRealPath(filePath);
-                        // 3. 创建这个上传的目录=> 创建目录?=> Java基础
-                        File fileRealPathDirectory = new File(fileRealPath);
-                        if (!fileRealPathDirectory.exists()) {// 不存在，就创建
-                            fileRealPathDirectory.mkdirs();// 创建
+                            // 把这个上传到 服务器的 temp下的文件保存到你指定的目录
+                            // 1.指定一个目录 , 就是我们网站工作目录下
+                            String filePath = WebUtils.FURN_IMG_DIRECTORY;
+                            // 2. 获取到完整目录 [io/servlet基础]
+                            //  这个目录是和你的web项目运行环境绑定的. 是动态.
+                            String fileRealPath = request.getServletContext().getRealPath(filePath);
+                            // 3. 创建这个上传的目录=> 创建目录?=> Java基础
+                            File fileRealPathDirectory = new File(fileRealPath + "/" + WebUtils.getYearMonthDay());
+                            System.out.println(fileRealPath + "/" + WebUtils.getYearMonthDay());
+                            if (!fileRealPathDirectory.exists()) {// 不存在，就创建
+                                fileRealPathDirectory.mkdirs();// 创建
+                            }
+                            // 4. 将文件拷贝到fileRealPathDirectory目录
+                            //   构建一个上传文件的完整路径 ：目录+文件名
+                            //   对上传的文件名进行处理, 前面增加一个前缀，保证是唯一即可, 不错
+                            name = UUID.randomUUID().toString() + "_" + System.currentTimeMillis() + "_" + name;
+                            String fileFullPath = fileRealPathDirectory + "/" + name;
+                            fileItem.write(new File(fileFullPath)); // 保存成功
+                            // 到这里就图片赋值成功了
+                            fileItem.getOutputStream().close();
+
+                            // todo 删除原来的图片
+                            String beforeImgPath = furn.getImgPath();
+                            String beforeRealPath = request.getServletContext().getRealPath(beforeImgPath);
+                            new File(beforeRealPath).delete();
+
+                            furn.setImgPath(filePath + WebUtils.getYearMonthDay() + name);
+                            System.out.println(filePath + WebUtils.getYearMonthDay() + name);
+
                         }
-                        // 4. 将文件拷贝到fileRealPathDirectory目录
-                        //   构建一个上传文件的完整路径 ：目录+文件名
-                        //   对上传的文件名进行处理, 前面增加一个前缀，保证是唯一即可, 不错
-                        name = UUID.randomUUID().toString() + "_" + System.currentTimeMillis() + "_" + name;
-                        String fileFullPath = fileRealPathDirectory + "/" + name;
-                        fileItem.write(new File(fileFullPath)); // 保存成功
-                        // 到这里就图片赋值成功了
-                        fileItem.getOutputStream().close();
-                        furn.setImgPath(filePath + "/" + name);
                     }
                 }
             } catch (Exception e) {
