@@ -70,7 +70,6 @@
         <h3 class="cart-page-title">家居后台管理-修改家居</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <%-- todo 修改对应的action属性 --%>
                 <form action="FurnServlet?action=updateFurn&id=${requestScope.furn.id}" method="post">
                     <div class="table-content table-responsive cart-table-content">
                         <table>

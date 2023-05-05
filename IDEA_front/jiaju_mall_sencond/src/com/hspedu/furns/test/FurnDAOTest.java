@@ -28,4 +28,14 @@ public class FurnDAOTest {
         Furn furnById = furnDAO.getFurnById(2);
         System.out.println(furnById);
     }
+
+    @Test
+    public void testDeleteFurn() {
+        // int i = furnDAO.deleteFurnById(2);
+        // System.out.println("i = " + i);
+
+        // ArrayList<Furn> furns = furnDAO.queryFurnForPage(0, 3);
+        // System.out.println("furns = " + furns);
+
+    }
 }

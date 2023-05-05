@@ -30,4 +30,16 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
         String sql = "select `id`, `name`, `maker`, `price`, `sales`,`stock`, `img_path` AS `imgPath` from furn where id = ?";
         return querySingle(sql, Furn.class, id);
     }
+
+    @Override
+    public int deleteFurnById(Integer id) {
+        String sql = "delete from furn where `id` = ?";
+        return update(sql, id);
+    }
+
+    @Override
+    public ArrayList<Furn> queryFurnForPage(Integer begin, Integer size) {
+        String sql = "select `id`, `name`, `maker`, `price`, `sales`,`stock`, `img_path` AS `imgPath` from furn limit ?, ?";
+        return (ArrayList<Furn>) queryMulti(sql, Furn.class, begin, size);
+    }
 }

@@ -13,8 +13,9 @@ public interface FurnDAO {
 
 
     ArrayList<Furn> queryFurns();
-
     int updateFurn(Furn furn);
     Furn getFurnById(Integer id);
+    int deleteFurnById(Integer id);
+    ArrayList<Furn> queryFurnForPage(Integer begin, Integer size);
 
 }

@@ -1,6 +1,7 @@
 package com.hspedu.furns.service;
 
 import com.hspedu.furns.entity.Furn;
+import com.hspedu.furns.entity.Page;
 
 import java.util.ArrayList;
 
@@ -16,4 +17,5 @@ public interface FurnService {
     boolean updateFurn(Furn furn);
 
     Furn getFurnById(Integer id);
+    Page page(Integer pageSize, Integer pageNo);
 }

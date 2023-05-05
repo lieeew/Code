@@ -1,6 +1,7 @@
 package com.hspedu.furns.web;
 
 import com.hspedu.furns.entity.Furn;
+import com.hspedu.furns.entity.Page;
 import com.hspedu.furns.service.FurnService;
 import com.hspedu.furns.service.impl.FurnServiceImpl;
 import com.hspedu.furns.utils.DataUtils;
@@ -9,8 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.DoublePredicate;
 
 /**
  * @Author: qxy
@@ -18,9 +21,9 @@ import java.util.ArrayList;
  * @Description:
  */
 @WebServlet(name = "FurnServlet", urlPatterns = {"/FurnServlet"})
-public class FurnServlet extends BasicServlet{
+public class FurnServlet extends BasicServlet {
     private final FurnService furnService = new FurnServiceImpl();
-    
+
     protected void showFurn(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArrayList<Furn> furn = furnService.queryFurns();
         req.setAttribute("furn", furn);
@@ -49,5 +52,15 @@ public class FurnServlet extends BasicServlet{
         } else {
             System.out.println("修改失败");
         }
+    }
+
+
+    protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
+        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_DEFAULT_SIZE);
+        Page page = furnService.page(pageSize, pageNo);
+        req.getSession().setAttribute("page", page);
+        // 请求转发到对应的页面
+        req.getRequestDispatcher("/views/manage/furn_manage.jsp").forward(req, resp);
     }
 }

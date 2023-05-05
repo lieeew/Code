@@ -11,6 +11,20 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                $(".open-popup").click(function (e) {
+                    // // 先阻止默认提交行为
+                    // e.preventDefault();
+                    let name = $("#product-name").text();
+                    return confirm("确认是否删除【" + name + "】");
+                })
+            }
+        )
+    
+    </script>
 </head>
 
 <body>
@@ -92,26 +106,29 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${requestScope.furn}" var="furn">
+                            <%--                            ${sessionScope.page.pageItems}
+                                                            这里取出来的是 K-V结构类型, 取出V的话需要使用 value属性
+                            --%>
+                            <c:forEach items="${sessionScope.page.pageItems}" var="page">
                                 <tr>
                                     <td class="product-thumbnail">
                                         <a href="#"><img class="img-responsive ml-3"
-                                                         src="${furn.imgPath}"
+                                                         src="${page.value.imgPath}"
                                                          alt=""/></a>
                                     </td>
-                                    <td class="product-name"><a href="#">${furn.name}</a></td>
-                                    <td class="product-name"><a href="#">${furn.maker}</a></td>
-                                    <td class="product-price-cart"><span class="amount">${furn.price}</span></td>
+                                    <td class="product-name" id="product-name"><a href="#">${page.value.name}</a></td>
+                                    <td class="product-name" id="product-maker"><a href="#">${page.value.maker}</a></td>
+                                    <td class="product-price-cart"><span class="amount">${page.value.price}</span></td>
                                     <td class="product-quantity">
-                                            ${furn.sales}
+                                            ${page.value.sales}
                                     </td>
                                     <td class="product-quantity">
-                                            ${furn.stock}
+                                            ${page.value.stock}
                                     </td>
                                     <td class="product-remove">
-                                        <a href="FurnServlet?action=showUpdateFurn&id=${furn.id}"><i
+                                        <a href="FurnServlet?action=showUpdateFurn&id=${page.value.id}"><i
                                                 class="icon-pencil"></i></a>
-                                        <a href="#"><i class="icon-close"></i></a>
+                                        <a href="#" class="open-popup"><i class="icon-close"></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -122,6 +139,25 @@
             </div>
         </div>
     </div>
+    <!--  Pagination Area Start -->
+    <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
+        <c:set var="begin" value="${1}"> </c:set>
+        <c:set var="end" value="${sessionScope.page.totalItemSize}"> </c:set>
+        <c:forEach begin="${1}" end="${sessionScope.page.totalCount}">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">上页</a></li>
+                <li><a class="active" href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">下页</a></li>
+                <li><a href="#">末页</a></li>
+                <li><a>共10页</a></li>
+                <li><a>共90记录</a></li>
+            </ul>
+        </c:forEach>
+    </div>
+    <!--  Pagination Area End -->
 </div>
 <!-- Cart Area End -->
 
