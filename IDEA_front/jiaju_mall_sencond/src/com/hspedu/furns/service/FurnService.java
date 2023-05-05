@@ -1,0 +1,19 @@
+package com.hspedu.furns.service;
+
+import com.hspedu.furns.entity.Furn;
+
+import java.util.ArrayList;
+
+/**
+ * @Author: qxy
+ * @Date: 2023/5/5
+ * @Description:
+ */
+public interface FurnService {
+
+    ArrayList<Furn> queryFurns();
+
+    boolean updateFurn(Furn furn);
+
+    Furn getFurnById(Integer id);
+}

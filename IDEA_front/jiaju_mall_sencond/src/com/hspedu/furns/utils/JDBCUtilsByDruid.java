@@ -23,7 +23,7 @@ public class JDBCUtilsByDruid {
     static {
         Properties properties = new Properties();
         try {
-            properties.load(new FileInputStream("src\\druid.properties"));
+            properties.load(JDBCUtilsByDruid.class.getClassLoader().getResourceAsStream("druid.properties"));
             ds = DruidDataSourceFactory.createDataSource(properties);
         } catch (Exception e) {
             e.printStackTrace();
