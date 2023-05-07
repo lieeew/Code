@@ -6,9 +6,9 @@
     <title>韩顺平教育-家居网购</title>
     <base href="<%=request.getContextPath() + "/"%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="stylesheet" href="../../assets/css/vendor/vendor.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/plugins/plugins.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/style.min.css"/>
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.min.css"/>
 
 </head>
 <body>
@@ -23,7 +23,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="../../index.jsp"><img src="../../assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="customer/index.jsp"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -52,8 +52,8 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="../../index.jsp"><img width="280px" src="../../assets/images/logo/logo.png"
-                                                       alt="Site Logo"/></a>
+                        <a href="customer/index.jsp"><img width="280px" src="assets/images/logo/logo.png"
+                                                             alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -72,7 +72,7 @@
             <div class="col-lg-7 col-md-12 ml-auto mr-auto">
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
-                        <a class="active" href="../../index.jsp">
+                        <a class="active" href="customer/index.jsp">
                             <h4>订单已结算, 订单号-hello</h4>
                         </a>
                     </div>
@@ -119,7 +119,7 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="../cart/cart.jsp">我的购物车</a></li>
+                                        <li class="li"><a class="single-link" href="cart/cart.jsp">我的购物车</a></li>
                                         <li class="li"><a class="single-link" href="login.html">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
                                         <li class="li"><a class="single-link" href="checkout.jsp">结账</a></li>
@@ -154,9 +154,9 @@
     </div>
 </div>
 <!-- Footer Area End -->
-<script src="../../assets/js/vendor/vendor.min.js"></script>
-<script src="../../assets/js/plugins/plugins.min.js"></script>
+<script src="assets/js/vendor/vendor.min.js"></script>
+<script src="assets/js/plugins/plugins.min.js"></script>
 <!-- Main Js -->
-<script src="../../assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

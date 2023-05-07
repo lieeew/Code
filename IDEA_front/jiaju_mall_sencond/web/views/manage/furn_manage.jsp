@@ -20,7 +20,7 @@
                     // e.preventDefault();
                     let name = $("#product-name").text();
                     return confirm("确认是否删除【" + name + "】");
-                })
+                });
             }
         )
     
@@ -106,27 +106,27 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <%--                            ${sessionScope.page.pageItems}
-                                                            这里取出来的是 K-V结构类型, 取出V的话需要使用 value属性
+                            <%-- ${sessionScope.page.pageItems}
+                                 这里取出来的是 K-V结构类型, 取出V的话需要使用 value属性
                             --%>
-                            <c:forEach items="${sessionScope.page.pageItems}" var="page">
+                            <c:forEach items="${sessionScope.page.furns}" var="page">
                                 <tr>
                                     <td class="product-thumbnail">
                                         <a href="#"><img class="img-responsive ml-3"
-                                                         src="${page.value.imgPath}"
+                                                         src="${page.imgPath}"
                                                          alt=""/></a>
                                     </td>
-                                    <td class="product-name" id="product-name"><a href="#">${page.value.name}</a></td>
-                                    <td class="product-name" id="product-maker"><a href="#">${page.value.maker}</a></td>
-                                    <td class="product-price-cart"><span class="amount">${page.value.price}</span></td>
+                                    <td class="product-name" id="product-name"><a href="#">${page.name}</a></td>
+                                    <td class="product-name" id="product-maker"><a href="#">${page.maker}</a></td>
+                                    <td class="product-price-cart"><span class="amount">${page.price}</span></td>
                                     <td class="product-quantity">
-                                            ${page.value.sales}
+                                            ${page.sales}
                                     </td>
                                     <td class="product-quantity">
-                                            ${page.value.stock}
+                                            ${page.stock}
                                     </td>
                                     <td class="product-remove">
-                                        <a href="FurnServlet?action=showUpdateFurn&id=${page.value.id}"><i
+                                        <a href="FurnServlet?action=showUpdateFurn&id=${page.id}"><i
                                                 class="icon-pencil"></i></a>
                                         <a href="#" class="open-popup"><i class="icon-close"></i></a>
                                     </td>
@@ -141,21 +141,27 @@
     </div>
     <!--  Pagination Area Start -->
     <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
-        <c:set var="begin" value="${1}"> </c:set>
-        <c:set var="end" value="${sessionScope.page.totalItemSize}"> </c:set>
-        <c:forEach begin="${1}" end="${sessionScope.page.totalCount}">
-            <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">上页</a></li>
-                <li><a class="active" href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">下页</a></li>
-                <li><a href="#">末页</a></li>
-                <li><a>共10页</a></li>
-                <li><a>共90记录</a></li>
-            </ul>
-        </c:forEach>
+        <%-- 老师分析 --%>
+        <%-- 1. 如果总页数<=5, 就全部显示 --%>
+        <%-- 2. 如果总页数>5, 按照如下规则显示(这个规则是程序员/业务来确定): --%>
+        <%-- 2.1 如果当前页是前3页, 就显示1-5 --%>
+        <%-- 2.2 如果当前页是后3页, 就显示最后5页 --%>
+        <%-- 2.3 如果当前页是中间页, 就显示 当前页前2页, 当前页 , 当前页后两页 --%>
+         <c:set var="begin" value="${1}"> </c:set>
+        <c:set var="end" value="${sessionScope.page.totalCount}"> </c:set>
+        <ul>
+            <c:if test="${sessionScope.page.pageNo > begin}">
+                <li><a href="customerFurnServlet?action=page&pageNo=${sessionScope.page.pageNo - 1}">上页</a></li>
+            </c:if>
+            <c:forEach begin="${1}" end="${sessionScope.page.totalCount}" var="i">
+                <li><a class="" href="customerFurnServlet?action=page&pageNo=${i}">第${i}页</a></li>
+            </c:forEach>
+            <c:if test="${sessionScope.page.pageNo < end}">
+                <li><a href="customerFurnServlet?action=page&pageNo=${sessionScope.page.pageNo + 1}">下页</a></li>
+            </c:if>
+            <li><a href="customerFurnServlet?action=page&pageNo=${end}">末页</a></li>
+        </ul>
+    
     </div>
     <!--  Pagination Area End -->
 </div>

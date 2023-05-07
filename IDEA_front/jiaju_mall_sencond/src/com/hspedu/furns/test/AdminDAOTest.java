@@ -11,7 +11,7 @@ import org.junit.Test;
  * @Description:
  */
 public class AdminDAOTest {
-    private AdminDAO adminDAO = new AdminDAOImpl();
+    private final AdminDAO adminDAO = new AdminDAOImpl();
     @Test
     public void testAdminDAO() {
         Admin admin = new Admin();
@@ -19,6 +19,9 @@ public class AdminDAOTest {
         admin.setUsername("admin");
         Admin admin1 = adminDAO.verifyUsernameAndPwd(admin);
         System.out.println("admin1 = " + admin1);
+    }
+
+    public static void main(String[] args) {
 
     }
 }

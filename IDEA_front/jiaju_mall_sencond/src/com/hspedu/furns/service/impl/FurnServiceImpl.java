@@ -4,12 +4,10 @@ import com.hspedu.furns.DAO.FurnDAO;
 import com.hspedu.furns.DAO.Impl.FurnDAOImpl;
 import com.hspedu.furns.entity.Furn;
 import com.hspedu.furns.entity.Page;
-import com.hspedu.furns.entity.PageItems;
 import com.hspedu.furns.service.FurnService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.UUID;
 
 /**
  * @Author: qxy
@@ -43,6 +41,7 @@ public class FurnServiceImpl implements FurnService {
     @Override
     public Page page(Integer pageSize, Integer pageNo) {
         Page page = new Page();
+        page.setPageNo(pageNo); // 当前是第几页
         // 每一页家居的数量
         page.setPageSize(pageSize);
         //  所有家居的数量
@@ -57,14 +56,9 @@ public class FurnServiceImpl implements FurnService {
             totalCount = pageItemSize / pageSize + 1;
         }
         page.setTotalCount(totalCount);
-        HashMap<Integer, PageItems> hashItems = new HashMap<>();
         // 每一页家居的集合 需要 limit ?, ? 这两个属性
         ArrayList<Furn> furns = furnDAO.queryFurnForPage(pageSize * (pageNo - 1), pageSize);
-        for (Furn furn : furns) {
-            PageItems pageItems = new PageItems(furn.getId(), furn.getName(), furn.getMaker(), furn.getPrice(), furn.getSales(), furn.getStock(), furn.getImgPath());
-            hashItems.put(furn.getId(), pageItems);
-        }
-        page.setPageItems(hashItems);
+        page.setFurns(furns);
         return page;
     }
 }

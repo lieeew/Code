@@ -5,8 +5,6 @@ import com.hspedu.furns.DAO.Impl.FurnDAOImpl;
 import com.hspedu.furns.entity.Furn;
 import org.junit.Test;
 
-import javax.management.Query;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**

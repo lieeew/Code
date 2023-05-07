@@ -29,10 +29,11 @@ public class MemberServlet extends BasicServlet {
             // 不存在该用户, 注册
             if (memberService.addMember(member) > 0) {
                 // 添加成功
-                req.getRequestDispatcher("/views/member/register_ok.jsp").forward(req, resp);
+                // 防止重复提交数据
+                resp.sendRedirect(req.getContextPath() + "/views/member/register_ok.jsp");
             } else {
                 // 添加失败
-                req.getRequestDispatcher("/views/member/register_fail.jsp").forward(req, resp);
+                resp.sendRedirect(req.getContextPath() + "/views/member/register_fail.jsp");
             }
             return;
         }

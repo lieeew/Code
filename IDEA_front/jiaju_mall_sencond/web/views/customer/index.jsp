@@ -1,46 +1,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>韩顺平教育-家居网购~</title>
-    <%-- base标签 --%>
     <base href="<%=request.getContextPath() + "/"%>">
     <!-- 移动端适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
-    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"> </script>
     <script type="text/javascript">
-
-        $(function () {
-            // $("button.add-to-cart").click(function () {
-            //     let furnId = $(this).attr("furnId");
-            //     location.href = "CartServlet?action=addItem&id=" + furnId;
-            // });
-
-            $("button.add-to-cart").click(function () {
-                $.get(
-                    "CartServlet?action=addItemsByAjax",
-                    {
-                        "id": $(this).attr("furnId"),
-                        "date": new Date()
-                    },
-                    function (response) {
-                        // console.log("response", response)
-                        if (response.url === undefined) {
-                            // 表示已经登录过系统了
-                            $("span[class='header-action-num']").text(response.count);
-                        } else {
-                            location.href = response.url;
-                        }
-                    },
-                    "JSON"
-                )
-            })
-        })
+        $(
+            function() {
+                $('.add-to-cart').click(function() {
+                    let furnId = $(this).attr("furnId");
+                    window.location.href = 'customerFurnServlet?action=addToCart&furnId=' + furnId;
+                });
+            }
+        )
+        
     </script>
 </head>
 
@@ -59,7 +40,7 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-
+                
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
@@ -67,45 +48,32 @@
                             <a href="javascript:void(0)" class="header-action-btn search-btn"><i
                                     class="icon-magnifier"></i></a>
                             <div class="dropdown_search">
-                                <form class="action-form" action="CustomerServlet">
-                                    <input type="hidden" name="action" value="pageByName">
-                                    <%-- 这里可以不要需要设置 --%>
-                                    <%-- <input type="hidden" name="pageNo" value="${requestScope.page.pageNo}"> --%>
-                                    <%-- <input type="hidden" name="pageSize" value="${requestScope.page.pageSize}"> --%>
-                                    <input class="form-control" placeholder="Enter your search key" type="text"
-                                           name="name">
+                                <form class="action-form" action="#">
+                                    <input class="form-control" placeholder="Enter your search key" type="text">
                                     <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
                                 </form>
                             </div>
                         </div>
                         <!-- Single Wedge Start -->
-                        <c:if test="${not empty sessionScope.name}">
-                            <!-- 在这里放置当 session 中存在 'name' 属性时需要执行的代码 -->
+                        <c:if test="${empty sessionScope.member}">
                             <div class="header-bottom-set dropdown">
-                                <a>欢迎 : ${sessionScope.name}</a>
-                            </div>
-                            <div class="header-bottom-set dropdown"><a
-                                    href="manage/FurnServlet?action=page">订单管理</a></div>
-                            <div class="header-bottom-set dropdown"><a href="memberServlet?action=LogOut">安全退出</a>
+                                <a href="views/member/login.jsp">登录|注册</a>
                             </div>
                         </c:if>
-                        <c:if test="${empty sessionScope.name}">
-                            <div class="header-bottom-set dropdown"><a href="views/member/login.jsp">登录 | 注册</a>
+                        <c:if test="${not empty sessionScope.member}">
+                            <%-- 已经登录成功 --%>
+                            <div class="header-bottom-set dropdown">
+                                <a href="#">欢迎 : ${sessionScope.member.username}</a>
+                            </div>
+                            <div class="header-bottom-set dropdown">
+                                <a href="views/manage/manage_login.jsp">后台管理</a>
                             </div>
                         </c:if>
-
-                        <div class="header-bottom-set dropdown">
-                            <a href="views/manage/manage_login.jsp">后台管理</a>
-                        </div>
+                        
                         <!-- Single Wedge End -->
                         <a href="views/cart/cart.jsp"
-                        <%-- 点击调转是什么鬼 , 试试到servlet转发--%>
-                        <%-- offcanvas-toggle 这个底层阻止超链接， 所以可以直接去去掉--%>
                            class="header-action-btn header-action-btn-cart pr-0">
                             <i class="icon-handbag"> 购物车</i>
-                            <%-- 本质调用getTotalCount()方法 --%>
-                            <%-- todo 购物车的数量 --%>
-                            <%-- ${sessionScope.cart.totalCount} 购物车的数量--%>
                             <span class="header-action-num">${sessionScope.cart.totalCount}</span>
                         </a>
                         <a href="#offcanvas-mobile-menu"
@@ -155,57 +123,50 @@
                     <!-- 1st tab start -->
                     <div class="tab-pane fade show active" id="tab-product-new-arrivals">
                         <div class="row">
-                            <c:forEach items="${requestScope.page.items}" var="furn">
+                            <c:forEach items="${sessionScope.pageForIndex.furns}" var="page">
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6" data-aos="fade-up"
                                      data-aos-delay="200">
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
                                             <a href="shop-left-sidebar.html" class="image">
-                                                <img src="${furn.imgPath}" alt="Product"/>
-                                                <img class="hover-image" src=assets/images/product-image/5.jpg"
+                                                <img src="${page.imgPath}" alt="Product"/>
+                                                <img class="hover-image" src="${page.imgPath}"
                                                      alt="Product"/>
                                             </a>
                                             <span class="badges">
                                                 <span class="new">New</span>
-                                        </span>
+                                            </span>
                                             <div class="actions">
                                                 <a href="#" class="action wishlist" data-link-action="quickview"
                                                    title="Quick view" data-bs-toggle="modal"
                                                    data-bs-target="#exampleModal"><i
                                                         class="icon-size-fullscreen"></i></a>
                                             </div>
-                                            <c:if test="${furn.stock <= 0}">
-                                                <button title="Add To Cart" class="add-to-cart" furnId="${furn.id}">Add
-                                                    To Cart【缺货】
-                                                </button>
-                                            </c:if>
-                                            <c:if test="${furn.stock >= 1}">
-                                                <button title="Add To Cart" class="add-to-cart" furnId="${furn.id}">Add
-                                                    To Cart
-                                                </button>
-                                            </c:if>
+                                            <button title="Add To Cart" class="add-to-cart" furnId="${page.id}">
+                                                Add To Cart
+                                            </button>
                                         </div>
-
                                         <div class="content">
                                             <h5 class="title">
-                                                <a href="shop-left-sidebar.html">${furn.name} </a></h5>
+                                                <a href="shop-left-sidebar.html">${page.name} </a></h5>
                                             <span class="price">
-                                                <span class="new">家居:　${furn.name}</span>
+                                                <span class="new">家居:　${page.maker}</span>
                                             </span>
                                             <span class="price">
-                                                <span class="new">厂商:　${furn.maker}</span>
+                                                <span class="new">厂商:　${page.maker}</span>
                                             </span>
                                             <span class="price">
-                                                <span class="new">价格:　￥${furn.price}</span>
+                                                <span class="new">价格:　￥${page.price}</span>
                                             </span>
                                             <span class="price">
-                                                <span class="new">销量:　${furn.sales}</span>
+                                                <span class="new">销量:　${page.sales}</span>
                                             </span>
                                             <span class="price">
-                                                <span class="new">库存:　${furn.stock}</span>
+                                                <span class="new">库存:　${page.stock}</span>
                                             </span>
                                         </div>
+                                    
                                     </div>
                                 </div>
                             </c:forEach>
@@ -219,70 +180,29 @@
 </div>
 <!--  Pagination Area Start -->
 <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
-    <%-- 这里还可以直接使用pageByName方法获取相关的items内容， 模糊查询的时候可以获取所有的数据, 所以不需要在这这里进行区分 --%>
-    <%-- <ul> --%>
-    <%--     <c:if test="${empty requestScope.name}"> --%>
-    <%--         &lt;%&ndash; 名为 name 的属性存在时执行的代码 &ndash;%&gt; --%>
-    <%--         <c:if test="${requestScope.page.pageNo > 1}"> --%>
-    <%--             <li> --%>
-    <%--                 <a href="CustomerServlet?action=page&pageNo=${requestScope.page.pageNo - 1}&pageSize=${requestScope.page.pageSize}">上一页</a> --%>
-    <%--             </li> --%>
-    <%--         </c:if> --%>
-    <%--         <c:set var="begin" value="${1}"> </c:set> --%>
-    <%--         <c:set var="end" value="${requestScope.page.pageTotalCount}"> </c:set> --%>
-    <%--         <c:forEach begin="${begin}" end="${end}" var="i"> --%>
-    <%--             &lt;%&ndash; 这个方式不错, 比原生的简单 &ndash;%&gt; --%>
-    <%--             <c:if test="${i == requestScope.page.pageNo}"> --%>
-    <%--                 <li> --%>
-    <%--                     <a class="active" --%>
-    <%--                        href="CustomerServlet?action=page&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a> --%>
-    <%--                 </li> --%>
-    <%--             </c:if> --%>
-    <%--             &lt;%&ndash; 这个不要这样写 ${i} == ${requestScope.page.pageNo} &ndash;%&gt; --%>
-    <%--             <c:if test="${i != requestScope.page.pageNo}"> --%>
-    <%--                 <li> --%>
-    <%--                     <a href="CustomerServlet?action=page&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a> --%>
-    <%--                 </li> --%>
-    <%--             </c:if> --%>
-    <%--         </c:forEach> --%>
-
-    <%--         <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotalCount}"> --%>
-    <%--             <li> --%>
-    <%--                 <a href="CustomerServlet?action=page&pageNo=${requestScope.page.pageNo + 1}&pageSize=${requestScope.page.pageSize}">下一页</a> --%>
-    <%--             </li> --%>
-    <%--         </c:if> --%>
-    <%--     </c:if> --%>
-    <%-- </ul> --%>
+    <%-- 老师分析 --%>
+    <%-- 1. 如果总页数<=5, 就全部显示 --%>
+    <%-- 2. 如果总页数>5, 按照如下规则显示(这个规则是程序员/业务来确定): --%>
+    <%-- 2.1 如果当前页是前3页, 就显示1-5 --%>
+    <%-- 2.2 如果当前页是后3页, 就显示最后5页 --%>
+    <%-- 2.3 如果当前页是中间页, 就显示 当前页前2页, 当前页 , 当前页后两页 --%>
+    <c:set var="begin" value="${1}"> </c:set>
+    <c:set var="end" value="${sessionScope.pageForIndex.totalCount}"> </c:set>
     <ul>
-        <c:if test="${requestScope.page.pageNo > 1}">
-            <li>
-                <a href="${requestScope.page.url}&pageNo=${requestScope.page.pageNo - 1}&pageSize=${requestScope.page.pageSize}">上一页</a>
+        <c:if test="${sessionScope.pageForIndex.pageNo > begin}">
+            <li><a href="customerFurnServlet?action=pageForName&pageNo=${sessionScope.pageForIndex.pageNo - 1}">上页</a>
             </li>
         </c:if>
-        <c:set var="begin" value="${1}"> </c:set>
-        <c:set var="end" value="${requestScope.page.pageTotalCount}"> </c:set>
-        <c:forEach begin="${begin}" end="${end}" var="i">
-            <%-- 这个方式不错, 比原生的简单 --%>
-            <c:if test="${i == requestScope.page.pageNo}">
-                <li>
-                    <a class="active"
-                       href="${requestScope.page.url}&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a>
-                </li>
-            </c:if>
-            <%-- 这个不要这样写 ${i} == ${requestScope.page.pageNo} --%>
-            <c:if test="${i != requestScope.page.pageNo}">
-                <li>
-                    <a href="${requestScope.page.url}&pageSize=${requestScope.page.pageSize}&pageNo=${i}">第${i}页</a>
-                </li>
-            </c:if>
+        <c:forEach begin="${1}" end="${sessionScope.pageForIndex.totalCount}" var="i">
+            <li><a class="" href="customerFurnServlet?action=pageForName&pageNo=${i}">第${i}页</a></li>
         </c:forEach>
-
-        <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotalCount}">
-            <li>
-                <a href="${requestScope.page.url}&pageNo=${requestScope.page.pageNo + 1}&pageSize=${requestScope.page.pageSize}">下一页</a>
+        <c:if test="${sessionScope.pageForIndex.pageNo < end}">
+            <li><a href="customerFurnServlet?action=pageForName&pageNo=${sessionScope.pageForIndex.pageNo + 1}">下页</a>
             </li>
         </c:if>
+        <li><a href="customerFurnServlet?action=pageForName&pageNo=${end}">末页</a></li>
     </ul>
+
 </div>
 <!--  Pagination Area End -->
 <!-- Product tab Area End -->
@@ -299,7 +219,7 @@
                 </a>
             </div>
             <!-- Banner End -->
-
+            
             <!-- Banner Start -->
             <div class="col-lg-6 col-12" data-aos="fade-up" data-aos-delay="400">
                 <a href="shop-left-sidebar.html" class="banner">
@@ -349,12 +269,10 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="../cart/cart.jsp">我的购物车</a>
-                                        </li>
+                                        <li class="li"><a class="single-link" href="cart/cart.jsp">我的购物车</a></li>
                                         <li class="li"><a class="single-link" href="login.html">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
-                                        <li class="li"><a class="single-link" href="../order/checkout.jsp">结账</a>
-                                        </li>
+                                        <li class="li"><a class="single-link" href="order/checkout.jsp">结账</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -363,7 +281,7 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-
+                    
                     </div>
                     <!-- End single blog -->
                 </div>
@@ -374,9 +292,7 @@
                 <div class="row flex-sm-row-reverse">
                     <div class="col-md-6 text-right">
                         <div class="payment-link">
-                            <%-- 这里会有一个小bug,  img src="#" 会导致请求当前页, 由于有base标签所以 http://localhost:8888/jiaju_mall/#,
-                            导致访问 web/index.jsp --%>
-                            <%-- <img src="#" alt=""> --%>
+                            <img src="#" alt="">
                         </div>
                     </div>
                     <div class="col-md-6 text-left">

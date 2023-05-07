@@ -1,5 +1,6 @@
 package com.hspedu.furns.entity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -9,10 +10,12 @@ import java.util.HashMap;
  */
 public class Page {
     public static final Integer PAGE_DEFAULT_SIZE = 3; // 一个默认值
+
+    private Integer pageNo; // 表示显示当前的页[显示第几页]
     private Integer pageSize; // 每一页显示的家居数量
     private Integer totalCount; // 下面显示的总页数
     private Integer totalItemSize; // 所有家居的数量
-    private HashMap<Integer,PageItems> pageItems; // 每一页显示的家居集合, 用k-v比较合理
+    private ArrayList<Furn> furns; // 每一页显示的家居集合, 用k-v比较合理
 
     public Page() {
     }
@@ -42,21 +45,30 @@ public class Page {
         this.totalItemSize = totalItemSize;
     }
 
-    public HashMap<Integer, PageItems> getPageItems() {
-        return pageItems;
+    public ArrayList<Furn> getFurns() {
+        return furns;
     }
 
-    public void setPageItems(HashMap<Integer, PageItems> pageItems) {
-        this.pageItems = pageItems;
+    public void setFurns(ArrayList<Furn> furns) {
+        this.furns = furns;
+    }
+
+    public Integer getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(Integer pageNo) {
+        this.pageNo = pageNo;
     }
 
     @Override
     public String toString() {
         return "Page{" +
-                "pageSize=" + pageSize +
+                "pageNo=" + pageNo +
+                ", pageSize=" + pageSize +
                 ", totalCount=" + totalCount +
                 ", totalItemSize=" + totalItemSize +
-                ", pageItems=" + pageItems +
+                ", furns=" + furns +
                 '}';
     }
 }

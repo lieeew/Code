@@ -53,14 +53,4 @@ public class FurnServlet extends BasicServlet {
             System.out.println("修改失败");
         }
     }
-
-
-    protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int pageNo = DataUtils.parseInt(req.getParameter("pageNo"), 1);
-        int pageSize = DataUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_DEFAULT_SIZE);
-        Page page = furnService.page(pageSize, pageNo);
-        req.getSession().setAttribute("page", page);
-        // 请求转发到对应的页面
-        req.getRequestDispatcher("/views/manage/furn_manage.jsp").forward(req, resp);
-    }
 }

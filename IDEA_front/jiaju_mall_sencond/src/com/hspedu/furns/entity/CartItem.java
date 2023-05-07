@@ -4,29 +4,25 @@ import java.math.BigDecimal;
 
 /**
  * @Author: qxy
- * @Date: 2023/5/5
- * @Description: 每一页显示的家居的相关属性
+ * @Date: 2023/5/6
+ * @Description:
  */
-public class PageItems {
+public class CartItem {
     private Integer id;
     private String name;
-    private String maker;
+    private Integer count;
     private BigDecimal price;
-    private Integer sales;
-    private Integer stock;
+    private BigDecimal totalPrice;
     private String imgPath;
-
-    public PageItems() {
-
+    public CartItem() {
     }
 
-    public PageItems(Integer id, String name, String maker, BigDecimal price, Integer sales, Integer stock, String imgPath) {
+    public CartItem(Integer id, String name, Integer count, BigDecimal price, BigDecimal totalPrice, String imgPath) {
         this.id = id;
         this.name = name;
-        this.maker = maker;
+        this.count = count;
         this.price = price;
-        this.sales = sales;
-        this.stock = stock;
+        this.totalPrice = totalPrice;
         this.imgPath = imgPath;
     }
 
@@ -37,6 +33,7 @@ public class PageItems {
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -45,12 +42,12 @@ public class PageItems {
         this.name = name;
     }
 
-    public String getMaker() {
-        return maker;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setMaker(String maker) {
-        this.maker = maker;
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public BigDecimal getPrice() {
@@ -61,20 +58,12 @@ public class PageItems {
         this.price = price;
     }
 
-    public Integer getSales() {
-        return sales;
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setSales(Integer sales) {
-        this.sales = sales;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public String getImgPath() {
@@ -87,14 +76,12 @@ public class PageItems {
 
     @Override
     public String toString() {
-        return "PageItems{" +
+        return "CartItem{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", maker='" + maker + '\'' +
+                ", count=" + count +
                 ", price=" + price +
-                ", sales=" + sales +
-                ", stock=" + stock +
-                ", imgPath='" + imgPath + '\'' +
+                ", totalPrice=" + totalPrice +
                 '}';
     }
 }

@@ -65,7 +65,7 @@
             $offCanvas = $(".offcanvas"),
             $offCanvasOverlay = $(".offcanvas-overlay"),
             $mobileMenuToggle = $(".mobile-menu-toggle");
-        $offCanvasToggle.on("click", function(e) {
+        $offCanvasToggle.on("click", function() {
             e.preventDefault();
             var $this = $(this),
                 $target = $this.attr("href");
