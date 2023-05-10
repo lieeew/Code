@@ -41,12 +41,43 @@
                 }
 
                 // 4. 验证码：后面实现
-                
+                let code = $("#code").val();
+                let codeText = $.trim(code);
+                if (codeText === null || codeText === "") {
+                    $("span[class='errorMsg']").text("验证码不为空!")
+                    return false;
+                }
+                // 全部ok
                 return true;
-
             })
+
+            $("#codeImg").click(function () {
+                this.src = "<%=request.getContextPath() + "/"%>kaptchaServlet?d=" + new Date();
+            })
+
+            $("#username").mouseleave(function () {
+                // alert("Please enter your username");
+                $.post(
+                    "MemberServlet?action=verifyName",
+                    {
+                        name: $(this).val()
+                    },
+                    function (response) {
+                        // console.log("response", response);
+                        if (response == null || !response.username) {
+                            $("span.errorMsg").text(" ");
+                        } else {
+                            // 存在
+                            $("span.errorMsg").text("用户名已存在");
+                        }
+                    },
+                    "JSON"
+                )
+            })
+
+
         })
-    
+
     </script>
 </head>
 
@@ -66,7 +97,7 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-            
+
             </div>
         </div>
     </div>
@@ -99,7 +130,7 @@
                         <a class="active" data-bs-toggle="tab" href="#lg1">
                             <h4>会员登录</h4>
                         </a>
-                        <a data-bs-toggle="tab" href="#lg2">
+                        <a id="register_tab" data-bs-toggle="tab" href="#lg2">
                             <h4>会员注册</h4>
                         </a>
                     </div>
@@ -112,7 +143,8 @@
                                         ${requestScope.errMessage}
                                     </span>
                                     <form action="MemberServlet?action=login" method="post">
-                                        <input type="text" name="user-name" placeholder="Username" value="${requestScope.username}" />
+                                        <input type="text" name="user-name" placeholder="Username"
+                                               value="${requestScope.username}"/>
                                         <input type="password" name="user-password" placeholder="Password"/>
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
@@ -138,8 +170,9 @@
                                                placeholder="输入密码"/>
                                         <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
                                         <input name="user-email" id="email" placeholder="电子邮件" type="email"/>
-                                        <input type="text" id="code" name="user-name" style="width: 50%" id="code"
-                                               placeholder="验证码"/>　　<img alt="" src="assets/images/code/code.bmp">
+                                        <input type="text" id="code" name="code" style="width: 50%"
+                                               placeholder="验证码"/>　　<img id="codeImg" alt="" src="kaptchaServlet"
+                                                                            style="width: 120px;height: 50px">
                                         <div class="button-box">
                                             <button type="submit" id="sub-btn"><span>会员注册</span></button>
                                         </div>
@@ -204,7 +237,7 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-                    
+
                     </div>
                     <!-- End single blog -->
                 </div>

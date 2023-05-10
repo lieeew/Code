@@ -15,7 +15,7 @@ public interface FurnService {
     ArrayList<Furn> queryFurns();
 
     boolean updateFurn(Furn furn);
-
     Furn getFurnById(Integer id);
     Page page(Integer pageSize, Integer pageNo);
+    ArrayList<Furn> searchFurn(String word);
 }

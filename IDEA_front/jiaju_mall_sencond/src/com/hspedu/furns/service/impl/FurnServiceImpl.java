@@ -7,7 +7,6 @@ import com.hspedu.furns.entity.Page;
 import com.hspedu.furns.service.FurnService;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * @Author: qxy
@@ -60,5 +59,10 @@ public class FurnServiceImpl implements FurnService {
         ArrayList<Furn> furns = furnDAO.queryFurnForPage(pageSize * (pageNo - 1), pageSize);
         page.setFurns(furns);
         return page;
+    }
+
+    @Override
+    public ArrayList<Furn> searchFurn(String word) {
+        return furnDAO.queryFurnForSearch(word);
     }
 }

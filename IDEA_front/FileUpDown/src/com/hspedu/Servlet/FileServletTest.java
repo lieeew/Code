@@ -31,7 +31,6 @@ public class FileServletTest extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if (ServletFileUpload.isMultipartContent(request)) {
-
             DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
             ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
             servletFileUpload.setHeaderEncoding("UTF-8");
@@ -74,6 +73,5 @@ public class FileServletTest extends HttpServlet {
         } else {
             System.out.println(" 非 enctype=\"multipart/form-data\"");
         }
-
     }
 }

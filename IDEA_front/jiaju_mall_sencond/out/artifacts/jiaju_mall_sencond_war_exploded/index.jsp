@@ -13,7 +13,7 @@
 <base href="<%=request.getContextPath() + "/"%>">
 <body>
 
-<jsp:forward page="customerFurnServlet?action=pageForName"/>
+<jsp:forward page="customerServlet?action=pageForName"/>
 
 </body>
 </html>

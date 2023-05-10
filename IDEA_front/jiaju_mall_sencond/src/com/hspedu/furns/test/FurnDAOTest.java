@@ -34,6 +34,18 @@ public class FurnDAOTest {
 
         // ArrayList<Furn> furns = furnDAO.queryFurnForPage(0, 3);
         // System.out.println("furns = " + furns);
+    }
+
+    @Test
+    public void test() {
+        // Furn furn = furnDAO.getFurnById(1);
+        // furn.setImgPath("hahahaha");
+        // furnDAO.updateFurn(furn);
+        ArrayList<Furn> mini = furnDAO.queryFurnForSearch("小");
+        System.out.println("mini = " + mini);
+    }
+
+    public static void main(String[] args) {
 
     }
 }

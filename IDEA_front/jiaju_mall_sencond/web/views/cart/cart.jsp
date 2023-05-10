@@ -36,7 +36,7 @@
                 // alert("new value = " + newVal)
                 let cartId = $button.parent().find("input").attr("cartId");
                 // alert(cartId)
-                location.href = "customerFurnServlet?action=updateCount&newNum=" + newVal + "&id=" + cartId;
+                location.href = "CartServlet?action=updateCount&newNum=" + newVal + "&id=" + cartId;
             });
 
 
@@ -89,7 +89,7 @@
                             <a href="#">订单管理</a>
                         </div>
                         <div class="header-bottom-set dropdown">
-                            <a href="#">安全退出</a>
+                            <a href="MemberServlet?action=logout">安全退出</a>
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,6 @@
                             </thead>
                             <tbody>
                             <c:forEach items="${sessionScope.cart.items}" var="cart">
-                                ${cart.key}
                                 <tr>
                                     <td class="product-thumbnail">
                                         <a href="#"><img class="img-responsive ml-3"
@@ -183,11 +182,11 @@
                                 <h4>共 ${sessionScope.cart.totalCount} 件商品
                                     总价 ${sessionScope.cart.totalPrice}元</h4>
                                 <div class="cart-shiping-update">
-                                    <a href="#">购 物 车 结 账</a>
+                                    <a href="orderServlet?action=saveOrder&memberId=${sessionScope.member.id}">购 物 车 结 账</a>
                                 </div>
                                 <div class="cart-clear">
                                     <button>继 续 购 物</button>
-                                    <a href="customerFurnServlet?action=clearAllItem">清 空 购 物 车</a>
+                                    <a href="CartServlet?action=clearAllItem">清 空 购 物 车</a>
                                 </div>
                             </div>
                         </div>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
@@ -32,13 +33,13 @@
                 <div class="col align-self-center">
                     <div class="header-actions">
                         <div class="header-bottom-set dropdown">
-                            <a>欢迎: hello</a>
+                            <a>欢迎: ${sessionScope.member.username}</a>
                         </div>
                         <div class="header-bottom-set dropdown">
                             <a href="#">订单管理</a>
                         </div>
                         <div class="header-bottom-set dropdown">
-                            <a href="#">安全退出</a>
+                            <a href="MemberServlet?action=logout">安全退出</a>
                         </div>
                     </div>
                 </div>
@@ -54,7 +55,7 @@
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
                         <a href="customer/index.jsp"><img width="280px" src="assets/images/logo/logo.png"
-                                                             alt="Site Logo"/></a>
+                                                          alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -92,42 +93,36 @@
                         <table>
                             <thead>
                             <tr>
-
                                 <th>家居名</th>
                                 <th>单价</th>
                                 <th>数量</th>
                                 <th>金额</th>
-
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td class="product-name"><a href="#">Product Name</a></td>
-                                <td class="product-price-cart"><span class="amount">$60.00</span></td>
-                                <td class="product-quantity">12</td>
-                                <td class="product-subtotal">$70.00</td>
-                            </tr>
-                            <tr>
-                                <td class="product-name"><a href="#">Product Name</a></td>
-                                <td class="product-price-cart"><span class="amount">$60.00</span></td>
-                                <td class="product-quantity">12</td>
-                                <td class="product-subtotal">$70.00</td>
-                            </tr>
-                            </tbody>
+                            <c:forEach items="${sessionScope.orderItem}" var="orderItem">
+                                <tbody>
+                                <tr>
+                                    <td class="product-name"><a href="#">${orderItem.name}</a></td>
+                                    <td class="product-price-cart"><span class="amount">$${orderItem.price}</span></td>
+                                    <td class="product-quantity">${orderItem.count}</td>
+                                    <td class="product-subtotal">$${orderItem.totalPrice}</td>
+                                </tr>
+                                </tbody>
+                            </c:forEach>
                         </table>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="cart-shiping-update-wrapper">
-                                <h4>共xx件商品 总价 xxxx.xx元</h4>
+                                <%--todo 这里不行, 在添完购物车之后就需要清空cart购物城--%>
+                                <h4>共件 ${sessionScope.totalCount}商品 总价 ${sessionScope.order.price}元</h4>
                                 <div class="cart-clear">
-                                    <a href="#">继 续 购 物</a>
+                                    <a href="index.jsp">继 续 购 物</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
@@ -152,7 +147,8 @@
                                     <ul class="align-items-center">
                                         <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
                                         <li class="li"><a class="single-link" href="#">交货信息</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a>
+                                        </li>
                                         <li class="li"><a class="single-link" href="#">条款和条件</a></li>
                                         <li class="li"><a class="single-link" href="#">制造</a></li>
                                     </ul>

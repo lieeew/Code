@@ -23,7 +23,7 @@
                 });
             }
         )
-    
+
     </script>
 </head>
 
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-                
+
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
@@ -147,21 +147,41 @@
         <%-- 2.1 如果当前页是前3页, 就显示1-5 --%>
         <%-- 2.2 如果当前页是后3页, 就显示最后5页 --%>
         <%-- 2.3 如果当前页是中间页, 就显示 当前页前2页, 当前页 , 当前页后两页 --%>
-         <c:set var="begin" value="${1}"> </c:set>
-        <c:set var="end" value="${sessionScope.page.totalCount}"> </c:set>
         <ul>
-            <c:if test="${sessionScope.page.pageNo > begin}">
-                <li><a href="customerFurnServlet?action=page&pageNo=${sessionScope.page.pageNo - 1}">上页</a></li>
+            <c:choose>
+                <c:when test="${sessionScope.page.totalCount <= 5}">
+                    <c:set var="begin" value="${1}"> </c:set>
+                    <c:set var="end" value="${sessionScope.page.totalCount}"> </c:set>
+                </c:when>
+                <c:when test="${sessionScope.page.totalCount > 5}">
+                    <c:choose>
+                        <c:when test="${sessionScope.page.pageNo <= 3}">
+                            <c:set var="begin" value="${1}"> </c:set>
+                            <c:set var="end" value="${5}"> </c:set>
+                        </c:when>
+                        <c:when test="${sessionScope.page.pageNo > sessionScope.page.totalCount - 3}">
+                            <c:set var="begin" value="${sessionScope.page.totalCount - 4}"> </c:set>
+                            <c:set var="end" value="${sessionScope.page.totalCount}"> </c:set>
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="begin" value="${sessionScope.page.pageNo - 2}"> </c:set>
+                            <c:set var="end" value="${sessionScope.page.pageNo + 2}"> </c:set>
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+            </c:choose>
+            <c:if test="${sessionScope.page.pageNo > 1}">
+                <li><a href="customerServlet?action=page&pageNo=${sessionScope.page.pageNo - 1}">上页</a></li>
             </c:if>
-            <c:forEach begin="${1}" end="${sessionScope.page.totalCount}" var="i">
-                <li><a class="" href="customerFurnServlet?action=page&pageNo=${i}">第${i}页</a></li>
+            <c:forEach begin="${begin}" end="${end}" var="i">
+                <li><a class="" href="customerServlet?action=page&pageNo=${i}">第${i}页</a></li>
             </c:forEach>
-            <c:if test="${sessionScope.page.pageNo < end}">
-                <li><a href="customerFurnServlet?action=page&pageNo=${sessionScope.page.pageNo + 1}">下页</a></li>
+            <c:if test="${sessionScope.page.pageNo < sessionScope.page.totalCount}">
+                <li><a href="customerServlet?action=page&pageNo=${sessionScope.page.pageNo + 1}">下页</a></li>
             </c:if>
-            <li><a href="customerFurnServlet?action=page&pageNo=${end}">末页</a></li>
+            <li><a href="customerServlet?action=page&pageNo=${sessionScope.page.totalCount}">末页</a></li>
         </ul>
-    
+
     </div>
     <!--  Pagination Area End -->
 </div>
@@ -216,7 +236,7 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-                    
+
                     </div>
                     <!-- End single blog -->
                 </div>

@@ -31,13 +31,13 @@
                 <div class="col align-self-center">
                     <div class="header-actions">
                         <div class="header-bottom-set dropdown">
-                            <a>欢迎: hello</a>
+                            <a>欢迎: ${sessionScope.member.username}</a>
                         </div>
                         <div class="header-bottom-set dropdown">
                             <a href="#">订单管理</a>
                         </div>
                         <div class="header-bottom-set dropdown">
-                            <a href="memberServlet?action=logout">安全退出</a>
+                            <a href="MemberServlet?action=logout">安全退出</a>
                         </div>
                     </div>
                 </div>
@@ -72,8 +72,8 @@
             <div class="col-lg-7 col-md-12 ml-auto mr-auto">
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
-                        <a class="active" href="customer/index.jsp">
-                            <h4>订单已结算, 订单号-hello</h4>
+                        <a class="active" href="views/order/order.jsp">
+                            <h4>订单已结算, 订单号-${sessionScope.id}</h4>
                         </a>
                     </div>
                 </div>

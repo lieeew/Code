@@ -11,17 +11,32 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
-    <script type="text/javascript" src="script/jquery-3.6.0.min.js"> </script>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         $(
-            function() {
-                $('.add-to-cart').click(function() {
-                    let furnId = $(this).attr("furnId");
-                    window.location.href = 'customerFurnServlet?action=addToCart&furnId=' + furnId;
+            function () {
+                $('.add-to-cart').click(function () {
+                    // let furnId = $(this).attr("furnId");
+                    // window.location.href = 'CartServlet?action=addToCart&furnId=' + furnId;
+                    $.post(
+                        "CartServlet?action=addToCart",
+                        {
+                            furnId: $(this).attr("furnId")
+                        },
+                        function (response) {
+                            if (response.url === undefined) {
+                                // 表示已经登录过系统了
+                                $("span[class='header-action-num']").text(response.count);
+                            } else {
+                                // 后端请求转发
+                                location.href = response.url;
+                            }
+                        },
+                        "JSON"
+                    )
                 });
             }
         )
-        
     </script>
 </head>
 
@@ -40,7 +55,7 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-                
+
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
@@ -48,8 +63,9 @@
                             <a href="javascript:void(0)" class="header-action-btn search-btn"><i
                                     class="icon-magnifier"></i></a>
                             <div class="dropdown_search">
-                                <form class="action-form" action="#">
-                                    <input class="form-control" placeholder="Enter your search key" type="text">
+                                <form class="action-form" action="customerServlet">
+                                    <input type="hidden" name="action" value="SearchInform">
+                                    <input class="form-control" placeholder="Enter your search key" type="text" name="name">
                                     <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
                                 </form>
                             </div>
@@ -69,7 +85,7 @@
                                 <a href="views/manage/manage_login.jsp">后台管理</a>
                             </div>
                         </c:if>
-                        
+
                         <!-- Single Wedge End -->
                         <a href="views/cart/cart.jsp"
                            class="header-action-btn header-action-btn-cart pr-0">
@@ -143,9 +159,17 @@
                                                    data-bs-target="#exampleModal"><i
                                                         class="icon-size-fullscreen"></i></a>
                                             </div>
-                                            <button title="Add To Cart" class="add-to-cart" furnId="${page.id}">
-                                                Add To Cart
-                                            </button>
+                                            <c:if test="${page.stock > 0}">
+                                                <button title="Add To Cart" class="add-to-cart" furnId="${page.id}">
+                                                    Add To Cart
+                                                </button>
+                                            </c:if>
+                                            <c:if test="${page.stock <= 0}">
+                                                <button title="Add To Cart" class="add-to-cart" furnId="${page.id}">
+                                                    Add To Cart 【缺货】
+                                                </button>
+                                            </c:if>
+
                                         </div>
                                         <div class="content">
                                             <h5 class="title">
@@ -166,7 +190,7 @@
                                                 <span class="new">库存:　${page.stock}</span>
                                             </span>
                                         </div>
-                                    
+
                                     </div>
                                 </div>
                             </c:forEach>
@@ -190,17 +214,17 @@
     <c:set var="end" value="${sessionScope.pageForIndex.totalCount}"> </c:set>
     <ul>
         <c:if test="${sessionScope.pageForIndex.pageNo > begin}">
-            <li><a href="customerFurnServlet?action=pageForName&pageNo=${sessionScope.pageForIndex.pageNo - 1}">上页</a>
+            <li><a href="customerServlet?action=pageForName&pageNo=${sessionScope.pageForIndex.pageNo - 1}">上页</a>
             </li>
         </c:if>
         <c:forEach begin="${1}" end="${sessionScope.pageForIndex.totalCount}" var="i">
-            <li><a class="" href="customerFurnServlet?action=pageForName&pageNo=${i}">第${i}页</a></li>
+            <li><a class="" href="customerServlet?action=pageForName&pageNo=${i}">第${i}页</a></li>
         </c:forEach>
         <c:if test="${sessionScope.pageForIndex.pageNo < end}">
-            <li><a href="customerFurnServlet?action=pageForName&pageNo=${sessionScope.pageForIndex.pageNo + 1}">下页</a>
+            <li><a href="customerServlet?action=pageForName&pageNo=${sessionScope.pageForIndex.pageNo + 1}">下页</a>
             </li>
         </c:if>
-        <li><a href="customerFurnServlet?action=pageForName&pageNo=${end}">末页</a></li>
+        <li><a href="customerServlet?action=pageForName&pageNo=${end}">末页</a></li>
     </ul>
 
 </div>
@@ -219,7 +243,7 @@
                 </a>
             </div>
             <!-- Banner End -->
-            
+
             <!-- Banner Start -->
             <div class="col-lg-6 col-12" data-aos="fade-up" data-aos-delay="400">
                 <a href="shop-left-sidebar.html" class="banner">
@@ -281,7 +305,7 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-                    
+
                     </div>
                     <!-- End single blog -->
                 </div>

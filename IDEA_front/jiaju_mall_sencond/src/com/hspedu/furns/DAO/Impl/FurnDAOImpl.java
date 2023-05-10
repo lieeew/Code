@@ -42,4 +42,10 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
         String sql = "select `id`, `name`, `maker`, `price`, `sales`,`stock`, `img_path` AS `imgPath` from furn limit ?, ?";
         return (ArrayList<Furn>) queryMulti(sql, Furn.class, begin, size);
     }
+
+    @Override
+    public ArrayList<Furn> queryFurnForSearch(String word) {
+        String sql = "select `id`, `name`, `maker`, `price`, `sales`, `price`, `stock`, `img_path` AS `imgPath` from furn where `name` LIKE ?";
+        return (ArrayList<Furn>) queryMulti(sql, Furn.class, "%" + word + "%");
+    }
 }

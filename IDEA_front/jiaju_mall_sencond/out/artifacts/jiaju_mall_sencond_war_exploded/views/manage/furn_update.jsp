@@ -11,6 +11,35 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <style type="text/css">
+        #pic {
+            position: relative;
+        }
+
+        input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 150px;
+            opacity: 0;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        function prev(event) {
+            //获取展示图片的区域
+            var img = document.getElementById("prevView");
+            //获取文件对象
+            var file = event.files[0];
+            //获取文件阅读器： Js的一个类，直接使用即可
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                //给img的src设置图片url
+                img.setAttribute("src", this.result);
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -28,7 +57,7 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
-                
+
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
@@ -70,7 +99,9 @@
         <h3 class="cart-page-title">家居后台管理-修改家居</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <form action="FurnServlet?action=updateFurn&id=${requestScope.furn.id}" method="post">
+                <%--                设置enctype="multipart/form-data"--%>
+                <form action="FurnServlet?action=updateFurn&id=${requestScope.furn.id}" method="post"
+                      enctype="multipart/form-data">
                     <div class="table-content table-responsive cart-table-content">
                         <table>
                             <thead>
@@ -85,12 +116,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            
+
                             <tr>
                                 <td class="product-thumbnail">
-                                    <a href="#"><img class="img-responsive ml-3"
-                                                     src="${requestScope.furn.imgPath}"
-                                                     alt=""/></a>
+                                    <div id="pic">
+                                        <img id="prevView" class="img-responsive" src="${requestScope.furn.imgPath}" alt=""/>
+                                        <input type="file" name="imgPath" id="" value="${requestScope.furn.imgPath}" onchange="prev(this)"/>
+                                    </div>
                                 </td>
                                 <td class="product-name"><input name="name" style="width: 60%" type="text"
                                                                 value="${requestScope.furn.name}"/></td>
@@ -107,8 +139,8 @@
                                            value="${requestScope.furn.stock}"/>
                                 </td>
                                 <td>
-                                    <!--                                    <a href="#"><i class="icon-pencil"></i></a>-->
-                                    <!--                                    <a href="#"><i class="icon-close"></i></a>-->
+                                    <!--<a href="#"><i class="icon-pencil"></i></a>-->
+                                    <!--<a href="#"><i class="icon-close"></i></a>-->
                                     <input type="submit"
                                            style="width: 90%;background-color: silver;border: silver;border-radius: 20%;"
                                            value="修改家居"/>
@@ -173,7 +205,7 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-                    
+
                     </div>
                     <!-- End single blog -->
                 </div>

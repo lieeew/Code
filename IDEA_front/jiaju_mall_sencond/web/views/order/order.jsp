@@ -37,7 +37,7 @@
                             <a href="#">订单管理</a>
                         </div>
                         <div class="header-bottom-set dropdown">
-                            <a href="#">安全退出</a>
+                            <a href="MemberServlet?action=logout">安全退出</a>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
                         <a href="customer/index.jsp"><img width="280px" src="assets/images/logo/logo.png"
-                                                             alt="Site Logo"/></a>
+                                                          alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -85,12 +85,13 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td class="product-name">16248893425621</td>
-                                <td class="product-name">2100-12-12 22:10:10</td>
-                                <td class="product-price-cart"><span class="amount">160.00</span></td>
+                                <td class="product-name">${sessionScope.order.id}</td>
+                                <td class="product-name">${sessionScope.order.creatTime}</td>
+                                <td class="product-price-cart"><span class="amount">${sessionScope.order.price}</span>
+                                </td>
                                 <td class="product-name"><a href="#">未发货</a></td>
                                 <td class="product-remove">
-                                    <a href="#"><i class="icon-eye"></i></a>
+                                    <a href="views/order/order_detail.jsp"><i class="icon-eye"></i></a>
                                 </td>
                             </tr>
                             </tbody>
@@ -153,7 +154,7 @@
                     <!-- End single blog -->
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="800">
-                    
+
                     </div>
                     <!-- End single blog -->
                 </div>
