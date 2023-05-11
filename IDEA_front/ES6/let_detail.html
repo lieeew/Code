@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        // 1. let 声明的变量有严格局部作用域
+        {
+            var name = "韩顺平教育";
+            console.log(name);
+
+            let job = "Java工程师";
+            console.log(job)
+        }
+        console.log(name);
+        console.log(job); // ReferenceError: job is not defined
+
+        // 2. let 只能声明一次, var 可以声明多次
+        var num1 = 100;
+        let num2 = 100;
+
+        var num1 = 200;
+        //  SyntaxError: redeclaration of let num2
+        var num2 = 200;
+
+        // 3. let 不存在变量提升, var 存在变量提升
+        console.log("a =", a); // undefined
+        var a = "a";
+
+        // Uncaught ReferenceError: can't access lexical declaration 'b' before initialization
+        console.log("b =", b);
+        let b = "b";
+    </script>
+</head>
+<body>
+
+</body>
+</html>

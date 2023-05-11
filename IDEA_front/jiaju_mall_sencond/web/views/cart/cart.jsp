@@ -169,7 +169,7 @@
                                     </td>
                                     <td class="product-subtotal">$${cart.value.totalPrice}</td>
                                     <td class="product-remove">
-                                        <a href="#"><i class="icon-close"></i></a>
+                                        <a href="CartServlet?action=delItem&id=${cart.key}"><i class="icon-close"></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>

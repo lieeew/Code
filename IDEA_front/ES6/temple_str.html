@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // 空格可以原样输出
+        let str1 = `for(int i = 0; i < 10; i++) {
+               System.out.println(str1);
+        }`;
+        console.log(str1);
+
+        // 2. 字符串插入变量和表达式。变量名写在 ${} 中，${} 中可以放入JavaScript 表达式
+        let name = "韩顺平教育";
+        //(1) 当解析 ${name}, 就找最近的 name 遍历, 进行替换
+        //(2) 然后可以得到最后解析的字符串
+        let str3 = `教育机构的名称=${name}`;
+        let str4 = `1 + 2 = ${1 + 2}`;
+        let n1 = 80;
+        let n2 = 20;
+        let str5 = `${n1} + ${n2} = ${n1 + n2}`;
+        console.log(str3);
+        console.log(str4);
+        console.log(str5);
+
+        // 3. 可以调用函数
+        function sayHi (name) {
+            return "hi: " + name;
+        }
+        let name2 ="tom";
+        let str6 = `sayHi: ${sayHi('Jack')}`
+        let str7 = `sayHi: ${sayHi(name2)}`
+        console.log(str6);
+        console.log(str7);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

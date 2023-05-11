@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var cal = {
+            oper: "-",
+            arr: [1, 2, 3, 4, 5]
+        }
+
+        let calArr = ({oper, arr}) => {
+            var result = 0;
+            if ("+" === oper) {
+                for (let i = 0; i < arr.length; i++) {
+                    result += arr[i];
+                }
+            } else if ("-" === oper) {
+                for (let i = 0; i < arr.length; i++) {
+                    result -= arr[i];
+                }
+            } else if ("*" === oper) {
+                result = 1;
+                for (let i = 0; i < arr.length; i++) {
+                    result *= arr[i];
+                }
+            } else if ("/" === oper) {
+                result = 1;
+                for (let i = 0; i < arr.length; i++) {
+                    result /= arr[i];
+                }
+            }
+            return result;
+        }
+        console.log(calArr(cal))
+    </script>
+</head>
+<body>
+
+</body>
+</html>

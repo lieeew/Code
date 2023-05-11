@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        let cat = {
+            name: "小花猫",
+            age: 10
+        }
+        // 这个会相互影响
+        // let car2 = cat;
+        // car2.name = "大花猫";
+        // console.log(cat);
+        // console.log(car2);
+
+        // 对象的深拷贝
+        let cat2 = {...cat};
+        cat2.name = "中花猫";
+        console.log(cat);
+        console.log(cat2);
+
+        // 和并对象【使用的是深拷贝】
+        let monster = {
+            name: "白骨精",
+            age: 100
+        }
+        let car = {
+            band: "奔驰",
+            price: 999
+        }
+        let monster_car = {...monster, ...car};
+        car.name = "宝马";
+        console.log(monster_car);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

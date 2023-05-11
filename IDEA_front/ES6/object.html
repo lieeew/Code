@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        const age = 800;
+        const name = "Jack";
+
+        // 传统的方式
+        let monster = {name: name, age: age};
+        console.log(monster);
+
+        // ES6
+        // 需要满足的条件是
+        //1. {name, age} : 表示对象的属性名是 name 和 age
+        //2. 属性 name 的值是从变量/常量 name 来的
+        let monster2 = {name, age};
+        console.log(monster2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

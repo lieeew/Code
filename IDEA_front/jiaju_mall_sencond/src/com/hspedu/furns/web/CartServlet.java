@@ -65,4 +65,13 @@ public class CartServlet extends BasicServlet {
         resp.sendRedirect(req.getHeader("Referer"));
 
     }
+
+
+    protected void delItem(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = DataUtils.parseInt(req.getParameter("id"), 0);
+        Cart cart = (Cart) req.getSession().getAttribute("cart");
+        cart.getItems().remove(id);
+
+        resp.sendRedirect(req.getContextPath() + "/views/cart/cart.jsp");
+    }
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        let f8 = (arr, fun) => {
+            console.log(fun(arr))
+        }
+
+        f8([1, 2, 3, 4, 5], (arr) => {
+            var result = 0;
+            for (let i = 0; i < arr.length; i++) {
+                result += arr[i];
+            }
+            return result;
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

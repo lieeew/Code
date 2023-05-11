@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //对象解构
+        /**
+         * let monster = {name: '牛魔王', age: 800} * 细节说明
+         * 1. 对象解构时，let{name, age} 中的 name 和 age 名称需要和对象属性名保持一致
+         * 2. 也可解构对象部分属性，比如 let{age} 这样就只取出 age 属性* 3. 还有其它的形式,比如方法上使用对象解构
+         */
+
+        let monster = {name: '牛魔王', age: 800};
+        // 传统方式取出属性 -- 解构
+        // 对象.属性
+        console.log(monster.name);
+
+        // ES6 对象解构
+        // 1. 把monster对象的属性赋值给{name, age}
+        // 2. {name, age} 的取名name和age需要和monster对象的属性名称保持一致
+        // 3. 要使用 {} 而不是 []
+        // 4. {} 里面的属性顺序无关
+        let {name, age} = monster;
+        console.log("name = ", name, "age = ", age);
+
+        // 函数赋值
+        function f1({name, age}) {
+            console.log("name = ", name, "age = ", age);
+        }
+        f1(monster)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+    <script type="text/javascript">
+        var f1 = function(n, m) {
+            var res = 0;
+            for (let i = n; i < m; i++) {
+                res += i;
+            }
+            return res;
+        }
+
+        // 箭头函数
+        var f2 = (n, m) => {
+            var res = 0;
+            for (let i = n; i < m; i++) {
+                res += i;
+            }
+            return res;
+        }
+
+        console.log(f2(1, 10));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

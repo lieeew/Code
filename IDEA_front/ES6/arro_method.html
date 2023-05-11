@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // 类似Java之中的Lambda 表达式
+        var f1 = function (n) {
+            return n * 2;
+        }
+        console.log("传统 = " + f1(2));
+
+        let f2 = (n) => {
+            return n * 2;
+        }
+        console.log("f2() = " + f2(100));
+
+        //上面继续简写
+        let f3 = (n) => 3 * n;
+        console.log("f3() = " + f3(300))
+
+        // 函数也可以传给一个变量
+        function h1(f4) {
+            console.log(f4(100));
+        }
+
+        h1((n) => {
+            return n * 2
+        });
+        h1((n) => {
+            return n - 100
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
