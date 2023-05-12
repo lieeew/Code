@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="ajax/jquery-3.6.0.min.js"> </script>
+    <script type="text/javascript">
+        $.ajax({
+            url: "data/monster.json",
+            success(resultData) {
+                console.log('第一次Ajax请求', resultData);
+
+                $.ajax({
+                    url: `data/monster_detail_${resultData.id}.json`,
+                    success(resultData) {
+                        console.log('第二次Ajax请求', resultData);
+                    }, 
+                    error(resultData) {
+                        console.log('第二次出现异常~')
+                    }
+                })
+            },
+            error(error) {
+                console.log("第一次出现异常, " + error)
+            }
+
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

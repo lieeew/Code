@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../ajax/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function get(url) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: url,
+                    success(resultData) {
+                        resolve(resultData);
+                    },
+                    error(resultData) {
+                        reject(resultData);
+                    }
+                })
+            })
+        }
+
+        // 代码更加优雅了!
+        get("../Data/student_100.json")
+            .then((resultData) => {
+                console.log("第一次请求的数据" ,resultData)
+                return get(`../Data/class_${resultData.class_id}.json`);
+            })
+            .then((resultData) => {
+                console.log("第二次请求的数据", resultData)
+                return get(`../Data/school_${resultData.school_id}.json`);
+            })
+            .then(resultData => {
+                console.log("第三次请求的数据", resultData);
+            })
+            .catch(error => {
+                console.log("error错误信息, ", error)
+            })
+
+      </script>
+</head>
+<body>
+
+</body>
+</html>

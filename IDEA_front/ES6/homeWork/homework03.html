@@ -10,23 +10,28 @@
         }
 
         let calArr = ({oper, arr}) => {
-            var result = 0;
+            var result;
+            if (arr.length <= 0) {
+                return "error";
+            }
             if ("+" === oper) {
-                for (let i = 0; i < arr.length; i++) {
+                result = arr[0]; // 这里非常的巧妙
+                for (let i = 1; i < arr.length; i++) {
                     result += arr[i];
                 }
             } else if ("-" === oper) {
-                for (let i = 0; i < arr.length; i++) {
+                result = arr[0];
+                for (let i = 1; i < arr.length; i++) {
                     result -= arr[i];
                 }
             } else if ("*" === oper) {
-                result = 1;
-                for (let i = 0; i < arr.length; i++) {
+                result = arr[0];
+                for (let i = 1; i < arr.length; i++) {
                     result *= arr[i];
                 }
             } else if ("/" === oper) {
-                result = 1;
-                for (let i = 0; i < arr.length; i++) {
+                result = arr[0];
+                for (let i = 1; i < arr.length; i++) {
                     result /= arr[i];
                 }
             }

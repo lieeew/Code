@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="ajax/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        //1. 创建 Promise 对象
+        //2. 构造函数传入一个箭头函数
+        //3. (resolve, reject) 参数列表 resolve: 如果请求成功, 调用 resolve 函数
+        //4. 如果请求失败, 调用 reject 函数
+        //5. 箭头函数体, 仍然是通过 jquery 发出 ajax
+        let p = new Promise((resolve, reject) => {
+            $.ajax({
+                "url": "data/monster.json",
+                success(resultData) {
+                    console.log("promise第一次返回, 发出了异步请求 ", resultData);
+                    resolve(resultData);
+                },
+                error(resultData) {
+                    // console.log("promise 发出了异步请求异常");
+                    reject(resultData);
+                }
+            })
+        })
+
+        p.then((resultData) => {
+            // 这里需要return
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    "url": `data/monster_detail_${resultData.id}.json`,
+                    success(resultData) {
+                        console.log("promise第二次返回, 发出了异步请求回调函数", resultData);
+                        // 继续下一次的请求
+                        resolve(resultData);
+                    },
+                    error(resultData) {
+                        // console.log("promise 第二次发出了异步请求异常, ", resultData);
+                        reject(resultData);
+                    }
+                })
+            })
+
+        })
+            .then((resultData) => {
+                console.log("p.then().then() 的resultData是, ", resultData);
+                // 这里可以发送第三次ajax请求
+                //  return 语句的作用是将 Promise 对象的状态传递给链式调用中的下一个 Promise 对象
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        "url": `Data/monster_gf_${resultData.gfid}.json`,
+                        success(resultData) {
+                         console.log("promise 第三次请求获取的女友的信息", resultData)
+                        }
+                    })
+                })
+            })
+            .catch((error) => {
+                console.log("error: ", error)
+            })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

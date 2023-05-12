@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../ajax/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        // 使用原生的方式实现
+        $.ajax({
+            url: "../Data/student_100.json",
+            success(resultData) {
+                console.log("第一次请求的数据", resultData)
+                $.ajax({
+                    url: `../Data/class_${resultData.class_id}.json`,
+                    success(resultData) {
+                        console.log("第二次请求的数据", resultData)
+                        $.ajax({
+                            url: `../Data/school_${resultData.school_id}.json`,
+                            success(resultData) {
+                                console.log("第三次请求的数据", resultData)
+                            },
+                            error(resultData) {
+                                console.log("第三次错误信息 ", resultData)
+                            }
+                        })
+                    },
+                    error(resultData) {
+                        console.log("第二次错误信息 ", resultData)
+                    }
+                })
+            },
+            error(error) {
+                console.log("第一次错误信息", error)
+            }
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

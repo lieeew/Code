@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript">
-        let name = "周星驰";
-        let job = "演员";
+        const name = "周星驰";
+        const job = "演员";
 
-        function f1(name, job){
-            return {
-                name: name,
-                job: job
-            };
+        var person = {
+            name,
+            job,
+            show() {
+                console.log("name=", name, "job=", job);
+            }
         }
 
-        console.log(f1(name, job))
+        person.show()
 
     </script>
 </head>
