@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="app">
+    <li v-for="item in object" :key="item.id">
+        {{item}}
+    </li>
+</ul>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue ({
+        el: "#app",
+        data: {
+            object: {
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

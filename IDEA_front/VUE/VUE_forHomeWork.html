@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="app">
+    <li v-for="student in students">{{student}}</li>
+</ul>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            students: [
+                {id: 1, name: "Alice", age: 21, score: 40},
+                {id: 2, name: "Bob", age: 22, score: 80},
+                {id: 3, name: "Charlie", age: 23, score: 60},
+                {id: 4, name: "David", age: 24, score: 40},
+                {id: 5, name: "Emily", age: 25, score: 75},
+                {id: 6, name: "Frank", age: 26, score: 75},
+                {id: 7, name: "Grace", age: 27, score: 85},
+                {id: 8, name: "Henry", age: 28, score: 65},
+                {id: 9, name: "Isabella", age: 29, score: 95},
+                {id: 10, name: "Jack", age: 30, score: 70}
+            ]
+        }
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_if</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="checkbox" v-model="isAgree"> 是否同意条款使用[v-if实现]
+    // 这里的数据实到data之中验证
+    <h1 v-if="isAgree">你同意条款</h1>
+    <h1 v-else>你不同意条款</h1>
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            // v-if 传入的数据会在这里面比对
+            isAgree: false
+        },
+        methods: {
+            check() {
+                this.isAgree = !this.isAgree;
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_if</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="checkbox" v-model="sel"> 你是否同意条款
+    <h1 v-show="sel">你同意条款</h1>
+    <h1 v-show="!sel">你不同意条款</h1>
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue ({
+        el: "#app",
+        data: {
+            sel: false
+        }
+    })
+
+</script>
+</body>
+</html>

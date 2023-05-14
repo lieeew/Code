@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_if</title>
+</head>
+<body>
+
+<ul id="app">
+    <!--    <li v-for="item in items" :key="item.message">-->
+    <!--        {{ item.message }}-->
+    <!--    </li>-->
+<!--    在Vue.js中，为v-for指令的每个元素添加一个唯一的key是非常重要的。这有助于Vue.js跟踪每个列表项的状态，并且可以提高性能。如果您不提供key属性，Vue.js会发出警告。-->
+<!--    在您的代码中，使用:key="item.message"是为v-for循环生成的每个列表项提供唯一标识符的一种方法。这里使用item.message是因为它通常是列表中唯一的值。但是，如果您知道您的数据中有一个唯一的ID或其他标识符，则最好使用该标识符来作为:key属性的值。-->
+<!--    综上所述，为了避免Vue.js发出警告并提高性能，建议始终在使用v-for指令时为每个列表项提供一个:key属性。-->
+    <li v-for="item in items" :key="item.message">
+        {{item.message}}
+    </li>
+
+</ul>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ]
+        }
+    })
+
+</script>
+</body>
+</html>

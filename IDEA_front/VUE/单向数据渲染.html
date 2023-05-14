@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据渲染</title>
+</head>
+<body>
+
+<div id="app">
+    <h1> {{content}}</h1>
+    <img v-bind:src="img_src" v-bind:width="img_width">
+    <!-- 简写形式-->
+    <img :src="img_src" :width="img_width">
+</div>
+
+<script src="vue/vue.js"></script>
+<script type="text/javascript">
+
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            content: "CodingImprove",
+            img_src: "编程真是一辈都学不完.png",
+            img_width: "200px"
+        }
+    });
+</script>
+
+</body>
+</html>

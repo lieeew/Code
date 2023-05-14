@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <form action="https://www.baidu.com" v-on:submit.prevent="onMySubmit">
+        妖怪名 : <input type="text" v-model:value="monster.name"> <br><br>
+        <input type="submit" value="注册">
+    </form>
+
+<!--    <input type="submit" v-on:click.once="onMySubmit">-->
+<!--    <input type="text" v-on:keyup.enter="onMySubmit">-->
+<!--    <input type="text" v-model.trim="monster.count">-->
+
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            monster: {
+                // 这里面可以不写数据, 可以动态生成
+                // 数据双向渲染的时候可以动态的生成
+                count: 0
+            }
+        },
+        methods: {
+            onMySubmit() {
+                // console.log("我自己的提交方式...")
+                // 在js中 "" null undefined 都是false
+                if (this.monster.name) {
+                    // 输入了名字
+                    console.log("提交表单的数据 name = " + this.monster.name);
+
+                    // 可以发送到服务器~
+                } else {
+                    console.log("请输入数据~~");
+                }
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

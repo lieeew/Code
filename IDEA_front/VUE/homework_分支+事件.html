@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_if</title>
+</head>
+<body>
+
+<div id="app">
+<!--    blur 失去焦点-->
+    输入成绩1-100: <input type="text" v-model:value="score" v-on:blur="verify"> <br><br> <br>
+    你当前的成绩是 {{score}} <br> <br>
+    <h1 v-if="score >= 90">优秀</h1>
+    <h1 v-else-if="score >= 70">良好</h1>
+    <h1 v-else-if="score >= 60">及格</h1>
+    <h1 v-else>不及格</h1>
+
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue ({
+        el: "#app",
+        data: {
+            score: 90
+        },
+        methods: {
+            verify() {
+                if (this.score > 100) {
+                    this.score = 100;
+                } else if (this.score < 0) {
+                    this.score = 0;
+                }
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

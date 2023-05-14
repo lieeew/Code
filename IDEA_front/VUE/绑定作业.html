@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <input type="text" v-model:value="img_src"> <br> <br>
+    <img v-bind:src="img_src" v-bind:width="img_width">
+
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "请输入你想要查看的图片!",
+            img_src: "编程真是一辈都学不完.png",
+            img_width: "400px"
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{message}}</h1>
+<!--
+        v-model是数据双向渲染
+        (1)data 数据池绑定的数据变化，会影响 view 【底层的机制是 Data Bindings】
+        (2)view 关联的的元素值变化, 会影响到 data 数据池的数据【底层机制是DomListeners】
+-->
+    <input type="text" v-model:value="hobby.val"> <br><br>
+<!--    这个v-bind是单向渲染-->
+    <input type="text" v-bind:value="hobby.val"> <br>
+    <p>输入的爱好是 {{hobby.val}}</p>
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+  let vm = new Vue({
+      el: "#app",
+      data: {
+          message: "输入你的爱好!",
+          hobby: {
+              val: "购物"
+          }
+      }
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示vue事件绑定操作</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <input @click="add(1)" type="submit" value="点击增加+1">
+<!--    <input @click="add(2)" type="submit" value="点击增加+2"> <br>-->
+<!--    这里这样写也不会有问题, 也可以找到num-->
+    <input @click="num += 2" type="submit" value="点击增加+2"> <br>
+<!--    <input type="text" v-model:value="num"> -->
+    <p>你的按钮被点击了{{num}}次</p>
+
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "演示vue事件绑定操作",
+            num: 0
+        },
+        methods: {
+            addOne() {
+                // this可以指定data中的数据
+                this.num++;
+            },
+            addTwo() {
+                this.num += 2;
+            },
+            add(i) {
+                this.num += i;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

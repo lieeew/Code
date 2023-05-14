@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue_if</title>
+</head>
+<body>
+
+<ul id="app">
+    <li v-for="(item, index) in items" :key="index">
+        {{parentMessage}} -- {{item.message}} -- {{index}}
+    </li>
+</ul>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            parentMessage: 'Parent',
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ]
+        }
+    })
+</script>
+
+</body>
+</html>

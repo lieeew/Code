@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+</head>
+<body>
+<div id="app">
+<!--    1. v-on:click 表示我们要给button绑定一份click的时间-->
+<!--    2. sayHi() 表示绑定的方法, 在方法池中定义的-->
+<!--    3. 底层仍然是dom编程-->
+    <input v-on:click="sayHi()" type="submit" value="点击输出">
+    <input v-on:click="sayOk" type="submit" value="点击输出">
+    <input @click="sayOk" type="submit" value="点击输出">
+    <input type="submit" value="点击输出">
+
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app", // 这个是element的缩写
+        data: {
+            // module中的数据
+            message: "Vue事件处理",
+            name: "韩顺平教育"
+        },
+        methods: {
+            // 1. 这个method是一个属性, 对应写很多方法
+            // 2. 在{} 中, 可以理解里面是一个方法池
+            sayHi() {
+                console.log("hi, 银角大王")
+            },
+            sayOk() {
+                console.log("sayOk, 金角大王")
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue简单入门</title>
+</head>
+<body>
+
+<!--
+    1. div不是必须的, 可以是span
+    2. 使用div的原因是, div便于布局
+    3. id 可以不是 "app"
+-->
+<div id="app">
+<!--
+    1. {{}} 是插值表达式
+    2. message就是从module的data 数据池来设置的
+    3. 当我们执行到这段代码时, 回到data{} 数据池匹配数据, 如果匹配上就进行替换, 没有匹配上就输出空
+-->
+<h1> 欢迎你 {{message}} -- {{name}}</h1>
+</div>
+
+<!--引入vue-->
+<script src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        // Vue 实例的 el 属性在差值表达式之前被定义，会导致差值表达式无法被识别。
+        el:"#app",
+        data: {
+            //data{} 表示数据池(model 的有了数据), 有很多数据 ,以k-v 形式设置(根据业务需要来设置)
+            message: "Hello_vue!",
+            name: "leikooo"
+        }
+    });
+
+    console.log("vm", vm);
+    console.log(vm._data.message);
+    console.log(vm._data.name);
+    console.log(vm.message);
+    console.log(vm.name);
+
+</script>
+
+</body>
+</html>
