@@ -6,9 +6,20 @@
 </head>
 <body>
 
-<ul id="app">
-    <li v-for="student in students">{{student}}</li>
-</ul>
+<table id="app" border="1px" width="400px" align="center">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>score</th>
+    </tr>
+    <tr v-for="student in students">
+        <td v-if="student.score > 60">{{student.id}}</td>
+        <td v-if="student.score > 60">{{student.name}}</td>
+        <td v-if="student.score > 60">{{student.age}}</td>
+        <td v-if="student.score > 60">{{student.score}}</td>
+    </tr>
+</table>
 
 <script type="text/javascript" src="vue/vue.js"></script>
 <script type="text/javascript">
@@ -17,7 +28,7 @@
         data: {
             students: [
                 {id: 1, name: "Alice", age: 21, score: 40},
-                {id: 2, name: "Bob", age: 22, score: 80},
+                {id: 2, name: "Bob", age: 22, score: 30},
                 {id: 3, name: "Charlie", age: 23, score: 60},
                 {id: 4, name: "David", age: 24, score: 40},
                 {id: 5, name: "Emily", age: 25, score: 75},

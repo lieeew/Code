@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <span id="num">{{num}}</span>
+    <button @click="num++">赞!!</button>
+    <h2>{{name}}, 有{{num}}次点赞</h2>
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            name: "leikooo",
+            num: 0
+        },
+        methods: {
+            show() {
+                return this.name;
+            },
+
+            add() {
+                this.num++;
+            }
+        },
+        beforeCreate() {
+            // 生命周期函数
+            console.log("===beforeCreate()===")
+            console.log("数据模型中的数据是否加载/使用? " , this.name + " " , this.num)
+            // console.log("函数是否可以使用 ?", this.show())
+            console.log("用户页面的dom是否可以使用 ?", document.getElementById("num"))
+            console.log("用户页面的dom是否被渲染 ?", document.getElementById("num").innerText) // {{num}} 没有成功
+        },
+        created() {
+            // 创建实例成功
+            console.log("===created()===")
+            console.log("数据模型中的数据是否加载/使用? " , this.name + " " , this.num)
+            console.log("函数是否可以使用 ?", this.show())
+            console.log("用户页面的dom是否可以使用 ?", document.getElementById("num"))
+            console.log("用户页面的dom是否被渲染 ?", document.getElementById("num").innerText) // {{num}} 没有成功
+            // 可以发送ajax请求
+            // 下面一个阶段就是vue内存模板的创建了
+        },
+        beforeMount() {
+            // vue实例挂载前
+            console.log("===beforeMount()===")
+            console.log("数据模型中的数据是否加载/使用? " , this.name + " " , this.num)
+            // console.log("函数是否可以使用 ?", this.show())
+            console.log("用户页面的dom是否可以使用 ?", document.getElementById("num"))
+            console.log("用户页面的dom是否被渲染 ?", document.getElementById("num").innerText) // {{num}} 没有成功
+        },
+        mounted() {
+            // 内存里面的数据, 替换到dom
+            console.log("===mounted()===")
+            console.log("数据模型中的数据是否加载/使用? " , this.name + " " , this.num)
+            // console.log("函数是否可以使用 ?", this.show())
+            console.log("用户页面的dom是否可以使用 ?", document.getElementById("num"))
+            console.log("用户页面的dom是否被渲染 ?", document.getElementById("num").innerText)
+
+        },
+        // 进入运行监听状态
+        beforeUpdate() {
+            // 数据池更新前
+            console.log("===beforeUpdate()===")
+            console.log("数据模型中的数据是否加载/使用? " , this.name + " " , this.num)
+            // console.log("函数是否可以使用 ?", this.show())
+            console.log("用户页面的dom是否可以使用 ?", document.getElementById("num"))
+            console.log("用户页面的dom是否被更新 ?", document.getElementById("num").innerText)
+        },
+        updated() {
+            console.log("===updated()===")
+            console.log("数据模型中的数据是否加载/使用? " , this.name + " " , this.num)
+            // console.log("函数是否可以使用 ?", this.show())
+            console.log("用户页面的dom是否可以使用 ?", document.getElementById("num"))
+            console.log("用户页面的dom是否更新?", document.getElementById("num").innerText)
+        }
+    })
+
+</script>
+
+
+</body>
+</html>

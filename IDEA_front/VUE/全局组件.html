@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <counter></counter><counter></counter>
+
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    // 1. 定义一个全局组件, 名称为 counter
+    // 2. {} 表示就是我们的组件相关的内容
+    // 3. template 指定该组件的界面, 因为会引用到数据池的数据，所以需要是模板字符串
+    // 4. 这里老师说明: 要把组件视为一个 Vue 实例，也有自己的数据池和methods
+    // 5. 这里老师说明: 对于组件，我们的数据池的数据，是使用函数/方法返回[目的是为了保证每个组件的数据是独立], 不能使用原来的方式
+    // 6. 这时我们达到目前，界面通过 template 实现共享,业务处理也复用
+    // 7. 全局组件是属于所有 vue 实例，因此，可以在所有的 vue 实例使用
+    Vue.component("counter", {
+        template: `
+          <button v-on:click="click"> 点击次数【全局组件化编程】{{ count }}</button>`,
+        // 这里很不一样, 记住
+        data() {
+            return {
+                count: 10
+            }
+        },
+        methods: {
+            click() {
+                this.count++;
+            }
+        }
+    })
+
+    let vm = new Vue({
+        el: "#app"
+    })
+
+</script>
+
+</body>
+</html>

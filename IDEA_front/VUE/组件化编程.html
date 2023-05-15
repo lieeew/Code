@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化实现方式</title>
+</head>
+<body>
+
+<div id="app">
+
+    <button v-on:click="click"> 点击次数【非组件化编程】{{count}}</button><br> <br>
+    <button v-on:click="click2"> 点击次数【非组件化编程】{{count2}} </button>
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            count: 10,
+            count2: 10,
+            count3: 10
+        },
+        methods: {
+            click() {
+                this.count++;
+            },
+            click2() {
+                this.count2++;
+            }
+
+        }
+    })
+
+</script>
+
+</body>
+</html>

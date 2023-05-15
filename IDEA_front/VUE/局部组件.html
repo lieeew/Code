@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部组件</title>
+</head>
+<body>
+
+<div id="app">
+<!--    使用局部组件, 该组件是从挂载到app的vue中获取-->
+    <my_counter> </my_counter>
+    <my_counter> </my_counter>
+</div>
+
+<script type="text/javascript" src="vue/vue.js"></script>
+<script type="text/javascript">
+    // 这里可以直接exports 导出提供给其他项目使用
+    const myCounter = {
+        template: `<button v-on:click="click"> 点击次数【局部组件编程】{{ count }}</button>`,
+        // 这里很不一样, 记住
+        data() {
+            return {
+                count: 10
+            }
+        },
+        methods: {
+            click() {
+                this.count++;
+            }
+        }
+    };
+
+    let vm = new Vue({
+        el: "#app",
+        components: {
+            // 引入到某一个组件, 此时myCounter是一个组件, 使用范围是当前的vue
+            "my_counter": myCounter
+        }
+    })
+
+</script>
+
+</body>
+</html>
