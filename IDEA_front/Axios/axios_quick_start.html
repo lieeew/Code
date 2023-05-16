@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table id="app" border="1px" width="200px">
+    <tr>
+        <th>名字</th>
+        <th>年龄</th>
+    </tr>
+    <tr v-for="monster in monsters">
+        <td>{{monster.name}}</td>
+        <td>{{monster.age}}</td>
+    </tr>
+</table>
+
+<script type="text/javascript" src="dependence/vue.js"></script>
+<script type="text/javascript" src="dependence/axios.min.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            monsters: []
+        },
+        methods: {
+            list() {
+                axios
+                    .get("http://localhost:63342/axios/data/response.json")
+                    .then((response) => {
+                        console.log(response)
+                        console.log(JSON.stringify(response))
+                        /** 老韩解读
+                         * 1. 使用 axios 发送 ajax 请求
+                         * 2. 语 法 格 式 axios. 请 求 方 式( 请求路径).then( 箭头函数).catch(箭头函数)
+                         * 3. 请求成功，执行 then 的函数, response 就是返回的数据, 名字有程序员确定
+                         * 4. 请求失败, 执行 catch 的函数
+                         * 5. this.monsterList = response.data.data.items 把返回的data.items 赋给 monsterList
+                         * 6. 这里的 http://127.0.0.1:63342/axios/response.data.json路径需要根据实际的端口和资源名来修改
+                         */
+                        console.log("response", response.data.data.items)
+                        this.monsters = response.data.data.items;
+                        // console.log(this.monsters[0])
+                        // 发送两次ajax请求
+                        // return axios.get("http://localhost:63342/axios/data/response.json");
+                    })
+                    // .then(response => console.log("第二次请求, ", response))
+                    // 有异常就进到catch
+                    .catch(error => console.log(error))
+            }
+        },
+        created() {
+            //在声明周期函数里面调用
+            this.list();
+        }
+    })
+
+</script>
+
+</body>
+</html>
