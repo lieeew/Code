@@ -36,6 +36,12 @@ public class SpringBeanTest {
         // 使用getBean()的其他重载方法
         Monster monster03 = ioc.getBean("monster01", Monster.class);
         System.out.println("monster03 = " + monster03);
+
+        // 查看容器注入了那些bean对象, 会输出bean的id
+        String[] beanDefinitionNames = ioc.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
     }
 
     @Test

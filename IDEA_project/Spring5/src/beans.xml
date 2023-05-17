@@ -17,4 +17,10 @@
         <property name="skill" value="芭蕉扇"/>
     </bean>
 
+    <bean class="com.hspedu.Spring.bean.Monster" id="monster02">
+        <property name="monsterId" value="200" />
+        <property name="name" value="铁扇公主" />
+        <property name="skill" value="哈哈哈"/>
+    </bean>
+
 </beans>
