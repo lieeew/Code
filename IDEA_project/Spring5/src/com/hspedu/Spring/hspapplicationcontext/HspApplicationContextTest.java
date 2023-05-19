@@ -1,5 +1,7 @@
 package com.hspedu.Spring.hspapplicationcontext;
 
+import com.hspedu.Spring.bean.Monster;
+
 /**
  * ClassName: HspApplicationContextTest
  * Package: com.hspedu.Spring.hspapplicationcontext
@@ -9,9 +11,11 @@ package com.hspedu.Spring.hspapplicationcontext;
  * @Description:
  */
 public class HspApplicationContextTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         HspApplicationContext hspApplicationContext = new HspApplicationContext("beans.xml");
 
+        Monster monster01 = (Monster) hspApplicationContext.getBean("monster01");
+        System.out.println("monster01 = " + monster01);
     }
 
 }

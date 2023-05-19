@@ -1,26 +1,262 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
-<!--
-    1. 配置monster对象 / JavaBean
-    2. 在beans中可以配置多个bean
-    3. bean 表示地就是一个Java对象
-    4. class属性用于指定类的全路径 -> spring狄成反射创建
-    5. id 属性表示Java对象在spring容器中的id, 通过id可以获取 【唯一的】
-    6. <property name="monsterId" value="100" /> 用于给对象赋值
+    <!--
+        1. 配置monster对象 / JavaBean
+        2. 在beans中可以配置多个bean
+        3. bean 表示地就是一个Java对象
+        4. class属性用于指定类的全路径 -> spring狄成反射创建
+        5. id 属性表示Java对象在spring容器中的id, 通过id可以获取 【唯一的】
+        6. <property name="monsterId" value="100" /> 用于给对象赋值
+    -->
+<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster01">-->
+<!--        <property name="monsterId" value="100"/>-->
+<!--        <property name="name" value="牛魔王"/>-->
+<!--        <property name="skill" value="芭蕉扇"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster02">-->
+<!--        <property name="monsterId" value="200"/>-->
+<!--        <property name="name" value="铁扇公主"/>-->
+<!--        <property name="skill" value="哈哈哈"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster03">-->
+<!--        <property name="monsterId" value="666"/>-->
+<!--        <property name="name" value="牛魔王~~!!"/>-->
+<!--        <property name="skill" value="芭蕉扇~~"/>-->
+<!--    </bean>-->
+<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster04">-->
+<!--        <property name="monsterId" value="1010"/>-->
+<!--        <property name="name" value="牛魔王~"/>-->
+<!--        <property name="skill" value="芭蕉扇~"/>-->
+<!--    </bean>-->
+    <!--    使用构造器配置monster对象
+            1. 这里使用 constructor-arg 可以指定构造器
+            2. index 表示构造器第几个元素 索引从0开始
+            3. 除了index还有其他的方式
+    -->
+    <!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster03">-->
+    <!--        <constructor-arg value="200" index="0"/>-->
+    <!--        <constructor-arg value="白骨精" index="1"/>-->
+    <!--        <constructor-arg value="吸血" index="2"/>-->
+    <!--    </bean>-->
+    <!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster03">-->
+    <!--        <constructor-arg value="200" name="monsterId"/>-->
+    <!--        <constructor-arg value="白骨精" name="name"/>-->
+    <!--        <constructor-arg value="吸血" name="skill"/>-->
+    <!--    </bean>-->
+    <!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster03">-->
+    <!--        <constructor-arg value="200" type="java.lang.Integer"/>-->
+    <!--        <constructor-arg value="白骨精" type="java.lang.String"/>-->
+    <!--        <constructor-arg value="吸血" type="java.lang.String"/>-->
+    <!--    </bean>-->
+
+    <!--    通过p名称空间赋值-->
+    <!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster"-->
+    <!--          p:monsterId="100"-->
+    <!--          p:name="红孩儿"-->
+    <!--          p:skill="吐火"-->
+    <!--    />-->
+
+    <!--    依赖注入
+     1. 这里的ref就是依赖注入, spring底层帮你实现
+     2. 注意在spring容器中, 他作为一个整体来执行, 即使如果引用到一个bean对象, 对你的配置顺序没有要求
+     3. 建议还是按照顺序写, 便于阅读
+     -->
+
+    <!--    <bean class="com.hspedu.Spring.DAO.MemberDAOImpl" id="memberDAO"/>-->
+    <!--    <bean class="com.hspedu.Spring.Service.MemberServiceImpl" id="memberService">-->
+    <!--        <property name="memberDAO" ref="memberDAO"/>-->
+    <!--    </bean>-->
+
+
+    <!--    依赖注入的第二种方式-->
+    <!--    <bean class="com.hspedu.Spring.Service.MemberServiceImpl" id="memberService02">-->
+    <!--        <property name="memberDAO">-->
+    <!--            <bean class="com.hspedu.Spring.DAO.MemberDAOImpl"/>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+    <!--&lt;!&ndash;    引用/注入集合/数组类型-->
+    <!--        体会容器配置的特点, 依赖赋值-->
+    <!--&ndash;&gt;-->
+    <!--    <bean class="com.hspedu.Spring.bean.Master" id="master">-->
+    <!--        <property name="name" value="台上老君"/>-->
+    <!--&lt;!&ndash;        给list属性赋值&ndash;&gt;-->
+    <!--        <property name="monsterList">-->
+    <!--            <list>-->
+    <!--                <ref bean="monster01"/>-->
+    <!--                <ref bean="monster02"/>-->
+    <!--                <ref bean="monster03"/>-->
+    <!--&lt;!&ndash;                内部bean 一般不用分配id, 外部没法使用&ndash;&gt;-->
+    <!--                <bean class="com.hspedu.Spring.bean.Monster">-->
+    <!--                    <property name="name" value="老鼠精"/>-->
+    <!--                    <property name="monsterId" value="404"/>-->
+    <!--                    <property name="skill" value="活得长"/>-->
+    <!--                 </bean>-->
+    <!--            </list>-->
+    <!--        </property>-->
+
+    <!--        <property name="monsterMap">-->
+    <!--&lt;!&ndash;            传入map属性&ndash;&gt;-->
+    <!--            <map>-->
+    <!--                <entry>-->
+    <!--                    <key>-->
+    <!--                        <value>monster03</value>-->
+    <!--                    </key>-->
+    <!--                    <ref bean="monster03"/>-->
+    <!--                </entry>-->
+
+    <!--&lt;!&ndash;                可以简化&ndash;&gt;-->
+    <!--                <entry value-ref="monster04" key="monster04"/>-->
+    <!--            </map>-->
+    <!--        </property>-->
+
+    <!--        <property name="monsterSet">-->
+    <!--            <set>-->
+    <!--&lt;!&ndash;                引用外部bean&ndash;&gt;-->
+    <!--                <ref bean="monster01" />-->
+    <!--&lt;!&ndash;                定义的内部bean&ndash;&gt;-->
+    <!--                <bean class="com.hspedu.Spring.bean.Monster">-->
+    <!--                    <property name="monsterId" value="500"/>-->
+    <!--                    <property name="name" value="金角大王" />-->
+    <!--                    <property name="skill" value="吐火" />-->
+    <!--                 </bean>-->
+    <!--            </set>-->
+    <!--        </property>-->
+
+    <!--        <property name="monsterName">-->
+    <!--&lt;!&ndash;            这个array标签value是什么需要根据业务除理&ndash;&gt;-->
+    <!--            <array>-->
+    <!--                <value>小妖怪</value>-->
+    <!--                <value>大妖怪</value>-->
+    <!--                <value>老妖怪</value>-->
+    <!--            </array>-->
+    <!--        </property>-->
+
+    <!--        <property name="pros">-->
+    <!--            <props>-->
+    <!--                <prop key="username">root</prop>-->
+    <!--                <prop key="password">123456</prop>-->
+    <!--            </props>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+    <!--    <bean class="com.hspedu.Spring.bean.Master" id="master02">-->
+    <!--        <property name="name" value="台上老君02"/>-->
+
+    <!--        <property name="monsterList">-->
+    <!--            <list>-->
+    <!--                <ref bean="monster01"/>-->
+    <!--                <ref bean="monster02"/>-->
+    <!--                <bean class="com.hspedu.Spring.bean.Monster">-->
+    <!--                    <property name="name" value="老鼠精"/>-->
+    <!--                    <property name="monsterId" value="300"/>-->
+    <!--                    <property name="skill" value="吐火"/>-->
+    <!--                 </bean>-->
+    <!--            </list>-->
+    <!--        </property>-->
+
+    <!--        <property name="monsterMap">-->
+    <!--            <map>-->
+    <!--                <entry key="1" value-ref="monster01"/>-->
+    <!--                <entry key="2" value-ref="monster01"/>-->
+    <!--            </map>-->
+    <!--        </property>-->
+
+    <!--        <property name="monsterSet">-->
+    <!--            <set>-->
+    <!--                <ref bean="monster04" />-->
+    <!--                <ref bean="monster01" />-->
+    <!--            </set>-->
+    <!--        </property>-->
+
+    <!--        <property name="monsterName">-->
+    <!--            <array>-->
+    <!--                <value>大妖怪</value>-->
+    <!--                <value>小妖怪</value>-->
+    <!--                <value>老妖怪</value>-->
+    <!--            </array>-->
+    <!--        </property>-->
+
+    <!--        <property name="pros">-->
+    <!--            <props>-->
+    <!--                <prop key="username">root</prop>-->
+    <!--                <prop key="password">123456</prop>-->
+    <!--            </props>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+    <!--    定义一个util:list-->
+    <!--    <util:list id="myBook">-->
+    <!--        <value>三国演义</value>-->
+    <!--        <value>红楼梦</value>-->
+    <!--        <value>西游记</value>-->
+    <!--        <value>水浒传</value>-->
+    <!--    </util:list>-->
+    <!--    <bean class="com.hspedu.Spring.bean.BookStore" id="bookStore">-->
+    <!--        <property name="bookList" ref="myBook"/>-->
+    <!--    </bean>-->
+
+<!--        设置级联属性-->
+<!--        <bean class="com.hspedu.Spring.bean.Dept" id="dept" />-->
+<!--        <bean class="com.hspedu.Spring.bean.Emo" id="emo">-->
+<!--            <property name="name" value="Jack" />-->
+<!--            <property name="dept" ref="dept" />-->
+<!--            <property name="dept.name" value="Java开发部门" />-->
+<!--        </bean>-->
+
+
+    <!--    配置monster对象， 通过静态工厂获取
+        1. 通过静态工厂获取
+        2. class 是工厂的路径
+        3. factory-method 表示的是指定工厂类是由哪一个对象返回
+        4. constructor—-arg 的value指的是要指定返回哪一个工厂对象
+    -->
+<!--    <bean id="my_monster01" class="com.hspedu.Spring.Factory.MyStaticFactory" factory-method="getMonster">-->
+<!--        <constructor-arg value="1"/>-->
+<!--    </bean>-->
+
+<!--    配置通过实例工厂
+        1. 因为是非静态的所以需要提前造对象
+        2. factory-bean 指定使用拿一个实例工厂
+        3. factory-method 指定使用实例工厂的哪一个方法
+        4. constructor-arg 传入的参数
 -->
-    <bean class="com.hspedu.Spring.bean.Monster" id="monster01">
-        <property name="monsterId" value="100" />
-        <property name="name" value="牛魔王" />
-        <property name="skill" value="芭蕉扇"/>
+<!--    <bean id="myInstanceFactory" class="com.hspedu.Spring.Factory.MyInstanceFactory" />-->
+
+<!--    <bean id="my_monster02" factory-bean="myInstanceFactory" factory-method="getMonster">-->
+<!--&lt;!&ndash;         由于这个对象一开始就会创建, 所以不管获取几次都是同一个对象&ndash;&gt;-->
+<!--        <constructor-arg value="monster_02" />-->
+<!--    </bean>-->
+<!--    <bean id="myInstanceFactory2" class="com.hspedu.Spring.Factory.MyInstanceFactory" />-->
+<!--    <bean id="my_monster03" factory-bean="myInstanceFactory2" factory-method="getMonster">-->
+<!--        <constructor-arg value="monster_02" />-->
+<!--    </bean>-->
+
+<!--    1. 这里需要指定的class是factory的
+        2. key 表示的是 MyBeanFactory 的属性key
+        3. value 就是你要获取的对象的key
+-->
+<!--    <bean id="myBeanFactory" class="com.hspedu.Spring.Factory.MyBeanFactory">-->
+<!--        <property name="key" value="monster_01" />-->
+<!--    </bean>-->
+
+<!--    配置monster对象-->
+    <bean id="monster10" class="com.hspedu.Spring.bean.Monster">
+        <property name="monsterId" value="10"/>
+        <property name="name" value="蜈蚣精"/>
+        <property name="skill" value="蜇人"/>
     </bean>
 
-    <bean class="com.hspedu.Spring.bean.Monster" id="monster02">
-        <property name="monsterId" value="200" />
-        <property name="name" value="铁扇公主" />
-        <property name="skill" value="哈哈哈"/>
-    </bean>
+<!--    1. 在配置一个monster 但是这个属性值和 monster01 一样
+        2. parent= "" 指定当前配置的属性值从 id="monster01"
+-->
+    <bean id="monster11" class="com.hspedu.Spring.bean.Monster"
+          parent="monster10" />
 
 </beans>

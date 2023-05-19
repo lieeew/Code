@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster01">-->
+<!--        <property name="monsterId" value="100"/>-->
+<!--        <property name="name" value="美猴王"/>-->
+<!--        <property name="skill" value="筋斗云"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster02">-->
+<!--        <constructor-arg type="java.lang.Integer" value="200"/>-->
+<!--        <constructor-arg type="java.lang.String" value="猪八戒"/>-->
+<!--        <constructor-arg type="java.lang.String" value="五尺钉耙"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="monster03" class="com.hspedu.Spring.bean.Monster"-->
+<!--          p:name="小明"-->
+<!--          p:monsterId="300"-->
+<!--          p:skill="找妈妈"/>-->
+
+<!--    <bean class="com.hspedu.Spring.DAO.MemberDAOImpl" id="memberDAO"/>-->
+
+<!--    <bean class="com.hspedu.Spring.Service.MemberServiceImpl" id="service">-->
+<!--        <property name="memberDAO" ref="memberDAO"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="master" class="com.hspedu.Spring.bean.Master">-->
+<!--        <property name="name" value="牛魔王" />-->
+<!--        <property name="monsterName" >-->
+<!--            <array>-->
+<!--                <value>小妖怪</value>-->
+<!--                <value>大妖怪</value>-->
+<!--                <value>老妖怪</value>-->
+<!--            </array>-->
+<!--        </property>-->
+
+<!--        <property name="monsterList">-->
+<!--            <list>-->
+<!--                <ref bean="monster01" />-->
+<!--                <ref bean="monster02" />-->
+<!--            </list>-->
+<!--        </property>-->
+
+<!--        <property name="monsterSet">-->
+<!--            <set>-->
+<!--                <ref bean="monster01"/>-->
+<!--                <ref bean="monster03"/>-->
+<!--            </set>-->
+<!--        </property>-->
+
+<!--        <property name="monsterMap">-->
+<!--            <map>-->
+<!--                <entry>-->
+<!--                    <key>-->
+<!--                        <value>monster01</value>-->
+<!--                    </key>-->
+<!--                    <ref bean="monster01"/>-->
+<!--                </entry>-->
+
+<!--                <entry key="monster02" value-ref="monster02" />-->
+<!--            </map>-->
+<!--        </property>-->
+
+<!--        <property name="pros">-->
+<!--            <props>-->
+<!--                <prop key="1">第一</prop>-->
+<!--                <prop key="2">第二</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <util:list id="myBook">-->
+<!--        <value> 哈哈哈</value>-->
+<!--        <value> 哈哈哈</value>-->
+<!--        <value> 哈哈哈</value>-->
+<!--    </util:list>-->
+
+<!--    <bean class="com.hspedu.Spring.bean.BookStore" id="bookStore">-->
+<!--        &lt;!&ndash; 可以直接在ref 标签引入 &ndash;&gt;-->
+<!--        <property name="bookList" ref="myBook"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.hspedu.Spring.bean.Dept" id="dept"/>-->
+<!--    <bean class="com.hspedu.Spring.bean.Emo" id="emo">-->
+<!--        <property name="dept" ref="dept"/>-->
+<!--        <property name="name" value="Jack"/>-->
+<!--        <property name="dept.name" value="Java开发岗位"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.hspedu.Spring.Factory.MyStaticFactory" factory-method="getMonster" id="staticFactory">-->
+<!--        <constructor-arg value="1" />-->
+<!--    </bean>-->
+
+<!--    <bean class="com.hspedu.Spring.Factory.MyInstanceFactory" id="myInstanceFactory"/>-->
+<!--    <bean factory-bean="myInstanceFactory" factory-method="getMonster" id="instanceFactory">-->
+<!--        <constructor-arg value="monster_01" />-->
+<!--    </bean>-->
+</beans>
