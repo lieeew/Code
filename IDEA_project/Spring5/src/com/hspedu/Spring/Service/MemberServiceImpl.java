@@ -22,6 +22,7 @@ public class MemberServiceImpl {
     }
 
     public void setMemberDAO(MemberDAOImpl memberDAO) {
+        System.out.println("调用setMemberDAO()~~");
         this.memberDAO = memberDAO;
     }
 

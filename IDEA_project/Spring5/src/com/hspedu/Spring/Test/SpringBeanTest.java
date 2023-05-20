@@ -5,6 +5,7 @@ import com.hspedu.Spring.bean.*;
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.File;
@@ -187,7 +188,39 @@ public class SpringBeanTest {
     @Test
     public void setBeanByExtend() {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
-        Monster bean = ioc.getBean("monster11", Monster.class);
+        Monster bean = ioc.getBean("monster12", Monster.class);
         System.out.println("bean = " + bean);
+    }
+
+    @Test
+    public void testBeanOrder() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
+        MemberServiceImpl memberService = ioc.getBean("memberService", MemberServiceImpl.class);
+        System.out.println("memberService = " + memberService);
+
+    }
+
+    @Test
+    public void testBeanInitAndDes() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
+        House house = ioc.getBean("house", House.class);
+        System.out.println("house = " + house);
+
+        // 关闭容器
+        //  ioc的编译类型是 ApplicationContext 运行类型是ClassPathXmlApplicationContext
+        // 因为ClassPathXmlApplicationContext 实现了 ConfigurableApplicationContext
+        // 同时 ConfigurableApplicationContext 有close() 方法
+        // 而且 ConfigurableApplicationContext 继承 ApplicationContext 接口
+        ((ConfigurableApplicationContext) ioc).close();
+    }
+
+    @Test
+    public void beanPostProcessor() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans02.xml");
+        House house = ioc.getBean("house", House.class);
+        System.out.println("house = " + house);
+        // 关闭处理器
+        ((ConfigurableApplicationContext) ioc).close();
+
     }
 }

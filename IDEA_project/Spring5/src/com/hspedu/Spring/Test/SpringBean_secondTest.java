@@ -1,10 +1,7 @@
 package com.hspedu.Spring.Test;
 
 import com.hspedu.Spring.Service.MemberServiceImpl;
-import com.hspedu.Spring.bean.BookStore;
-import com.hspedu.Spring.bean.Emo;
-import com.hspedu.Spring.bean.Master;
-import com.hspedu.Spring.bean.Monster;
+import com.hspedu.Spring.bean.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -90,6 +87,16 @@ public class SpringBean_secondTest {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
         Monster bean = ioc.getBean("myBeanFactory", Monster.class);
         System.out.println("bean = " + bean);
+    }
+
+    @Test
+    public void getBeanByScope() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
+        Cat cat = ioc.getBean("cat", Cat.class);
+        Cat cat1 = ioc.getBean("cat", Cat.class);
+        Cat cat2 = ioc.getBean("cat", Cat.class);
+        System.out.println("cat = " + cat);
+
     }
 
 }

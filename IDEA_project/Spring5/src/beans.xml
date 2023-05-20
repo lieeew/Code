@@ -12,28 +12,28 @@
         5. id 属性表示Java对象在spring容器中的id, 通过id可以获取 【唯一的】
         6. <property name="monsterId" value="100" /> 用于给对象赋值
     -->
-<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster01">-->
-<!--        <property name="monsterId" value="100"/>-->
-<!--        <property name="name" value="牛魔王"/>-->
-<!--        <property name="skill" value="芭蕉扇"/>-->
-<!--    </bean>-->
+    <!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster01">-->
+    <!--        <property name="monsterId" value="100"/>-->
+    <!--        <property name="name" value="牛魔王"/>-->
+    <!--        <property name="skill" value="芭蕉扇"/>-->
+    <!--    </bean>-->
 
-<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster02">-->
-<!--        <property name="monsterId" value="200"/>-->
-<!--        <property name="name" value="铁扇公主"/>-->
-<!--        <property name="skill" value="哈哈哈"/>-->
-<!--    </bean>-->
+    <!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster02">-->
+    <!--        <property name="monsterId" value="200"/>-->
+    <!--        <property name="name" value="铁扇公主"/>-->
+    <!--        <property name="skill" value="哈哈哈"/>-->
+    <!--    </bean>-->
 
-<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster03">-->
-<!--        <property name="monsterId" value="666"/>-->
-<!--        <property name="name" value="牛魔王~~!!"/>-->
-<!--        <property name="skill" value="芭蕉扇~~"/>-->
-<!--    </bean>-->
-<!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster04">-->
-<!--        <property name="monsterId" value="1010"/>-->
-<!--        <property name="name" value="牛魔王~"/>-->
-<!--        <property name="skill" value="芭蕉扇~"/>-->
-<!--    </bean>-->
+    <!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster03">-->
+    <!--        <property name="monsterId" value="666"/>-->
+    <!--        <property name="name" value="牛魔王~~!!"/>-->
+    <!--        <property name="skill" value="芭蕉扇~~"/>-->
+    <!--    </bean>-->
+    <!--    <bean class="com.hspedu.Spring.bean.Monster" id="monster04">-->
+    <!--        <property name="monsterId" value="1010"/>-->
+    <!--        <property name="name" value="牛魔王~"/>-->
+    <!--        <property name="skill" value="芭蕉扇~"/>-->
+    <!--    </bean>-->
     <!--    使用构造器配置monster对象
             1. 这里使用 constructor-arg 可以指定构造器
             2. index 表示构造器第几个元素 索引从0开始
@@ -202,13 +202,13 @@
     <!--        <property name="bookList" ref="myBook"/>-->
     <!--    </bean>-->
 
-<!--        设置级联属性-->
-<!--        <bean class="com.hspedu.Spring.bean.Dept" id="dept" />-->
-<!--        <bean class="com.hspedu.Spring.bean.Emo" id="emo">-->
-<!--            <property name="name" value="Jack" />-->
-<!--            <property name="dept" ref="dept" />-->
-<!--            <property name="dept.name" value="Java开发部门" />-->
-<!--        </bean>-->
+    <!--        设置级联属性-->
+    <!--        <bean class="com.hspedu.Spring.bean.Dept" id="dept" />-->
+    <!--        <bean class="com.hspedu.Spring.bean.Emo" id="emo">-->
+    <!--            <property name="name" value="Jack" />-->
+    <!--            <property name="dept" ref="dept" />-->
+    <!--            <property name="dept.name" value="Java开发部门" />-->
+    <!--        </bean>-->
 
 
     <!--    配置monster对象， 通过静态工厂获取
@@ -217,46 +217,75 @@
         3. factory-method 表示的是指定工厂类是由哪一个对象返回
         4. constructor—-arg 的value指的是要指定返回哪一个工厂对象
     -->
-<!--    <bean id="my_monster01" class="com.hspedu.Spring.Factory.MyStaticFactory" factory-method="getMonster">-->
-<!--        <constructor-arg value="1"/>-->
-<!--    </bean>-->
+    <!--    <bean id="my_monster01" class="com.hspedu.Spring.Factory.MyStaticFactory" factory-method="getMonster">-->
+    <!--        <constructor-arg value="1"/>-->
+    <!--    </bean>-->
 
-<!--    配置通过实例工厂
-        1. 因为是非静态的所以需要提前造对象
-        2. factory-bean 指定使用拿一个实例工厂
-        3. factory-method 指定使用实例工厂的哪一个方法
-        4. constructor-arg 传入的参数
+    <!--    配置通过实例工厂
+            1. 因为是非静态的所以需要提前造对象
+            2. factory-bean 指定使用拿一个实例工厂
+            3. factory-method 指定使用实例工厂的哪一个方法
+            4. constructor-arg 传入的参数
+    -->
+    <!--    <bean id="myInstanceFactory" class="com.hspedu.Spring.Factory.MyInstanceFactory" />-->
+
+    <!--    <bean id="my_monster02" factory-bean="myInstanceFactory" factory-method="getMonster">-->
+    <!--&lt;!&ndash;         由于这个对象一开始就会创建, 所以不管获取几次都是同一个对象&ndash;&gt;-->
+    <!--        <constructor-arg value="monster_02" />-->
+    <!--    </bean>-->
+    <!--    <bean id="myInstanceFactory2" class="com.hspedu.Spring.Factory.MyInstanceFactory" />-->
+    <!--    <bean id="my_monster03" factory-bean="myInstanceFactory2" factory-method="getMonster">-->
+    <!--        <constructor-arg value="monster_02" />-->
+    <!--    </bean>-->
+
+    <!--    1. 这里需要指定的class是factory的
+            2. key 表示的是 MyBeanFactory 的属性key
+            3. value 就是你要获取的对象的key
+    -->
+    <!--    <bean id="myBeanFactory" class="com.hspedu.Spring.Factory.MyBeanFactory">-->
+    <!--        <property name="key" value="monster_01" />-->
+    <!--    </bean>-->
+
+    <!--    配置monster对象
+            如果bean指定了 abstract="true" 那么只能被用于继承不能被实例化
+    -->
+    <!--    <bean id="monster10" class="com.hspedu.Spring.bean.Monster" abstract="true">-->
+    <!--        <property name="monsterId" value="10"/>-->
+    <!--        <property name="name" value="蜈蚣精~~"/>-->
+    <!--        <property name="skill" value="蜇人//"/>-->
+    <!--    </bean>-->
+
+    <!--&lt;!&ndash;    -->
+    <!--        1. 在配置一个monster 但是这个属性值和 monster01 一样-->
+    <!--        2. parent= "" 指定当前配置的属性值从 id="monster01"-->
+    <!--&ndash;&gt;-->
+    <!--    <bean id="monster11" class="com.hspedu.Spring.bean.Monster"-->
+    <!--          parent="monster10" />-->
+
+    <!--    <bean id="monster12" class="com.hspedu.Spring.bean.Monster"-->
+    <!--          parent="monster10" />-->
+    <!--    测试执行的顺序问题-->
+    <!--    <bean id="memberService" class="com.hspedu.Spring.Service.MemberServiceImpl">-->
+    <!--        <property name="memberDAO" ref="memberDAO"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="memberDAO" class="com.hspedu.Spring.DAO.MemberDAOImpl" />-->
+
+<!--
+    1. 这里不写scope属性默认是单例的即只有一个对象
+    2. 如果scope="prototype" 那么就是每一次都创造一个新的对象
 -->
-<!--    <bean id="myInstanceFactory" class="com.hspedu.Spring.Factory.MyInstanceFactory" />-->
-
-<!--    <bean id="my_monster02" factory-bean="myInstanceFactory" factory-method="getMonster">-->
-<!--&lt;!&ndash;         由于这个对象一开始就会创建, 所以不管获取几次都是同一个对象&ndash;&gt;-->
-<!--        <constructor-arg value="monster_02" />-->
-<!--    </bean>-->
-<!--    <bean id="myInstanceFactory2" class="com.hspedu.Spring.Factory.MyInstanceFactory" />-->
-<!--    <bean id="my_monster03" factory-bean="myInstanceFactory2" factory-method="getMonster">-->
-<!--        <constructor-arg value="monster_02" />-->
+<!--    <bean class="com.hspedu.Spring.bean.Cat" id="cat" scope="singleton" lazy-init="false">-->
+<!--        <property name="name" value="小花猫"/>-->
+<!--        <property name="age" value="12"/>-->
 <!--    </bean>-->
 
-<!--    1. 这里需要指定的class是factory的
-        2. key 表示的是 MyBeanFactory 的属性key
-        3. value 就是你要获取的对象的key
+<!--    配置对象, 演示整个bean生命周期
+        1. init-method= 指定bean初始化函数, 在getter方法之后
+        2. destroy-method 指定bean销毁时指定的方法
+        3. init 和 destroy 方法指定的时机由Spring容器指定
 -->
-<!--    <bean id="myBeanFactory" class="com.hspedu.Spring.Factory.MyBeanFactory">-->
-<!--        <property name="key" value="monster_01" />-->
-<!--    </bean>-->
-
-<!--    配置monster对象-->
-    <bean id="monster10" class="com.hspedu.Spring.bean.Monster">
-        <property name="monsterId" value="10"/>
-        <property name="name" value="蜈蚣精"/>
-        <property name="skill" value="蜇人"/>
+    <bean class="com.hspedu.Spring.bean.House" id="house"
+        init-method="init" destroy-method="destory">
+        <property name="name" value="北京豪宅" />
     </bean>
-
-<!--    1. 在配置一个monster 但是这个属性值和 monster01 一样
-        2. parent= "" 指定当前配置的属性值从 id="monster01"
--->
-    <bean id="monster11" class="com.hspedu.Spring.bean.Monster"
-          parent="monster10" />
-
 </beans>
