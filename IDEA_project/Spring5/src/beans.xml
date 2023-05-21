@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:context="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
     <!--
@@ -284,8 +284,22 @@
         2. destroy-method 指定bean销毁时指定的方法
         3. init 和 destroy 方法指定的时机由Spring容器指定
 -->
-    <bean class="com.hspedu.Spring.bean.House" id="house"
-        init-method="init" destroy-method="destory">
-        <property name="name" value="北京豪宅" />
+<!--    <bean class="com.hspedu.Spring.bean.House" id="house"-->
+<!--        init-method="init" destroy-method="destory">-->
+<!--        <property name="name" value="北京豪宅" />-->
+<!--    </bean>-->
+
+<!--    指定属性文件
+        location="" 需要带上classpath
+-->
+    <context:propoerty-placeholder location="classpath:my.properties" />
+
+    <bean class="com.hspedu.Spring.bean.Monster" id="monster">
+        <property name="monsterId" value="${monsterId}" />
+        <property name="name" value="${name}" />
+        <property name="skill" value="${skill}" />
     </bean>
+
+
+
 </beans>

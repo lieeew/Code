@@ -2,6 +2,7 @@ package com.hspedu.Spring.Test;
 
 import com.hspedu.Spring.Service.MemberServiceImpl;
 import com.hspedu.Spring.bean.*;
+import com.hspedu.Spring.web.OrderAction;
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -219,8 +220,31 @@ public class SpringBeanTest {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("beans02.xml");
         House house = ioc.getBean("house", House.class);
         System.out.println("house = " + house);
+        House house02 = ioc.getBean("house02", House.class);
+        System.out.println("house02 = " + house02);
         // 关闭处理器
         ((ConfigurableApplicationContext) ioc).close();
+
+    }
+
+    @Test
+    public void setBeanByProperties() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans03.xml");
+        Monster bean = ioc.getBean("monster", Monster.class);
+        System.out.println("bean = " + bean);
+    }
+    @Test
+    public void setBeanByAutowire() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans04.xml");
+        OrderAction orderAction = ioc.getBean("orderAction", OrderAction.class);
+        System.out.println("orderAction = " + orderAction.getOrderService().getOrderDAO());
+    }
+
+    @Test
+    public void setBeanByEL() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans05.xml");
+        SpELBean spELBean = ioc.getBean("spELBean", SpELBean.class);
+        System.out.println("spELBean = " + spELBean);
 
     }
 }

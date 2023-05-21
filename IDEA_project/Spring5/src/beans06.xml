@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    <bean class="com.hspedu.Spring.Factory.MyBeanFactory02" id="beanFactory02">-->
+    <!--        <property name="key" value="monster_01"/>-->
+    <!--    </bean>-->
+
+    <!--    &lt;!&ndash;    不要太死磕这点, 好吧&ndash;&gt;-->
+    <!--    <bean id="factory02" class="com.hspedu.Spring.Factory.MyBeanFactory03"/>-->
+
+    <!--    <bean abstract="true" id="template" class="com.hspedu.Spring.bean.Monster">-->
+    <!--        <property name="monsterId" value="666"/>-->
+    <!--        <property name="skill" value="炼丹"/>-->
+    <!--        <property name="name" value="太上老君"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="mosnster02" class="com.hspedu.Spring.bean.Monster" parent="template">-->
+    <!--        <property name="name" value="牛魔王~"/>-->
+    <!--    </bean>-->
+
+    <!--    创建顺序-->
+    <!--    <bean id="dept" class="com.hspedu.Spring.bean.Dept" />-->
+    <!--    <bean id="emp" class="com.hspedu.Spring.bean.Emo">-->
+    <!--        <property name="dept" ref="dept"/>-->
+    <!--        <property name="name" value="Jack"/>-->
+    <!--    </bean>-->
+
+
+    <!--    singleton 是 单例-->
+    <!--    <bean class="com.hspedu.Spring.bean.Cat" id="cat" scope="singleton" lazy-init="false">-->
+    <!--        <property name="name" value="小花猫"/>-->
+    <!--        <property name="age" value="12"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean class="com.hspedu.Spring.bean.House" id="house" init-method="init" destroy-method="destory">-->
+    <!--        <property name="name" value="house" />-->
+    <!--    </bean>-->
+
+    <!--    <bean id="postProcess" class="com.hspedu.Spring.bean.MyBeanPostProcessor02" />-->
+
+    <!--    <context:property-placeholder location="classpath:my.properties"/>-->
+    <!--    <bean id="monster" class="com.hspedu.Spring.bean.Monster">-->
+    <!--        <property name="name" value="${name}"/>-->
+    <!--        <property name="skill" value="${skill}"/>-->
+    <!--        <property name="monsterId" value="${monsterId}"/>-->
+    <!--    </bean>-->
+
+    <!--    xml自动装配-->
+    <bean class="com.hspedu.Spring.DAO.OrderDAO" id="orderDAO2"/>
+    <bean class="com.hspedu.Spring.Service.OrderService" id="orderService" autowire="byName"/>
+    <bean class="com.hspedu.Spring.web.OrderAction" id="orderAction" autowire="byName"/>
+
+</beans>

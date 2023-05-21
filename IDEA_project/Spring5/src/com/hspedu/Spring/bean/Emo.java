@@ -13,6 +13,7 @@ public class Emo {
     private Dept dept;
 
     public Emo() {
+        System.out.println("emo构造器");
     }
 
     public Emo(String name, Dept dept) {
@@ -33,6 +34,7 @@ public class Emo {
     }
 
     public void setDept(Dept dept) {
+        System.out.println("set方法~");
         this.dept = dept;
     }
 

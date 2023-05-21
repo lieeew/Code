@@ -7,10 +7,14 @@
           init-method="init" destroy-method="destory">
         <property name="name" value="大豪宅"/>
     </bean>
+    <bean class="com.hspedu.Spring.bean.House" id="house02"
+          init-method="init" destroy-method="destory">
+        <property name="name" value="香港豪宅"/>
+    </bean>
 
-<!--    老韩解读
-        1. 当我们在bean02.xml文件配置了MyBeanPostProcessor
-        2. 这时后置处理器就会作用在该容器创建的bean对象
--->
-    <bean class="com.hspedu.Spring.bean.MyBeanPostProcessor" id="myBeanPostProcessor" />
+    <!--    老韩解读
+            1. 当我们在bean02.xml文件配置了MyBeanPostProcessor
+            2. 这时后置处理器就会作用在该容器创建的bean对象
+    -->
+    <bean class="com.hspedu.Spring.bean.MyBeanPostProcessor" id="myBeanPostProcessor"/>
 </beans>

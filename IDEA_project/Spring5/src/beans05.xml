@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean class="com.hspedu.Spring.bean.Monster" id="monster01">
+            <property name="monsterId" value="100"/>
+            <property name="name" value="牛魔王"/>
+            <property name="skill" value="芭蕉扇"/>
+        </bean>
+
+    <bean id="spELBean" class="com.hspedu.Spring.bean.SpELBean">
+        <!-- sp el 给字面量 也可以直接赋值 -->
+        <property name="name" value="#{'韩顺平教育'}"/>
+        <!-- sp el 引用其它 bean -->
+        <property name="monster" value="#{monster01}"/>
+        <!-- sp el 引用其它 bean 的属性值 -->
+        <property name="monsterName" value="#{monster01.name}"/>
+        <!-- sp el 调用普通方法 赋值 -->
+        <property name="crySound" value="#{spELBean.crySound()}"/>
+        <!-- sp el 调用静态方法 赋值 -->
+        <property name="bookName" value="#{T(com.hspedu.Spring.bean.SpELBean).read(' 天龙八部')}"/>
+        <!-- sp el 通过运算赋值 -->
+        <property name="result" value="#{89*1.2}"/>
+    </bean>
+</beans>

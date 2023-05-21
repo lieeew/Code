@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--
+            指定属性文件
+            location="" 指定属性文件的位置, 需要带上classpath
+    -->
+    <context:property-placeholder location="classpath:my.properties"/>
+
+<!--
+    通过属性文件给monster赋值, 同时这时的属性值是通过 ${属性名} 来引用的
+    属性名就是 properties配置文件中的 key
+-->
+    <bean class="com.hspedu.Spring.bean.Monster" id="monster">
+        <property name="monsterId" value="${monsterId}"/>
+        <property name="name" value="${name}"/>
+        <property name="skill" value="${skill}"/>
+    </bean>
+</beans>

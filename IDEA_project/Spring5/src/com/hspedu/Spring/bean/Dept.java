@@ -12,6 +12,7 @@ public class Dept {
     private String name;
 
     public Dept() {
+        System.out.println("dep构造器");
     }
 
     public String getName() {

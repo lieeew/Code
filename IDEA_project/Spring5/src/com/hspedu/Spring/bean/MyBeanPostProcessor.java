@@ -16,7 +16,8 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 
     /**
      * 在bean的init方法调用前执行
-     * @param bean 就是 ioc 容器返回的 bean 对象, 如果这里被替换会修改，则返回的 bean 对象也会被修改
+     *
+     * @param bean     就是 ioc 容器返回的 bean 对象, 如果这里被替换会修改，则返回的 bean 对象也会被修改
      * @param beanName 就是 ioc 容器配置的 bean 的名称
      * @return 程序员对传入的bean记性返回/修改, 返回的 bean 对象
      */
@@ -24,18 +25,24 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         System.out.println("postProcessBeforeInitialization()~~" + "bean = "
                 + bean + " beanName = " + beanName);
+        if (bean instanceof House) {
+            ((House) bean).setName("美国豪宅");
+        }
         return bean;
     }
 
     /**
      * 在bean的init方法调用后执行
-     * @param bean 就是 ioc 容器返回的 bean 对象, 如果这里被替换会修改，则返回的 bean 对象也会被修改
+     *
+     * @param bean     就是 ioc 容器返回的 bean 对象, 如果这里被替换会修改，则返回的 bean 对象也会被修改
      * @param beanName 就是 ioc 容器配置的 bean 的名称
      * @return 就是返回的 bean 对象
      */
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("postProcessAfterInitialization()~~");
+        System.out.println("postProcessAfterInitialization()~~" + "bean = "
+                + bean + " beanName = " + beanName);
         return bean;
     }
+
 }

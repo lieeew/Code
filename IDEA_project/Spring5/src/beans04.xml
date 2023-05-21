@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--
+    1. 可以通过autowire 实现自动装配
+    2. autowire="byType" 通过类型自动完成赋值/引用
+    3. 比如OrderService 中有 OrderDAO 属性, 如果容器中如果过有OrderDAO 这个类型的对象就会自动装配
+    4. 如果使用byType 那么不能有两个(或以上)这个类型的对象
+    5. 如果没有没有属性那么 autowire没有必要写
+-->
+
+
+<!--
+    1. 如果我们设置的是 autowrie="byName" 表示通过名字自动完成装配
+    2. 比如 <bean autowire="byName" class="com.hspedu.Spring.Service.OrderService" id="orderService" />
+        1) 先看OrderService的属性 private OrderDAO orderDAO
+        2) 根据这个属性的 setXxx() 方法的 xxx来找对象的id
+        3) public void setOrderDAO(OrderDAO orderDAO){...} 会根据id=orderDAO 对象来进行自动装配
+        4) 如果没有就配置失败
+-->
+    <bean class="com.hspedu.Spring.DAO.OrderDAO" id="orderDAO2"/>
+
+    <bean autowire="byName" class="com.hspedu.Spring.Service.OrderService" id="orderService" />
+
+    <bean autowire="byName" class="com.hspedu.Spring.web.OrderAction" id="orderAction" />
+</beans>
