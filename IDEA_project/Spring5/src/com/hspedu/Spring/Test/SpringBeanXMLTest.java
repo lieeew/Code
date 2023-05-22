@@ -2,6 +2,10 @@ package com.hspedu.Spring.Test;
 
 import com.hspedu.Spring.bean.House;
 import com.hspedu.Spring.bean.Monster;
+import com.hspedu.Spring.component.MyComponent;
+import com.hspedu.Spring.component.UserAction;
+import com.hspedu.Spring.component.UserDAO;
+import com.hspedu.Spring.component.UserService;
 import com.hspedu.Spring.web.OrderAction;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -81,5 +85,25 @@ public class SpringBeanXMLTest {
         ((ConfigurableApplicationContext) ioc).close();
     }
 
+    /**
+     * 通过注解配置bean
+     * @throws Exception
+     */
+    @Test
+    public void setBeanByAnnotation() throws Exception {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans07.xml");
+        MyComponent myComponent = ioc.getBean("myComponent", MyComponent.class);
+        UserService userService = ioc.getBean(UserService.class);
+        UserDAO userDAO = ioc.getBean("user", UserDAO.class);
+        UserAction userAction = ioc.getBean("userAction", UserAction.class);
+
+
+        System.out.println("myComponent = " + myComponent);
+        System.out.println("userDAO = " + userDAO);
+        System.out.println("userService = " + userService);
+        System.out.println("userAction = " + userAction);
+
+        ((ConfigurableApplicationContext) ioc).close();
+    }
 
 }
