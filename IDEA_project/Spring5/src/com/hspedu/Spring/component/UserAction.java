@@ -10,6 +10,6 @@ import org.springframework.stereotype.Controller;
  * @Creat: 2023/5/21 - 21:40
  * @Description: 标识该类是一个控制器 Controller , 通常这个类是servlet
  */
-@Controller
+@Controller(value = "action")
 public class UserAction {
 }
