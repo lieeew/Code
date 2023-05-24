@@ -10,7 +10,10 @@ import com.hspedu.Spring.component.MyComponent;
 import com.hspedu.Spring.component.UserAction;
 import com.hspedu.Spring.component.UserDAO;
 import com.hspedu.Spring.component.UserService;
+import com.hspedu.Spring.depinjection.PhoneService;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * ClassName: HspSpringApplicationContextTest
@@ -50,5 +53,23 @@ public class HspSpringApplicationContextTest {
 
     }
 
+    @Test
+    public void setPropertyAutowired() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans08.xml");
+
+        UserAction userAction = ioc.getBean("userAction", UserAction.class);
+        userAction.sayOk();
+        Object userService = ioc.getBean("userService200");
+        System.out.println("userService = " + userService);
+        System.out.println("userAction = " + userAction);
+    }
+
+    @Test
+    public void setProByDependencyInjection() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans09.xml");
+        PhoneService phoneService = ioc.getBean("phoneService", PhoneService.class);
+        phoneService.save();
+
+    }
 
 }
