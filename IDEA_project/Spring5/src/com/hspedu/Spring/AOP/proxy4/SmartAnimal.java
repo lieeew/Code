@@ -1,8 +1,8 @@
-package com.hspedu.Spring.proxy3;
+package com.hspedu.Spring.AOP.proxy4;
 
 /**
  * ClassName: SmartAnimal
- * Package: com.hspedu.Spring.proxy3
+ * Package: com.hspedu.Spring.AOP.proxy3
  *
  * @Author: leikooo
  * @Creat: 2023/5/25 - 6:54

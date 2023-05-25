@@ -1,4 +1,4 @@
-package com.hspedu.Spring.proxy2;
+package com.hspedu.Spring.AOP.proxy2;
 
 import org.junit.Test;
 

@@ -1,9 +1,8 @@
 package com.hspedu.Spring.Test;
 
-import com.hspedu.Spring.proxy2.Car;
-import com.hspedu.Spring.proxy2.Ship;
-import com.hspedu.Spring.proxy2.Vehicle;
-import com.hspedu.Spring.proxy2.VehicleProxyProvider;
+import com.hspedu.Spring.AOP.proxy2.Car;
+import com.hspedu.Spring.AOP.proxy2.Vehicle;
+import com.hspedu.Spring.AOP.proxy2.VehicleProxyProvider;
 import org.junit.Test;
 
 /**

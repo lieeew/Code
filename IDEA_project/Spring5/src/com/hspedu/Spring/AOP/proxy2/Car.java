@@ -1,8 +1,8 @@
-package com.hspedu.Spring.proxy2;
+package com.hspedu.Spring.AOP.proxy2;
 
 /**
  * ClassName: Car
- * Package: com.hspedu.Spring.proxy2
+ * Package: com.hspedu.Spring.AOP.proxy2
  *
  * @Author: leikooo
  * @Creat: 2023/5/24 - 10:21

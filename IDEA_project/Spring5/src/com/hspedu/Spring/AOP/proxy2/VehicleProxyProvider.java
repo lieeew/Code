@@ -1,13 +1,12 @@
-package com.hspedu.Spring.proxy2;
+package com.hspedu.Spring.AOP.proxy2;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.sql.SQLOutput;
 
 /**
  * ClassName: VehicleProxyProvider
- * Package: com.hspedu.Spring.proxy2
+ * Package: com.hspedu.Spring.AOP.proxy2
  *
  * @Author: leikooo
  * @Creat: 2023/5/24 - 13:28
