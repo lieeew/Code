@@ -15,11 +15,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AopAspectjTest {
 
     @Test
-    public void test1() {
+    public  void test1() {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("beans10.xml");
-        // 这里我们通过接口类型来获取注入到Dog对象
-        SmartAnimal bean = ioc.getBean(SmartAnimal.class);
+        // 这里我们通过接口类型来获取注入到Dog对象1
+        // 不能按照dog类型获取
+        SmartAnimal bean = ioc.getBean("dog", SmartAnimal.class);
 //        System.out.println(bean.getClass());
         int sum = bean.getSum(1, 2);
+
+        System.out.println("======");
+
+        int sub = bean.getSub(10, 3);
     }
 }

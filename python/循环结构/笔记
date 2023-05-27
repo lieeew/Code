@@ -1,0 +1,6 @@
+一种是for-in循环，一种是while循环
+
+两种循环结构
+
+for i in range(数据)  -- 左开右闭
+

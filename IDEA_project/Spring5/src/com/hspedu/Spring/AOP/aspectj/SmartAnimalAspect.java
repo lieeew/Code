@@ -2,8 +2,7 @@ package com.hspedu.Spring.AOP.aspectj;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
@@ -28,10 +27,30 @@ public class SmartAnimalAspect {
      * 4. JoinPoint joinPoint  在底层执行时会自动传入joinPoint对象
      */
     @Before(value = "execution(public int com.hspedu.Spring.AOP.aspectj.Dog.getSum(int ,int))")
-    public static void f1(JoinPoint joinPoint) {
+    public static void showBeginLog(JoinPoint joinPoint) {
         // 拿到方法签名
         Signature signature = joinPoint.getSignature();
-        System.out.println(" 方法执行前 - 日志 - 方法名- :" + signature.getName() + " -参数 " + Arrays.asList(joinPoint.getArgs()));
+        System.out.println("方法执行前 - 日志 - 方法名- :" + signature.getName() + " -参数 " + Arrays.asList(joinPoint.getArgs()));
+    }
+
+    // 把f2切入到正常结束之后的通知
+    @AfterReturning(value = "execution(public int com.hspedu.Spring.AOP.aspectj.Dog.getSum(int ,int))")
+    public void showSuccessLog(JoinPoint joinPoint) {
+        System.out.println("方法执行正常结束-日志-方法名: " + joinPoint.getSignature().getName());
+
+    }
+
+    @AfterThrowing(value = "execution(public int com.hspedu.Spring.AOP.aspectj.Dog.getSum(int ,int))")
+    public void showExceptionLog(JoinPoint joinPoint) {
+        System.out.println("方法执行异常-日志-方法名: " + joinPoint.getSignature().getName());
+
+    }
+
+    // 切入到方法执行之后 finally {}
+    // 可以使用模糊配置
+    @After(value = "execution(public int com.hspedu.Spring.AOP.aspectj.Dog.*(int ,int))")
+    public void showFinallyEndingLog(JoinPoint joinPoint) {
+        System.out.println("方法最终执行完毕 finally{} -日志-方法名: " + joinPoint.getSignature().getName());
     }
 
 }

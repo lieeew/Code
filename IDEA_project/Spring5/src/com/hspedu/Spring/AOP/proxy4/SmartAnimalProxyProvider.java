@@ -46,7 +46,7 @@ public class SmartAnimalProxyProvider {
                 } finally {
                     // 不管有没有异常, 都会执行
                     //  从AOP来看, 这个也是一个横切关注点, 最终通知
-                    System.out.println("方法执行结束 -- 日志 -- 方法" + method.getName());
+                    System.out.println(".方法执行结束 -- 日志 -- 方法" + method.getName());
                 }
                 return result;
             }
