@@ -16,7 +16,8 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class UsbAspect {
 
-    @Before(value = "execution(public int com.hspedu.Spring.AOP.homework.Phone.work()) || execution(public int com.hspedu.Spring.AOP.homework.Camera.work())")
+    // 这里我们队UsbInterface 切入, 那么对实现类 phone 和 camera 对象都作用了
+    @Before(value = "execution(public int com.hspedu.Spring.AOP.homework.UsbInterface.work())")
     public void showBeginLog(JoinPoint joinPoint) {
         System.out.println("前置通知-调用的方法名是 " + joinPoint.getSignature().getName());
     }
@@ -35,4 +36,8 @@ public class UsbAspect {
         System.out.println("方法最终执行完毕 finally{} -日志-方法名: " + joinPoint.getSignature().getName());
     }
 
+    @Before(value = "execution(public void Car.run())")
+    public void ok(JoinPoint joinPoint) {
+        System.out.println("前置通知-调用的方法名是 " + joinPoint.getSignature().getName());
+    }
 }

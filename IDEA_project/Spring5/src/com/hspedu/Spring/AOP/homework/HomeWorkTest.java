@@ -25,4 +25,13 @@ public class HomeWorkTest {
         UsbInterface camera = ioc.getBean("camera", UsbInterface.class);
         camera.work();
     }
+
+    @Test
+    public void testHomeWork2() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans11.xml");
+        Car bean = ioc.getBean(Car.class);
+        bean.run();
+        // class com.hspedu.Spring.AOP.homework.Car$$EnhancerBySpringCGLIB$$e919e523
+        System.out.println("bean.getClass() = " + bean.getClass());
+    }
 }
