@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <context:component-scan base-package="com.hspedu.Spring.AOP.homework02"/>-->
+<!--    &lt;!&ndash;    必须要写：开启基于注解的AOP功能&ndash;&gt;-->
+<!--    <aop:aspectj-autoproxy />-->
+    <bean class="com.hspedu.Spring.AOP.homework02.MyCal" id="myCal"/>
+    <bean class="com.hspedu.Spring.AOP.homework02.CalAspect" id="aspect"/>
+    <aop:config>
+        <aop:pointcut id="myPointCut" expression="execution(public int com.hspedu.Spring.AOP.homework02.MyCal.*(..))"/>
+        <aop:aspect ref="aspect">
+            <aop:before method="beforeLog" pointcut-ref="myPointCut" />
+            <aop:after-returning method="afterLog" pointcut-ref="myPointCut" returning="result"/>
+            <aop:after-throwing method="printLogAfterException" pointcut-ref="myPointCut" throwing="throwable"/>
+            <aop:after method="finallyLog" pointcut-ref="myPointCut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+<!--    基于xml, 实现aop编程-->
+    <bean class="com.hspedu.Spring.AOP.xml.Dog" id="dog"/>
+    <bean class="com.hspedu.Spring.AOP.xml.SmartAnimalAspect" id="animalAspect"/>
+
+<!--    必须要引入名称空间 xmlns:aop="http://www.springframework.org/schema/aop"-->
+    <aop:config>
+<!--        先配置切入点, 在配置切面对象-->
+        <aop:pointcut id="myPointCut" expression="execution(public int com.hspedu.Spring.AOP.xml.Dog.getSum(int , int))"/>
+        <!--        这里就是制定切面对象-->
+        <aop:aspect ref="animalAspect" order="10">
+<!--            配置前置通知-->
+            <aop:before method="showBeginLog" pointcut-ref="myPointCut" />
+<!--            返回通知-->
+            <aop:after-returning method="showSuccessLog" pointcut-ref="myPointCut" returning="res"/>
+<!--            异常通知-->
+            <aop:after-throwing method="showExceptionLog" pointcut-ref="myPointCut" throwing="mes"/>
+<!--            最终通知-->
+            <aop:after method="showFinallyEndingLog" pointcut-ref="myPointCut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

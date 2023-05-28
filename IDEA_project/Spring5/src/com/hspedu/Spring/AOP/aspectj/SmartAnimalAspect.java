@@ -14,8 +14,8 @@ import java.util.Arrays;
  * @Creat: 2023/5/25 - 16:44
  * @Description: 类似于我们自己之前写的 ProxyProvider
  */
-@Component // 会注入到Spring容器
-@Aspect // 表示是一个切面类 【底层切面编程的支撑(动态代理 + 反射 + 动态绑定 ~~)】
+//@Component // 会注入到Spring容器
+//@Aspect // 表示是一个切面类 【底层切面编程的支撑(动态代理 + 反射 + 动态绑定 ~~)】
 public class SmartAnimalAspect {
 
     // 希望将f1 切入到dog-getSum前执行
@@ -53,10 +53,11 @@ public class SmartAnimalAspect {
 
     }
 
-    @AfterThrowing(value = "execution(public int com.hspedu.Spring.AOP.aspectj.Dog.getSum(int ,int))")
-    public void showExceptionLog(JoinPoint joinPoint) {
+    @AfterThrowing(value = "execution(public int com.hspedu.Spring.AOP.aspectj.Dog.getSum(int ,int))", throwing = "mes")
+    public void showExceptionLog(JoinPoint joinPoint, Throwable mes) {
         System.out.println("方法执行异常-日志-方法名: " + joinPoint.getSignature().getName());
-
+        // 异常是mes = java.lang.ArithmeticException: / by zero
+        System.out.println("异常是mes = " + mes);
     }
 
     // 切入到方法执行之后 finally {}

@@ -20,10 +20,10 @@ public class HomeWorkTest {
         UsbInterface phone = ioc.getBean("phone", UsbInterface.class);
         phone.work();
 
-        System.out.println("============");
-
-        UsbInterface camera = ioc.getBean("camera", UsbInterface.class);
-        camera.work();
+//        System.out.println("============");
+//
+//        UsbInterface camera = ioc.getBean("camera", UsbInterface.class);
+//        camera.work();
     }
 
     @Test
