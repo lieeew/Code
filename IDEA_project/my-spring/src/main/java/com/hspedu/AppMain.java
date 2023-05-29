@@ -1,5 +1,6 @@
 package com.hspedu;
 
+import com.hspedu.AOP.SmartAnimal;
 import com.hspedu.Spring.UserAction;
 import com.hspedu.Spring.UserDAO;
 import com.hspedu.Spring.UserService;
@@ -27,6 +28,10 @@ public class AppMain {
         UserService userService = ioc.getBean("userService", UserService.class);
         System.out.println("userService = " + userService);
 
+
         userService.m1();
+
+        SmartAnimal smartAnimal = ioc.getBean(SmartAnimal.class);
+        smartAnimal.getSub(1, 2);
     }
 }
