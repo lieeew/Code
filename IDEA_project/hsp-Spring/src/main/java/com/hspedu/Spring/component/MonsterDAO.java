@@ -2,6 +2,7 @@ package com.hspedu.Spring.component;
 
 import com.hspedu.Spring.Annotation.Component;
 import com.hspedu.Spring.Annotation.Scope;
+import com.hspedu.Spring.processor.InitializingBean;
 
 /**
  * ClassName: MonsterDAO
@@ -13,9 +14,14 @@ import com.hspedu.Spring.Annotation.Scope;
  */
 @Scope
 @Component
-public class MonsterDAO {
+public class MonsterDAO implements InitializingBean {
 
     public void hi() {
         System.out.println("MonsterDAO-hi()~");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("MonsterDAO 初始化方法被调~");
     }
 }

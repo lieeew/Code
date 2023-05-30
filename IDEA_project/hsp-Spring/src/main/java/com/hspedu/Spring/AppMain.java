@@ -29,7 +29,7 @@ public class AppMain {
 //        System.out.println("monsterService2 = " + monsterService2);
 
         MonsterService monsterService1 = (MonsterService) ioc.getBean("monsterService");
-        monsterService1.hello();
+//        monsterService1.hello();
     }
 
     @Test

@@ -5,6 +5,7 @@ import com.hspedu.Spring.Annotation.Component;
 import com.hspedu.Spring.Annotation.ComponentScan;
 import com.hspedu.Spring.Annotation.Scope;
 import com.hspedu.Spring.component.MonsterDAO;
+import com.hspedu.Spring.processor.InitializingBean;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.File;
@@ -25,13 +26,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class HspSpringApplicationContext {
     // 使用反射需要Class类
     private Class configClass;
-
     // 定义一个属性 BeanDefinitionMap  -> 存放BeanDefinition
-    private final ConcurrentHashMap<String, BeanDefinition> BeanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>();
+    private final ConcurrentHashMap<String, BeanDefinition> BeanDefinitionMap = new ConcurrentHashMap<>();
     // 定义一个SingletonObjects  ->  存放单例对象
-    private final ConcurrentHashMap<String, Object> SingletonObjects = new ConcurrentHashMap<String, Object>();
-    // ioc 存放的是通过反射创建的对象(基于注解)
-    private final ConcurrentHashMap<String, Object> ioc = new ConcurrentHashMap<String, Object>();
+    private final ConcurrentHashMap<String, Object> SingletonObjects = new ConcurrentHashMap<>();
 
     public HspSpringApplicationContext(Class configClass) {
         beanDefinitionByScan(configClass);
@@ -52,9 +50,8 @@ public class HspSpringApplicationContext {
                 }
             }
         }
-
-        System.out.println("SingletonObjects = " + SingletonObjects);
-        System.out.println("BeanDefinitionMap = " + BeanDefinitionMap);
+//        System.out.println("SingletonObjects = " + SingletonObjects);
+//        System.out.println("BeanDefinitionMap = " + BeanDefinitionMap);
     }
 
     /**
@@ -76,15 +73,26 @@ public class HspSpringApplicationContext {
                     String name = field.getName();
 //                    System.out.println("name = " + name);
                     Object bean = getBean(name);
+                    // 传入对象
                     field.set(instance, bean);
                 }
+            }
+            System.out.println("=====bean创建好实例=====  " + instance);
+            // 这里可以执行初始化方法
+            // instanceof 表示判断某个对象运行类型是不是 某个类型或者某个子类型
+            // 这里使用过到 接口编程
+            if (instance instanceof InitializingBean) {
+                InitializingBean initializingBean = (InitializingBean) instance;
+                initializingBean.afterPropertiesSet();
             }
             return instance;
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
                  NoSuchMethodException e) {
             e.printStackTrace();
-            return null;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
+        return null;
     }
 
     public Object getBean(String beanName) {
@@ -159,7 +167,7 @@ public class HspSpringApplicationContext {
                                 // 注意这里的 StringUtils 是  org.apache.commons.lang 目录下面的
                                 beanName = StringUtils.uncapitalize(className);
                                 String name = clazz.getName();
-                                System.out.println("name = " + name);
+//                                System.out.println("name = " + name);
                             }
                             // 3. 这里把bean信息封装到 BeanDefinitionMap
                             BeanDefinition beanDefinition = new BeanDefinition();
