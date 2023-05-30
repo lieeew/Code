@@ -46,44 +46,16 @@ public class HspSpringApplicationContext {
             if ("singleton".equals(scope)) {
                 // 单例直接创建
                 Object bean = createBean(beanDefinition);
-                SingletonObjects.put(beanName, bean);
+                if (!SingletonObjects.containsKey(beanName)) {
+                    // 如果已经创建了, 就不用再进行创建了
+                    SingletonObjects.put(beanName, bean);
+                }
             }
         }
 
         System.out.println("SingletonObjects = " + SingletonObjects);
         System.out.println("BeanDefinitionMap = " + BeanDefinitionMap);
     }
-
-    /**
-     * 返回Bean对象, 有三种情况 , 这种写法初始化的位置不对!!!
-     *
-     * @param key key
-     * @return 对象
-     */
-//    public Object getBean(String key) throws InstantiationException, IllegalAccessException {
-//        BeanDefinition beanDefinition = BeanDefinitionMap.get(key);
-//        if (beanDefinition == null) {
-//            throw new RuntimeException("No BeanDefinition~~");
-//        }
-//
-//        String scope = beanDefinition.getScope();
-//        if ("singleton".equals(scope)) {
-//            if (SingletonObjects.containsKey(key)) {
-//                return SingletonObjects.get(key);
-//            } else {
-//                Class clazz = beanDefinition.getClazz();
-//                Object instance = clazz.newInstance();
-//                SingletonObjects.put(key, instance);
-//                return instance;
-//            }
-//        } else if ("prototype".equals(scope)) {
-//            Class clazz = beanDefinition.getClazz();
-//            return clazz.newInstance();
-//        } else {
-//            System.out.println("~~");
-//        }
-//        return null;
-//    }
 
     /**
      * 创建bean对象
@@ -103,7 +75,7 @@ public class HspSpringApplicationContext {
                     field.setAccessible(true);
                     String name = field.getName();
 //                    System.out.println("name = " + name);
-                    Object bean =  getBean(name);
+                    Object bean = getBean(name);
                     field.set(instance, bean);
                 }
             }
@@ -122,7 +94,14 @@ public class HspSpringApplicationContext {
         }
 
         if ("singleton".equals(BeanDefinitionMap.get(beanName).getScope())) {
-            return SingletonObjects.get(beanName);
+            if (SingletonObjects.containsKey(beanName)) {
+                return SingletonObjects.get(beanName);
+            } else {
+                BeanDefinition beanDefinition = BeanDefinitionMap.get(beanName);
+                Object instance = createBean(beanDefinition);
+                SingletonObjects.put(beanName, instance);
+                return instance;
+            }
         } else {
             BeanDefinition beanDefinition = BeanDefinitionMap.get(beanName);
             return createBean(beanDefinition);
@@ -169,7 +148,7 @@ public class HspSpringApplicationContext {
                         // 获得注解上面的value属性, 作为key
                         if (clazz.isAnnotationPresent(Component.class)) {
                             // 如果该类使用了@Component
-                            System.out.println("这个是一个SpringBean bean = " + clazz + " 类名 " + className);
+//                            System.out.println("这个是一个SpringBean bean = " + clazz + " 类名 " + className);
                             // 先得到beanName
                             // 1. 得到 Component 注解
                             Component componentAnnotation = clazz.getDeclaredAnnotation(Component.class);
