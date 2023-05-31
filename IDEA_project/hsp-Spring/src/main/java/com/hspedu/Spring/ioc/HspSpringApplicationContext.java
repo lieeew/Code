@@ -5,6 +5,7 @@ import com.hspedu.Spring.Annotation.Component;
 import com.hspedu.Spring.Annotation.ComponentScan;
 import com.hspedu.Spring.Annotation.Scope;
 import com.hspedu.Spring.component.MonsterDAO;
+import com.hspedu.Spring.processor.BeanPostProcessor;
 import com.hspedu.Spring.processor.InitializingBean;
 import org.apache.commons.lang.StringUtils;
 
@@ -12,7 +13,10 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -26,10 +30,20 @@ import java.util.concurrent.ConcurrentHashMap;
 public class HspSpringApplicationContext {
     // 使用反射需要Class类
     private Class configClass;
+
     // 定义一个属性 BeanDefinitionMap  -> 存放BeanDefinition
     private final ConcurrentHashMap<String, BeanDefinition> BeanDefinitionMap = new ConcurrentHashMap<>();
+
     // 定义一个SingletonObjects  ->  存放单例对象
     private final ConcurrentHashMap<String, Object> SingletonObjects = new ConcurrentHashMap<>();
+
+    // 定义一个 ArrayList 存放 实现BeanPostProcessor的类
+    /*
+        1. 为了方便, 老韩这里将后置处理器放到ArrayList中
+        2. 原生的Spring容器中, 对后置处理器走的还是 getBean,creatBean 但是需要我们在 SingletonObjects 加入相应的逻辑
+        3. 这里使用ArrayList就简化了
+     */
+    private final List<BeanPostProcessor> beanPostProcessorList = new ArrayList<BeanPostProcessor>();
 
     public HspSpringApplicationContext(Class configClass) {
         beanDefinitionByScan(configClass);
@@ -43,7 +57,7 @@ public class HspSpringApplicationContext {
             String scope = beanDefinition.getScope();
             if ("singleton".equals(scope)) {
                 // 单例直接创建
-                Object bean = createBean(beanDefinition);
+                Object bean = createBean(beanName, beanDefinition);
                 if (!SingletonObjects.containsKey(beanName)) {
                     // 如果已经创建了, 就不用再进行创建了
                     SingletonObjects.put(beanName, bean);
@@ -57,7 +71,7 @@ public class HspSpringApplicationContext {
     /**
      * 创建bean对象
      */
-    private Object createBean(BeanDefinition beanDefinition) {
+    private Object createBean(String beanName, BeanDefinition beanDefinition) {
         // 拿到class对象
         try {
             Class clazz = beanDefinition.getClazz();
@@ -78,6 +92,14 @@ public class HspSpringApplicationContext {
                 }
             }
             System.out.println("=====bean创建好实例=====  " + instance);
+
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                // 在后置处理器的before方法, 可以对容器实例进行处理
+                // 然后返回处理后的bean实例, 相当于前置处理
+                Object current = beanPostProcessor.postProcessBeforeInitialization(instance, beanName);
+                instance = current != null ? current : instance;
+            }
+
             // 这里可以执行初始化方法
             // instanceof 表示判断某个对象运行类型是不是 某个类型或者某个子类型
             // 这里使用过到 接口编程
@@ -85,6 +107,13 @@ public class HspSpringApplicationContext {
                 InitializingBean initializingBean = (InitializingBean) instance;
                 initializingBean.afterPropertiesSet();
             }
+
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                // 我感觉这里实现aop非常完美, 直接修改instance变成代理对象, 调用方法
+                Object current = beanPostProcessor.postProcessAfterInitialization(instance, beanName);
+                instance = current != null ? current : instance;
+            }
+            System.out.println("--------------------------------");
             return instance;
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
                  NoSuchMethodException e) {
@@ -106,13 +135,13 @@ public class HspSpringApplicationContext {
                 return SingletonObjects.get(beanName);
             } else {
                 BeanDefinition beanDefinition = BeanDefinitionMap.get(beanName);
-                Object instance = createBean(beanDefinition);
+                Object instance = createBean(beanName, beanDefinition);
                 SingletonObjects.put(beanName, instance);
                 return instance;
             }
         } else {
             BeanDefinition beanDefinition = BeanDefinitionMap.get(beanName);
-            return createBean(beanDefinition);
+            return createBean(beanName, beanDefinition);
         }
     }
 
@@ -157,6 +186,17 @@ public class HspSpringApplicationContext {
                         if (clazz.isAnnotationPresent(Component.class)) {
                             // 如果该类使用了@Component
 //                            System.out.println("这个是一个SpringBean bean = " + clazz + " 类名 " + className);
+
+                            // 说明 我们这里不能使用 instanceof 来判断 clazz 是否实现了 BeanPostProcessor
+                            // 因为: clazz不是一个实例对象, 而是一个类对象, 使用 isAssignableFrom
+                            if (BeanPostProcessor.class.isAssignableFrom(clazz)) {
+                                BeanPostProcessor beanPostProcessor = (BeanPostProcessor) clazz.getDeclaredConstructor().newInstance();
+                                // 加入到集合之中
+                                beanPostProcessorList.add(beanPostProcessor);
+                                // 不需要在往下走, 因为放入到 BeanDefinitionMap 之后还回执行creat方法
+                                continue;
+                            }
+
                             // 先得到beanName
                             // 1. 得到 Component 注解
                             Component componentAnnotation = clazz.getDeclaredAnnotation(Component.class);

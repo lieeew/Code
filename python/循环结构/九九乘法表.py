@@ -39,15 +39,59 @@
 #         print('%d和%d的最小公倍数是%d' % (x, y, x * y // factor))
 #         break
 
-x = int(input("x = "))
-y = int(input("y = "))
+# x = int(input("x = "))
+# y = int(input("y = "))
+#
+# if x > y:
+#     x, y = y, x
+# #   从两个数中较小的数开始做递减的循环
+# for factor in range(x, 0, -1):
+#     if x % factor == 0 and y % factor == 0:
+#         print("%d和%d的最小公约数是 = %d" % (x, y, factor))
+#         print("%d和%d的最大公倍数是 = %d" % (x, y, x * y // factor))
+#         break
 
-if x > y:
-    x, y = y, x
-#   从两个数中较小的数开始做递减的循环
-for factor in range(x, 0, -1):
-    if x % factor == 0 and y % factor == 0:
-        print("%d和%d的最小公约数是 = %d" % (x, y, factor))
-        print("%d和%d的最大公倍数是 = %d" % (x, y, x * y // factor))
-        break
 
+"""
+*
+**
+***
+****
+*****
+"""
+
+# 打印图案
+# for i in range(1, 6):
+#     for j in range(1, i + 1):
+#         print("*", end='')
+#     print()
+
+"""
+    *
+   **
+  ***
+ ****
+*****
+"""
+
+# for i in range(5):
+#     for j in range(5):
+#         if j >= 5 - i - 1:
+#             print("*", end='')
+#         else:
+#             print(' ', end='')
+#     print()
+
+"""
+    *
+   ***
+  *****
+ *******
+*********
+"""
+for i in range(5):
+    for _ in range(5 - i - 1):
+        print(' ', end='')
+    for _ in range(2 * i + 1):
+        print('*', end='')
+    print()

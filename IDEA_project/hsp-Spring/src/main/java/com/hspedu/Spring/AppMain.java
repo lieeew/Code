@@ -1,6 +1,7 @@
 package com.hspedu.Spring;
 
 import com.hspedu.Spring.component.MonsterService;
+import com.hspedu.Spring.component.SmartAnimal;
 import com.hspedu.Spring.ioc.HspSpringApplicationContext;
 import com.hspedu.Spring.ioc.HspSpringConfig;
 import org.junit.Test;
@@ -28,8 +29,13 @@ public class AppMain {
 //        System.out.println("monsterService1 = " + monsterService1);
 //        System.out.println("monsterService2 = " + monsterService2);
 
-        MonsterService monsterService1 = (MonsterService) ioc.getBean("monsterService");
+//        MonsterService monsterService1 = (MonsterService) ioc.getBean("monsterService");
 //        monsterService1.hello();
+
+        SmartAnimal bean = (SmartAnimal) ioc.getBean("smartDog");
+        // class com.sun.proxy.$Proxy4
+        System.out.println(bean.getClass());
+        bean.getSum(12, 30);
     }
 
     @Test
