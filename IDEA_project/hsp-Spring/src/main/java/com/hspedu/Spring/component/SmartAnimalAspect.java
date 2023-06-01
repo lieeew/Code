@@ -1,5 +1,8 @@
 package com.hspedu.Spring.component;
 
+import com.hspedu.Spring.Annotation.AfterReturning;
+import com.hspedu.Spring.Annotation.Aspect;
+import com.hspedu.Spring.Annotation.Before;
 import com.hspedu.Spring.Annotation.Component;
 
 /**
@@ -11,14 +14,16 @@ import com.hspedu.Spring.Annotation.Component;
  * @Description:
  */
 @Component
+@Aspect
 public class SmartAnimalAspect {
-
+    @Before(value = "execution(public float com.hspedu.Spring.component.SmartAnimal.getSum(float , float))")
     public static void beforeLog() {
-        System.out.println("前置通知~");
+        System.out.println("前置通知~😀");
     }
 
+    @AfterReturning(value = "execution(public float com.hspedu.Spring.component.SmartAnimal.getSum(float , float))")
     public static void afterLog() {
-        System.out.println("后置通知~");
+        System.out.println("后置通知~👌");
     }
 
 }
