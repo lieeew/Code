@@ -52,7 +52,6 @@ public class HspBeanPostProcessor implements BeanPostProcessor {
             }
         }
 
-
         // 这个 SmartAnimal 是如何获取的, 这个问题就很有灵性
         Class<?> beanClass = bean.getClass();
         Class<?> aClass = getClassFromCache(reflectName);
@@ -93,29 +92,26 @@ public class HspBeanPostProcessor implements BeanPostProcessor {
     }
 
     private Object createProxyInstance(Object bean, String methodName) {
-        Method[] methods = bean.getClass().getMethods();
-        for (Method method : methods) {
-            if (methodName.equals(method.getName())) {
-                return Proxy.newProxyInstance(
-                        bean.getClass().getClassLoader(), // 使用目标类的类加载器作为代理类的类加载器
-                        bean.getClass().getInterfaces(),
-                        new InvocationHandler() {
-                            @Override
-                            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                                // 前置通知
-                                SmartAnimalAspect.beforeLog();
-                                Object result = method.invoke(bean, args);
-                                // 后置通知
-                                SmartAnimalAspect.afterLog();
-                                return result;
-                            }
+        return Proxy.newProxyInstance(
+                bean.getClass().getClassLoader(), // 使用目标类的类加载器作为代理类的类加载器
+                bean.getClass().getInterfaces(),
+                new InvocationHandler() {
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                        if (methodName.equals(method.getName())) {
+                            // 前置通知
+                            SmartAnimalAspect.beforeLog();
+                            Object result = method.invoke(bean, args);
+                            // 后置通知
+                            SmartAnimalAspect.afterLog();
+                            return result;
+                        } else {
+                            Object result = method.invoke(bean, args);
+                            return result;
                         }
-                );
-            } else {
-                System.out.println("method " + method.getName() + "不需要动态代理~~");
-            }
-        }
-        return bean;
+                    }
+                }
+        );
     }
 
     private Class<?> getClassFromCache(String className) {
