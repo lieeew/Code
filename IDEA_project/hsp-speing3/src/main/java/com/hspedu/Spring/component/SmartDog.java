@@ -12,7 +12,7 @@ import com.hspedu.Spring.processor.InitializingBean;
  * @Creat: 2023/5/29 - 5:49
  * @Description:
  */
-//@Component("smartDog")
+@Component("smartDog")
 public class SmartDog implements SmartAnimal {
     @Override
     public float getSum(float i, float j) {

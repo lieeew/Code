@@ -11,7 +11,6 @@ import com.hspedu.Spring.Annotation.Scope;
  * @Creat: 2023/5/29 - 12:06
  * @Description:
  */
-@Scope("prototype")
 @Component
 public class MonsterDAO {
 

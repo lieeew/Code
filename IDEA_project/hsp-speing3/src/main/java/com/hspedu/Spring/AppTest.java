@@ -18,7 +18,7 @@ public class AppTest {
         HspSpringApplicationContext ioc = new HspSpringApplicationContext(HspSpringConfig.class);
 //        Object monsterDAO1 = ioc.getBean("monsterDAO");
 //        Object monsterDAO2 = ioc.getBean("monsterDAO");
-//
+////
 //        Object monsterService1 = ioc.getBean("monsterService");
 //        Object monsterService2 = ioc.getBean("monsterService");
 //
@@ -26,10 +26,10 @@ public class AppTest {
 //        System.out.println("monsterDAO2 = " + monsterDAO2);
 //        System.out.println("monsterService1 = " + monsterService1);
 //        System.out.println("monsterService2 = " + monsterService2);
-        MonsterService monsterService1 = (MonsterService) ioc.getBean("monsterService");
-        monsterService1.hello();
-//        SmartAnimal bean = (SmartAnimal) ioc.getBean("smartDog");
-//        bean.getSum(1, 2);
-//        bean.getSub(2, 3);
+//        MonsterService monsterService1 = (MonsterService) ioc.getBean("monsterService");
+//        monsterService1.hello();
+        SmartAnimal bean = (SmartAnimal) ioc.getBean("smartDog");
+        bean.getSum(1, 2);
+        bean.getSub(2, 3);
     }
 }

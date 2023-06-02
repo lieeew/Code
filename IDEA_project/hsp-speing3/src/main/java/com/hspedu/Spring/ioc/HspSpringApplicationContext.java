@@ -4,6 +4,7 @@ import com.hspedu.Spring.Annotation.Autowired;
 import com.hspedu.Spring.Annotation.Component;
 import com.hspedu.Spring.Annotation.ComponentScan;
 import com.hspedu.Spring.Annotation.Scope;
+import com.hspedu.Spring.processor.BeanPostProcessor;
 import com.hspedu.Spring.processor.InitializingBean;
 import org.apache.commons.lang.StringUtils;
 
@@ -12,7 +13,9 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -29,7 +32,7 @@ public class HspSpringApplicationContext {
     private final ConcurrentHashMap<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>();
     // 注意这里是object
     private final ConcurrentHashMap<String, Object> SingletonMap = new ConcurrentHashMap<String, Object>();
-
+    private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<BeanPostProcessor>();
     public HspSpringApplicationContext(Class configure) {
         beanDefinitionByScan(configure);
         // 拿到已经整好的定义bean
@@ -39,7 +42,9 @@ public class HspSpringApplicationContext {
             BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
             if ("singleton".equals(beanDefinition.getScope())) {
                 // 如果是单例直接创建, 放到单例池
-                SingletonMap.put(beanName, creatBean(beanName, beanDefinition));
+                if (!SingletonMap.containsKey(beanName)) {
+                    SingletonMap.put(beanName, creatBean(beanName, beanDefinition));
+                }
             }
         }
     }
@@ -59,19 +64,31 @@ public class HspSpringApplicationContext {
                     field.setAccessible(true);
                     Object o = SingletonMap.get(fieldName);
                     if (o == null) {
-                        o = creatBean(fieldName, beanDefinitionMap.get(fieldName));
+                        BeanDefinition definition = beanDefinitionMap.get(fieldName);
+                        SingletonMap.put(fieldName, definition);
+                        o = creatBean(fieldName, definition);
                     }
                     field.set(bean, o);
                 }
             }
+            System.out.println("=======初始化======" + bean);
 
-            // 实现初始化方法
-            if (bean.getClass().isAssignableFrom(InitializingBean.class)) {
-
+            // 实现后置通知
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
+                bean = beanPostProcessor.postProcessBeforeInitialization(bean, beanName);
             }
 
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                 NoSuchMethodException e) {
+            // 实现初始化方法
+            if (InitializingBean.class.isAssignableFrom(bean.getClass())) {
+                ((InitializingBean) bean).afterPropertiesSet();
+            }
+
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
+                bean = beanPostProcessor.postProcessAfterInitialization(bean, beanName);
+            }
+
+            System.out.println("---------------------");
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return bean;
@@ -128,6 +145,13 @@ public class HspSpringApplicationContext {
                                 beanName = StringUtils.uncapitalize(className);
                             }
 
+                            // 这里判断是不是后置处理器
+                            if (BeanPostProcessor.class.isAssignableFrom(clazz)) {
+                                // 如果实现了 BeanPostProcessor 接口
+                                beanPostProcessors.add((BeanPostProcessor) clazz.getDeclaredConstructor().newInstance());
+                                // 就不需要在放到 beanDefinitionMap 里面
+                                continue;
+                            }
                             BeanDefinition beanDefinition = new BeanDefinition();
 
                             beanDefinition.setClazz(clazz);
@@ -144,7 +168,8 @@ public class HspSpringApplicationContext {
                             beanDefinitionMap.put(beanName, beanDefinition);
                         }
 
-                    } catch (ClassNotFoundException e) {
+                    } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException |
+                             IllegalAccessException | InvocationTargetException e) {
                         throw new RuntimeException(e);
                     }
                 }

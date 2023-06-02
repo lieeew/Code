@@ -13,8 +13,8 @@ import com.hspedu.Spring.Annotation.Component;
  * @Creat: 2023/5/31 - 17:49
  * @Description:
  */
-//@Component
-//@Aspect
+@Component
+@Aspect
 public class SmartAnimalAspect {
     @Before(value = "execution(public float com.hspedu.Spring.component.SmartAnimal.getSum(float , float))")
     public static void beforeLog() {
