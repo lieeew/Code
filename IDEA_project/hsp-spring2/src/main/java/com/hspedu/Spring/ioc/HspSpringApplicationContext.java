@@ -141,7 +141,7 @@ public class HspSpringApplicationContext {
                     field.setAccessible(true);
                     String fieldName = field.getName();
 //                    System.out.println("fieldName = " + fieldName);
-                    Object o = SingletonMap.get(fieldName);
+                    Object o = getBean(fieldName);
                     field.set(instance, o);
                 }
             }
@@ -150,7 +150,8 @@ public class HspSpringApplicationContext {
 
             // 后置通知
             for (BeanPostProcessor beanPostProcessor : processorList) {
-                instance = beanPostProcessor.postProcessBeforeInitialization(instance, beanName);
+                Object o = beanPostProcessor.postProcessBeforeInitialization(instance, beanName);
+                instance = o != null ? o : instance;
             }
 
             // 实现初始化方法
@@ -161,7 +162,8 @@ public class HspSpringApplicationContext {
             }
 
             for (BeanPostProcessor beanPostProcessor : processorList) {
-                instance = beanPostProcessor.postProcessAfterInitialization(instance, beanName);
+                Object o = beanPostProcessor.postProcessAfterInitialization(instance, beanName);
+                instance = o != null ? o : instance;
             }
 
             System.out.println("--------------");

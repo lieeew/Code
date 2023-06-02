@@ -33,6 +33,7 @@ public class HspSpringApplicationContext {
     // 注意这里是object
     private final ConcurrentHashMap<String, Object> SingletonMap = new ConcurrentHashMap<String, Object>();
     private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<BeanPostProcessor>();
+
     public HspSpringApplicationContext(Class configure) {
         beanDefinitionByScan(configure);
         // 拿到已经整好的定义bean
@@ -42,9 +43,7 @@ public class HspSpringApplicationContext {
             BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
             if ("singleton".equals(beanDefinition.getScope())) {
                 // 如果是单例直接创建, 放到单例池
-                if (!SingletonMap.containsKey(beanName)) {
-                    SingletonMap.put(beanName, creatBean(beanName, beanDefinition));
-                }
+                SingletonMap.put(beanName, creatBean(beanName, beanDefinition));
             }
         }
     }
@@ -62,12 +61,7 @@ public class HspSpringApplicationContext {
                     // 如果某一个属性是标识了 @Autowired 注解
                     String fieldName = field.getName();
                     field.setAccessible(true);
-                    Object o = SingletonMap.get(fieldName);
-                    if (o == null) {
-                        BeanDefinition definition = beanDefinitionMap.get(fieldName);
-                        SingletonMap.put(fieldName, definition);
-                        o = creatBean(fieldName, definition);
-                    }
+                    Object o = getBean(fieldName);
                     field.set(bean, o);
                 }
             }
@@ -75,7 +69,8 @@ public class HspSpringApplicationContext {
 
             // 实现后置通知
             for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
-                bean = beanPostProcessor.postProcessBeforeInitialization(bean, beanName);
+                Object o = beanPostProcessor.postProcessBeforeInitialization(bean, beanName);
+                bean = o != null ? o : bean;
             }
 
             // 实现初始化方法
@@ -84,7 +79,8 @@ public class HspSpringApplicationContext {
             }
 
             for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
-                bean = beanPostProcessor.postProcessAfterInitialization(bean, beanName);
+                Object o = beanPostProcessor.postProcessAfterInitialization(bean, beanName);
+                bean = o != null ? o : bean;
             }
 
             System.out.println("---------------------");

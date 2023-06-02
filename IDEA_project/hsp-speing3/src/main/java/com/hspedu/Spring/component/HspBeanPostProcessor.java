@@ -27,7 +27,7 @@ public class HspBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) {
         System.out.println(bean + "的后置通知 postProcessAfterInitialization");
-        // 这里aop机制
+        // 这里AOP机制
         if (bean instanceof SmartAnimal) {
             // 如果实现了 接口
             return Proxy.newProxyInstance(

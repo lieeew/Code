@@ -28,8 +28,8 @@ public class AppTest {
 //        System.out.println("monsterService2 = " + monsterService2);
 //        MonsterService monsterService1 = (MonsterService) ioc.getBean("monsterService");
 //        monsterService1.hello();
-        SmartAnimal bean = (SmartAnimal) ioc.getBean("smartDog");
-        bean.getSum(1, 2);
-        bean.getSub(2, 3);
+//        SmartAnimal bean = (SmartAnimal) ioc.getBean("smartDog");
+//        bean.getSum(9, 2);
+//        bean.getSub(2, 3);
     }
 }
