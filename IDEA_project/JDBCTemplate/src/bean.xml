@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    配置数据源对象-DataSource-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+        <property name="user" value="root"/>
+        <property name="password" value="hsp"/>
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring"/>
+    </bean>
+
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+<!--    配置 NamedParameterJdbcTemplate-->
+    <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" id="parameterJdbcTemplate">
+<!--        通过构造器, 设置属性-->
+        <constructor-arg name="dataSource" ref="dataSource" />
+    </bean>
+<!--    &lt;!&ndash;    引入jdbc.properties&ndash;&gt;-->
+<!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
+    <context:component-scan base-package="com.hspedu.Spring.JDBC" />
+</beans>
