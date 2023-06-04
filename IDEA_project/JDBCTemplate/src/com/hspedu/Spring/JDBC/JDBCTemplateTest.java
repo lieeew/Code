@@ -1,5 +1,6 @@
-package com.hspedu.Spring.Test;
+package com.hspedu.Spring.JDBC;
 
+import com.hspedu.Spring.JDBC.MonsterDAO;
 import com.hspedu.Spring.bean.Monster;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -50,7 +51,7 @@ public class JDBCTemplateTest {
 //        System.out.println("添加成功!!!");
 
         // 方式二
-        String sql = "INSERT INTO monster VALUES (?, ?, ?)";
+        String sql = "INSERT INTO spring.monster VALUES (?, ?, ?)";
         int affected = jdbcTemplate.update(sql, 600, "牛魔王", "芭蕉扇");
         System.out.println("受影响的行数 = " + affected);
 
@@ -63,7 +64,7 @@ public class JDBCTemplateTest {
         JdbcTemplate jdbcTemplate = ioc.getBean(JdbcTemplate.class);
 
         // 小细节 : 不会判断是不是一样的值, 一样也会执行sql语句
-        String sql = "update monster set skill = ? where id = ?";
+        String sql = "update spring.monster set skill = ? where id = ?";
         int affected = jdbcTemplate.update(sql, "美女记", 200);
         System.out.println("受影响的行数 = " + affected);
 
@@ -76,7 +77,7 @@ public class JDBCTemplateTest {
         ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("bean.xml");
         JdbcTemplate jdbcTemplate = ioc.getBean(JdbcTemplate.class);
 
-        String sql = "select count(*) from monster";
+        String sql = "select count(*) from spring.monster";
         Integer integer = jdbcTemplate.queryForObject(sql, Integer.class);
         System.out.println("integer = " + integer);
 
@@ -92,7 +93,7 @@ public class JDBCTemplateTest {
 
         // 1. 批量插入 猜测update => 根据参数修改名称是 batchUpdate
         // 2. 根据参数提供数据
-        String sql = "insert into monster values (?, ?, ?)";
+        String sql = "insert into spring.monster values (?, ?, ?)";
         List<Object[]> list = new ArrayList<>();
         list.add(new Object[]{700, "老鼠精", "偷吃粮食"});
         list.add(new Object[]{800, "老猫精", "抓老鼠"});
@@ -116,7 +117,7 @@ public class JDBCTemplateTest {
 
         // 确定API
         // <T> T queryForObject(String sql, RowMapper<T> rowMapper, @Nullable Object... args)
-        String sql = "select id AS `monsterId`, name, skill from monster where id = ?";
+        String sql = "select id AS `monsterId`, name, skill from spring.monster where id = ?";
 
         //这里有一个细节就是名称需要一样, 即查询的表字需要和查询的字段保持一致
         RowMapper<Monster> rowMapper = new RowMapper<Monster>() {
@@ -144,7 +145,7 @@ public class JDBCTemplateTest {
 
         // 确定API
         // <T> T queryForObject(String sql, RowMapper<T> rowMapper, @Nullable Object... args)
-        String sql = "select id AS `monsterId`, name, skill from monster where id = ?";
+        String sql = "select id AS `monsterId`, name, skill from spring.monster where id = ?";
         // 使用子类实现对象的封装
         RowMapper<Monster> rowMapper = new BeanPropertyRowMapper<>(Monster.class);
         Monster monster = jdbcTemplate.queryForObject(sql, rowMapper, 100);
@@ -160,7 +161,7 @@ public class JDBCTemplateTest {
 
         // 确定API
         // <T> T queryForObject(String sql, RowMapper<T> rowMapper, @Nullable Object... args)
-        String sql = "select id AS `monsterId`, name, skill from monster where id > ?";
+        String sql = "select id AS `monsterId`, name, skill from spring.monster where id > ?";
 
         List<Monster> monsterList = jdbcTemplate.query(sql, (ResultSet rs, int rowNum) -> {
             Monster monsters = new Monster(rs.getInt("monsterId"), rs.getString("name"), rs.getString("skill"));
@@ -180,7 +181,7 @@ public class JDBCTemplateTest {
         JdbcTemplate jdbcTemplate = ioc.getBean(JdbcTemplate.class);
 
         // 确定API
-        String sql = "select id AS `monsterId`, name, skill from monster where id > ?";
+        String sql = "select id AS `monsterId`, name, skill from spring.monster where id > ?";
         RowMapper<Monster> rowMapper = new BeanPropertyRowMapper<>(Monster.class);
         List<Monster> query = jdbcTemplate.query(sql, rowMapper, 100);
         for (Monster monster : query) {
@@ -197,7 +198,7 @@ public class JDBCTemplateTest {
 
         // 确定API
         // <T> T queryForObject(String sql, RowMapper<T> rowMapper, @Nullable Object... args)
-        String sql = "select  name from monster where id = ?";
+        String sql = "select  name from spring.monster where id = ?";
         String name = jdbcTemplate.queryForObject(sql,
                 (ResultSet rs, int rowNum) -> rs.getString("name"), 200);
         System.out.println("name = " + name);
@@ -211,7 +212,7 @@ public class JDBCTemplateTest {
 
         // 确定API
         // <T> T queryForObject(String sql, RowMapper<T> rowMapper, @Nullable Object... args)
-        String sql = "select name from monster where id = ?";
+        String sql = "select name from spring.monster where id = ?";
 
         String name = jdbcTemplate.queryForObject(sql, String.class, 200);
         System.out.println("name = " + name);
@@ -227,7 +228,7 @@ public class JDBCTemplateTest {
 
         // 具名参数
         // :id, :name, :skill 不需要知道表的结构
-        String sql = "insert into monster values (:id, :name, :skill)";
+        String sql = "insert into spring.monster values (:id, :name, :skill)";
         Map<String, Object> map = new HashMap<>();
         map.put("id", 900);
         map.put("name", "蚂蚁精");
@@ -245,13 +246,20 @@ public class JDBCTemplateTest {
         // 	public Map<String, Object> queryForMap(String sql, SqlParameterSource paramSource)
         // 确定API
         // 准备参数
-        String sql = "insert into monster values (:monsterId, :name, :skill)";
+        String sql = "insert into spring.monster values (:monsterId, :name, :skill)";
         Monster monster = new Monster(1000, "大象精", "搬运木头");
         SqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(monster);
         int update = namedParameterJdbcTemplate.update(sql, sqlParameterSource);
 
         System.out.println("update = " + update);
 
+
+    }
+
+    @Test
+    public void test14() {
+        MonsterDAO monsterDAO = new MonsterDAO();
+        monsterDAO.monsterSaveDAO(new Monster(1100, "哈哈", "离谱"));
 
     }
 }
