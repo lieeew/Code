@@ -3,6 +3,7 @@ package com.hspedu.Spring.tx.Service;
 import com.hspedu.Spring.tx.DAO.GoodsDAO;
 import com.hspedu.Spring.tx.DAO.GoodsDAO2;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -91,4 +92,45 @@ public class GoodsService {
         System.out.println("购买成功");
     }
 
-}
+    /**
+     * READ_COMMITTED 表示读已提交
+     * @param userId
+     * @param goodsId
+     * @param num
+     */
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public void buyGoodsByTxISOLATION(int userId, int goodsId, int num) {
+        Float price = goodsDAO.queryPriceById(userId);
+        System.out.println("第一次读取的价格 = " + price);
+        //测试一下隔离级别，在同一个事务中，查询一下价格
+        price = goodsDAO.queryPriceById(goodsId);
+        System.out.println("第二次读取的价格 = " + price);
+
+    }
+
+    /**
+     * timeout = 2
+     * 1. 如果执行时间超过2s, 那么事务就会回滚
+     * 2. 默认的是 -1 , 表示使用的事务默认超时时间
+     */
+    @Transactional(timeout = 2)
+    public void buyGoodsByTxTimeouts(int userId, int goodsId, int amount) {
+        System.out.println("用户 user = " + userId + " 商品id = " + goodsId + " 数量 = " + amount);
+
+        // 1. 得到商品的价格
+        Float price = goodsDAO2.queryPriceById2(userId);
+        // 2.减少商品的数量
+        goodsDAO2.updateAmount2(goodsId, amount);
+        try {
+            // 模拟超时
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        // 3. 减少用户的余额
+        goodsDAO2.updateBalance2(userId, price * amount);
+
+        System.out.println("购买成功");
+
+    }
+ }

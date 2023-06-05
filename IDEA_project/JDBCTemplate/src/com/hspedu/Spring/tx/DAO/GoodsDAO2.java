@@ -35,7 +35,7 @@ public class GoodsDAO2 {
      * @param money
      */
     public void updateBalance2(Integer user_id, Float money) {
-        String sql = "UPDATEX spring.user_account SET money = money - ? Where user_id = ?";
+        String sql = "UPDATE spring.user_account SET money = money - ? Where user_id = ?";
         jdbcTemplate.update(sql, money, user_id);
     }
 
