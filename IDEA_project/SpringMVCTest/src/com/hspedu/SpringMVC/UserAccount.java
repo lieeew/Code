@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * ClassName: UserAccount
@@ -48,6 +49,40 @@ public class UserAccount {
     @RequestMapping("/message/aa/springMVC??")
     public String im2() {
         System.out.println("hello~");
+        return "success";
+    }
+
+    @RequestMapping(value = "/book/{BookId}", method = RequestMethod.GET)
+    public String searchBook(@PathVariable("BookId") String bookId) {
+        // 获取资源
+        System.out.println("查询的 bookId = " + bookId);
+        return "success";
+    }
+
+    /**
+     * 使用 post 创建新的资源
+     */
+    @RequestMapping(value = "/book", method = RequestMethod.POST)
+    public String creatBook(@RequestParam(value = "book", required = false) String bookName) {
+        System.out.println("创建新的资源  bookName = " + bookName);
+        return "success";
+    }
+
+    /**
+     * 删除资源 delete
+     */
+    @RequestMapping(value = "/book/{bookName}", method = RequestMethod.DELETE)
+    public String deleteBook(@PathVariable("bookName") String bookName) {
+        System.out.println("需要删除的「bookName」 = " + bookName);
+        // 需要重定向
+        return "redirect:/user/success";
+    }
+
+    /**
+     * 成功返回的页面
+     */
+    @RequestMapping(value = "/success")
+    public String success() {
         return "success";
     }
 }

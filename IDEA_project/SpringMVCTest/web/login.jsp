@@ -23,11 +23,11 @@
 <hr><h1>传入更加简单的参数</h1>
 <a href="user/login/李华/123456" >点击调转</a>
 
-<hr> <h1> 测试参数 </h1>
+<hr> <h1> 测试参数 参数名不一致时 </h1>
 
 <form action="user/search" method="post">
-    bookId : <input type="text" name="bookId"> <br>
-    bookName : <input type="text" name="bookName"> <br>
+    bookId : <input type="text" name="id"> <br>
+    bookName : <input type="text" name="name"> <br>
     <input type="submit" />
 </form>
 
