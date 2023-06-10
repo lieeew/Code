@@ -18,27 +18,26 @@
     </filter-mapping>
 
 
-<!--    配置前端控制器/中央控制器/分发控制器
-        1. 用户的请求都会经过他的处理
-
--->
+    <!--    配置前端控制器/中央控制器/分发控制器
+            1. 用户的请求都会经过他的处理
+    -->
     <servlet>
         <servlet-name>springDispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-<!--        配置属性 contextConfigLocation 指定去操作的Spring配置文件-->
-<!--        <init-param>-->
-<!--            <param-name>contextConfigLocation</param-name>-->
-<!--            <param-value>classpath:springDispatcherServlet-servlet.xml</param-value>-->
-<!--        </init-param>-->
-<!--        在web项目启动时, 就需要自动加载DispatcherServlet-->
-<!--        <load-on-startup>1</load-on-startup>-->
+        <!--        配置属性 contextConfigLocation 指定去操作的Spring配置文件-->
+        <!--        <init-param>-->
+        <!--            <param-name>contextConfigLocation</param-name>-->
+        <!--            <param-value>classpath:springDispatcherServlet-servlet.xml</param-value>-->
+        <!--        </init-param>-->
+        <!--        在web项目启动时, 就需要自动加载DispatcherServlet-->
+        <!--        <load-on-startup>1</load-on-startup>-->
     </servlet>
     <servlet-mapping>
         <servlet-name>springDispatcherServlet</servlet-name>
-<!--
-        1. 这里的配置的url-pattern / 表示用户所有的请求都会经过DispatcherServlet
-        2. 这样配置也支持 rest 风格的url请求
--->
+        <!--
+                1. 这里的配置的url-pattern / 表示用户所有的请求都会经过DispatcherServlet
+                2. 这样配置也支持 rest 风格的url请求
+        -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 

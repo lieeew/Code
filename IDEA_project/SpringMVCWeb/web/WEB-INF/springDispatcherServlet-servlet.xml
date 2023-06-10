@@ -5,18 +5,32 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-<!--    配置扫描的包-->
-    <context:component-scan base-package="com.hspedu.web" />
+    <!--    配置扫描的包-->
+    <context:component-scan base-package="com.hspedu.web"/>
 
+<!--    这个是默认视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--  这个目录第一个/表示的是 web 目录-->
         <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp" />
+        <property name="suffix" value=".jsp"/>
+<!--        默认优先级-->
+        <property name="order" value="10" />
     </bean>
+
+<!--    自定义视图解析器
+        1. 配置自定义的视图解析器 BeanNameViewResolver
+        2. BeanNameViewResolver 可以去解析我们自定义的视图
+        3. order 属性表示视图解析器执行的顺序, 值越小优先级越高
+        4. 属性 order 默认优先级是 Integer.MAX_VALUE
+-->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="99" />
+    </bean>
+
 
     <!-- 加入两个常规配置-->
     <!-- 能支持 SpringMVC 高级功能，比如 JSR303 校验，映射动态请求-->
     <mvc:annotation-driven> </mvc:annotation-driven>
     <!-- 将 SpringMVC 不能处理的请求交给 Tomcat, 比如请求 css,js 等-->
-    <mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
 </beans>
