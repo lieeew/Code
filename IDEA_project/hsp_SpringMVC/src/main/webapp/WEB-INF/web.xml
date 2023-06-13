@@ -9,10 +9,15 @@
   <servlet>
     <servlet-name>hspDispatcherServlet</servlet-name>
     <servlet-class>com.hspedu.hspspringmvc.servlet.HspDispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>ContextConfigLocation</param-name>
+      <param-value>classpath:hspSpringMVC.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>hspDispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
+
 </web-app>
