@@ -1,14 +1,19 @@
 package com.hspedu.hspspringmvc.ioc;
 
 import com.hspedu.hspspringmvc.XML.XMLPaser;
+import com.hspedu.hspspringmvc.annotation.AutoWired;
 import com.hspedu.hspspringmvc.annotation.Controller;
+import com.hspedu.hspspringmvc.annotation.Service;
 import com.hspedu.hspspringmvc.handler.HspHandler;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
+import java.lang.reflect.AnnotatedType;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -28,10 +33,23 @@ public class HspWebApplicationContext {
     /**
      * 定义属性 ioc, 存放反射生成的对象
      */
-    public final ConcurrentHashMap<String, Object>  ioc = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<String, Object> ioc = new ConcurrentHashMap<>();
 
     /**
-     * @param pack 表示要扫描的包
+     * Spring 配置文件的配置文件的地址
+     */
+    private String contextConfigLocation;
+
+    public HspWebApplicationContext() {
+    }
+
+    public HspWebApplicationContext(String contextConfigLocation) {
+        this.contextConfigLocation = contextConfigLocation;
+    }
+
+
+    /**
+     * @param pack 表示要扫描的包, 会扫描所有的包
      */
     public void scanPackage(String pack) {
         // 得到包所在的工作路径 [绝对路径]
@@ -61,7 +79,8 @@ public class HspWebApplicationContext {
      * 编写初始化方法
      */
     public void init() {
-        String basePackage = XMLPaser.getBasePackage("hspSpringMVC.xml");
+        String basePackage = XMLPaser.getBasePackage(contextConfigLocation.split(":")[1]);
+        System.out.println(contextConfigLocation.split(":")[1]);
         String[] basePackages = basePackage.split(",");
         if (basePackages.length > 0) {
             for (String s : basePackages) {
@@ -72,6 +91,9 @@ public class HspWebApplicationContext {
         // 将扫描到的类, 反射到 ioc 容器
         executeInstance();
         System.out.println("ioc = " + ioc);
+        // 完成自动注入属性
+        executeAutoWired();
+        System.out.println("装配后 ioc = " + ioc);
     }
 
     /**
@@ -95,9 +117,69 @@ public class HspWebApplicationContext {
                     }
                     // 放入到容器之中
                     ioc.put(className, instance);
+                } else if (clazz.isAnnotationPresent(Service.class)) {
+                    // 如果是被 @service 修饰的
+                    String beanName = clazz.getAnnotation(Service.class).value();
+                    Object instance = clazz.newInstance();
+                    if ("".equals(beanName)) {
+                        // 由于需要根据多个类的接口/类名 「首字母小写」来注入到 ioc 容器之中
+                        Class<?>[] interfaces = clazz.getInterfaces();
+                        for (Class<?> anInterface : interfaces) {
+                            // 拿到首字母小写
+                            beanName = StringUtils.uncapitalize(anInterface.getSimpleName());
+                            ioc.put(beanName, instance);
+                        }
+                        // 把类名首字母小写放到 ioc 中
+                        ioc.put(beanName, instance);
+                    } else {
+                        // 如果 @Service 注解有 value 属性
+                        ioc.put(beanName, instance);
+                    }
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
+            }
+        }
+    }
+
+    /**
+     * 编写方法， 完成对属性的自动装配
+     */
+    public void executeAutoWired() {
+        // 如果 ioc 容器里面没有元素
+        if (ioc.isEmpty()) {
+            return;
+        }
+
+        for (Map.Entry<String, Object> entry : ioc.entrySet()) {
+            Class<?> clazz = entry.getValue().getClass();
+            // 获取该元素的所有的属性
+            Field[] fields = clazz.getDeclaredFields();
+            for (Field field : fields) {
+                if (field.isAnnotationPresent(AutoWired.class)) {
+                    String fieldValue = field.getAnnotation(AutoWired.class).value();
+                    Object instance = null;
+                    if ("".equals(fieldValue)) {
+                        // 如果这个属性被表示了 @AutoWired 注解
+                        // 拿到的是变量名
+                        // fieldValue = field.getName();
+                        // 通过类名首字母小写拿到数据
+                        fieldValue = StringUtils.uncapitalize(field.getType().getSimpleName());
+                        instance = ioc.get(fieldValue);
+                    }
+                    // 如果设置了 value 属性
+                    if ((instance = ioc.get(fieldValue)) == null) {
+                        throw new RuntimeException("不存在对应的你要装配的 bean ");
+                    }
+
+                    try {
+                        // 开始设置属性
+                        field.setAccessible(true);
+                        field.set(entry.getValue(), instance);
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
         }
     }

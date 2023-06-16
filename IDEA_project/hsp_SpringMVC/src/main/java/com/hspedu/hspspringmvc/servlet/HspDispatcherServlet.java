@@ -4,6 +4,8 @@ import com.hspedu.hspspringmvc.annotation.RequestMapping;
 import com.hspedu.hspspringmvc.handler.HspHandler;
 import com.hspedu.hspspringmvc.ioc.HspWebApplicationContext;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,8 +47,17 @@ public class HspDispatcherServlet extends HttpServlet {
     }
 
     @Override
-    public void init() throws ServletException {
-        hspWebApplicationContext = new HspWebApplicationContext();
+    public void init(ServletConfig servletConfig) throws ServletException {
+        // 通过 servletConfig 拿到 web.xml 文件中的 ContextConfigLocation 属性
+        //     <init-param>
+        //       <param-name>ContextConfigLocation</param-name>
+        //       <param-value>classpath:hspSpringMVC.xml</param-value>
+        //     </init-param>
+
+        // 拿到的是这个 classpath:hspSpringMVC.xml
+        String contextConfigLocation = servletConfig.getInitParameter("ContextConfigLocation");
+        // 这里创建一下自己的 Spring 容器
+        hspWebApplicationContext = new HspWebApplicationContext(contextConfigLocation);
         hspWebApplicationContext.init();
         // 完成 url 映射
         initHandlerList();
@@ -77,7 +88,9 @@ public class HspDispatcherServlet extends HttpServlet {
                     RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
                     // 这里可以使用工程路径 + url
                     // getServletContext().getContextPath() => /springmvc 相当于工程路径
-                    String url = getServletContext().getContextPath() + requestMapping.value();
+                    // 有两个方案， 第一个方案就是直接配置 tomcat 的工程路径 写为 /
+                    // 第二个方案， 是使用下面的方式 使用 getServletContext().getContextPath() => /springmvc 相当于工程路径
+                    String url = "/hsp_SpringMVC" + requestMapping.value();
                     HspHandler hspHandler = new HspHandler(url, entry.getValue(), method);
                     executeDispatch.add(hspHandler);
                 }
