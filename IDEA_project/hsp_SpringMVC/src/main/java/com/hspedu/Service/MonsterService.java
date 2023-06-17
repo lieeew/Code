@@ -12,4 +12,6 @@ import java.util.List;
  */
 public interface MonsterService {
     List<Monster> listMonster();
+    List<Monster> listMonsterByName(String name);
+    boolean login(String name);
 }

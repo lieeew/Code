@@ -1,6 +1,7 @@
 package com.hspedu.hspspringmvc.servlet;
 
 import com.hspedu.hspspringmvc.annotation.RequestMapping;
+import com.hspedu.hspspringmvc.annotation.RequestParam;
 import com.hspedu.hspspringmvc.handler.HspHandler;
 import com.hspedu.hspspringmvc.ioc.HspWebApplicationContext;
 
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +63,7 @@ public class HspDispatcherServlet extends HttpServlet {
         hspWebApplicationContext.init();
         // 完成 url 映射
         initHandlerList();
-        System.out.println("executeDispatch = " + executeDispatch);
+        // System.out.println("executeDispatch = " + executeDispatch);
 
     }
 
@@ -126,10 +128,124 @@ public class HspDispatcherServlet extends HttpServlet {
             } else {
                 // 存在资源
                 Method method = hspHandler.getMethod();
-                method.invoke(hspHandler.getController(), request, response);
+                // 拿到对应的目标方法的参数信息
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                // 创建实参数数组
+                // 创建一个 object 数组
+                Object[] parameters = new Object[parameterTypes.length];
+                // 遍历参数数组, 根据参数数组信息, 将实参填充到实参数组
+                for (int i = 0; i < parameterTypes.length; i++) {
+                    // 取出每一个形参类型
+                    Class<?> parameterType = parameterTypes[i];
+                    // 底层是使用的类型进行匹配, 这里简化了一下使用名字
+                    if ("HttpServletResponse".equals(parameterType.getSimpleName())) {
+                        parameters[i] = response;
+                    } else if ("HttpServletRequest".equals(parameterType.getSimpleName())) {
+                        parameters[i] = request;
+                    }
+                }
+                // 这里是分发请求，处理中文乱码非常合适
+                request.setCharacterEncoding("UTF-8");
+
+                // 将 http 请求参数封装到 parameters 数组之中，要注意填充的时候的顺序问题
+
+                // 1. 获取 http 请求的参数集合
+                // 返回的 map 第一个参数 第一个为 http 请求的参数名
+                // 返回的第二个参数 String[] 类型的数组 就像是 chatBox 可以传递多个值
+                Map<String, String[]> parameterMap = request.getParameterMap();
+                // 2. 将 parameterMap 遍历, 将参数填充到 parameters 数组中
+                for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
+                    String name = entry.getKey();
+                    // 这里简化了， 不考虑多个值。只考虑类似 name=leikooo
+                    String value = entry.getValue()[0];
+                    // 我们需要得到请求的参数对应的目标方法对应的形参的 index
+                    Integer index = getIndexRequestParameterIndex(method, name);
+                    // 将参数填充到 parameters 数组中
+                    if (index == null) {
+                        // 没有加注解
+                        // 思路 1. 得到目标方法的所有参数名称 -- 专门的方法获取参数
+                        // 2. 得到目标方法的所有形参进行便利，如果匹配直接放入
+                        List<String> requestParameterNames = getRequestParameterNames(method);
+                        for (int i = 0; i < requestParameterNames.size(); i++) {
+                            if (name.equals(requestParameterNames.get(i))) {
+                                parameters[i] = value;
+                            }
+                        }
+                    } else {
+                        parameters[index] = value;
+                    }
+                }
+
+                /*
+                    1. public Object invoke(Object obj, Object... args) 可以传入一个数组
+                    2. 这里老师需要准备传递给目标方法的 实参 => 封装到形参数组 => 然后反射调用传递给目标方法
+                 */
+                Object invoke = method.invoke(hspHandler.getController(), parameters);
+
+                if (invoke instanceof String) {
+                    String viewName = (String) invoke;
+                    if (viewName.contains(":")) {
+                        // 如果包含返回的是包含：
+                        String viewType = viewName.split(":")[0];
+                        String viewPage = viewName.split(":")[1];
+                        if ("forward".equals(viewType)) {
+                            // 说明是请求转发
+                            request.getRequestDispatcher(viewPage).forward(request, response);
+                        } else if ("redirect".equals(viewType)) {
+                            // 说明是重定向
+                            response.sendRedirect(request.getContextPath() + viewPage);
+                        }
+                    } else {
+                        request.getRequestDispatcher(viewName).forward(request, response);
+                    }
+                }
             }
-        } catch (IOException | IllegalAccessException | InvocationTargetException e) {
+        } catch (IOException | IllegalAccessException | InvocationTargetException | ServletException e) {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     *
+     * @param method 目标方法
+     * @param name 请求的参数名
+     * @return 目标方法对一个的第几个形参
+     */
+    public Integer getIndexRequestParameterIndex(Method method, String name) {
+        // 取函数参数
+        Parameter[] parameters = method.getParameters();
+        for (int i = 0; i < parameters.length; i++) {
+            Parameter parameter = parameters[i];
+            // 如果有 @RequestParam 注解的
+            if (parameter.isAnnotationPresent(RequestParam.class)) {
+                RequestParam requestParam = parameter.getAnnotation(RequestParam.class);
+                if (name.equals(requestParam.value())) {
+                    return i;
+                }
+            }
+            // 如果没有对应的注解那么直接拿到 name
+            // if (name.equals(parameter.getName())) {
+            //     return i;
+            // }
+        }
+        return null;
+    }
+
+    /**
+     * 编写方法，得到目标的所有形参名称，并放到集合中返回
+     */
+    public List<String> getRequestParameterNames(Method method) {
+        List<String> list = new ArrayList<>();
+        // 获取到所有的参数名称
+        // 在默认情况下 parameters
+        // parameters.getName() 返回的名字不是形参真正的名字
+        // 而是 [arg0, arg1, arg2, ....], 这里我们引入插件
+        Parameter[] parameters = method.getParameters();
+        for (Parameter parameter : parameters) {
+            list.add(parameter.getName());
+        }
+        // System.out.println("parameters = " + list);
+        return list;
+    }
+
 }

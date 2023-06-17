@@ -90,10 +90,10 @@ public class HspWebApplicationContext {
         System.out.println("classFullPathList = " + classFullPathList);
         // 将扫描到的类, 反射到 ioc 容器
         executeInstance();
-        System.out.println("ioc = " + ioc);
+        // System.out.println("ioc = " + ioc);
         // 完成自动注入属性
         executeAutoWired();
-        System.out.println("装配后 ioc = " + ioc);
+        // System.out.println("装配后 ioc = " + ioc);
     }
 
     /**
