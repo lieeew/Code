@@ -2,15 +2,13 @@ package com.hspedu.controller;
 
 import com.hspedu.Service.MonsterService;
 import com.hspedu.entity.Monster;
-import com.hspedu.hspspringmvc.annotation.AutoWired;
-import com.hspedu.hspspringmvc.annotation.Controller;
-import com.hspedu.hspspringmvc.annotation.RequestMapping;
-import com.hspedu.hspspringmvc.annotation.RequestParam;
+import com.hspedu.hspspringmvc.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -96,5 +94,17 @@ public class MonsterController {
         } else {
             return "redirect:/login_fail.jsp";
         }
+    }
+
+    /**
+     * json 返回
+     * 1. 该方法返回的结果是给 SpringMVC 底层通过反射调用
+     * 2. 我们在 SpringMVC 底层反射调用的位置，接受到的结果解析并返回 Json 数据
+     * 3. 目标方法的形参是在 SpringMVC 底层通过封装好的「参数数组」传入的
+     */
+    @RequestMapping("/monster/listByJson")
+    @ResponseBody // 标识返回给前端的值是 json 数据，后面需要处理
+    public ArrayList<Monster> listMonsterByJson(HttpServletRequest request, HttpServletResponse response){
+        return (ArrayList<Monster>) monsterService.listMonster();
     }
 }

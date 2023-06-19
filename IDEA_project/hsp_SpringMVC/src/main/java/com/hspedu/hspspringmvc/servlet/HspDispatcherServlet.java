@@ -1,7 +1,10 @@
 package com.hspedu.hspspringmvc.servlet;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.hspedu.hspspringmvc.annotation.RequestMapping;
 import com.hspedu.hspspringmvc.annotation.RequestParam;
+import com.hspedu.hspspringmvc.annotation.ResponseBody;
 import com.hspedu.hspspringmvc.handler.HspHandler;
 import com.hspedu.hspspringmvc.ioc.HspWebApplicationContext;
 
@@ -198,6 +201,16 @@ public class HspDispatcherServlet extends HttpServlet {
                     } else {
                         request.getRequestDispatcher(viewName).forward(request, response);
                     }
+                } else if (invoke instanceof ArrayList) {
+                    if (method.isAnnotationPresent(ResponseBody.class)) {
+                        response.setContentType("application/json;charset=utf-8");
+                        // 如果标识了，表示要返回 json 数据
+                        // String json = new Gson().toJson(invoke);
+                        // 也可以使用 jackson 进行字符串的转化
+                        ObjectMapper objectMapper = new ObjectMapper();
+                        String json = objectMapper.writeValueAsString(invoke);
+                        response.getWriter().println(json);
+                    }
                 }
             }
         } catch (IOException | IllegalAccessException | InvocationTargetException | ServletException e) {
@@ -206,9 +219,8 @@ public class HspDispatcherServlet extends HttpServlet {
     }
 
     /**
-     *
      * @param method 目标方法
-     * @param name 请求的参数名
+     * @param name   请求的参数名
      * @return 目标方法对一个的第几个形参
      */
     public Integer getIndexRequestParameterIndex(Method method, String name) {
