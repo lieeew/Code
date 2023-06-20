@@ -1,6 +1,8 @@
 package com.hspedu.hspspringmvc.servlet;
 
+import com.google.gson.Gson;
 import com.hspedu.Controller.MonsterController;
+import com.hspedu.entity.Monster;
 import com.hspedu.hspspringmvc.annotation.RequestMapping;
 import com.hspedu.hspspringmvc.annotation.RequestParam;
 import com.hspedu.hspspringmvc.annotation.Resource;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.io.IOException;
 import java.lang.reflect.*;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -58,6 +61,7 @@ public class HspDispatcherServlet extends HttpServlet {
         String xmlFile = contextConfigLocation.split(":")[1];
         // System.out.println("xmlFile = " + xmlFile);
         hspWebApplicationContext.init(xmlFile);
+        // 完成自动注入到容器之中
         autowired();
         initHandlerMapping();
         System.out.println("handlerMap = " + handlerMap);
@@ -133,9 +137,27 @@ public class HspDispatcherServlet extends HttpServlet {
                 parameters[index] = entry.getValue()[0];
             }
 
-            method.invoke(controller, parameters);
+            Object invoke = method.invoke(controller, parameters);
 
-        } catch (IllegalAccessException | InvocationTargetException | IOException e) {
+            if (invoke instanceof String) {
+                String result = (String) invoke;
+                if (result.contains(":")) {
+                    // 判断是请求转发还是重定向
+                    if ("redirect".equals(result.split(":")[0])) {
+                        resp.sendRedirect(req.getContextPath() + result.split(":")[1]);
+                    } else if ("forward".equals(result.split(":")[0])) {
+                        req.getRequestDispatcher(result.split(":")[1]).forward(req, resp);
+                    }
+                }
+            } // 如果是其他的视图解析器
+            else if (invoke instanceof ArrayList) {
+                ArrayList monsters = (ArrayList) invoke;
+                // 返回 JSON 数据
+                resp.setContentType("text/json;charset=utf-8");
+                resp.getWriter().println((new Gson()).toJson(monsters));
+            }
+
+        } catch (IllegalAccessException | InvocationTargetException | IOException | ServletException e) {
             throw new RuntimeException(e);
         }
     }
@@ -185,6 +207,7 @@ public class HspDispatcherServlet extends HttpServlet {
             }
         }
     }
+
     /**
      * 编写方法获取到对应属性的位置 index
      */

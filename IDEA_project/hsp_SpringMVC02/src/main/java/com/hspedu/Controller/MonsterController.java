@@ -2,14 +2,13 @@ package com.hspedu.Controller;
 
 import com.hspedu.Service.HspMonsterService;
 import com.hspedu.entity.Monster;
-import com.hspedu.hspspringmvc.annotation.Controller;
-import com.hspedu.hspspringmvc.annotation.RequestMapping;
-import com.hspedu.hspspringmvc.annotation.RequestParam;
-import com.hspedu.hspspringmvc.annotation.Resource;
+import com.hspedu.hspspringmvc.annotation.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -56,22 +55,19 @@ public class MonsterController {
     }
 
     @RequestMapping("/monster/login")
-    public void login(@RequestParam("monsterName") String username,
-                      @RequestParam("monsterAge") String age, HttpServletRequest request, HttpServletResponse response) {
+    public String login(@RequestParam("monsterName") String username, HttpServletRequest request, HttpServletResponse response) {
         response.setCharacterEncoding("utf-8");
         request.setAttribute("name", username);
-        System.out.println("username = " + username);
-        System.out.println("age = " + age);
-        try {
-            if ("leikooo".equals(username)) {
-                request.getRequestDispatcher("/login_ok.jsp").forward(request, response);
-            } else {
-                request.getRequestDispatcher("/login_fail.jsp").forward(request, response);
-            }
-        } catch (ServletException | IOException e) {
-            throw new RuntimeException(e);
+        if (monsterService.verifyLogin(username)) {
+            return "redirect:/login_ok.jsp";
+        } else {
+            return "redirect:/login_fail.jsp";
         }
     }
 
-
+    @RequestMapping("/monster/listMonsters")
+    @ResponseBody // 标识返回 JSON 数据
+    public ArrayList<Monster> listMonsters() {
+        return (ArrayList<Monster>) monsterService.listMonsters();
+    }
 }

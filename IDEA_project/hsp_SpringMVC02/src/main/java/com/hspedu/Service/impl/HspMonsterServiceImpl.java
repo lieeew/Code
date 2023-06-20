@@ -3,7 +3,6 @@ package com.hspedu.Service.impl;
 import com.hspedu.Service.HspMonsterService;
 import com.hspedu.entity.Monster;
 import com.hspedu.hspspringmvc.annotation.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,5 +26,10 @@ public class HspMonsterServiceImpl implements HspMonsterService {
         monsters.add(new Monster(90, "恶魔", 180, "打游戏"));
 
         return monsters;
+    }
+
+    @Override
+    public boolean verifyLogin(String name) {
+        return "leikooo".equals(name);
     }
 }

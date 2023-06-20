@@ -12,4 +12,6 @@ import java.util.List;
  */
 public interface HspMonsterService {
     List<Monster> listMonsters();
+
+    boolean verifyLogin(String name);
 }
