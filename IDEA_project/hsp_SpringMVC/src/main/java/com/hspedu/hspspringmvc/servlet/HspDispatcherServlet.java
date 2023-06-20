@@ -167,7 +167,7 @@ public class HspDispatcherServlet extends HttpServlet {
                     if (index == null) {
                         // 没有加注解
                         // 思路 1. 得到目标方法的所有参数名称 -- 专门的方法获取参数
-                        // 2. 得到目标方法的所有形参进行便利，如果匹配直接放入
+                        // 2. 得到目标方法的所有形参进行遍历，如果匹配直接放入
                         List<String> requestParameterNames = getRequestParameterNames(method);
                         for (int i = 0; i < requestParameterNames.size(); i++) {
                             if (name.equals(requestParameterNames.get(i))) {

@@ -7,7 +7,6 @@ import com.hspedu.hspspringmvc.annotation.Service;
 import com.hspedu.hspspringmvc.handler.HspHandler;
 import com.hspedu.hspspringmvc.xml.XMLPaser;
 import org.apache.commons.lang3.StringUtils;
-
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -33,10 +32,6 @@ public class HspWebApplicationContext {
      */
     public Map<String, Object> ioc = new ConcurrentHashMap<>();
 
-    /**
-     * 存放映射关系
-     */
-    private Map<String, HspHandler> handlerMap = new ConcurrentHashMap();
 
     public HspWebApplicationContext() {
     }
@@ -59,9 +54,6 @@ public class HspWebApplicationContext {
         System.out.println("classFullPathList = " + classFullPathList);
         executeInstance();
         System.out.println("ioc = " + ioc);
-        initHandlerMapping();
-        System.out.println("handlerMap = " + handlerMap);
-
 
     }
 
@@ -123,38 +115,13 @@ public class HspWebApplicationContext {
                     Object instance = clazz.newInstance();
                     ioc.put(beanName, instance);
                 }
-
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
     }
 
-
-    /**
-     * 初始化处理映射关系, 也就是 handlerMap
-     */
-    public void initHandlerMapping() {
-        // 遍历 ioc 容器
-        if (ioc.size() == 0) {
-            return;
-        }
-
-        for (Map.Entry<String, Object> entry : ioc.entrySet()) {
-            HspHandler hspHandler = new HspHandler();
-            Class<?> clazz = entry.getValue().getClass();
-            Method[] methods = clazz.getDeclaredMethods();
-            for (Method method : methods) {
-                if (method.isAnnotationPresent(RequestMapping.class)) {
-                    RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
-                    hspHandler.setMethod(method);
-                    hspHandler.setController(clazz);
-                    hspHandler.setUrl("/hsp_SpringMVC02" + requestMapping.value());
-
-                    // 放入到
-                    handlerMap.put(hspHandler.getUrl(), hspHandler);
-                }
-            }
-        }
+    public Map<String, Object> getIoc() {
+        return ioc;
     }
 }
