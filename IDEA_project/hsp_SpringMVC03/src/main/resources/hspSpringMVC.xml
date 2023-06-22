@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<beans>
+    <!-- 指定要扫描的包 -->
+    <coponent-scarn base-package="com.hspedu.Controller, com.hspedu.Service"/>
+</beans>
