@@ -8,23 +8,23 @@
     <!--    配置扫描的包-->
     <context:component-scan base-package="com.hspedu.web"/>
 
-<!--    这个是默认视图解析器-->
+    <!--    这个是默认视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--  这个目录第一个/表示的是 web 目录-->
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
-<!--        默认优先级-->
-        <property name="order" value="10" />
+        <!--        默认优先级-->
+        <property name="order" value="10"/>
     </bean>
 
-<!--    自定义视图解析器
-        1. 配置自定义的视图解析器 BeanNameViewResolver
-        2. BeanNameViewResolver 可以去解析我们自定义的视图
-        3. order 属性表示视图解析器执行的顺序, 值越小优先级越高
-        4. 属性 order 默认优先级是 Integer.MAX_VALUE
--->
+    <!--    自定义视图解析器
+            1. 配置自定义的视图解析器 BeanNameViewResolver
+            2. BeanNameViewResolver 可以去解析我们自定义的视图
+            3. order 属性表示视图解析器执行的顺序, 值越小优先级越高
+            4. 属性 order 默认优先级是 Integer.MAX_VALUE
+    -->
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-        <property name="order" value="99" />
+        <property name="order" value="99"/>
     </bean>
 
 
@@ -33,4 +33,13 @@
     <mvc:annotation-driven> </mvc:annotation-driven>
     <!-- 将 SpringMVC 不能处理的请求交给 Tomcat, 比如请求 css,js 等-->
     <mvc:default-servlet-handler/>
+
+    <!-- 配置国际化错误信息的资源处理 bean -->
+    <bean id="messageSource" class=
+            "org.springframework.context.support.ResourceBundleMessageSource">
+        <!-- 配置国际化文件名字
+            如果你这样配的话，表示 messageSource 回到 src/i18nXXX.properties 去读取错误信息
+        -->
+        <property name="basename" value="i18n"> </property>
+    </bean>
 </beans>
