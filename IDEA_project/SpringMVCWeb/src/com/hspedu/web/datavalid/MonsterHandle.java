@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -46,7 +48,7 @@ public class MonsterHandle {
      */
     @RequestMapping("/saveMonsters")
     public String save(@ModelAttribute("monsters") @Valid Monster monsters, Errors errors, Map<String, Object> map) {
-        map.put("monsters", monsters);
+//        map.put("monsters", monsters);
         System.out.println("monster = " + monsters);
         System.out.println("====map====");
         for (Map.Entry<String, Object> entry : map.entrySet()) {
@@ -62,6 +64,25 @@ public class MonsterHandle {
             return "datavalid/monster_addUI";
         }
         return "datavalid/success";
+    }
+
+    //取消绑定 monster的name表单提交的值给monster.name属性
+    @InitBinder
+    public void initBinder(WebDataBinder webDataBinder) {
+        /**
+         * 老师解读
+         * 1. 方法上需要标注 @InitBinder  springmvc底层会初始化 WebDataBinder
+         * 2. 调用 webDataBinder.setDisallowedFields("name") 表示取消指定属性的绑定
+         *    即：当表单提交字段为 name时， 就不在把接收到的name值，填充到model数据monster的name属性
+         * 3. 机制：springmvc 在底层通过反射调用目标方法时, 接收到http请求的参数和值,使用反射+注解技术
+         *    取消对指定属性的填充
+         * 4. setDisallowedFields支持可变参数，可以填写多个字段
+         * 5. 如果我们取消某个属性绑定,验证就没有意义了,应当把验证的注解去掉, name属性会使用默认值null
+         *  //@NotEmpty
+         *  private String name;
+         *
+         */
+        webDataBinder.setDisallowedFields("name");
     }
 
 }

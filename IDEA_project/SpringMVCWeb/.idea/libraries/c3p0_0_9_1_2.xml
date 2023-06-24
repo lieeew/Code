@@ -37,6 +37,8 @@
       <root url="jar://$USER_HOME$/.ideaLibSources/hibernate-validator-5.0.0.CR2-sources.jar!/" />
       <root url="jar://$USER_HOME$/.ideaLibSources/spring-web-5.3.8-sources.jar!/" />
       <root url="jar://$USER_HOME$/.ideaLibSources/spring-web-5.3.8-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-context-5.3.8-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-context-5.3.8-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
