@@ -31,7 +31,7 @@ public class Monster {
      * @NotEmpty
      * Asserts that the annotated string, collection, map or array is not null or empty
      */
-//    @NotEmpty
+    @NotEmpty
     private String name;
 
     @NotNull

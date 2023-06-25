@@ -59,12 +59,11 @@ public class HspTomcatV4 {
 
         try {
             ServerSocket serverSocket = new ServerSocket(8080);
-            System.out.println("=====hsptomcatv3在8080监听======");
+            System.out.println("=====hspTomcat v3在8080监听======");
             Socket socket = serverSocket.accept();
 
             while (!serverSocket.isClosed()) {
-                HspRequestHandler hspRequestHandler =
-                        new HspRequestHandler(socket);
+                HspRequestHandler hspRequestHandler = new HspRequestHandler(socket);
                 new Thread(hspRequestHandler).start();
             }
         } catch (IOException e) {
@@ -122,7 +121,7 @@ public class HspTomcatV4 {
     public static void main(String[] args) {
         HspTomcatV4 hspTomcatV4 = new HspTomcatV4();
         hspTomcatV4.init();
-        //启动hsptomcat容器
+        //启动 hspTomcat 容器
         hspTomcatV4.run();
     }
 }

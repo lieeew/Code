@@ -77,7 +77,7 @@ public class HspRequestHandler implements Runnable {
             String uri = hspRequest.getParameterts("uri"); // /hspServlet
 
             String servletName = HspTomcatV3.servletUrlMapping.get(uri);
-            // 通过 servletName -> servlet的实例, 真正的运行类型是器子类hspCalServlet
+            // 通过 servletName -> servlet 的实例, 真正的运行类型是器子类 hspCalServlet
             if (servletName != null) {
                 HspHttpServlet hspHttpServlet = HspTomcatV3.servletHashMapping.get(servletName);
                 if (hspHttpServlet != null) {

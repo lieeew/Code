@@ -67,7 +67,7 @@ public class MonsterHandle {
     }
 
     //取消绑定 monster的name表单提交的值给monster.name属性
-    @InitBinder
+//    @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {
         /**
          * 老师解读
@@ -82,7 +82,7 @@ public class MonsterHandle {
          *  private String name;
          *
          */
-        webDataBinder.setDisallowedFields("name");
+//        webDataBinder.setDisallowedFields("name");
     }
 
 }

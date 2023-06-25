@@ -42,4 +42,6 @@
         -->
         <property name="basename" value="i18n"> </property>
     </bean>
+
+<!--    <bean id="multipartResolver" class="org.springframework.web.multipart.MultipartResolver" abstract="true"/>-->
 </beans>
