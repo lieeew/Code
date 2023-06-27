@@ -31,6 +31,11 @@
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/validation-api-1.1.0.CR1.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-context-5.3.8-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-context-5.3.8-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-web-5.3.8-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-web-5.3.8-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

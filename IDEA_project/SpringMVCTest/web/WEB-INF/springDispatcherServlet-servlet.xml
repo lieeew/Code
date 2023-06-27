@@ -7,22 +7,32 @@
 
     <context:component-scan base-package="com.hspedu.SpringMVC"/>
 
-<!--    视图解析器 返回的是view对象 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+    <!--    视图解析器 返回的是view对象 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/page/"/>
         <property name="suffix" value=".jsp"/>
-        <property name="order" value="9" />
+        <property name="order" value="9"/>
     </bean>
 
     <!--    自定义视图-->
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-<!--        默认最大, 越大优先级越低-->
+        <!--        默认最大, 越大优先级越低-->
         <property name="order" value="12"/>
     </bean>
 
     <!-- 加入两个常规配置-->
     <!-- 能支持 SpringMVC 高级功能，比如 JSR303 校验，映射动态请求-->
-    <mvc:annotation-driven> </mvc:annotation-driven>
+    <mvc:annotation-driven>  </mvc:annotation-driven>
     <!-- 将 SpringMVC 不能处理的请求交给 Tomcat, 比如请求 css,js 等-->
     <mvc:default-servlet-handler/>
+
+    <!--    需要配置环境-->
+    <!-- 配置国际化错误信息的资源处理 bean -->
+    <bean id="messageSource" class=
+            "org.springframework.context.support.ResourceBundleMessageSource">
+        <!-- 配置国际化文件名字
+        如果你这样配的话，表示 messageSource 回到 src/i18nXXX.properties 去读取错误信息
+        -->
+        <property name="basename" value="i18n"> </property>
+    </bean>
 </beans>

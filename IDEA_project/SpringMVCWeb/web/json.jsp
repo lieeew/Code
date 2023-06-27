@@ -47,6 +47,7 @@
                 $.ajax({
                     url: url,
                     data: args,
+                    // 必须使用 POST 请求，要不然会报错
                     type: "POST",
                     success : (data) => {
                         console.log("data = ", data);

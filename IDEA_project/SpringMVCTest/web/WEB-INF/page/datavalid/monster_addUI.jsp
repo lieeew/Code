@@ -20,9 +20,11 @@
 request 中的 key 为: form 标签的 modelAttribute 属性值，比如这里的monsters
 2. SpringMVC 的 form:form 标签的 action 属性值中的/ 不代表WEB应用的根目录. -->
 <form:form action="saveMonster" method="POST" modelAttribute="monster">妖怪名字:
-    <form:input path="name"/> <br><br>
-    妖怪年龄~: <form:input path="age"/> <br><br>
-    电子邮件: <form:input path="email"/> <br><br>
+    <form:input path="name"/> <form:errors path="name"/> <br><br>
+    妖怪年龄~: <form:input path="age"/> <form:errors path="age"/> <br><br>
+    电子邮件: <form:input path="email"/> <form:errors path="email"/> <br><br>
+    妖怪的生日: <form:input path="birthday"/> <form:errors path="birthday"/> 要求以"9999-11-11"的形式 <br><br>
+    妖怪的薪水: <form:input path="salary"/> <form:errors path="salary"/> 要求以"123,890.12"的形式 <br><br>
     <input type="submit" value="添加妖怪"/>
 </form:form>
 
