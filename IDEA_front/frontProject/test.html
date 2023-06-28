@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        function add() {
+            var first = document.myForm.first.value;
+            var second = parseInt(document.myForm.second.value);
+            var third = parseInt(document.myForm.third.value);
+            alert(first + second + third);
+        }
+    </script>
 </head>
 <body>
-
+<form name="myForm">
+    <input type=text name="first" value="40">
+    <input type=text name="second" value="30">
+    <input type=text name="third" value="70">
+    <input type=button value="add" onclick=add()>
+</form>
 </body>
 </html>

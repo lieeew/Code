@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function LoadImg(f) {
+            document.img1.src = document.form1.D1.options[document.form1.D1.selectedIndex].value;
+            document.form1.T1.value = document.form1.D1.options[document.form1.D1.selectedIndex].value;
+        }
+    </script>
+</head>
+<body>
+
+<form name="form1">
+    <p>
+        <input type="text" name="T1" size="20">
+        <select size="1" name="D1" onchange="LoadImg(this.form)">
+            <option selected value="images\img01.jpg">图片一</option>
+            <option value="images\img02.jpg">图片二</option>
+            <option value="images\img03.jpg">图片三</option>
+        </select>
+    </p>
+    <img src="images\Img01.jpg" name="img1" width=250 height=200>
+</form>
+</body>
+</html>

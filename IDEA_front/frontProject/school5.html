@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function replaceStr(inStr, oldStr, newStr) {
+            // JS 像 Java 一样，字符串都不能修改
+            // 想要是实现修改字符串，可以是使用转化为字节数组的/就者使用 subString 是实现
+            // let arr = oldStr.toString().split("");
+            // arr[inStr] = newStr;
+            // return arr.toString().replaceAll(",", "");
+
+            // 使用 subString 方法实现
+            return oldStr.substring(0, inStr) + newStr + oldStr.substring(inStr + 1);
+        }
+
+        let replaceStr1 = replaceStr(1, "hello", "W");
+        alert(replaceStr1)
+
+        function updateDateTime() {
+            var date = new Date();
+            var time = date.toLocaleTimeString();
+            // 更新标题栏
+            document.title = "当前时间：" + time;
+            // 更新状态栏
+            window.status = "当前时间：" + time;
+        }
+
+        // 每秒钟调用一次 updateDateTime 函数
+        setInterval(updateDateTime, 1000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

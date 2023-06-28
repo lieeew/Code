@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function LoadImg(f) {
+            // var form = document.forms["form1"];
+            // var option = form.D1.options[form.D1.selectedIndex];
+            // var src = option.value;
+            // console.log(src); // 输出选中的option的src属性值
+
+            let form = document.form1;
+            let option = form.D1.options[form.D1.selectedIndex].value;
+            console.log(option)
+            form.T1.value = option
+            form.img1.src = option
+        }
+
+    </script>
+</head>
+<body>
+<form name="form1">
+    <p>
+        <input type="text" name="T1" size="20">
+        <select size="1" name="D1" onchange="LoadImg(this.form)">
+            <option selected value="images\img01.jpg">图片一</option>
+            <option value="images\img02.jpg">图片二</option>
+            <option value="images\img03.jpg">图片三</option>
+        </select>
+    </p>
+    <img src="images\Img01.jpg" name="img1" width=250 height=200>
+</form>
+</body>
+</html>

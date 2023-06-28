@@ -35,4 +35,24 @@
         -->
         <property name="basename" value="i18n"> </property>
     </bean>
+
+    <!-- 配置文件上传需要的 bean--><!-- 需要开启，否则不支持文件上传-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+    <mvc:interceptors>
+<!--        这种配置，会拦截所有的请求-->
+<!--        <ref bean="myInterceptor01"/>-->
+
+<!--        这样的配置只会对 /hi 进行拦截-->
+        <mvc:interceptor>
+            <mvc:mapping path="/h*"/>
+            <mvc:exclude-mapping path="/hello"/>
+            <ref bean="myInterceptor01"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <ref bean="myInterceptor02"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
 </beans>

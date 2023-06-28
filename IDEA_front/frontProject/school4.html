@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function foo() {
+            let form = document.getElementsByName("radioGroup");
+            for (let i = 0; i < form.length; i++) {
+                if (form[i].checked) {
+                    alert("你选着的是第 " + (i + 1) + " 个");
+                    return false;
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<form name="form1" onsubmit="return foo();">
+    <input type="radio" name="radioGroup"/>
+    <input type="radio" name="radioGroup"/>
+    <input type="radio" name="radioGroup"/>
+    <input type="radio" name="radioGroup"/>
+    <input type="radio" name="radioGroup"/>
+    <input type="radio" name="radioGroup"/>
+    <input type="submit"/>
+</form>
+
+</body>
+</html>
