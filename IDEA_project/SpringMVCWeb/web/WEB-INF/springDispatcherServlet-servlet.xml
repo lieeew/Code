@@ -69,4 +69,14 @@
         <!--             <ref bean="myInterceptor01"/>-->
         <!--         </mvc:interceptor>-->
     </mvc:interceptors>
+
+<!--    配置统一异常处理-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">allEx</prop>
+                <prop key="java.lang.ArrayIndexOutOfBoundsException">arrEx</prop>
+            </props>
+        </property>
+    </bean>
 </beans>
