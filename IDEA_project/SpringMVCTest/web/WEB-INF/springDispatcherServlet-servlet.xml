@@ -22,7 +22,7 @@
 
     <!-- 加入两个常规配置-->
     <!-- 能支持 SpringMVC 高级功能，比如 JSR303 校验，映射动态请求-->
-    <mvc:annotation-driven>  </mvc:annotation-driven>
+    <mvc:annotation-driven></mvc:annotation-driven>
     <!-- 将 SpringMVC 不能处理的请求交给 Tomcat, 比如请求 css,js 等-->
     <mvc:default-servlet-handler/>
 
@@ -33,26 +33,34 @@
         <!-- 配置国际化文件名字
         如果你这样配的话，表示 messageSource 回到 src/i18nXXX.properties 去读取错误信息
         -->
-        <property name="basename" value="i18n"> </property>
+        <property name="basename" value="i18n"></property>
     </bean>
 
     <!-- 配置文件上传需要的 bean--><!-- 需要开启，否则不支持文件上传-->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
     <mvc:interceptors>
-<!--        这种配置，会拦截所有的请求-->
-<!--        <ref bean="myInterceptor01"/>-->
+        <!--        这种配置，会拦截所有的请求-->
+        <!--        <ref bean="myInterceptor01"/>-->
 
-<!--        这样的配置只会对 /hi 进行拦截-->
+        <!--        这样的配置只会对 /hi 进行拦截-->
         <mvc:interceptor>
             <mvc:mapping path="/h*"/>
             <mvc:exclude-mapping path="/hello"/>
             <ref bean="myInterceptor01"/>
         </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/*"/>
-            <ref bean="myInterceptor02"/>
-        </mvc:interceptor>
-
+<!--        <mvc:interceptor>-->
+<!--            <mvc:mapping path="/*"/>-->
+<!--            <ref bean="myInterceptor02"/>-->
+<!--        </mvc:interceptor>-->
     </mvc:interceptors>
+
+<!--    配置处理统一异常处理-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">allEx</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

@@ -20,10 +20,10 @@ public class HandlerText {
     }
 
 
-    @RequestMapping("/hello")
-    public String hello(User user) {
-        System.out.println("HandlerText.hello");
-        return "success";
-    }
+//    @RequestMapping("/hello")
+//    public String hello(User user) {
+//        System.out.println("HandlerText.hello");
+//        return "success";
+//    }
 
 }
