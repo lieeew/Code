@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    类型别名, 这个是写在 mybatis-config.xml 文件之中 -->
+    <typeAliases>
+        <typeAlias alias="monster" type="com.hspedu.entity.Monster"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--            配置数据元-->
+            <dataSource type="POOLED">
+                <!--   配置驱动-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--
+                    1. jdbc:mysql 表示协议
+                    2. localhost:3306 表示 ip + 端口
+                    3. mybatis 数据库名称
+                    4. useSSL=true 使用安全链接
+                    5. &amp; 类似于 HTML 中的 &nbsp ，转义功能
+                    6. useUnicode=true 使用 unicode 防止编码错误
+                    7. characterEncoding=UTF-8 指定使用 UTF-8, 防止中文乱码
+                 -->
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;
+useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="hsphsp"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/hspedu/mapper/MonsterMapper.xml"/>
+    </mappers>
+</configuration>
+

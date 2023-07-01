@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--老师解读
+   1. 这是一个 mapper xml 文件
+   2. 该接口用于声明 monster 表的方法
+   3. namespace 表示该 mapper 文件是和哪一个接口对应
+-->
+
+<mapper namespace="com.hspedu.mapper.MonsterMapper">
+    <!--    配置 addMonster
+        1. id 对应接口的方法名
+        2. parameterType 放入形参的类型，可以简写
+        3. 写 SQL
+        4. 这里 #{age} 表示的是传入到对象的属性名
+    -->
+    <insert id="addMonster" parameterType="com.hspedu.entity.Monster" useGeneratedKeys="true" keyProperty="id">
+        insert into `monster` (`age`, `birthday`, `email`, `gender`, `name`, `salary`) value
+            (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary})
+    </insert>
+
+    <!--
+        1. 更新字段的值
+        2. 这里爆红,但是测试没问题
+    -->
+    <update id="updateMonster" parameterType="monster">
+        update `monster`
+        set `age`      = #{age},
+            `birthday` = #{birthday},
+            `email`    = #{email},
+            `gender`   = #{gender},
+            `name`     = #{name},
+            `salary`   = #{salary}
+        where `id` = #{id}
+    </update>
+
+    <!--    配置删除方法
+            1. Integer 是 Java 的类型，可以简写
+        -->
+    <delete id="deleteMonsterById" parameterType="Integer">
+        delete
+        from `monster`
+        where `id` = #{id}
+    </delete>
+
+    <select id="getMonsterById" resultType="com.hspedu.entity.Monster">
+
+    </select>
+
+    <select id="findAllMonster" resultType="com.hspedu.entity.Monster">
+
+    </select>
+
+</mapper>
