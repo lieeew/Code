@@ -127,22 +127,36 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         }
 
         // 这里重新生成一个对象，进行返回数据
+
+        User saftyUser = getSafetyUser(user);
+
+        // 记录用户的登录状态
+        request.getSession().setAttribute(USER_LOGIN_STATE, saftyUser);
+
+        return saftyUser;
+    }
+
+    /**
+     * 得到脱敏的用户
+     * @param originUser 脱敏前的原始用户
+     * @return 脱敏后的用户
+     */
+    @Override
+    public User getSafetyUser(User originUser) {
         // 脱敏
         User saftyUser = new User();
 
-        saftyUser.setId(user.getId());
-        saftyUser.setUsername(user.getUsername());
-        saftyUser.setUserAccount(userAccount);
-        saftyUser.setAvatarUrl(user.getAvatarUrl());
-        saftyUser.setGender(user.getGender());
-        saftyUser.setPhone(user.getPhone());
-        saftyUser.setEmail(user.getEmail());
-        saftyUser.setUserStatus(user.getUserStatus());
-        saftyUser.setCreateTime(user.getCreateTime());
-        saftyUser.setIsDelete(user.getIsDelete());
-        saftyUser.setUserRole(user.getUserRole());
-        // 记录用户的登录状态
-        request.getSession().setAttribute(USER_LOGIN_STATE, saftyUser);
+        saftyUser.setId(originUser.getId());
+        saftyUser.setUsername(originUser.getUsername());
+        saftyUser.setUserAccount(originUser.getUserAccount());
+        saftyUser.setAvatarUrl(originUser.getAvatarUrl());
+        saftyUser.setGender(originUser.getGender());
+        saftyUser.setPhone(originUser.getPhone());
+        saftyUser.setEmail(originUser.getEmail());
+        saftyUser.setUserStatus(originUser.getUserStatus());
+        saftyUser.setCreateTime(originUser.getCreateTime());
+        saftyUser.setIsDelete(originUser.getIsDelete());
+        saftyUser.setUserRole(originUser.getUserRole());
 
         return saftyUser;
     }

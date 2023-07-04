@@ -29,6 +29,8 @@ declare namespace API {
     currentAuthority?: string;
   };
 
+  type RegisterResult = number;
+
   type PageParams = {
     current?: number;
     pageSize?: number;
@@ -62,9 +64,16 @@ declare namespace API {
   };
 
   type LoginParams = {
-    username?: string;
-    password?: string;
+    userAccount?: string;
+    userPassword?: string;
     autoLogin?: boolean;
+    type?: string;
+  };
+  // 注册类型
+  type RegisterParams = {
+    userAccount?: string;
+    userPassword?: string;
+    checkPassword?: string;
     type?: string;
   };
 

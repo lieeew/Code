@@ -7,10 +7,13 @@ import com.yupi.user_center.model.domain.request.UserRegisterRequest;
 import com.yupi.user_center.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import static com.yupi.user_center.contant.UserConstant.ADMIN_ROLE;
 import static com.yupi.user_center.contant.UserConstant.USER_LOGIN_STATE;
 
@@ -27,7 +30,8 @@ public class UserController {
     private UserService userService;
 
     /**
-     *  用户注册
+     * 用户注册
+     *
      * @param userRegisterRequest 建议封装一个对象
      * @return userId
      */
@@ -72,13 +76,16 @@ public class UserController {
         }
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         if (StringUtils.isNoneBlank(username)) {
-            queryWrapper.like("username",  username);
+            queryWrapper.like("username", username);
         }
-        return userService.list();
+        List<User> list = userService.list();
+        // 这里逻辑要是很复杂的话，那么直接写在 service 里面
+        return list.stream().map(user -> userService.getSafetyUser(user)
+        ).collect(Collectors.toList());
     }
 
     @PostMapping("/delete")
-    public boolean deleteUser(@RequestBody long id, HttpServletRequest request) {
+    public boolean deleteUser(long id, HttpServletRequest request) {
         if (!isAdmin(request)) {
             return false;
         }
@@ -90,6 +97,7 @@ public class UserController {
 
     /**
      * 进行鉴权，仅管理员可以查询
+     *
      * @param request request 请求
      * @return true-管理员   false-代表普通用户
      */
