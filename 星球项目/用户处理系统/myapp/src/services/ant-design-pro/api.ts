@@ -3,11 +3,9 @@
 import { request } from 'umi';
 // import {RequestConfig} from "@@/plugin-request/request";
 
-/** 获取当前的用户 GET /api/currentUser */
+/** 获取当前的用户 GET /api/user/current*/
 export async function currentUser(options?: { [key: string]: any }) {
-  return request<{
-    data: API.CurrentUser;
-  }>('/api/currentUser', {
+  return request<API.CurrentUser>('/api/user/current', {
     method: 'GET',
     ...(options || {}),
   });

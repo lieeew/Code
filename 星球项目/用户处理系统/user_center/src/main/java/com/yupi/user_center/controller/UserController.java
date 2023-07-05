@@ -96,6 +96,17 @@ public class UserController {
     }
 
     /**
+     * 获取用户当前的状态
+     */
+    @GetMapping("/current")
+    public User getUserState(HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute(USER_LOGIN_STATE);
+        User byId = userService.getById(user.getId());
+        return userService.getSafetyUser(byId);
+    }
+
+
+    /**
      * 进行鉴权，仅管理员可以查询
      *
      * @param request request 请求

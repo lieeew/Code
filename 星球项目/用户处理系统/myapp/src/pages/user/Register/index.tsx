@@ -33,17 +33,14 @@ const Register: React.FC = () => {
       const userId = await register({
         userAccount, userPassword, checkPassword
       });
-      if (userId >= 0) {
+      if (userId > 0) {
         const defaultLoginSuccessMessage = '注册成功！';
         message.success(defaultLoginSuccessMessage);
         await fetchUserInfo();
         /** 此方法会跳转到 redirect 参数所在的位置 */
         if (!history) return;
         const {query} = history.location;
-        const {redirect} = query as {
-          redirect: string;
-        };
-        history.push('/user/login?redirect=' + redirect);
+        history.push('/user/login?redirect=', query,);
         return;
       } else {
         throw new Error(`register error id = ${userId}`)
