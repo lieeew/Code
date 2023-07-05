@@ -30,6 +30,7 @@ export async function login(body: API.LoginParams, options?: { [key: string]: an
     ...(options || {}),
   });
 }
+
 /** 注册接口 POST /user/register */
 export async function register(body: API.RegisterParams, options?: { [key: string]: any }) {
   return request<API.RegisterResult>('/api/user/register', {
@@ -49,6 +50,15 @@ export async function getNotices(options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
+
+/** 登录接口 POST /api/user/search */
+export async function searchUsers(options?: {[key: string]: any }) {
+  return request<API.CurrentUser>('/api/user/search', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+
 
 /** 获取规则列表 GET /api/rule */
 export async function rule(
