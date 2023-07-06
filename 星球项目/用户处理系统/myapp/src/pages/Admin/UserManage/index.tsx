@@ -4,7 +4,6 @@ import {ProTable, TableDropdown} from '@ant-design/pro-components';
 import {Button, Image} from 'antd';
 import {useRef} from 'react';
 import {searchUsers} from "@/services/ant-design-pro/api";
-import {json} from "express";
 
 export const waitTimePromise = async (time: number = 100) => {
   return new Promise((resolve) => {
@@ -40,13 +39,23 @@ const columns: ProColumns<API.CurrentUser>[] = [
     dataIndex: 'avatarUrl',
     ellipsis: true,
     render: (_, record) => (
-        <Image src={record.avatarUrl} width={100}/>
+      <Image src={record.avatarUrl} width={100}/>
     ),
   },
   {
     title: '性别',
     dataIndex: 'gender',
+    valueType: "select",
     ellipsis: true,
+    valueEnum: {
+      all: {text: '超长'.repeat(50)},
+      0: {
+        text: '男',
+      },
+      1: {
+        text: '女',
+      }
+    },
   },
   {
     title: '电话',
@@ -59,16 +68,6 @@ const columns: ProColumns<API.CurrentUser>[] = [
     ellipsis: true,
   },
   {
-    title: '用户权限',
-    dataIndex: 'userStatus',
-    ellipsis: true,
-  },
-  {
-    title: '用户状态',
-    dataIndex: 'userStatus',
-    ellipsis: true,
-  },
-  {
     title: '创建时间',
     dataIndex: 'createTime',
     valueType: 'dateTime',
@@ -77,66 +76,30 @@ const columns: ProColumns<API.CurrentUser>[] = [
   {
     title: '用户权限',
     dataIndex: 'userRole',
+    valueType: "select",
+    ellipsis: true,
+    valueEnum: {
+      all: {text: '超长'.repeat(50)},
+      0: {
+        text: '普通用户',
+        status: "default",
+      },
+      1: {
+        text: '管理员',
+        status: 'Success',
+      }
+    },
+  },
+  {
+    title: '用户状态',
+    dataIndex: 'userStatus',
     ellipsis: true,
   },
-  // {
-  //   disable: true,
-  //   title: '状态',
-  //   dataIndex: 'state',
-  //   filters: true,
-  //   onFilter: true,
-  //   ellipsis: true,
-  //   valueType: 'select',
-  //   valueEnum: {
-  //     all: {text: '超长'.repeat(50)},
-  //     open: {
-  //       text: '未解决',
-  //       status: 'Error',
-  //     },
-  //     closed: {
-  //       text: '已解决',
-  //       status: 'Success',
-  //       disabled: true,
-  //     },
-  //     processing: {
-  //       text: '解决中',
-  //       status: 'Processing',
-  //     },
-  //   },
-  // },
-  // {
-  //   disable: true,
-  //   title: '标签',
-  //   dataIndex: 'labels',
-  //   search: false,
-  //   renderFormItem: (_, {defaultRender}) => {
-  //     return defaultRender(_);
-  //   },
-  //   render: (_, record) => (
-  //     <Space>
-  //       {record.labels.map(({name, color}) => (
-  //         <Tag color={color} key={name}>
-  //           {name}
-  //         </Tag>
-  //       ))}
-  //     </Space>
-  //   ),
-  // },
-  // {
-  //   title: '创建时间',
-  //   key: 'showTime',
-  //   dataIndex: 'created_at',
-  //   valueType: 'date',
-  //   sorter: true,
-  //   hideInSearch: true,
-  // },
-  // {
-  //   title: '创建时间',
-  //   dataIndex: 'created_at',
-  //   valueType: 'dateRange',
-  //   hideInTable: true,
-  //
-  // },
+  {
+    title: '星球编号',
+    dataIndex: 'planetCode',
+    ellipsis: true,
+  },
   {
     title: '操作',
     valueType: 'option',

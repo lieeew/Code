@@ -22,7 +22,7 @@ const Register: React.FC = () => {
   };
   const handleSubmit = async (values: API.RegisterParams) => {
     try {
-      const {userAccount, checkPassword, userPassword} = values;
+      const {userAccount, checkPassword, userPassword, planetCode} = values;
       // 进行一些校验
       if (userPassword !== checkPassword) {
         message.error('两次输入的密码不一致');
@@ -31,7 +31,7 @@ const Register: React.FC = () => {
 
       // 注册
       const userId = await register({
-        userAccount, userPassword, checkPassword
+        userAccount, userPassword, checkPassword, planetCode
       });
       if (userId > 0) {
         const defaultLoginSuccessMessage = '注册成功！';
@@ -127,6 +127,20 @@ const Register: React.FC = () => {
                     type: "string",
                     message: '密码长度不小于 8 位！'
                   }
+                ]}
+              />
+              <ProFormText
+                name="planetCode"
+                fieldProps={{
+                  size: 'large',
+                  prefix: <UserOutlined className={styles.prefixIcon}/>,
+                }}
+                placeholder={'请输入星球编号'}
+                rules={[
+                  {
+                    required: true,
+                    message: '星球编号是必填项！',
+                  },
                 ]}
               />
             </>

@@ -38,7 +38,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
 
     @Override
-    public long userRegister(String userAccount, String userPassword, String checkPassword) {
+    public long userRegister(String userAccount, String userPassword, String checkPassword, String planetCode) {
         // 一、 校验, 需要非空
         if (StringUtils.isAllBlank(userAccount, userPassword, checkPassword)) {
             // todo 这里需要使用自定义异常，进行返回
@@ -73,6 +73,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             return -1;
         }
 
+        // 7. 星球编号现在设置为不大于 5 为
+        if (planetCode.length() > 5) {
+            return -1;
+        }
+
+        // 7. 星球编号不能重复
+        queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("planetCode", planetCode);
+        count = userMapper.selectCount(queryWrapper);
+        if (count > 0) {
+            return -1;
+        }
+
+
         // 三、 插入数据
         // 对密码进行加盐
         User user = new User();
@@ -80,7 +94,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         String encryptPassword = DigestUtils.md5DigestAsHex((SALT + userPassword).getBytes());
         user.setUserAccount(userAccount);
         user.setUserPassword(encryptPassword);
-
+        user.setPlanetCode(planetCode);
         // 保存用户
         boolean save = this.save(user);
         if (!save) {
@@ -163,8 +177,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         saftyUser.setCreateTime(originUser.getCreateTime());
         saftyUser.setIsDelete(originUser.getIsDelete());
         saftyUser.setUserRole(originUser.getUserRole());
+        saftyUser.setPlanetCode(originUser.getPlanetCode());
 
         return saftyUser;
+    }
+
+    /**
+     * 用户注销
+     * @param request
+     * @return
+     */
+    @Override
+    public int userLogout(HttpServletRequest request) {
+        request.getSession().removeAttribute(USER_LOGIN_STATE);
+        return 1;
     }
 }
 

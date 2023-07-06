@@ -1,13 +1,14 @@
 package com.yupi.user_center.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.yupi.user_center.common.BaseResponse;
+import com.yupi.user_center.common.ResultUtils;
 import com.yupi.user_center.model.domain.User;
 import com.yupi.user_center.model.domain.request.UserLoginRequest;
 import com.yupi.user_center.model.domain.request.UserRegisterRequest;
 import com.yupi.user_center.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -36,24 +37,26 @@ public class UserController {
      * @return userId
      */
     @PostMapping("/register")
-    public Long userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
+    public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
         if (userRegisterRequest == null) {
             return null;
         }
         String userAccount = userRegisterRequest.getUserAccount();
         String userPassword = userRegisterRequest.getUserPassword();
         String checkPassword = userRegisterRequest.getCheckPassword();
+        String planetCode = userRegisterRequest.getPlanetCode();
         // 稍微简单校验一下
         // controller 层一般是没有感情的校验，不涉及逻辑校验
-        if (StringUtils.isAllBlank(userAccount, userPassword, checkPassword)) {
+        if (StringUtils.isAllBlank(userAccount, userPassword, checkPassword, planetCode)) {
             return null;
         }
 
-        return userService.userRegister(userAccount, userPassword, checkPassword);
+        long result = userService.userRegister(userAccount, userPassword, checkPassword, planetCode);
+        return ResultUtils.success(result);
     }
 
     @PostMapping("/login")
-    public User userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
+    public BaseResponse<User> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
         if (userLoginRequest == null) {
             return null;
         }
@@ -65,14 +68,21 @@ public class UserController {
             return null;
         }
 
-        return userService.userLogin(userAccount, userPassword, request);
+        User result = userService.userLogin(userAccount, userPassword, request);
+        return ResultUtils.success(result);
+    }
+
+    @PostMapping("/logout")
+    public BaseResponse<Integer> userLogout(HttpServletRequest request) {
+        int result = userService.userLogout(request);
+        return ResultUtils.success(result);
     }
 
     @GetMapping("/search")
-    public List<User> searchUser(String username, HttpServletRequest request) {
+    public BaseResponse<List<User>> searchUser(String username, HttpServletRequest request) {
         if (!isAdmin(request)) {
             // 返回一个空的集合
-            return new ArrayList<>();
+            return ResultUtils.success(new ArrayList<>());
         }
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         if (StringUtils.isNoneBlank(username)) {
@@ -80,29 +90,32 @@ public class UserController {
         }
         List<User> list = userService.list();
         // 这里逻辑要是很复杂的话，那么直接写在 service 里面
-        return list.stream().map(user -> userService.getSafetyUser(user)
+        List<User> result = list.stream().map(user -> userService.getSafetyUser(user)
         ).collect(Collectors.toList());
+        return ResultUtils.success(result);
     }
 
     @PostMapping("/delete")
-    public boolean deleteUser(long id, HttpServletRequest request) {
+    public BaseResponse<Boolean> deleteUser(long id, HttpServletRequest request) {
         if (!isAdmin(request)) {
-            return false;
+            return null;
         }
         if (id <= 0) {
-            return false;
+            return null;
         }
-        return userService.removeById(id);
+        boolean result = userService.removeById(id);
+        return ResultUtils.success(result);
     }
 
     /**
      * 获取用户当前的状态
      */
     @GetMapping("/current")
-    public User getUserState(HttpServletRequest request) {
+    public BaseResponse<User> getUserState(HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute(USER_LOGIN_STATE);
         User byId = userService.getById(user.getId());
-        return userService.getSafetyUser(byId);
+        User result = userService.getSafetyUser(byId);
+        return ResultUtils.success(result);
     }
 
 
