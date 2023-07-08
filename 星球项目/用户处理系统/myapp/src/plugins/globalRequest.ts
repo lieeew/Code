@@ -13,7 +13,7 @@ import * as process from "process";
  */
 const request = extend({
   credentials: 'include', // 默认请求是否带上cookie
-  prefix: process.env.NODE_ENV === 'production' ? 'http://user-backend.code-nav.cn' : undefined
+  prefix: process.env.NODE_ENV === 'production' ? 'http://120.77.169.162:8080' : undefined
   // requestType: 'form',
 });
 

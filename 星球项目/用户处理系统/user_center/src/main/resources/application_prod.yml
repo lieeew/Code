@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://120.77.169.162:3306/user_center
-    username: user_center
-    password: e37bxbRDc4YepCza
+    url: jdbc:mysql://120.77.169.162:3306/user-center
+    username: leikooo
+    password: bnJ5Bs4Z3jrjLtEa
   # session 的生效时间
   session:
     timeout: 86400
