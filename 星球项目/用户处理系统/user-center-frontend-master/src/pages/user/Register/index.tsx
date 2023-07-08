@@ -1,57 +1,47 @@
-import Footer from '@/components/Footer';
-import {register} from '@/services/ant-design-pro/api';
 import {LockOutlined, UserOutlined,} from '@ant-design/icons';
-import {LoginForm, ProFormText,} from '@ant-design/pro-components';
 import {message, Tabs} from 'antd';
 import React, {useState} from 'react';
-import {history, useModel} from 'umi';
+import {history} from 'umi';
+import {PLANET_LINK, SYSTEM_LOGO} from '@/constants';
+import Footer from '@/components/Footer';
+import {register} from '@/services/ant-design-pro/api';
 import styles from './index.less';
-import {PLANET_LINK, SYSTEM_LOGO} from "@/constants";
+import {LoginForm, ProFormText} from '@ant-design/pro-form';
 
 const Register: React.FC = () => {
   const [type, setType] = useState<string>('account');
-  const {initialState, setInitialState} = useModel('@@initialState');
-  const fetchUserInfo = async () => {
-    const userInfo = await initialState?.fetchUserInfo?.();
-    if (userInfo) {
-      await setInitialState((s) => ({
-        ...s,
-        currentUser: userInfo,
-      }));
-    }
-  };
-  const handleSubmit = async (values: API.RegisterParams) => {
-    try {
-      const {userAccount, checkPassword, userPassword, planetCode} = values;
-      // 进行一些校验
-      if (userPassword !== checkPassword) {
-        message.error('两次输入的密码不一致');
-        return;
-      }
 
+  // 表单提交
+  const handleSubmit = async (values: API.RegisterParams) => {
+    const {userPassword, checkPassword} = values;
+    // 校验
+    if (userPassword !== checkPassword) {
+      message.error('两次输入的密码不一致');
+      return;
+    }
+
+    try {
       // 注册
-      const result = await register({
-        userAccount, userPassword, checkPassword, planetCode
-      });
-      if (result > 0) {
-        console.log("result ", result)
+      const id = await register(values);
+      if (id) {
         const defaultLoginSuccessMessage = '注册成功！';
         message.success(defaultLoginSuccessMessage);
-        await fetchUserInfo();
+
         /** 此方法会跳转到 redirect 参数所在的位置 */
         if (!history) return;
         const {query} = history.location;
-        history.push('/user/login?redirect=', query,);
+        history.push({
+          pathname: '/user/login',
+          query,
+        });
         return;
       }
-      // console.log(user);
-      // // 如果失败去设置用户错误信息
-      // setUserLoginState(user);
     } catch (error: any) {
       const defaultLoginFailureMessage = '注册失败，请重试！';
-      message.error(error.message ?? defaultLoginFailureMessage);
+      message.error(defaultLoginFailureMessage);
     }
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -62,8 +52,8 @@ const Register: React.FC = () => {
             }
           }}
           logo={<img alt="logo" src={SYSTEM_LOGO}/>}
-          title="编程导航"
-          subTitle={<a href={PLANET_LINK}>最好的编程学习圈子</a>}
+          title="编程导航知识星球"
+          subTitle={<a href={PLANET_LINK} target="_blank" rel="noreferrer">最好的编程学习知识圈子</a>}
           initialValues={{
             autoLogin: true,
           }}
@@ -72,9 +62,8 @@ const Register: React.FC = () => {
           }}
         >
           <Tabs activeKey={type} onChange={setType}>
-            <Tabs.TabPane key="account" tab={'账户密码注册'}/>
+            <Tabs.TabPane key="account" tab={'账号密码注册'}/>
           </Tabs>
-
           {type === 'account' && (
             <>
               <ProFormText
@@ -83,7 +72,7 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon}/>,
                 }}
-                placeholder={'账号: '}
+                placeholder="请输入账号"
                 rules={[
                   {
                     required: true,
@@ -97,13 +86,16 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined className={styles.prefixIcon}/>,
                 }}
-                placeholder={'密码: '}
+                placeholder="请输入密码"
                 rules={[
                   {
                     required: true,
+                    message: '密码是必填项！',
+                  },
+                  {
                     min: 8,
-                    type: "string",
-                    message: '密码长度不小于 8 位！',
+                    type: 'string',
+                    message: '长度不能小于 8',
                   },
                 ]}
               />
@@ -113,19 +105,17 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined className={styles.prefixIcon}/>,
                 }}
-                placeholder={'请再次输入密码: '}
-                // 输入要求
+                placeholder="请再次输入密码"
                 rules={[
                   {
                     required: true,
-                    message: "确认密码是必填项！"
+                    message: '确认密码是必填项！',
                   },
                   {
-                    required: true,
                     min: 8,
-                    type: "string",
-                    message: '密码长度不小于 8 位！'
-                  }
+                    type: 'string',
+                    message: '长度不能小于 8',
+                  },
                 ]}
               />
               <ProFormText
@@ -134,7 +124,7 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon}/>,
                 }}
-                placeholder={'请输入星球编号'}
+                placeholder="请输入星球编号"
                 rules={[
                   {
                     required: true,
@@ -150,4 +140,5 @@ const Register: React.FC = () => {
     </div>
   );
 };
+
 export default Register;

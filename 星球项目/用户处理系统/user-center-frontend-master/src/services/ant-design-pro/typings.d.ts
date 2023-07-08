@@ -6,25 +6,15 @@ declare namespace API {
     id: number;
     username: string;
     userAccount: string;
-    avatarUrl: string;
-    gender: number;
+    avatarUrl?: string;
+    gender:number;
     phone: string;
     email: string;
     userStatus: number;
-    createTime: Date;
     userRole: number;
     planetCode: string;
+    createTime: Date;
   };
-
-  /**
-   * 通用返回类型
-   */
-  type ResultResponse<T> = {
-    code: number,
-    data: T,
-    message: string,
-    description: string,
-  }
 
   type LoginResult = {
     status?: string;
@@ -54,6 +44,16 @@ declare namespace API {
     progress?: number;
   };
 
+  /**
+   * 通用返回类
+   */
+  type BaseResponse<T> = {
+    code: number,
+    data: T,
+    message: string,
+    description: string,
+  }
+
   type RuleList = {
     data?: RuleListItem[];
     /** 列表的内容总数 */
@@ -72,7 +72,7 @@ declare namespace API {
     autoLogin?: boolean;
     type?: string;
   };
-  // 注册类型
+
   type RegisterParams = {
     userAccount?: string;
     userPassword?: string;

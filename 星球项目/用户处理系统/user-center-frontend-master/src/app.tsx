@@ -1,29 +1,29 @@
-import Footer from '@/components/Footer';
-import RightContent from '@/components/RightContent';
-import {BookOutlined, LinkOutlined} from '@ant-design/icons';
-import type {Settings as LayoutSettings} from '@ant-design/pro-components';
-import {PageLoading, SettingDrawer} from '@ant-design/pro-components';
+import type {Settings as LayoutSettings} from '@ant-design/pro-layout';
+import {PageLoading, SettingDrawer} from '@ant-design/pro-layout';
 import type {RunTimeLayoutConfig} from 'umi';
 import {history, Link} from 'umi';
-import defaultSettings from '../config/defaultSettings';
-import type {RequestConfig} from "@@/plugin-request/request";
+import RightContent from '@/components/RightContent';
+import Footer from '@/components/Footer';
 import {currentUser as queryCurrentUser} from './services/ant-design-pro/api';
+import {BookOutlined, LinkOutlined} from '@ant-design/icons';
+import defaultSettings from '../config/defaultSettings';
+import {RequestConfig} from "@@/plugin-request/request";
 
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
-const NO_NEED_LOGIN_WHITE_LIST = [loginPath, '/user/register'];
+/**
+ * 无需用户登录态的页面
+ */
+const NO_NEED_LOGIN_WHITE_LIST = ['/user/register', loginPath];
+
 /** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
-  loading: <PageLoading/>,
+  loading: <PageLoading />,
 };
 
-/**
- * 配置前端的 prefix, 这个需要配置, 可以直接用代理解决
- */
 export const request: RequestConfig = {
-//   prefix: "http://localhost:8080",
-  timeout: 1000000
-}
+  timeout: 1000000,
+};
 
 /**
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
@@ -34,7 +34,6 @@ export async function getInitialState(): Promise<{
   loading?: boolean;
   fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
 }> {
-  // alert(process.env.NODE_ENV);
   const fetchUserInfo = async () => {
     try {
       return await queryCurrentUser();
@@ -43,33 +42,35 @@ export async function getInitialState(): Promise<{
     }
     return undefined;
   };
-  // 如果是登录页面注册页面，就不需要登录
+  // 如果是无需登录的页面，不执行
   if (NO_NEED_LOGIN_WHITE_LIST.includes(history.location.pathname)) {
-    // @ts-ignore
     return {
+      // @ts-ignore
       fetchUserInfo,
       settings: defaultSettings,
     };
   }
   const currentUser = await fetchUserInfo();
   return {
+    // @ts-ignore
     fetchUserInfo,
     currentUser,
     settings: defaultSettings,
   };
+
 }
 
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
-export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => {
+export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
   return {
-    rightContentRender: () => <RightContent/>,
+    rightContentRender: () => <RightContent />,
     disableContentMargin: false,
     waterMarkProps: {
       content: initialState?.currentUser?.username,
     },
-    footerRender: () => <Footer/>,
+    footerRender: () => <Footer />,
     onPageChange: () => {
-      const {location} = history;
+      const { location } = history;
       if (NO_NEED_LOGIN_WHITE_LIST.includes(location.pathname)) {
         return;
       }
@@ -80,28 +81,27 @@ export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => 
     },
     links: isDev
       ? [
-        <Link key="openapi" to="/umi/plugin/openapi" target="_blank">
-          <LinkOutlined/>
-          <span>OpenAPI 文档</span>
-        </Link>,
-        <Link to="/~docs" key="docs">
-          <BookOutlined/>
-          <span>业务组件文档</span>
-        </Link>,
-      ]
+          <Link to="/umi/plugin/openapi" target="_blank">
+            <LinkOutlined />
+            <span>OpenAPI 文档</span>
+          </Link>,
+          <Link to="/~docs">
+            <BookOutlined />
+            <span>业务组件文档</span>
+          </Link>,
+        ]
       : [],
     menuHeaderRender: undefined,
     // 自定义 403 页面
-    unAccessible: <div>unAccessible</div>,
+    // unAccessible: <div>unAccessible</div>,
     // 增加一个 loading 的状态
     childrenRender: (children, props) => {
-      if (initialState?.loading) return <PageLoading/>;
+      // if (initialState?.loading) return <PageLoading />;
       return (
         <>
           {children}
           {!props.location?.pathname?.includes('/login') && (
             <SettingDrawer
-              disableUrlParams
               enableDarkTheme
               settings={initialState?.settings}
               onSettingChange={(settings) => {
