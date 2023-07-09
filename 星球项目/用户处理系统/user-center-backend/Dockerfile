@@ -13,3 +13,9 @@ RUN mvn package -DskipTests
 
 # Run the web service on container startup.
 CMD ["java","-jar","/app/target/user-center-backend-0.0.1-SNAPSHOT.jar","--spring.profiles.active=prod"]
+
+#FROM openjdk:8-jdk-alpine
+#COPY target/user-center-backend-0.0.1-SNAPSHOT.jar /app/your-application.jar
+#WORKDIR /app
+#EXPOSE 8080
+#CMD ["java", "-jar", "your-application.jar"]

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user_center
+    name: user-center-backend
     # DataSource Config
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
