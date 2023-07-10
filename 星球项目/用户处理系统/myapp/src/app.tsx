@@ -45,8 +45,8 @@ export async function getInitialState(): Promise<{
   };
   // 如果是登录页面注册页面，就不需要登录
   if (NO_NEED_LOGIN_WHITE_LIST.includes(history.location.pathname)) {
-    // @ts-ignore
     return {
+      // @ts-ignore
       fetchUserInfo,
       settings: defaultSettings,
     };

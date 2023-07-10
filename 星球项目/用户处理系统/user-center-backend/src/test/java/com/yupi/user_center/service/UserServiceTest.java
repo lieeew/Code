@@ -91,6 +91,13 @@ class UserServiceTest {
         // 测试插入成功
         useAccount = "aaaaaaaa";
         result = userService.userRegister(useAccount, userPassword, checkPassword, planetCode);
+
         Assert.assertTrue(result > 0);
+    }
+
+    @Test
+    public void testSql() {
+
+
     }
 }

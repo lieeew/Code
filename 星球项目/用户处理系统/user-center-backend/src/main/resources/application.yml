@@ -3,10 +3,14 @@ spring:
     name: user-center-backend
     # DataSource Config
   datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/yupi
+#    username: root
+#    password: hsphsp
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/yupi
-    username: root
-    password: hsphsp
+    url: 'jdbc:mysql://sh-cynosdbmysql-grp-622vdsnq.sql.tencentcdb.com:25615/user_center'
+    username: user_center
+    password: QqNB123123
   session:
     timeout: 86400
 server:

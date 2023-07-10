@@ -11,6 +11,8 @@ import com.yupi.user_center.model.domain.request.UserRegisterRequest;
 import com.yupi.user_center.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ import static com.yupi.user_center.contant.UserConstant.USER_LOGIN_STATE;
  */
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(originPatterns = {"*"}, allowCredentials = "true")
 public class UserController {
     @Resource
     private UserService userService;

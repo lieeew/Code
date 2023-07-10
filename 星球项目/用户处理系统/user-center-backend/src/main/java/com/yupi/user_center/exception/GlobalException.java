@@ -27,7 +27,7 @@ public class GlobalException {
     @ExceptionHandler(RuntimeException.class)
     public BaseResponse runtimeException(RuntimeException e) {
         log.info("runtimeException", e);
-        return ResultUtils.error(ErrorCode.SYSTEM_ERROR, e.getMessage(), "");
+        return ResultUtils.error(ErrorCode.SYSTEM_ERROR, e.getMessage(), e.getMessage());
     }
 
 }
