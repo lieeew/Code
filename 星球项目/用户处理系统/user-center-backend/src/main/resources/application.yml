@@ -9,8 +9,8 @@ spring:
 #    password: hsphsp
     driver-class-name: com.mysql.jdbc.Driver
     url: 'jdbc:mysql://sh-cynosdbmysql-grp-622vdsnq.sql.tencentcdb.com:25615/user_center'
-    username: user_center
-    password: QqNB123123
+    username: xxx
+    password: xxx
   session:
     timeout: 86400
 server:
