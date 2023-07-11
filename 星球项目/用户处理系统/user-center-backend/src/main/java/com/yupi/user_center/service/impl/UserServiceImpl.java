@@ -139,7 +139,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if (user == null) {
             // 记录日志尽量使用英文，不容易出现乱码
             log.info("user login failed can not match password");
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户不存在");
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "账号或者密码错误");
         }
 
         // 这里重新生成一个对象，进行返回数据
