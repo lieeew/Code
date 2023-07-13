@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<mapper namespace="com.leikooo.mapper.MonsterMapper">
+    <!--    实现配置接口的方法-->
+    <select id="getMonsterById" resultType="com.leikooo.entity.Monster">
+        select * from monster where id = ?
+    </select>
+    <delete id="deleteMonsterId" parameterType="com.leikooo.entity.Monster">
+        select * from monster where id = ?
+    </delete>
+</mapper>

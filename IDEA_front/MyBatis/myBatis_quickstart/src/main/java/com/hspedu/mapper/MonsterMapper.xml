@@ -24,7 +24,7 @@
         1. 更新字段的值
         2. 这里爆红,但是测试没问题
     -->
-    <update id="updateMonster" parameterType="monster">
+    <update id="updateMonster" parameterType="Monster">
         update `monster`
         set `age`      = #{age},
             `birthday` = #{birthday},
@@ -45,11 +45,11 @@
     </delete>
 
     <select id="getMonsterById" resultType="com.hspedu.entity.Monster">
-
+        select * from `monster` where id = #{id}
     </select>
 
     <select id="findAllMonster" resultType="com.hspedu.entity.Monster">
-
+        select * from `monster`
     </select>
 
 </mapper>

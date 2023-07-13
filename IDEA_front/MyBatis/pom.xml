@@ -17,6 +17,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>myBatis_quickstart</module>
+        <module>myBatis_homework</module>
+        <module>hsp-mybatis</module>
     </modules>
 
     <properties>

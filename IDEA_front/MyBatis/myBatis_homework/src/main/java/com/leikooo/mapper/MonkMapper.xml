@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--老师解读
+   1. 这是一个 mapper xml 文件
+   2. 该接口用于声明 monster 表的方法
+   3. namespace 表示该 mapper 文件是和哪一个接口对应
+-->
+
+<mapper namespace="com.leikooo.mapper.MonkMapper">
+
+
+    <insert id="addMonk">
+        insert into `mybatis`.monk (id, nickname, skill, grade, salary, birthday, entertime)
+        VALUES (#{id}, #{nickname}, #{skill}, #{grade}, #{salary}, #{birthday}, #{entertime})
+    </insert>
+
+    <update id="updateMonk">
+        UPDATE `mybatis`.monk
+        SET nickname  = #{nickname},
+            skill     = #{skill},
+            grade     = #{grade},
+            salary    = #{salary},
+            birthday  = #{birthday},
+            entertime = #{entertime}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteMonk">
+        delete from `mybatis`.monk where id = #{monkId}
+    </delete>
+
+    <select id="getMonk" resultType="com.leikooo.entity.Monk">
+        select * from mybatis.monk where id = #{monkId}
+    </select>
+
+    <select id="getAllMonk" resultType="com.leikooo.entity.Monk">
+        select *
+        from mybatis.monk;
+    </select>
+
+</mapper>

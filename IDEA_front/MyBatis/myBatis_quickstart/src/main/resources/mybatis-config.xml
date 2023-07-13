@@ -3,9 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+<!--    设置日志输出-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
 <!--    类型别名, 这个是写在 mybatis-config.xml 文件之中 -->
     <typeAliases>
-        <typeAlias alias="monster" type="com.hspedu.entity.Monster"/>
+        <typeAlias alias="Monster" type="com.hspedu.entity.Monster"/>
     </typeAliases>
 
     <environments default="development">
@@ -28,6 +32,8 @@
 useUnicode=true&amp;characterEncoding=UTF-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="hsphsp"/>
+<!--                这里设置的是自动提交事务-->
+<!--                <property name="autoCommit" value="true" />-->
             </dataSource>
         </environment>
     </environments>

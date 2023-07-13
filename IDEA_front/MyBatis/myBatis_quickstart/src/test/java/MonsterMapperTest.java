@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author leikooo
@@ -78,6 +79,33 @@ public class MonsterMapperTest {
 
         monsterMapper.updateMonster(monster);
 
+        commit();
+    }
+
+    /**
+     * 测试通过 ID 获取属性
+     */
+    @Test
+    public void testSelectById() {
+        Monster monsterById = monsterMapper.getMonsterById(3);
+        System.out.println("monsterById = " + monsterById);
+
+        commit();
+    }
+
+    @Test
+    public void testFindAllMonster() {
+        List<Monster> allMonster = monsterMapper.findAllMonster();
+        System.out.println("数据库查询的长度是 = " + allMonster.size());
+        for (Monster monster : allMonster) {
+            System.out.println("monster = " + monster);
+        }
+    }
+
+    /**
+     * 如果是增删改，需要提交事务,不提交事务不会生效
+     */
+    public void commit() {
         if (sqlSession != null) {
             sqlSession.commit();
             sqlSession.close();
