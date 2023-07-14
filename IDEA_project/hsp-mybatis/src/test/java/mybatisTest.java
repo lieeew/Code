@@ -1,8 +1,10 @@
+import com.leikooo.entity.Monster;
 import com.leikooo.hspmybatis.config.MapperBean;
 import com.leikooo.hspmybatis.sqlsession.Executor;
 import com.leikooo.hspmybatis.sqlsession.HspConfiguration;
 import com.leikooo.hspmybatis.sqlsession.HspExecutor;
 import com.leikooo.hspmybatis.sqlsession.HspSqlSession;
+import com.leikooo.mapper.MonsterMapper;
 import org.junit.Test;
 
 import java.sql.Connection;
@@ -46,5 +48,15 @@ public class mybatisTest {
         HspConfiguration hspConfiguration = new HspConfiguration();
         MapperBean mapperBean = hspConfiguration.readMapper("MonsterMapper.xml");
         System.out.println("mapperBean = " + mapperBean);
+    }
+
+    @Test
+    public void testGetMapper() {
+        HspSqlSession hspSqlSession = new HspSqlSession();
+        MonsterMapper mapper = hspSqlSession.getMapper(MonsterMapper.class);
+        System.out.println(mapper.getClass());
+        Monster monsterById = mapper.getMonsterById(1);
+        System.out.println("monsterById = " + monsterById);
+
     }
 }

@@ -2,15 +2,13 @@ package com.leikooo.hspmybatis.config;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
 import java.util.List;
 
 /**
  * @author leikooo
  * @create 2023-07-13 16:36
  * @Package com.leikooo.hspmybatis.config
- * @Description 对 Mapper 信息进行封装
+ * @Description 对 Mapper.xml 信息进行封装
  */
 @Getter
 @Setter
