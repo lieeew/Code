@@ -20,6 +20,7 @@ public class BasicLinkTest {
      */
     public static Node initLinkedList(int[] array) {
         // 定义一个头部节点和当前节点
+        // 这个头节点的作用是用于找到该链表，作用通过头节点可以找到整个链表的其他节点
         Node head = null, cur = null;
         for (int i = 0; i < array.length; i++) {
             Node newNode = new Node(array[i]);

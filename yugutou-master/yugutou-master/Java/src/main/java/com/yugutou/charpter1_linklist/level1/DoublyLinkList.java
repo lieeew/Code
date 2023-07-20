@@ -1,5 +1,8 @@
 package com.yugutou.charpter1_linklist.level1;
 
+/**
+ * @author yugutou
+ */
 public class DoublyLinkList {
     private DoubleNode first;
     private DoubleNode last;
@@ -110,7 +113,7 @@ public class DoublyLinkList {
             current = current.next;
         }
         //若当前结点current为空
-        if (current == null) {                    //current为null有两种情况 一种是链表为空，一种是找不到key值
+        if (current == null) {         // current为null有两种情况 一种是链表为空，一种是找不到key值
             if (isEmpty()) {                    //1、链表为空
                 first = newDoubleNode;                //则插入第一个结点（其实可以调用其它的Insert方法）
                 last = newDoubleNode;                    //first和last均指向该结点（第一个结点）

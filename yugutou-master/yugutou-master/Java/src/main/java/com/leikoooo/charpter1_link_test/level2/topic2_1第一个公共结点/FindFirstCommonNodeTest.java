@@ -1,11 +1,8 @@
-package com.yugutou.charpter1_linklist.level2.topic2_1第一个公共结点;
+package com.leikoooo.charpter1_link_test.level2.topic2_1第一个公共结点;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
-public class FindFirstCommonNode {
+public class FindFirstCommonNodeTest {
     public static void main(String[] args) {
         ListNode[] heads = initLinkedList();
         //la 为 1 2 3 4 5
@@ -13,7 +10,7 @@ public class FindFirstCommonNode {
         ListNode la = heads[0];
         ListNode lb = heads[1];
 
-        int testMethod = 4;
+        int testMethod = 5;
         ListNode node = new ListNode(0);
         switch (testMethod) {
             case 1: //方法1：通过Hash辅助查找
@@ -50,15 +47,15 @@ public class FindFirstCommonNode {
         }
         ListNode current1 = pHead1;
         ListNode current2 = pHead2;
+        Map<ListNode, Integer> map = new HashMap<>();
 
-        HashMap<ListNode, Integer> hashMap = new HashMap<ListNode, Integer>();
         while (current1 != null) {
-            hashMap.put(current1, null);
+            map.put(current1, null);
             current1 = current1.next;
         }
 
         while (current2 != null) {
-            if (hashMap.containsKey(current2)) {
+            if (map.containsKey(current2)) {
                 return current2;
             }
             current2 = current2.next;
@@ -76,6 +73,7 @@ public class FindFirstCommonNode {
      */
     public static ListNode findFirstCommonNodeBySet(ListNode headA, ListNode headB) {
         Set<ListNode> set = new HashSet<>();
+
         while (headA != null) {
             set.add(headA);
             headA = headA.next;
@@ -87,6 +85,7 @@ public class FindFirstCommonNode {
             }
             headB = headB.next;
         }
+
         return null;
     }
 
@@ -96,25 +95,29 @@ public class FindFirstCommonNode {
     public static ListNode findFirstCommonNodeByStack(ListNode headA, ListNode headB) {
         Stack<ListNode> stackA = new Stack();
         Stack<ListNode> stackB = new Stack();
+
         while (headA != null) {
             stackA.push(headA);
             headA = headA.next;
         }
+
         while (headB != null) {
             stackB.push(headB);
             headB = headB.next;
         }
 
-        ListNode preNode = null;
-        while (stackB.size() > 0 && stackA.size() > 0) {
+        ListNode node = null;
+
+        while ((stackA.size() > 0) && (stackB.size() > 0)) {
             if (stackA.peek() == stackB.peek()) {
-                preNode = stackA.pop();
+                node = stackA.pop();
                 stackB.pop();
             } else {
+                // 返回
                 break;
             }
         }
-        return preNode;
+        return node;
     }
 
     /**
@@ -126,13 +129,16 @@ public class FindFirstCommonNode {
         }
         ListNode p1 = pHead1;
         ListNode p2 = pHead2;
+
         while (p1 != p2) {
             p1 = p1.next;
             p2 = p2.next;
+
             if (p1 != p2) {
                 if (p1 == null) {
                     p1 = pHead2;
                 }
+
                 if (p2 == null) {
                     p2 = pHead1;
                 }
@@ -154,38 +160,41 @@ public class FindFirstCommonNode {
         }
         ListNode current1 = pHead1;
         ListNode current2 = pHead2;
+
         int l1 = 0, l2 = 0;
+
         while (current1 != null) {
-            current1 = current1.next;
             l1++;
+            current1 = current1.next;
         }
 
         while (current2 != null) {
-            current2 = current2.next;
             l2++;
+            current2 = current2.next;
         }
+
         current1 = pHead1;
         current2 = pHead2;
 
         int sub = l1 > l2 ? l1 - l2 : l2 - l1;
 
         if (l1 > l2) {
-            int a = 0;
-            while (a < sub) {
+            // 如果链表 1 长度长，先走 sub 步数
+            while (sub > 0) {
                 current1 = current1.next;
-                a++;
+                sub--;
             }
         }
 
-        if (l1 < l2) {
-            int a = 0;
-            while (a < sub) {
+        if (l2 > l1) {
+            // 如果链表 2 长度长，先走 sub 步数
+            while (sub > 0) {
                 current2 = current2.next;
-                a++;
+                sub--;
             }
         }
 
-        while (current2 != current1) {
+        while (current1 != current2) {
             current2 = current2.next;
             current1 = current1.next;
         }
