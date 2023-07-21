@@ -136,6 +136,15 @@ public class DeleteBackwardsPoint {
     }
 
     /**
+     * https://www.cnblogs.com/cnoodle/p/14771306.html
+     * 删除链表 M 个节点之后的 N 个节点。
+     */
+    public ListNode deleteNodes(ListNode head, int m, int n) {
+
+        return null;
+    }
+
+    /**
      * 初始化链表
      *
      * @param array

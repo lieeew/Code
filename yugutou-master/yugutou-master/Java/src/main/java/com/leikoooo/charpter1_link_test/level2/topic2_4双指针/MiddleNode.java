@@ -6,7 +6,7 @@ package com.leikoooo.charpter1_link_test.level2.topic2_4双指针;
 public class MiddleNode {
 
     public static void main(String[] args) {
-        int[] a = {1,2,3,4,5};
+        int[] a = {1,2,3,4,5,7};
         ListNode nodeA = initLinkedList(a);
         ListNode middle = middleNode(nodeA);
         System.out.println(middle.val);

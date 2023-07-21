@@ -91,35 +91,34 @@ public class MergeList {
         ListNode newHead = new ListNode(-1);
         ListNode res = newHead;
         while (list1 != null && list2 != null) {
-
-            if (list1.val < list2.val) {
-                newHead.next = list1;
-                list1 = list1.next;
-            } else if (list1.val > list2.val) {
-                newHead.next = list2;
+            if (list1.val > list2.val) {
+                res.next = list2;
                 list2 = list2.next;
-            } else { //相等的情况，分别接两个链
-                newHead.next = list2;
-                list2 = list2.next;
-                newHead = newHead.next;
-                newHead.next = list1;
+            } else if (list2.val > list1.val) {
+                res.next = list1;
                 list1 = list1.next;
+            } else {
+                // list2.val == list1.val
+                res.next = list1;
+                res.next = list2;
+                list1 = list1.next;
+                list2 = list2.next;
             }
-            newHead = newHead.next;
-
+            res = res.next;
         }
-        while (list1 != null) {
-            newHead.next = list1;
+
+        while (list1 != null && list2 == null) {
+            res.next = list1;
             list1 = list1.next;
-            newHead = newHead.next;
+            res = res.next;
         }
-        while (list2 != null) {
-            newHead.next = list2;
+        while (list1 == null && list2 != null) {
+            res.next = list2;
             list2 = list2.next;
-            newHead = newHead.next;
+            res = res.next;
         }
 
-        return res.next;
+        return newHead.next;
     }
 
 

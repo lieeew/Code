@@ -1,7 +1,7 @@
 package com.leikoooo.charpter1_link_test.level2.topic2_4双指针;
 
 /**
- * Leetcode61.旋转数组
+ * Leetcode61.旋转链表
  */
 public class RotateRight {
 
@@ -40,6 +40,8 @@ public class RotateRight {
         fast.next = temp;
         return res;
     }
+
+
 
     /**
      * 输出链表

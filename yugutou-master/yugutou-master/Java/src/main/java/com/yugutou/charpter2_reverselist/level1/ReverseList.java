@@ -5,7 +5,7 @@ public class ReverseList {
         int[] a = {4, 3, 2, 1};
         ListNode nodeA = initLinkedList(a);
         ListNode d = null;
-        int testMethod = 4;
+        int testMethod = 2;
         switch (testMethod) {
             case 1://方法2：虚拟结点，,并复用已有的结点
                 d = reverseListByDummyNotCreate(nodeA);
@@ -41,7 +41,7 @@ public class ReverseList {
 
 
     /**
-     * 方法3：不适用头结点，基本的反转方法
+     * 方法3：不适用头结点，基本の反转方法
      *
      * @param head
      * @return

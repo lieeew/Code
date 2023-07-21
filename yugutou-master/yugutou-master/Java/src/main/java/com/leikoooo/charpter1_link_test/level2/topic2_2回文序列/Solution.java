@@ -44,8 +44,17 @@ class Solution {
                 j++;
             }
         }
-        
 
+        while (post2.next != null) {
+            post2 = post2.next;
+        }
+
+        // 连接相关的节点
+        // 下面有图片解析
+        pre1.next = list2;
+        post2.next = post1.next;
+
+        return list1;
     }
 
     @Test
