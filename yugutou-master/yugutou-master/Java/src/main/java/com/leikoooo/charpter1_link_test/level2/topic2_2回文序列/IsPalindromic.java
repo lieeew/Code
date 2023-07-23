@@ -13,20 +13,20 @@ public class IsPalindromic {
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4, 4, 3, 2, 1};
         ListNode node = initLinkedList(a);
-        int testMethod = 3;
+        int testMethod = 1;
         boolean result = false;
         switch (testMethod) {
-            case 1://方法1：通过双指针的方式来判断
+            case 1: // 方法1：通过双指针的方式来判断
                 result = isPalindromeByTwoPoints(node);
                 break;
-            case 2: //方法2：全部压栈
+            case 2: // 方法2：全部压栈
                 result = isPalindromeByAllStack(node);
                 break;
-            case 3://方法3：只将一半的数据压栈
+            case 3: // 方法3：只将一半的数据压栈
 //                result = isPalindromeByHalfStack(node);
                 result = palindromeByHalfStack(node);
                 break;
-            case 4://方法4：通过递归来实现
+            case 4: // 方法4：通过递归来实现
                 result = isPalindromeByRe(node);
                 break;
 
