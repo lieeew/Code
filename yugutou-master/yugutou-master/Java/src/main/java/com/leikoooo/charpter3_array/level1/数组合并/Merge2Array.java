@@ -15,7 +15,7 @@ public class Merge2Array {
         int[] arr1 = {1, 2, 3, 0, 0, 0};
         int[] arr2 = new int[]{2, 5, 6};
 
-        int testMethod = 2;
+        int testMethod = 4;
         switch (testMethod) {
             case 1://通过排序实现合并
                 merge1(arr1, 3, arr2, 3);
@@ -26,6 +26,10 @@ public class Merge2Array {
             case 3://对2的优化
                 merge3(arr1, 3, arr2, 3);
                 break;
+            case 4:
+                merge4(arr1, 3, arr2, 3);
+                break;
+
         }
 
         printList("合并的结果为", arr1, 6);
@@ -93,6 +97,22 @@ public class Merge2Array {
         while (indexB >= 0) {
             nums1[index--] = nums2[indexB--];
         }
+    }
+
+
+    /**
+     * 方法1：先合并再排序实现排序
+     *
+     * @param nums1     第一个数组
+     * @param nums1_len 第一个数组的长度
+     * @param nums2     第二个数组，将nums2合并到nums1中
+     * @param nums2_len 第二个数组的长度
+     */
+    public static void merge4(int[] nums1, int nums1_len, int[] nums2, int nums2_len) {
+        for (int i = 0; i < nums2_len; i++) {
+            nums1[i + nums1_len] = nums2[i];
+        }
+        Arrays.sort(nums1);
     }
 
 }
