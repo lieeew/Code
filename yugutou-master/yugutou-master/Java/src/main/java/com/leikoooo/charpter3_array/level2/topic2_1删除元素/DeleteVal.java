@@ -8,13 +8,13 @@ package com.leikoooo.charpter3_array.level2.topic2_1删除元素;
 public class DeleteVal {
     public static void main(String[] args) {
         int[] arr = {3, 2, 2, 3, 3};
-        int test = 2;
+        int test = 3;
 
         if (test == 1) {//快慢指针
             System.out.println(removeElement(arr, 3));
-        } else if (test==2){//标准的双指针
+        } else if (test == 2) {//标准的双指针
             System.out.println(removeElement2(arr, 2));
-        }else{//优化的双指针
+        } else {//优化的双指针
             System.out.println(removeElement3(arr, 3));
         }
 
@@ -65,30 +65,31 @@ public class DeleteVal {
             if (nums[left] != val) {
                 left++;
             }
-            if (nums[right] == val){
+            if (nums[right] == val) {
                 right--;
             }
 
         }
-        return left ;
+        return left;
     }
 
     /**
      * 方法三：优化对撞型双指针
+     *
      * @param nums
      * @param val
      * @return
      */
     public static int removeElement3(int[] nums, int val) {
-        int right = nums.length-1;
-        for (int left = 0; left < right; ) {
+        int right = nums.length - 1;
+        for (int left = 0; left <= right; ) {
             if (nums[left] == val) {
-                nums[left] = nums[right ];
+                nums[left] = nums[right];
                 right--;
             } else {
                 left++;
             }
         }
-        return right;
+        return right + 1;
     }
 }

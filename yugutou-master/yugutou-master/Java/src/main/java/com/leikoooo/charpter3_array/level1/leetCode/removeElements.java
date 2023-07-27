@@ -11,8 +11,9 @@ import org.junit.jupiter.api.Test;
 public class removeElements {
     @Test
     public void test1() {
-        int[] nums = {2, 1, 2, 2, 3, 0, 4, 2};
-        removeElement(nums, 2);
+        int[] nums = {1, 2, 2, 2, 3, 4};
+//        removeElement(nums, 2);
+        removeDuplicates(nums);
     }
 
     public int removeElement(int[] nums, int val) {
@@ -23,6 +24,16 @@ public class removeElements {
             }
         }
         return slow;
+    }
+
+    public int removeDuplicates(int[] nums) {
+        int slow = 0;
+        for (int fast = 0; fast < nums.length; fast++) {
+            if (nums[fast] != nums[slow]) {
+                nums[++slow] = nums[fast];
+            }
+        }
+        return slow + 1;
     }
 
 

@@ -9,7 +9,7 @@ import java.util.List;
 public class SummaryRanges {
 
     public static void main(String[] args) {
-        int[] arr = {0,2,3,4,6,8,9};
+        int[] arr = {0, 2, 3, 4, 6, 8, 9};
         System.out.println(summaryRanges(arr));
     }
 

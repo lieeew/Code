@@ -1,0 +1,686 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "HomeWork",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.过关挑战.HomeWork",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "BasicLinkListTest",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level1.BasicLinkListTest",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicLinkTest",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level1.BasicLinkTest",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DoublyLinkListTest",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level1.DoublyLinkListTest",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "FindFirstCommonNodeTest",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_1第一个公共结点.FindFirstCommonNodeTest",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "IsPalindromic",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_2回文序列.IsPalindromic",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MergeList",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_3合并有序链表.MergeList",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "GetKthFromEnd",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_4双指针.GetKthFromEnd",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MiddleNode",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_4双指针.MiddleNode",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "RotateRight",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_4双指针.RotateRight",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeleteBackwardsPoint",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_5删除元素.DeleteBackwardsPoint",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeleteDuplatePoint",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_5删除元素.DeleteDuplatePoint",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeletePoint",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.level2.topic2_5删除元素.DeletePoint",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "homework",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter1_link_test.过关挑战.homework",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseList",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter2_reverselist.level1.ReverseList",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseListBetween",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter2_reverselist.level2.topic2_1指定区间反转.ReverseListBetween",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseListTwoGroup",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter2_reverselist.level2.topic2_2两两反转.ReverseListTwoGroup",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "PlusOne",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter2_reverselist.level2.topic2_3链表加1.PlusOne",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseList_AddList",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter2_reverselist.level2.topic_2_4链表加法.ReverseList_AddList",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseListKGroup",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter2_reverselist.level3.ReverseListKGroup",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "homework(1)",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter2_reverselist.过关挑战.homework",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicAddByElement",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.BasicAddByElement",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicCreateArray",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.BasicCreateArray",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicDelete",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.BasicDelete",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicInsert",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.BasicInsert",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicSearch",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.BasicSearch",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "SearchInsert",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.SearchInsert",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Monotonic",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.单调数组.Monotonic",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Merge2Array",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.数组合并.Merge2Array",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MergeKArray",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level1.数组合并.MergeKArray",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeleteDuplicates",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level2.topic2_1删除元素.DeleteDuplicates",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeleteVal",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level2.topic2_1删除元素.DeleteVal",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Division",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level2.topic2_2奇偶移动.Division",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Rotate",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level2.topic2_3轮转问题.Rotate",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "SummaryRanges",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level2.topic2_4区间合并.SummaryRanges",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReplaceSpace",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level2.topic2_5替换空格.ReplaceSpace",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "FindOneNum",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level3.FindOneNum",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MoreThanHalfNum",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level3.MoreThanHalfNum",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "SortColors",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter3_array.level3.SortColors",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "LinkedListStack",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter4_stack.level1.LinkedListStack",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ListStack",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter4_stack.level1.ListStack",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MainTest",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter4_stack.level1.MainTest",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Mystack",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter4_stack.level1.Mystack",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "IsValid",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter4_stack.level2.IsValid",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Calculate",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter4_stack.level3.Calculate",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "EvalRPN",
+            "request": "launch",
+            "mainClass": "com.leikoooo.charpter4_stack.level3.EvalRPN",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.yugutou.App",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicLink",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level1.BasicLink",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicLinkList",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level1.BasicLinkList",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DoublyLinkList",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level1.DoublyLinkList",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ListNode",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level1.ListNode",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "FindFirstCommonNode",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_1第一个公共结点.FindFirstCommonNode",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "IsPalindromic(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_2回文序列.IsPalindromic",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MergeList(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_3合并有序链表.MergeList",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "GetKthFromEnd(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_4双指针.GetKthFromEnd",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MiddleNode(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_4双指针.MiddleNode",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "RotateRight(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_4双指针.RotateRight",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeleteBackwardsPoint(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_5删除元素.DeleteBackwardsPoint",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeleteDuplatePoint(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_5删除元素.DeleteDuplatePoint",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeletePoint(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level2.topic2_5删除元素.DeletePoint",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "HasCycle",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level3.HasCycle",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "HasCycleAndFindEntrance",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter1_linklist.level3.HasCycleAndFindEntrance",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseList(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter2_reverselist.level1.ReverseList",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseListBetween(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter2_reverselist.level2.topic2_1指定区间反转.ReverseListBetween",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseListTwoGroup(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter2_reverselist.level2.topic2_2两两反转.ReverseListTwoGroup",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "PlusOne(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter2_reverselist.level2.topic2_3链表加1.PlusOne",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseList_AddList(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter2_reverselist.level2.topic_2_4链表加法.ReverseList_AddList",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReverseListKGroup(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter2_reverselist.level3.ReverseListKGroup",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicAddByElement(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level1.BasicAddByElement",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicCreateArray(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level1.BasicCreateArray",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicDelete(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level1.BasicDelete",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "BasicSearch(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level1.BasicSearch",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "SearchInsert(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level1.SearchInsert",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Monotonic(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level1.单调数组.Monotonic",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Merge2Array(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level1.数组合并.Merge2Array",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MergeKArray(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level1.数组合并.MergeKArray",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeleteDuplicates(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level2.topic2_1删除元素.DeleteDuplicates",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "DeleteVal(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level2.topic2_1删除元素.DeleteVal",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Division(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level2.topic2_2奇偶移动.Division",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Rotate(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level2.topic2_3轮转问题.Rotate",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "SummaryRanges(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level2.topic2_4区间合并.SummaryRanges",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ReplaceSpace(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level2.topic2_5替换空格.ReplaceSpace",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "FindOneNum(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level3.FindOneNum",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MoreThanHalfNum(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level3.MoreThanHalfNum",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "SortColors(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter3_array.level3.SortColors",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "LinkedListStack(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter4_stack.level1.LinkedListStack",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ListStack(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter4_stack.level1.ListStack",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "MainTest(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter4_stack.level1.MainTest",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Mystack(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter4_stack.level1.Mystack",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "IsValid(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter4_stack.level2.IsValid",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "Calculate(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter4_stack.level3.Calculate",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "EvalRPN(1)",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter4_stack.level3.EvalRPN",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "LinkQueue",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter5_queue_map.level1.LinkQueue",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "ThreeSum",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter5_queue_map.level2.ThreeSum",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "TwoSum",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter5_queue_map.level2.TwoSum",
+            "projectName": "Java"
+        },
+        {
+            "type": "java",
+            "name": "LRUCache",
+            "request": "launch",
+            "mainClass": "com.yugutou.charpter5_queue_map.level3.LRUCache",
+            "projectName": "Java"
+        }
+    ]
+}
