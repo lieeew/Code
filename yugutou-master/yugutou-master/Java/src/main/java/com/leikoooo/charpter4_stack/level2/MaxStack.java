@@ -1,5 +1,7 @@
 package com.leikoooo.charpter4_stack.level2;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Stack;
 
 class MaxStack {
@@ -41,5 +43,19 @@ class MaxStack {
             push(buffer.pop());
         }
         return max;
+    }
+
+    @Test
+    public void test() {
+        MaxStack maxStack1 = new MaxStack();
+        maxStack1.push(2);
+        maxStack1.push(1);
+        maxStack1.push(5);
+        maxStack1.push(9);
+        maxStack1.push(0);
+
+        maxStack1.peekMax();
+        maxStack1.popMax();
+
     }
 }
