@@ -53,10 +53,7 @@ class ListStack<T> {
 
     //栈空
     public boolean isEmpty() {
-        if (head == null)
-            return true;
-        else
-            return false;
+        return head == null;
     }
 
     public static void main(String[] args) {

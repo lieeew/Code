@@ -19,8 +19,9 @@ class Mystack<T> {
     //返回栈顶元素
     public T peek() {
         T t = null;
-        if (top > 0)
+        if (top > 0) {
             t = (T) stack[top - 1];
+        }
         return t;
     }
 

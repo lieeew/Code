@@ -1,5 +1,8 @@
 package com.leikoooo.charpter4_stack.level1;
 
+/**
+ * @author leikooo
+ */
 class ListStack<T> {
     //定义链表
     class Node<T> {
@@ -14,49 +17,45 @@ class ListStack<T> {
         head = null;
     }
 
-    //入栈
-    public void push(T t) {
-        if (t == null) {
-            throw new NullPointerException("参数不能为空");
-        }
-        if (head == null) {
-            head = new Node<T>();
-            head.t = t;
-            head.next = null;
-        } else {
-            Node<T> temp = head;
-            head = new Node<>();
-            head.t = t;
-            head.next = temp;
-        }
-    }
-
-    //出栈
-    public T pop() {
-        if (head == null) {
-            return null;
-        }
-        T t = head.t;
-        head = head.next;
-        return t;
-    }
-
-    //取栈顶元素
-    public T peek() {
-        if (head == null) {
-            return null;
-        }
-        T t = head.t;
-        return t;
-    }
-
-
-    //栈空
+    /**
+     * 是否为 null
+     *
+     * @return
+     */
     public boolean isEmpty() {
-        if (head == null)
-            return true;
-        else
-            return false;
+        return head == null;
+    }
+
+    /**
+     * 取出头节点元素
+     */
+    public T peek() {
+        return (T) head.t;
+    }
+
+    /**
+     * 入栈
+     */
+    public void push(T t) {
+        // 初始化需要插入的 节点
+        Node<T> tNode = new Node<T>();
+        tNode.t = t;
+        // 直接替换头节点
+        tNode.next = head;
+        head = tNode;
+    }
+
+    /**
+     * 出栈
+     * @return
+     */
+    public T pop () {
+        T peek = peek();
+        if (head.next == null) {
+            head = null;
+        }
+        head = head.next;
+        return peek;
     }
 
     public static void main(String[] args) {

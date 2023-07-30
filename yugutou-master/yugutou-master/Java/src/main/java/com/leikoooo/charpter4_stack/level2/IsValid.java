@@ -10,30 +10,27 @@ public class IsValid {
         if (s.length() <= 1) {
             return false;
         }
-        Map<Character, Character> smap = new HashMap<>();
-        smap.put('(', ')');
-        smap.put('{', '}');
-        smap.put('[', ']');
+        // 符号对应的
+        Map<String, String> symbolMap = new HashMap<>();
+        symbolMap.put(")", "(");
+        symbolMap.put("]", "[");
+        symbolMap.put("}", "{");
 
-        Stack<Character> stack = new Stack<>();
-
+        Stack<String> stack = new Stack<>();
+        // 先将元素都写入到栈里面
         for (int i = 0; i < s.length(); i++) {
-            char item = s.charAt(i);
-            if (smap.containsKey(item)) {
-                stack.push(item);
-            } else {
-                if (!stack.isEmpty()) {
-                    Character left = stack.pop();
-                    char rightchar = smap.get(left);
-                    if (rightchar != item) {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
+            char c = s.charAt(i);
+            stack.push(String.valueOf(c));
+        }
+
+        // 一边出栈一边判断
+        while (!stack.isEmpty()) {
+            if (!symbolMap.get(stack.pop()).equals(stack.pop())) {
+                return false;
             }
         }
-        return stack.isEmpty();
+
+        return true;
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,10 @@
 package com.leikoooo.charpter4_stack.level1;
+
 import java.util.Arrays;
+
+/**
+ * @author leikooo
+ */
 class Mystack<T> {
     //实现栈的数组
     private Object[] stack;
@@ -11,36 +16,57 @@ class Mystack<T> {
         stack = new Object[10];
     }
 
-    //判断是否为空
+    /**
+     * 判断是否为 null
+     *
+     * @return
+     */
     public boolean isEmpty() {
         return top == 0;
     }
 
-    //返回栈顶元素
+    /**
+     * 返回栈顶元素
+     *
+     * @return
+     */
     public T peek() {
         T t = null;
-        if (top > 0)
-            t = (T) stack[top - 1];
-        return t;
-    }
-
-    public void push(T t) {
-        expandCapacity(top + 1);
-        stack[top] = t;
-        top++;
-    }
-
-    //出栈
-    public T pop() {
-        T t = peek();
         if (top > 0) {
-            stack[top - 1] = null;
-            top--;
+            t = (T) stack[--top];
         }
         return t;
     }
 
-    //扩大容量
+    /**
+     * 取出元素
+     *
+     * @return
+     */
+    public T pop() {
+        T t = peek();
+        if (top > 0) {
+            stack[top] = null;
+        }
+        return t;
+    }
+
+    /**
+     * 增加元素
+     *
+     * @param t
+     */
+    public void push(T t) {
+        expandCapacity(stack.length);
+        stack[top] = t;
+        top++;
+    }
+
+    /**
+     * 扩大容量
+     *
+     * @param size
+     */
     public void expandCapacity(int size) {
         int len = stack.length;
         if (size > len) {
@@ -48,6 +74,7 @@ class Mystack<T> {
             stack = Arrays.copyOf(stack, size);
         }
     }
+
     public static void main(String[] args) {
         Mystack<String> stack = new Mystack<>();
         System.out.println(stack.peek());
@@ -56,6 +83,7 @@ class Mystack<T> {
         stack.push("is");
         stack.push("beautiful");
         stack.push("language");
+        stack.push("りゆ");
         System.out.println(stack.pop());
         System.out.println(stack.isEmpty());
         System.out.println(stack.peek());
