@@ -3,10 +3,7 @@ package com.leikoooo.charpter6_tree_level_travel.level2;
 import com.yugutou.tools.BinaryTree;
 import com.yugutou.tools.TreeNode;
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * LeetCode103 题，
@@ -22,34 +19,38 @@ public class ZigzagLevelOrder {
     }
 
     public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        List<List<Integer>> ans = new LinkedList<List<Integer>>();
+        // 创建返回的结果集合
+        List<List<Integer>> levelOrder = new LinkedList<List<Integer>>();
         if (root == null) {
-            return ans;
+            return levelOrder;
         }
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.offer(root);
-        boolean isOrderLeft = true;
-        while (!queue.isEmpty()) {
-            Deque<Integer> levelList = new LinkedList<Integer>();
+        // Flag to indicate the traversal direction
+        boolean isLeftToRight = true;
+        // 创建队列
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (queue.size() > 0) {
+            ArrayList<Integer> temp = new ArrayList<>();
             int size = queue.size();
-            for (int i = 0; i < size; ++i) {
-                TreeNode curNode = queue.poll();
-                if (isOrderLeft) {
-                    levelList.offerLast(curNode.val);
+            // 循环遍历
+            for (int i = 0, j = 1; i < size; i++, j++) {
+                TreeNode t = queue.remove();
+                if (isLeftToRight) {
+                    temp.add(t.val);
                 } else {
-                    levelList.offerFirst(curNode.val);
+                    temp.add(0, t.val);
                 }
-                if (curNode.left != null) {
-                    queue.offer(curNode.left);
+                if (t.left != null) {
+                    queue.add(t.left);
                 }
-                if (curNode.right != null) {
-                    queue.offer(curNode.right);
+                if (t.right != null) {
+                    queue.add(t.right);
                 }
             }
-            ans.add(new LinkedList<Integer>(levelList));
-            isOrderLeft = !isOrderLeft;
+            levelOrder.add(temp);
+            isLeftToRight = !isLeftToRight;
         }
-        return ans;
+        return levelOrder;
     }
 }
 

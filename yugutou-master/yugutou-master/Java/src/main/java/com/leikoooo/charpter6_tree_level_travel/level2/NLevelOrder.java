@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class NLevelOrder {
     public static void main(String[] args) {
-        NTreeNode nTreeNode=NTreeNode.buildBinaryTree();
+        NTreeNode nTreeNode = NTreeNode.buildBinaryTree();
         System.out.println(nLevelOrder(nTreeNode));
 
     }
@@ -20,17 +20,20 @@ public class NLevelOrder {
     public static List<List<Integer>> nLevelOrder(NTreeNode root) {
         List<List<Integer>> value = new ArrayList<>();
         Deque<NTreeNode> q = new ArrayDeque<>();
-        if (root != null)
+        if (root != null) {
             q.addLast(root);
+        }
         while (!q.isEmpty()) {
+            // 这里 next 可以变化的时 可以让他们产生隔阂，可以让每一行隔开
             Deque<NTreeNode> next = new ArrayDeque<>();
             List<Integer> nd = new ArrayList<>();
             while (!q.isEmpty()) {
                 NTreeNode cur = q.pollFirst();
                 nd.add(cur.val);
                 for (NTreeNode chd : cur.children) {
-                    if (chd != null)
+                    if (chd != null) {
                         next.add(chd);
+                    }
                 }
             }
             q = next;
@@ -38,7 +41,6 @@ public class NLevelOrder {
         }
         return value;
     }
-
 }
 
 class NTreeNode {
