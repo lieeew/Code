@@ -2,10 +2,9 @@ package com.leikoooo.charpter8_tree_hot_problems.level1.topic_路径专题;
 
 import com.yugutou.tools.BinaryTree;
 import com.yugutou.tools.TreeNode;
+import org.junit.jupiter.api.Test;
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * LeetCode 112
@@ -14,63 +13,46 @@ import java.util.List;
  * 如果存在，返回 true ；否则，返回 false 。
  */
 public class HasPathSum {
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         BinaryTree bTree = new BinaryTree();
         bTree.root = bTree.buildBinaryTree();
 
         boolean result1 = hasPathSum(bTree.root, 12);
         System.out.println(result1);
 
-        List<List<Integer>> pathSum = pathSum(bTree.root, 12);
-        System.out.println(pathSum);
-
-
+//        List<List<Integer>> pathSum = pathSum(bTree.root, 12);
+//        System.out.println(pathSum);
     }
 
-
-
+    Map<Integer, Object> map = new HashMap<>();
 
     /**
-     * 问题2：LeetCode112. 路径总和
-     *
-     * @param root
-     * @param sum
-     * @return
+     * @param root      根节点
+     * @param targetSum 路径总和
+     * @return 返回是否含有对应的 路径总和
      */
-    public static boolean hasPathSum(TreeNode root, int sum) {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) {
             return false;
         }
-        if (root.left == null && root.right == null) {
-            return sum == root.val;
-        }
-        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+        dfs(root, 0);
+        return map.containsKey(targetSum);
     }
 
 
-    /**
-     * 问题3  LeetCode113 路径总和II
-     */
-    static List<List<Integer>> ret = new LinkedList<List<Integer>>();
-    static Deque<Integer> path = new LinkedList<Integer>();
-
-    public static List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        dfs(root, targetSum);
-        return ret;
-    }
-
-    public static void dfs(TreeNode root, int targetSum) {
+    public void dfs(TreeNode root, int sum) {
         if (root == null) {
             return;
         }
-        path.offerLast(root.val);
-        targetSum -= root.val;
-        if (root.left == null && root.right == null && targetSum == 0) {
-            ret.add(new LinkedList<Integer>(path));
+        sum += root.val;
+        // 如果到达根节点
+        if (root.right == null && root.left == null) {
+            // 这里要把技计算出来的整到集合之中
+            map.put(sum, null);
+            return;
         }
-        dfs(root.left, targetSum);
-        dfs(root.right, targetSum);
-        path.pollLast();
+        dfs(root.left, sum);
+        dfs(root.right, sum);
     }
-
 }
