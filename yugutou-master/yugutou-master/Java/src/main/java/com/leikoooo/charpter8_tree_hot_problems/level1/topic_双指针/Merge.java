@@ -33,10 +33,10 @@ public class Merge {
         if (t2 == null) {
             return t1;
         }
-        TreeNode merged = new TreeNode(t1.val + t2.val);
-        merged.left = mergeTrees(t1.left, t2.left);
-        merged.right = mergeTrees(t1.right, t2.right);
-        return merged;
+        TreeNode node = new TreeNode(t1.val + t2.val);
+        node.left = mergeTrees(t1.left, t2.left);
+        node.right = mergeTrees(t1.right, t2.right);
+        return node;
     }
 
 }

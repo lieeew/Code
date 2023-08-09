@@ -53,7 +53,9 @@ export async function getInitialState(): Promise<{
   }
   const currentUser = await fetchUserInfo();
   return {
+    // @ts-ignore
     fetchUserInfo,
+    // @ts-ignore
     currentUser,
     settings: defaultSettings,
   };

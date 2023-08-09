@@ -40,8 +40,8 @@ public class Symmetry {
         if (p == null || q == null) {
             return false;
         }
-        if (p.val != q.val) {
-            return false;
+        if (p.val == q.val) {
+            return true;
         }
         return check(p.left, q.right) && check(p.right, q.left);
     }

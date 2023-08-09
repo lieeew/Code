@@ -25,34 +25,24 @@ public class HasPathSum {
 //        System.out.println(pathSum);
     }
 
-    Map<Integer, Object> map = new HashMap<>();
+    public boolean hasPathSum(TreeNode root, int sum) {
+        return dfs(root, sum);
+    }
 
     /**
-     * @param root      根节点
-     * @param targetSum 路径总和
-     * @return 返回是否含有对应的 路径总和
+     * 进行迭代的方法
+     *
+     * @param root
+     * @param sum
      */
-    public boolean hasPathSum(TreeNode root, int targetSum) {
+    public boolean dfs(TreeNode root, int sum) {
         if (root == null) {
             return false;
         }
-        dfs(root, 0);
-        return map.containsKey(targetSum);
-    }
-
-
-    public void dfs(TreeNode root, int sum) {
-        if (root == null) {
-            return;
-        }
-        sum += root.val;
-        // 如果到达根节点
         if (root.right == null && root.left == null) {
-            // 这里要把技计算出来的整到集合之中
-            map.put(sum, null);
-            return;
+            return sum == root.val;
         }
-        dfs(root.left, sum);
-        dfs(root.right, sum);
+        sum -= root.val;
+        return dfs(root.left, sum) || dfs(root.right, sum);
     }
 }

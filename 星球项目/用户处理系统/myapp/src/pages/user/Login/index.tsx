@@ -58,11 +58,11 @@ const Login: React.FC = () => {
           redirect: string;
         };
         history.push(redirect || '/');
+        // console.log(user);
+        // 如果失败去设置用户错误信息
+        setUserLoginState(user);
         return;
       }
-      console.log(user);
-      // 如果失败去设置用户错误信息
-      setUserLoginState(user);
     } catch (error) {
       const defaultLoginFailureMessage = '登录失败，请重试！';
       message.error(defaultLoginFailureMessage);

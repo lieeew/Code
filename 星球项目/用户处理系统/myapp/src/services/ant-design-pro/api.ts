@@ -59,6 +59,15 @@ export async function searchUsers(options?: { [key: string]: any }) {
   });
 }
 
+/** todo: 删除用户 */
+export async function deleteUser(options?: { [key: string]: any }) {
+  return request<API.ResultResponse<API.CurrentUser>>('/api/user/delete', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+
+
 
 /** 获取规则列表 GET /api/rule */
 export async function rule(

@@ -86,10 +86,12 @@ public class Invert {
                 TreeNode node = que.remove();
                 //这一行就是 精华所在
                 swap(node.left, node.right); // 节点处理
-                if (node.left != null)
+                if (node.left != null) {
                     que.add(node.left);
-                if (node.right != null)
+                }
+                if (node.right != null) {
                     que.add(node.right);
+                }
             }
         }
         return root;
