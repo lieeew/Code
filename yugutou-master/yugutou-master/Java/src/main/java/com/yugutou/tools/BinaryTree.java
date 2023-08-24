@@ -17,9 +17,6 @@ public class BinaryTree {
         node.right = new TreeNode(20);
         node.right.right = new TreeNode(7);
         node.right.left = new TreeNode(15);
-        node.left.right = new TreeNode(8);
-        node.left.left = new TreeNode(6);
-
         return node;
     }
 
