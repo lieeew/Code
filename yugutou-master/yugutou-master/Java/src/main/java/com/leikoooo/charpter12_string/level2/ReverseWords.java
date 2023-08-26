@@ -1,11 +1,15 @@
 package com.leikoooo.charpter12_string.level2;
 
+import java.util.Map;
+
 public class ReverseWords {
     public static void main(String[] args) {
         String s = "Alice does not even like bob";
         System.out.println(reverseWords(s));
     }
 
+    // 这种注解都是给人看的，有的框架可能不至此这种写法
+    @org.jetbrains.annotations.NotNull
     public static String reverseWords(String s) {
         StringBuilder sb = trimSpaces(s);
 
@@ -57,6 +61,7 @@ public class ReverseWords {
 
         while (start < n) {
             // 循环至单词的末尾
+            // i love java
             while (end < n && sb.charAt(end) != ' ') {
                 ++end;
             }
