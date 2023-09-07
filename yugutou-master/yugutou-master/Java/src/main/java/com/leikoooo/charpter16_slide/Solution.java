@@ -2,28 +2,29 @@ package com.leikoooo.charpter16_slide;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
-    public double findMaxAverage(int[] nums, int k) {
-        int len = nums.length;
-        double widowSum = 0;
-        if (k > nums.length || nums.length < 1 || k < 1) {
-            return 0;
-        }
-        // 定义两个指针
-        double maxValue = Integer.MIN_VALUE;
-        for (int l = 0, r = k - 1; r < len; l++, r++) {
-            for (int i = l; i < k + l; i++) {
-                widowSum += nums[i];
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        int left = 0, right = 0;
+        char[] chars = s.toCharArray();
+        int len = s.length();
+        int res = 0;
+        while (right < len) {
+            if (map.containsKey(chars[right])) {
+                left = Math.max(left, map.get(chars[right]) + 1);
             }
-            maxValue = Math.max(widowSum, maxValue);
-            widowSum = 0;
+            map.put(chars[right], right);
+            res = Math.max(res, right - left + 1);
+            right++;
         }
-        return maxValue / k;
+        return res;
     }
 
     @Test
     public void test() {
-        int[] nums = new int[]{1, 12, -5, -6, 50, 3};
-        findMaxAverage(nums, 4);
+        lengthOfLongestSubstring("abba");
     }
 }
