@@ -1,6 +1,7 @@
 package com.leikoooo.charpter16_slide.level2;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class CheckInclusion {
     public static void main(String[] args) {
@@ -17,20 +18,47 @@ public class CheckInclusion {
         int[] charArray2 = new int[26];
         //先读最前面的一段来判断。
         for (int i = 0; i < sLen1; ++i) {
-            ++charArray1[s1.charAt(i) - 'a'];
-            ++charArray2[s2.charAt(i) - 'a'];
+            charArray1[s1.charAt(i) - 'a']++;
+            charArray2[s2.charAt(i) - 'a']++;
         }
 
         if (Arrays.equals(charArray1, charArray2)) {
             return true;
         }
         for (int right = sLen1; right < sLen2; ++right) {
+            // 相当于窗口向右移动
+            // 而且这样的好处就是不用担心顺序的问题
             charArray2[s2.charAt(right) - 'a']++;
             int left = right - sLen1;
             charArray2[s2.charAt(left) - 'a']--;
             if (Arrays.equals(charArray1, charArray2)) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    public static boolean checkInclusion2(String s1, String s2) {
+        if (s1.length() > s2.length()) {
+            return false;
+        }
+        int left = 0, right = 0;
+        int sLen = s1.length();
+
+        char[] charArray1 = new char[sLen];
+        char[] charArray2 = new char[sLen];
+
+        for (int i = 0; i < sLen; i++) {
+            charArray1[i] = s1.charAt(i);
+            charArray2[i] = s1.charAt(i);
+        }
+
+        if (Arrays.equals(charArray1, charArray2)) {
+            return true;
+        }
+
+        for (; right < sLen; right++) {
+
         }
         return false;
     }
