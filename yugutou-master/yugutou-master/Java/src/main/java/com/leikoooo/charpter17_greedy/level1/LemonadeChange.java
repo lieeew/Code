@@ -29,7 +29,9 @@ public class LemonadeChange {
                     cash_5 -= 3;
                 }
             }
-            if (cash_5 < 0 || cash_10 < 0) return false;
+            if (cash_5 < 0 || cash_10 < 0) {
+                return false;
+            }
         }
         return true;
     }

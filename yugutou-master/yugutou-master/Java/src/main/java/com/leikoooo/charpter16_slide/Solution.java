@@ -1,30 +1,34 @@
 package com.leikoooo.charpter16_slide;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class Solution {
-    public int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        int left = 0, right = 0;
-        char[] chars = s.toCharArray();
-        int len = s.length();
-        int res = 0;
-        while (right < len) {
-            if (map.containsKey(chars[right])) {
-                left = Math.max(left, map.get(chars[right]) + 1);
-            }
-            map.put(chars[right], right);
-            res = Math.max(res, right - left + 1);
-            right++;
+    public List<Integer> findAnagrams(String s, String p) {
+        int sLen = s.length(), pLen = p.length();
+        if (sLen < pLen) {
+            return new ArrayList<>();
         }
-        return res;
-    }
+        List<Integer> result = new ArrayList<>();
+        int[] sArrays = new int[26];
+        int[] pArrays = new int[26];
 
-    @Test
-    public void test() {
-        lengthOfLongestSubstring("abba");
+        for (int i = 0; i < pLen; i++) {
+            sArrays[s.charAt(s.charAt(i)) - 'a']++;
+            pArrays[p.charAt(p.charAt(i)) - 'a']++;
+            if (Arrays.equals(sArrays, pArrays)) {
+                result.add(i);
+            }
+        }
+
+        for (int right = pLen; right < sLen; right++) {
+            sArrays[p.charAt(right)  - 'a' ]++;
+            sArrays[p.charAt(right) - 'a' - pLen]--;
+            if (Arrays.equals(sArrays, pArrays)) {
+                result.add(right - pLen);
+            }
+        }
+        return result;
     }
 }

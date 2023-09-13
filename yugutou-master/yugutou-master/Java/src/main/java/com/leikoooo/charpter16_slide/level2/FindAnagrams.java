@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FindAnagrams {
     public static void main(String[] args) {
-        String s = "cbaebabacd", p = "abc";
+        String s = "eabc", p = "abc";
         System.out.println(findAnagrams(s, p));
 
     }
@@ -14,9 +14,9 @@ public class FindAnagrams {
     public static List<Integer> findAnagrams(String s, String p) {
         int sLen = s.length(), pLen = p.length();
         if (sLen < pLen) {
-            return new ArrayList<Integer>();
+            return new ArrayList<>();
         }
-        List<Integer> ans = new ArrayList<Integer>();
+        List<Integer> ans = new ArrayList<>();
         int[] sCount = new int[26];
         int[] pCount = new int[26];
         //先分别初始化两个数组

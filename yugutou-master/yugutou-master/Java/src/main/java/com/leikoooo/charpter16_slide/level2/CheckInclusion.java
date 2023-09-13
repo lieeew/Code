@@ -37,29 +37,4 @@ public class CheckInclusion {
         }
         return false;
     }
-
-    public static boolean checkInclusion2(String s1, String s2) {
-        if (s1.length() > s2.length()) {
-            return false;
-        }
-        int left = 0, right = 0;
-        int sLen = s1.length();
-
-        char[] charArray1 = new char[sLen];
-        char[] charArray2 = new char[sLen];
-
-        for (int i = 0; i < sLen; i++) {
-            charArray1[i] = s1.charAt(i);
-            charArray2[i] = s1.charAt(i);
-        }
-
-        if (Arrays.equals(charArray1, charArray2)) {
-            return true;
-        }
-
-        for (; right < sLen; right++) {
-
-        }
-        return false;
-    }
 }
