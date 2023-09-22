@@ -34,4 +34,24 @@ public class Insert {
 
         return Arrays.copyOf(res, idx);
     }
+
+    public static int[][] insert2(int[][] intervals, int[] newInterval) {
+        // res 的结果
+        int[][] res = new int[intervals.length + 1][2];
+        int index = 0;
+        int i = 0;
+        while (i < intervals.length && intervals[i][1] > newInterval[0]) {
+            res[index++] = intervals[i++];
+        }
+        while (i < intervals.length && intervals[i][0] >= newInterval[1]) {
+            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+            newInterval[1] = Math.min(newInterval[1], intervals[i][1]);
+            i++;
+        }
+        res[index++] = newInterval;
+        while (i < intervals.length) {
+            res[index++] = intervals[i++];
+        }
+        return Arrays.copyOf(res, index);
+    }
 }

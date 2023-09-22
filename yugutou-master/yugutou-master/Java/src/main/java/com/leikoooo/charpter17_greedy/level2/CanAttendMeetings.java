@@ -16,7 +16,19 @@ public class CanAttendMeetings {
         Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
         // 遍历会议，如果下一个会议在前一个会议结束之前就开始了，返回 false。
         for (int i = 1; i < intervals.length; i++) {
+            // 下一次开始的时间   <  上一次的结束时间
+            //  20             <    30
             if (intervals[i][0] < intervals[i - 1][1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean canAttendMeeting(int[][] intervals) {
+        Arrays.sort(intervals);
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i][0] < intervals[i - 1][0]) {
                 return false;
             }
         }
