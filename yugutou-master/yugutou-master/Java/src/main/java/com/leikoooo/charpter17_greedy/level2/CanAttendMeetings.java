@@ -24,14 +24,4 @@ public class CanAttendMeetings {
         }
         return true;
     }
-
-    public static boolean canAttendMeeting(int[][] intervals) {
-        Arrays.sort(intervals);
-        for (int i = 1; i < intervals.length; i++) {
-            if (intervals[i][0] < intervals[i - 1][0]) {
-                return false;
-            }
-        }
-        return true;
-    }
 }

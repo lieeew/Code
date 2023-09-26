@@ -54,4 +54,29 @@ public class Insert {
         }
         return Arrays.copyOf(res, index);
     }
+
+
+    // 把一个区间插入到一个区间合集之中
+    public static int[][] insert3(int[][] intervals, int[] newInterval) {
+        // index 整个最后需要
+        int index = 0, i = 0;
+        int[][] res = new int[intervals.length + 1][2];
+
+        // 如果前面的区间的结束位置在插入区间的开始位置
+        while (i < intervals.length && intervals[i][1] < newInterval[0]) {
+            res[index++] = intervals[i];
+            i++;
+        }
+        // 如果到达了这里那么就后面的区间肯定和这个 newInterval 相交
+        while (i < intervals.length && intervals[i][0] <= newInterval[1]) {
+            newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
+            newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
+            i++;
+        }
+        res[index++] = newInterval;
+        while (i < intervals.length) {
+            res[index++] = intervals[i++];
+        }
+        return Arrays.copyOf(res, index);
+    }
 }
