@@ -113,7 +113,7 @@ public class UserController {
         boolean result = userService.removeById(id);
         return ResultUtils.success(result);
     }
-
+    
     /**
      * 获取用户当前的状态
      */

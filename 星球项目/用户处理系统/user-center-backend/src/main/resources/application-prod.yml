@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: 'jdbc:mysql://sh-cynosdbmysql-grp-622vdsnq.sql.tencentcdb.com:25615/user_center'
+    url: jdbc:mysql://sh-cynosdbmysql-grp-622vdsnq.sql.tencentcdb.com:25615/user_center
     username: user_center
     password: Ee719963000
   # session 的生效时间
