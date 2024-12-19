@@ -1,0 +1,53 @@
+package com.yupi.user_center.service;
+
+import cn.hutool.core.thread.NamedThreadFactory;
+import org.junit.Test;
+
+import java.util.concurrent.*;
+
+/**
+ * @author <a href="https://github.com/lieeew">leikooo</a>
+ * @date 2024/10/14
+ * @description
+ */
+public class CompletableFutureTest {
+
+    private NamedThreadFactory namedThreadFactory = new NamedThreadFactory("thread-future-", false);
+
+
+    @Test
+    public void test() {
+        CompletableFuture<String> future = CompletableFuture.runAsync(() -> {
+
+            try {
+                Thread.sleep(600000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+        }, namedThreadFactory);
+
+        // 创建一个 ScheduledExecutorService
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        scheduler.schedule(() -> {
+            System.out.println("定时任务实现了没----");
+            // 取消任务
+            future.cancel(true);
+            // 关闭 ScheduledExecutorService
+            scheduler.shutdown();
+        }, 3, TimeUnit.SECONDS);
+
+        // 处理任务完成或超时的情况
+        future.whenComplete((result, ex) -> {
+            if (ex != null) {
+                if (ex instanceof CancellationException) {
+                    System.out.println("操作超时");
+                } else {
+                    System.out.println("发生其他异常: " + ex.getMessage());
+                }
+            } else {
+                System.out.println("结果: " + result);
+            }
+        });
+    }
+}

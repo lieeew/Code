@@ -2,6 +2,8 @@ package com.yupi.user_center.mapper;
 
 import com.yupi.user_center.model.domain.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 
 /**
 * @author liang
@@ -10,7 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.yupi.user_center.model.domain.User
 */
 public interface UserMapper extends BaseMapper<User> {
-
+    void insertUser(@Param("username") String username);
 }
 
 

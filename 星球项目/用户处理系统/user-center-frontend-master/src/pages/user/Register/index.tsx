@@ -23,7 +23,7 @@ const Register: React.FC = () => {
     try {
       // 注册
       const id = await register(values);
-      if (id) {
+      if (id.code === 0 && id.data >= 0) {
         const defaultLoginSuccessMessage = '注册成功！';
         message.success(defaultLoginSuccessMessage);
 
